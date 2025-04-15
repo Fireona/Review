@@ -17,69 +17,152 @@
              This will end the declaration and apply it to the chosen selectors. We begin the next line if we have any more styles to apply, 
              if not then end the declaration with "&#10101".</p>
         <br>
+
         <h2>Selectors</h2>
         <p>Selectors are as implied. They only "select" HTML elements to apply CSS rules to.</p>
         <h4>Universal Selector</h4>
         <p>The universal selector is designated with an asterisk. Usage of the universal selector applies to elements of every type, meaning the entire document.</p>
-        <p>* &#10100
-            <br>
+        <pre><code>
+            * &#10100
                 color: purple;
-            <br>
             &#10101
-        </p>
-        <br>
+        </code></pre>
+
         <h4>Type Selectors</h4>
         <p>Type selectors will select all elements of a given element type. The syntax is simply the name of the element.</p>
-        <p>p &#10100
-            <br>
-            color: purple;
-            <br>
+        <pre><code>
+            p &#10100
+                color: purple;
             &#10101
-        </p>
-        <br>
+        </code></pre>
+
         <h4>Class Selectors</h4>
         <p>Class selectors are a way of selecting particular type selectors of a given attribute name. This is done by adding in a class attribute to the HTML element.</p>
-        <p>HTML DOC
-            <br>
+        <p>HTML</p>
+        <pre><code>
             &ltp class="blue"&gt This is a blue paragraph.
-            <br>
-            &ltp class="blue"&gt This is also a blue paragraph.
-            <br>
-            &ltdiv class="red"&gt This is a red paragraph.</p>
-            <p>CSS
-            <br>
-                .blue &#10100
-                <br>
+                &ltp class="blue"&gt This is also a blue paragraph.
+                    &ltdiv class="red"&gt This is a red paragraph.
+        </code></pre>
+        <p>CSS</p>
+        <pre><code>
+            .blue &#10100
                 color: blue;
-                <br>
-                &#10101
-        </p>
+            &#10101
+        </code></pre>
         In this scenario, class selectors are designated with a period preceding the class selector.</p>
+
         <h4>ID Selectors</h4>
         <p>ID Selectors are similar to class selectors. They select elements with the given ID, another attribute placed in an HTML element. 
-            The only caveat is each element can only have one ID. It cannot be repeated on a single page and should not have any whitespace.</p>
-        <p> HTML DOC
-            <br>
+            The only caveat is each element can only have one ID. It cannot be repeated on a single page and should not have any whitespace.
+        </p>
+        <p>HTML</p>
+        <pre><code>
             &ltp class="blue"&gt This is a blue paragraph.
-            <br>
-            &ltp class="blue"&gt This is also a blue paragraph.
-            <br>
-            &ltdiv id="red"&gt This is a red div.
-            <br>
-            &ltp class="red"&gt This is a blue paragraph.
-        </p>
-
-        <p>CSS
-                <br>
-                #red &#10100
-                <br>
+                &ltp class="blue"&gt This is also a blue paragraph.
+                    &ltp class="red"&gt This is a blue paragraph.
+        </code></pre>
+        <p>CSS</p>
+        <pre><code>
+            #red &#10100
                 color: red;
-                <br>
-                &#10101
-                <br>
-        </p>
+            &#10101
+        </code></pre>
         <p>In this example, the ID selector is designated with a hashtag preceding the ID selector name.</p>
 
+        <h4>Grouping Selector</h4>
+        <p>There are times when multliple groups of elements that share the same declarations. To combine selectors, use "&#44" to separate the elements.</p>
+        <pre><code>
+            .title &#10100
+                color: black;
+                background-color: white;
+                /* several unique declarations */
+            &#10101
 
+            .headline &#10100
+                color: black;
+                background-color; white;
+                /* several unique declarations */
+            &#10101
+        </code></pre>
+        <p>In this example, we see that both title and headline both have different class selectors but have the some same declarations. 
+                If we want to combine these two selectors, it would be written as below:
+        </p>
+        <pre><code>
+            .title, .headline &#10100
+                color: black;
+                background-color; white;
+            &#10101
+            
+            .title &#10100
+                /* several unique declarations */
+            &#10101
+            
+            .headline &#10100
+                /* several unique declarations */
+            &#10101
+        </code></pre>
+        <p>While this method and former method both achieve the same results, it is more efficient written this way and easier to edit both simultaneously.</p>
+
+        <h4>Chaining Selectors</h4>
+        <p>Another method of selecting multiple selectors is with the chain selector. To use a chain selector, write the two selectors as usual, but instead of a &#44, use a period without a space to separate them.</p>
+        <p>HTML</p>
+        <pre><code>
+            &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
+                &ltp class="electronic house"&gtThis is about House Music!&lt/p&gt
+        </code></pre>
+        <p>CSS</p>
+        <pre><code>
+            .electronic.edm &#10100
+                color: red;
+            &#10101
+        </code></pre>
+        <p>As we can see from the example above, the declaration applies to both elements that the "electronic" and "edm" classes. 
+            However, chain selectors will only work with any combination of selectors except for more than one type selector. 
+            You can also chain a class selector with an ID selector.
+        </p>
+        <p>HTML</p>
+        <pre><code>
+            &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
+                &ltp class="electronic house" id="chill"&gtThis is about House Music!&lt/p&gt
+        </code></pre>
+        <p>CSS</p>
+        <pre><code>
+            .electronic.edm &#10100
+            color: red;
+            &#10101
+
+            .electronic#chill &#10100
+            color: blue;
+            &#10101           
+        </code></pre>
+        <p>In general, you can not chain more than one type selector because an element can't be two elements at once. 
+            Chaining two type selectors like &ltdiv&gt and &ltp&gt would give us the selector &ltdivp&gt instead. This
+            does not work because there is no &ltdivp&gt element as it does not exist in HTML. Writing it as &ltdiv.p&gt does not work
+            either because that tells CSS to look for the element &ltdiv&gt with the "p" class. If you need to apply particular declarations 
+            on two type selectors, use the grouping selector instead.
+        </p>
+        <h4>Descendant Combinator</h4>
+        <p>The Descendant Combinator is one of four combinators. It is represented with a single space between selectors. This selector only
+        selects the last element written if they also have an ancestor that matches the preceding selector.
+        </p>
+        <p>HTML</p>
+        <pre><code>
+            &ltdiv class="parent"&gtThis is a parent.&ltdiv&gt
+                &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+                    &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+
+            &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+        </code></pre>
+        <p>CSS</p>
+        <pre><code>
+            .parent .child &#10100
+                /* Some declarations */
+            &#10101
+        </code></pre>
+        <p>In the example above, we see that one &ltdiv&gt has the class "parent" and three of them have the class "child". However, the declarations would only apply to both
+            nested elements within the class "parent". This is because regardless of how deeply nested the element is, if the last element written element is only selected is any
+            prior elements match with the preceding selectors.
+        </p>
     </body>
 </html>
