@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>The Cascade</title>
+        <link rel="stylesheet" href="./cascade.css">
+    </head>
+    <body>
+        <h1>Cascade of CSS</h1>
+        <p>
+            When applying CSS to HTML, we often have rules that conflict with one another. This brings interesting 
+            results that could be undesired. CSS only applies rules the way we tell it to, with the exception 
+            of defeault styles that vary from every browser. This can make certain elements look different between 
+            browsers, even if we tell CSS how to style them.
+        </p>
+        <p>
+            Results like such are usually due to differences in default styles between browsers, not understanding 
+            exactly what it is we have told it to do, not knowing what something does, or how something called 
+            the cascade works.
+        </p>
+        <p>
+            The cascade is what determines which rules get applied to HTML, and there are different number of
+            components that make the cascade function the way it does.
+        </p>
+
+        <h4>Specificity</h4>
+        <p>Any CSS declaration with greater specificity will take priority over any preceding declaration 
+            with less specificity. Inline styles have the highest level of specificity over selectors, regardless
+            of how many selectors are used. Meanwhile, there are rules that selectors use that determine their
+            level of specificity. From what we have learned, it priority from highest to lowest goes as is:
+            <ol>
+                <li>ID Selectors (Or inline style)</li>
+                <li>Class Selectors</li>
+                <li>Type Selectors</li>
+            </ol>
+            Specificity only takes place when more than one declaration of the same property is being applied
+            to an element. This acts as a decisive marker. Any ID selector will always succeed any number of
+            class selectors, and likewise class selectors will always precede any number of type selectors. If 
+            there are no difference in levels of specificity, the one with more selectors of the same type will 
+            come out on top.
+        </p>
+        <p>
+            HTML
+        </p>
+        <pre><code>
+            &ltdiv class="main"&gt
+                &ltdiv class="list subsection"&gtRed text&lt/div&gt
+            &lt/div&gt
+        </code></pre>
+        <p>
+            CSS
+        </p>
+        <pre><code>
+            /* rule 1 */
+            .subsection &#10100
+              color: blue;
+            &#10101
+
+            /* rule 2 */
+            .main .list &#10100
+              color: red;
+            &#10101
+        </code></pre>
+        <p>
+            Using the example above, we see two declarations. Both are using the class selector. However, 
+            rule two has more class selectors used. This makes it more "specific" and will take precedence 
+            over rule one, make the text red.
+        </p>
+        <p>
+            Another example:
+        </p>
+        <p>
+            HTML
+        </p>
+        <pre><code>
+            &ltdiv class="main"&gt
+                &ltdiv class="list" id="subsection"&gtBlue text&lt/div&gt
+             &lt/div&gt 
+        </code></pre>
+        <p>
+            CSS
+        </p>
+        <pre><code>
+            /* rule 1 */
+            #subsection &#10100
+                color: blue;
+            &#10101
+
+            /* rule 2 */
+            .main .list &#10100
+                color: red;
+            &#10101
+        </code></pre>
+        <p>
+            Over here, we see that both have their own class selectors, &ltmain&gt and &ltlist&gt. As we continue
+            to look in the lines, there's also an ID Selector here as well, the ID &ltsubsection&gt. In accordance 
+            to the casacde, rule two will apply and make the text color blue because ID selectors have the highest 
+            level of specificity.
+        </p>
+        <p>
+            With a more difficult example:
+        </p>
+        <p>
+            HTML
+        </p>
+        <pre><code>
+            &ltdiv class="main"&gt
+                &ltdiv class="list" id="subsection"&gtRed text on yellow background&lt/div&gt
+            &lt/div&gt
+        </code></pre>
+        <p>
+            CSS
+        </p>
+        <pre><code>
+            /* rule 1 */
+            #subsection &#10100
+                background-color: yellow;
+                color: blue;
+            &#10101
+
+            /* rule 2 */
+            .main #subsection &#10100
+                color: red;
+            &#10101
+        </code></pre>
+        <p>
+            In this case, we see that both rules have the ID selector used for the ID &ltsubsection&gt. If we
+            look a bit closer, only rule two has the addition of a class selector. Going down the cascade, rule two
+            has more specficity than rule one, therefore applying the font color red to the text. However, since no 
+            declaration was made in rule two in regards to the background color, it will inherit the declaration 
+            from rule one. In conclusion, we have a yellow background with a red text applied.    
+        </p>
+        <p>
+            Note: Special symbols that are used for different selectors like the universal selector (*) or the 
+            combinator symbols (+, ~, &gt, and an empty space) do not add specificity.
+        </p>
+        <pre><code>
+            /* rule 1 */
+            .class.second-class &#10100
+                font-size: 12px;
+            &#10101
+
+            /* rule 2 */
+            .class .second-class &#10100
+                font-size: 24px;
+            &#10101
+        </code></pre>
+        <p>
+            In this sample, we see that both use the same number of class selectors, and both are using the same 
+            classes as well. Neither of the of the combinators add specificity and both affect the same declaration. 
+            The results with the cascade giving priority to rule two because it is more recent (more below).
+        </p>
+        <pre><code>
+            /* rule 1 */
+            .class.second-class &#10100
+                font-size: 12px;
+            &#10101
+
+            /* rule 2 */
+            .class > .second-class &#10100
+                font-size: 24px;
+            &#10101
+        </code></pre>
+        <p>
+            In this example, the same situation occurs. Both are using the same class selectors and the same 
+            exact classes. The child combinator (&gt) does not change specificity, so priority is given way to 
+            rule two, applying a font fize of 24px.
+        </p>
+        <pre><code>
+            /* rule 1 */
+            * &#10100
+                color: black;
+            &#10101
+
+            /* rule 2 */
+            h1 &#10100
+                color: orange;
+            &#10101
+        </code></pre>
+        <p>
+            In this scenario we a universal selector used and a type selector. Priority will be given to rule two 
+            because rule one uses an universal selector that has no specificity value. The type selector &lth1&gt 
+            has a higher specificity value over the universal selector so our text color will be orange.
+        </p>
+
+        <h4>Inheritance</h4>
+        <p>Inheritance are CSS properties that are inherited by a child element when applied to the parent 
+            element. While typography-based properties are usually inherited, most other properties are not. This 
+            rule passes except when directly applying properties directly to an element.
+        </p>
+        <p>
+            HTML
+        </p>
+        <pre><code>
+            &ltdiv id="parent"&gt
+                &ltdiv class="child"&gt&lt/div&gt
+            &lt/div&gt
+        </code></pre>
+        <p>
+            css
+        </p>
+        <pre><code>
+            #parent &#10100
+                color: red;
+            &#10101
+              
+            .child &#10100
+                color: blue;
+            &#10101
+        </code></pre>
+        <p>
+            In this situation, we see that we have an ID selector applying a red font color to the text and a class 
+            selector applying a blue font color to the text. While the class &ltchild&gt element inherits the red 
+            font color property, that particular property only applies directly to the class &ltparent&gt element. 
+            The class &ltchild&# will still apply a blue font color to its text because is more directed towards the 
+            element itself and has higher specificity than an inherited property, even if it comes from a selector 
+            with a higher specificity.
+        </p>
+        
+        <h4>Rule Order</h4>
+        <p>
+            Lastly, the Rule Order is the final decision. If all other affecting factors have been taken into 
+            account, and there are still conflicting properties clashing, then the last defined rule will come above.            
+        </p>
+        <pre><code>
+            .alert &#10100
+                color: red;
+            &#10101
+              
+            .warning &#10100
+                color: yellow;
+            &#10101
+        </code></pre>
+        <p>
+            In this example, if we have a single element that has both the &ltalert&gt and &ltwarning&gt classes, 
+            the cascade will go through every other factor. This includes inherited properties (none), and specificity 
+            (neither more than the other). We see that *ltwarning*gt was the last one to be defined and no other 
+            factor could determine which rule was more prioritized or more specific, the element gets applied with 
+            a yellow colored font.
+        </p>
+        <a href="../css.html">Back to CSS</a>
+    </body>
+</html>

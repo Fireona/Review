@@ -167,6 +167,7 @@
 
         <h2>Properties</h2>
         <dl>
+            Typogpraphy Properties
             <dt>color</dt>
             <dd>Changes text colour. Values are names of colours such as "red", keywords like "transparent", and even RGB, HEX, HSL values.</dd>
             <dt>background-color</dt>
@@ -187,20 +188,20 @@
         <p>To implement CSS to HTML externally, we have to create a CSS file within the same directory. This is then linked in the HTML opening and closing &lthead&gt tags with a void &ltlink&gt element.</p>
         <p>HTML</p>
         <pre><code>
-&lthead&gt
-    &ltlink rel="stylesheet" href="styles.css"&gt
-  &lt/head&gt 
+        &lthead&gt
+            &ltlink rel="stylesheet" href="styles.css"&gt
+          &lt/head&gt 
         </code></pre>
         <p>CSS</p>
         <pre><code>
-div {
-  color: white;
-  background-color: black;
-}
+        div {
+          color: white;
+          background-color: black;
+        }
 
-p {
-  color: red;
-}
+        p {
+          color: red;
+        }
         </code></pre>
         <p>After adding a void &ltlink&gt element within the &lthead&gt tags of the HTML file, we still have to add an 
             href attribute. This leads the link to the CSS file, which could be an absolute URL, or in this scenario a relative location
@@ -220,21 +221,21 @@ p {
             declaration blocks in CSS are written the same way in the HTML file.
         </p>
         <pre><code>
-            &lthead&gt
-                &ltstyle&gt
-                  div &#10100
-                    color: white;
-                    background-color: black;
-                  &#10101
+        &lthead&gt
+            &ltstyle&gt
+              div &#10100
+                color: white;
+                background-color: black;
+              &#10101
               
-                  p &#10100
-                    color: red;
-                  &#10101
-                &lt/style&gt
-              &lt/head&gt
-              &ltbody&gt
-                ...
-              @lt/body&gt              
+              p &#10100
+                color: red;
+              &#10101
+            &lt/style&gt
+          &lt/head&gt
+          &ltbody&gt
+            ...
+          @lt/body&gt              
         </code></pre>
 
         <h4>Inline CSS</h4>
@@ -242,9 +243,9 @@ p {
             inside the element tags. Within the quotations, you write the declarations the same way.
         </p>
         <pre><code>
-            &ltbody&gt
-                *ltdiv style="color: white; background-color: black;"&gt...&lt/div&gt
-              &lt/body&gt                  
+        &ltbody&gt
+            *ltdiv style="color: white; background-color: black;"&gt...&lt/div&gt
+          &lt/body&gt                  
         </code></pre>
         <p>This method is generally only used to style a single element. However, due to the nature of this method, it generally is avoided to keep things clean.
             Once you begin to add more declarations, the HTML starts to get messy and difficult to navigate. If you want other elements to have the same declarations,
