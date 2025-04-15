@@ -164,5 +164,91 @@
             nested elements within the class "parent". This is because regardless of how deeply nested the element is, if the last element written element is only selected is any
             prior elements match with the preceding selectors.
         </p>
+
+        <h2>Properties</h2>
+        <dl>
+            <dt>color</dt>
+            <dd>Changes text colour. Values are names of colours such as "red", keywords like "transparent", and even RGB, HEX, HSL values.</dd>
+            <dt>background-color</dt>
+            <dd>Changes background colour. Values are names of colours such as "red", keywords like "transparent", and even RGB, HEX, HSL values.</dd>
+            <dt>font-family</dt>
+            <dd>Changes the font used. Can be a single value, or separate multiple values with comma. If the browser does not support the font, it will cycle on to the next available font. A fallback in inserted
+                in the end, after your desired font, to be used as a fallback.</dd>
+            <dt>font-size</dt>
+            <dd>Changes size of the font. Values are a number followed by "px", such as "22px".</dd>
+            <dt>font-weight</dt>
+            <dd>Changes the boldness of the font. So long as the font supports the boldness, the weight of the font will be changed. Values range from 1px to 1000px. 700px is the equivalent of "bold".</dd>
+            <dt>text-align</dt>
+            <dd>Aligns text. Values are similar to word processors, such as "text-align: center". </dd>
+        </dl>
+
+        <h2>Adding CSS to HTML</h2>
+        <h4>External CSS</h4>
+        <p>To implement CSS to HTML externally, we have to create a CSS file within the same directory. This is then linked in the HTML opening and closing &lthead&gt tags with a void &ltlink&gt element.</p>
+        <p>HTML</p>
+        <pre><code>
+&lthead&gt
+    &ltlink rel="stylesheet" href="styles.css"&gt
+  &lt/head&gt 
+        </code></pre>
+        <p>CSS</p>
+        <pre><code>
+div {
+  color: white;
+  background-color: black;
+}
+
+p {
+  color: red;
+}
+        </code></pre>
+        <p>After adding a void &ltlink&gt element within the &lthead&gt tags of the HTML file, we still have to add an 
+            href attribute. This leads the link to the CSS file, which could be an absolute URL, or in this scenario a relative location
+            of the HTML file. The "rel" attribute is required as it specifies the relationship between the HTML file and the linked file. 
+        </p>
+        <p>Using the example above, the CSS file styles.css is already filled with a type selector, &ltdiv&gt with a declaration block of
+            a white text and black background surrounded by opening and closing curly brackets. The name of the file doesn't matter, but
+            generally are named "style" or "styles".
+        </p>
+        <p>External CSS method is used to keep the files smaller and makes it look cleaner. Also, because you only need to edit CSS in one place,
+            it is easier to keep track of when dealing with multiple pages of similar styles.
+        </p>
+        <h4>Internal CSS</h4>
+        <p>Internal CSS involves adding CSS within the HTML file itself, only having a need for one file. With this method, all the rules are placed
+            within a pair of opening and closing &ltstyle&gt tags. This "style" block is then placed inside the opening/closing &lthead&gt tags of our
+            HTML file. Since everything is in the HTML file, a &ltlink&gt element is no longer needed that the external method uses. Afterwards, the same
+            declaration blocks in CSS are written the same way in the HTML file.
+        </p>
+        <pre><code>
+            &lthead&gt
+                &ltstyle&gt
+                  div &#10100
+                    color: white;
+                    background-color: black;
+                  &#10101
+              
+                  p &#10100
+                    color: red;
+                  &#10101
+                &lt/style&gt
+              &lt/head&gt
+              &ltbody&gt
+                ...
+              @lt/body&gt              
+        </code></pre>
+
+        <h4>Inline CSS</h4>
+        <p>Inline CSS allows you to add styles directly to HTML elements, but this method is generally avoided. The way this works is by using the "style=" attribute
+            inside the element tags. Within the quotations, you write the declarations the same way.
+        </p>
+        <pre><code>
+            &ltbody&gt
+                *ltdiv style="color: white; background-color: black;"&gt...&lt/div&gt
+              &lt/body&gt                  
+        </code></pre>
+        <p>This method is generally only used to style a single element. However, due to the nature of this method, it generally is avoided to keep things clean.
+            Once you begin to add more declarations, the HTML starts to get messy and difficult to navigate. If you want other elements to have the same declarations,
+            then you'll have to write or copy those as well thus making it feel bloated. This method also overrides the other two methods so use it sparringly if never at all.
+        </p>
     </body>
 </html>
