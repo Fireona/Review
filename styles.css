@@ -17,6 +17,6 @@ a {
     color: rgb(115, 115, 240);
 }
 
-.link {
-    font-size: 60px;
+code {
+    color: #e7bdd5;
 }
