@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./box-model.css">
+        <title>The Box Model</title>
+    </head>
+    <body>
+        <h1>The Box Model</h1>
+        <p>
+            The simplest way to structure a webpage is to envision all the elements on the page as a set of building
+            blocks. The simplest shape for us to understand is a rectangular box. You can have one surrounding 
+            another, be surrounded by one, next another, or even all three at the same time. Let's use the example below:
+        </p>
+        <p>
+            CSS
+        </p>
+        <pre><code>
+            * &#10100
+                outline: 2px solid red;
+            &#10101
+        </code></pre>
+        <img src="./images/boxes.png" alt="Image of Box Model with elements in boxes, next to, above/below, etc.">
+        <p>
+            Here we have an image with some content written in HTML, each element surrounded with a 2px solid red 
+            line in the shape of a box. When structuring your webpage, each piece of content gets shaped into a 
+            rectangular box. When building your webpage, all you are doing is deciding how to lay out all these boxes.
+        </p>
+        <p>
+            There are many methods to size the boxes to your desire, including the space between each of them. This 
+            is done by adding the &ltpadding&gt, &ltborder&gt, and &ltmargin&gt properties to the declaration. To summarize:
+            <dl>
+                <dt>Padding</dt>
+                <dd>Defines the space between the border of the box and the content.</dd>
+                <dt>Border</dt>>
+                <dd>Defines the space between the border and the the margin.</dd>
+                <dt>Margin</dt>
+                <dd>Defines the space between the margin and adjacent margins of other boxes.</dd>
+            </dl>
+        </p>
+        <img src="./images/box-model.png" alt="Anatomy of the Box Model">
+        <p>Watch the videos below and read the summaries.</p>
+        <a href="https://www.youtube.com/watch?v=rIO5326FgPE" target="_blank" rel="noopener noreferrer">Learn CSS Box Model in 8 Minutes by Web Dev Simplified</a>
+        <p>
+            <dl>Box Model Properties
+                <dt>"height:"</dt>
+                <dd>Defines the vertical space of the content box, not including the padding.</dd>
+                <dt>"width:"</dt>
+                <dd>Defines the horizontal space of the content box, not including the padding.</dd>
+            </dl>
+            <ul>
+                <li>Margins between boxes collapse (share) with each other, but the size will be determined by the larger value.</li>
+                <li>
+                    When using the property "box-sizing: border-box", it sets the determined width and height values to be 
+                    the hard limit. This limit will include the content, padding, and border and will never be surpassed. 
+                    What happens instead is the content box's size gets reduced instead by our padding and border sizes.
+                </li>
+            </ul>
+        </p>
+        <br>
+        <a href="https://www.youtube.com/watch?v=HdZHcFWcAd8" target="_blank" rel="noopener noreferrer">box-sizing: border-box (EASY!) by ByteGrad</a>
+        <p>
+            <dl>Properties
+                <dt>"box-sizing: content-box"</dt>
+                <dd>Works exactly like "border-box", except the limits only go up the the content box. The values on padding 
+                    border are not included in content-box.
+                </dd>
+            </dl>
+            Note: There is no margin-box because margin is not really part of the element itself. Margin is more about the 
+            space between adjacent boxes.
+        </p>
+        <ul>
+            <li>
+                The box-sizing property in CSS defines how the total size of an element's box is calculated. 
+                It can be set to either "content-box" or "border-box".
+            </li>
+            <br>
+            <li>
+                By using "content-box" (the default), the values of "width" and "height" only apply to the 
+                content itself &#8211 padding and border values are added outside of those dimensions.
+            </li>
+            <li>
+                By using "border-box", the values of "width" and "height" include the content, padding, and 
+                border &#8211 this means the sum of those values are equal to the "width" and "height" values.
+            </li>
+        </ul>
+        <a href="..">Next Lesson: </a>
+        <br>
+        <a href="../css.html">Back to CSS</a>
+    </body>
+</html>
