@@ -34,8 +34,35 @@
         </p>
         <br>
         <p>
-            As you can see that even though there is a link inside, the line of text is sitting inside as part of the content.
+            As you can see that even though there is a link inside, the line of text is sitting inside as part of 
+            the content. Also, the padding and margin properties work differently on inline elements, so make it an 
+            effort to not appyl any extra padding or margin on such elements.
         </p>
+        <h4>The Middle Ground: Inline Block</h4>
+        <p>
+            Inline-block elements behave like inline elements, but have block-style padding and margin. 
+            <code>display: in-line block</code> is a useful tool to know about, but generally is overseen by 
+            Flexbox when aligning boxes (covered next lesson).
+        </p>
+        
+        <h4>Divs and Spans</h4>
+        <p>
+            <code>div</code> and <code>span</code> elements give no meaning to the content, but are generic boxes 
+            that can contain anything. Due to this particular nature, that is what makes both of these elements 
+            so widely useful. This allows us to easily plant IDs or classes on them making them easily targettable
+            with CSS. It also allows us to group related elements under a common parent element so we can easily 
+            position them on a page.
+        </p>
+        <p>
+            <code>div</code> is a block element by default. It is mostly used to as a container element to group other 
+            elements. It allows us to divide the page into different blocks and apply styling to said blocks.
+        </p>
+        <br>
+        <p>
+            <code>span</code> is an inline-level element by default. It can be used to group text content and other inline 
+            HTML elements for styling. This should only be used when no other semantic HTML element is appropriate.
+        </p>
+
         <a href="../">Next Lesson: </a>
         <br>
         <a href="../css.html">Back to CSS</a>
