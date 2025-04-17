@@ -40,7 +40,7 @@
         </p>
         <img src="./images/box-model.png" alt="Anatomy of the Box Model">
         <p>Watch the videos below and read the summaries.</p>
-        <a href="https://www.youtube.com/watch?v=rIO5326FgPE" target="_blank" rel="noopener noreferrer">Learn CSS Box Model in 8 Minutes by Web Dev Simplified</a>
+        <h4><a href="https://www.youtube.com/watch?v=rIO5326FgPE" target="_blank" rel="noopener noreferrer">Learn CSS Box Model in 8 Minutes by Web Dev Simplified</a></h4>
         <p>
             <dl>Box Model Properties
                 <dt>"height:"</dt>
@@ -58,7 +58,7 @@
             </ul>
         </p>
         <br>
-        <a href="https://www.youtube.com/watch?v=HdZHcFWcAd8" target="_blank" rel="noopener noreferrer">box-sizing: border-box (EASY!) by ByteGrad</a>
+        <h4><a href="https://www.youtube.com/watch?v=HdZHcFWcAd8" target="_blank" rel="noopener noreferrer">box-sizing: border-box (EASY!) by ByteGrad</a></h4>
         <p>
             <dl>Properties
                 <dt>"box-sizing: content-box"</dt>
@@ -84,6 +84,142 @@
                 border &#8211 this means the sum of those values are equal to the "width" and "height" values.
             </li>
         </ul>
+        <br>
+        <h4><a href="https://css-tricks.com/almanac/properties/m/margin/" target="_blank" rel="noopener noreferrer">CSS Tricks on Margins</a></h4>
+        <h4>Notes</h4>
+            <p>
+                The <code>margin</code> property defines the outermost property of the box model which creates the space around an element.
+            </p>
+            <p>
+                Margins are set using lengths, percentages, or the keyword <code>auto</code>, and even negative values.
+                <pre><code>
+                    .box {
+                        margin: 0 3em 0 3em;
+                    }
+                </code></pre>                
+            </p>
+            <p>
+                <code>margin</code> is a shorthand property and accepts up to four values:
+                <pre><code>
+                    .box {
+                        margin: &ltmargin-top&gt &ltmargin-right&gt &ltmargin-bottom&gt &ltmargin-left&gt
+                    }
+                </code></pre>
+            </p>
+            <p>
+                Each of the <code>margin</code> tags are to have values of some numerical value, percentage, or auto. They are each separated by a single space.
+            </p>
+            <p>
+                If fewer than four values are defined, the missing values are assumed based on what values are provided. 
+                In the example below, the declarations are written differently but both will give the same results: 
+                <pre><code>
+                    .box {
+                        margin: 0 1.5em;
+                    }
+
+                    .box {
+                        margin: 0 1.5em 0 1.5em;
+                    }
+                </code></pre>
+                In the first declaration, the values are defined for &lttop-and-bottom&gt and &ltleft-and-right&gt.
+            </p>
+            <h4><code>auto</code> and Centering</h4>
+            <p>
+                <code>auto</code> tells the browser to define the margin for you. In most cases, the value of 
+                <code>auto</code> will be the equivalent to a value of 0 (the initial value for each margin property) 
+                or else whatever space is available on that side of the element. However, auto is useful for horizontal 
+                centering:
+                <pre><code>
+                    .container {
+                        width: 980px;
+                        margin: 0 auto;
+                    }
+                </code></pre>
+                In this scenario, two things occur to center this element horizontally within the given space:
+                <ul>
+                    <li>The element is given a specified width.</li>
+                    <li>Left and right margins are set to auto.</li>
+                </ul>
+                Without a defined value for the width, <code>auto</code> will have little to no effect. The reason 
+                is <code>width</code> determines how "wide" your element is. Without a value to it, your element will
+                automatically take up the entire space, and leave nothing for your margin (because your element does not 
+                include margin). Once a <code>width</code> value is defined, that value is subtracted from the total 
+                space available and what remains becomes your margin. This allows the <code>auto</code> value to 
+                function and center elements.
+                <ul>
+                    <li>
+                        You can't use <code>margin: auto</code> to center elements vertically by default, because the vertical 
+                        space in most web layouts is undefined — web pages grow down naturally with content. For vertical 
+                        centering with auto to work, the element must be inside a parent container with a defined <code>height</code>. 
+                        Without that constraint, the browser has no vertical space to divide, so auto margins can’t be calculated.
+                        <br>
+                        <br>
+                        P.S: It took over two hours trying to understand this. This is how I feel now:
+                        <br>
+                        <img src="./images/melt.gif" alt="Animated slime melting">
+                    </li>
+                </ul>
+            </p>
+            <h4>Collapsing Margins</h4>
+            <p>
+                Vertical margins on different elements that touch each other will collapse (overlap). This creates a 
+                single margin giving the appearance of whichever margin holds the greater value. This only applies to 
+                vertical margins.
+                HTML
+                <pre><code>
+                    &lth2&gtCollapsing Margins&lt/h2&gt
+                </code></pre>
+                CSS
+                <pre><code>
+                    h2 {
+                        margin: 0 0 20px 0;                    
+                    }
+
+                    p {
+                        margin: 10px 0 0 0;
+                    }
+                </code></pre>
+                Here we have a scenario where &lth2&gt element has a bottom margin of 20px while our &ltp&gt element 
+                has a top margin of 10px. When the two margins collapse with each other, only the greater value stands 
+                as the margin, that being 20px.
+            </p>
+            <p>    
+                Collapsing may seem unintuitive at first glance, but it is useful. This prevents empty elements from 
+                adding extra (usually unwanted) vertical margin space. It also gives way to only have to adjust one margin 
+                on a single element. If they did not collapse, we would have to adjust two margins on two elements to 
+                maintain consistent spacing. Lastly, collapsing of margins also applies to nested elements as well.
+                <br>
+                HTML
+                <pre><code>
+                    &lth2&gtCollapsing Marings&lth2&lt/h2&gt
+                    &ltdiv&gt&ltp&gtExample text.&lt/p&gt&lt/div&gt
+                </code></pre>
+                CSS
+                <pre><code>
+                    h2 {
+                        margin: 0 0 20px 0;
+                    }
+
+                    div {
+                        margin-top: 40px
+                    }
+
+                    p {
+                        margin-top: 30px
+                    }
+                </code></pre>
+                Here we have a <code>&ltp&gt</code> with a top margin of 30px nested within a <code>&ltdiv&gt</code> element that 
+                has a top margin of 40px. We also have an <code>&lth2&gt</code> element with a bottom margin of 20px. If 
+                margins did not collapse, we would be looking at a margin of 90px. However, because they do, there is no 
+                need to adjust the top margins to remove unneccessary vertical space.
+            </p>
+            <h4>Negative Margins</h4>
+            <p>
+                When interacting with other elements, positive margins push other elements away. Likewise, a negative margin 
+                will pull them closer to it.
+            </p>
+
+                                
         <a href="../block-and-inline/b-i.html">Next Lesson: Block and Inline</a>
         <br>
         <a href="../css.html">Back to CSS</a>
