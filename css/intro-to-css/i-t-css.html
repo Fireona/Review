@@ -8,160 +8,236 @@
     </head>
     <body>
         <h1>Syntax</h1>
-        <p>CSS are made of rules composed of selectors, a property-value pair, with a semicolon to separate the declarations of the property-value pair.</p>
+        <p>
+            CSS are made of rules composed of selectors, a property-value pair, with a semicolon to separate the declarations of the property-value pair.
+        </p>
         <img src="./images/syntax-example.jpg" alt="CSS Syntax Diagram labelling selectors, properties and values">        
-        <p>With a selector chosen, you begin designating the property to change. In order to do so, we use "&#10100". 
-            This is the beginning of our "declaration", which is made up of a list property-value pair(s).</p>
+        <p>
+            With a selector chosen, you begin designating the property to change. In order to do so, we use "&#10100". 
+            This is the beginning of our "declaration", which is made up of a list property-value pair(s).
+        </p>
         <br>
-        <p>Properties are the characteristics to style the selectors with. After the property has been chosen,
+        <p>
+            Properties are the characteristics to style the selectors with. After the property has been chosen,
              we follow up with a colon to designate value to the property and end with a semicolon. 
              This will end the declaration and apply it to the chosen selectors. We begin the next line if we have any more styles to apply, 
-             if not then end the declaration with "&#10101".</p>
+             if not then end the declaration with "&#10101".
+        </p>
         <br>
 
         <h2>Selectors</h2>
-        <p>Selectors are as implied. They only "select" HTML elements to apply CSS rules to.</p>
-        <h4>Universal Selector</h4>
-        <p>The universal selector is designated with an asterisk. Usage of the universal selector applies to elements of every type, meaning the entire document.</p>
-        <pre><code>
-            * &#10100
-                color: purple;
-            &#10101
-        </code></pre>
+        <p>
+            Selectors are as implied. They only "select" HTML elements to apply CSS rules to.
+        </p>
 
-        <h4>Type Selectors</h4>
-        <p>Type selectors will select all elements of a given element type. The syntax is simply the name of the element.</p>
-        <pre><code>
-            p &#10100
-                color: purple;
-            &#10101
-        </code></pre>
+        <h4>
+            Universal Selector
+        </h4>
+        <p>
+            The universal selector is designated with an asterisk. Usage of the universal selector applies to elements of every type, meaning the entire document.
+            <pre>
+                CSS
+                <code>
+                    * {
+                        color: purple;
+                    }
+                </code>
+            </pre>
+        </p>
 
-        <h4>Class Selectors</h4>
-        <p>Class selectors are a way of selecting particular type selectors of a given attribute name. This is done by adding in a class attribute to the HTML element.</p>
-        <p>HTML</p>
-        <pre><code>
-            &ltp class="blue"&gt This is a blue paragraph.
-                &ltp class="blue"&gt This is also a blue paragraph.
-                    &ltdiv class="red"&gt This is a red paragraph.
-        </code></pre>
-        <p>CSS</p>
-        <pre><code>
-            .blue &#10100
-                color: blue;
-            &#10101
-        </code></pre>
-        In this scenario, class selectors are designated with a period preceding the class selector.</p>
+        <h4>
+            Type Selectors
+        </h4>
+        <p>
+            Type selectors will select all elements of a given element type. The syntax is simply the name of the element.
+            <pre>
+                CSS
+                <code>
+                    p {
+                        color: purple;
+                    }
+                </code>
+            </pre>
+        </p>
 
-        <h4>ID Selectors</h4>
-        <p>ID Selectors are similar to class selectors. They select elements with the given ID, another attribute placed in an HTML element. 
+        <h4>
+            Class Selectors
+        </h4>
+        <p>
+            Class selectors are a way of selecting particular type selectors of a given attribute name. This is done by adding in a class attribute to the HTML element.
+            <pre>
+                HTML
+                <code>
+                    &ltp class="blue"&gt This is a blue paragraph.
+                        &ltp class="blue"&gt This is also a blue paragraph.
+                            &ltdiv class="red"&gt This is a red paragraph.
+                </code>
+            </pre>        
+            <pre>
+                CSS
+                <code>
+                    .blue {
+                        color: blue;
+                    }
+                </code>
+            </pre>
+        </p>
+        <p>
+            In this scenario, class selectors are designated with a period preceding the class selector.
+        </p>
+
+        <h4>
+            ID Selectors
+        </h4>
+        <p>
+            ID Selectors are similar to class selectors. They select elements with the given ID, another attribute placed in an HTML element. 
             The only caveat is each element can only have one ID. It cannot be repeated on a single page and should not have any whitespace.
+            <pre>
+                HTML
+                <code>
+                    &ltp class="blue"&gt This is a blue paragraph.
+                        &ltp class="blue"&gt This is also a blue paragraph.
+                            &ltp class="red"&gt This is a blue paragraph.
+                </code>
+            </pre>
+            <pre>
+                CSS
+                <code>
+                    #red {
+                        color: red;
+                    }
+                </code>
+            </pre>
         </p>
-        <p>HTML</p>
-        <pre><code>
-            &ltp class="blue"&gt This is a blue paragraph.
-                &ltp class="blue"&gt This is also a blue paragraph.
-                    &ltp class="red"&gt This is a blue paragraph.
-        </code></pre>
-        <p>CSS</p>
-        <pre><code>
-            #red &#10100
-                color: red;
-            &#10101
-        </code></pre>
-        <p>In this example, the ID selector is designated with a hashtag preceding the ID selector name.</p>
-
-        <h4>Grouping Selector</h4>
-        <p>There are times when multliple groups of elements that share the same declarations. To combine selectors, use "&#44" to separate the elements.</p>
-        <pre><code>
-            .title &#10100
-                color: black;
-                background-color: white;
-                /* several unique declarations */
-            &#10101
-
-            .headline &#10100
-                color: black;
-                background-color; white;
-                /* several unique declarations */
-            &#10101
-        </code></pre>
-        <p>In this example, we see that both title and headline both have different class selectors but have the some same declarations. 
-                If we want to combine these two selectors, it would be written as below:
+        <p>
+            In this example, the ID selector is designated with a hashtag preceding the ID selector name.
         </p>
-        <pre><code>
-            .title, .headline &#10100
-                color: black;
-                background-color; white;
-            &#10101
-            
-            .title &#10100
-                /* several unique declarations */
-            &#10101
-            
-            .headline &#10100
-                /* several unique declarations */
-            &#10101
-        </code></pre>
-        <p>While this method and former method both achieve the same results, it is more efficient written this way and easier to edit both simultaneously.</p>
 
-        <h4>Chaining Selectors</h4>
-        <p>Another method of selecting multiple selectors is with the chain selector. To use a chain selector, write the two selectors as usual, but instead of a &#44, use a period without a space to separate them.</p>
-        <p>HTML</p>
-        <pre><code>
-            &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
-                &ltp class="electronic house"&gtThis is about House Music!&lt/p&gt
-        </code></pre>
-        <p>CSS</p>
-        <pre><code>
-            .electronic.edm &#10100
-                color: red;
-            &#10101
-        </code></pre>
-        <p>As we can see from the example above, the declaration applies to both elements that the "electronic" and "edm" classes. 
+        <h4>
+            Grouping Selector
+        </h4>
+        <p>
+            There are times when multliple groups of elements that share the same declarations. To combine selectors, use "&#44" to separate the elements.
+            <pre>
+                CSS
+                <code>
+                    .title {
+                        color: black;
+                        background-color: white;
+                        /* several unique declarations */
+                    }
+            
+                    .headline {
+                        color: black;
+                        background-color; white;
+                        /* several unique declarations */
+                    }
+                </code>
+            </pre>
+        <p>
+            In this example, we see that both title and headline both have different class selectors but have the some same declarations.
+            If we want to combine these two selectors, it would be written as below:
+            <pre>
+                CSS
+                <code>
+                    .title, .headline {
+                        color: black;
+                        background-color; white;
+                    }
+            
+                    .title {
+                        /* several unique declarations */
+                    }
+            
+                    .headline {
+                        /* several unique declarations */
+                    }
+                </code>
+            </pre>
+        <p>
+            While this method and former method both achieve the same results, it is more efficient written this way and easier to edit both simultaneously.
+        </p>
+
+        <h4>
+            Chaining Selectors
+        </h4>
+        <p>
+            Another method of selecting multiple selectors is with the chain selector. To use a chain selector, write the two selectors as usual, but instead of a &#44, use a period without a space to separate them.
+            <pre>
+                HTML
+                <code>
+                    &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
+                        &ltp class="electronic house"&gtThis is about House Music!&lt/p&gt
+                </code>
+            </pre>
+            <pre>
+                CSS
+                <code>
+                    .electronic.edm {
+                        color: red;
+                    }
+                </code>
+            </pre>
+        </p>
+        <p>
+            As we can see from the example above, the declaration applies to both elements that the "electronic" and "edm" classes. 
             However, chain selectors will only work with any combination of selectors except for more than one type selector. 
             You can also chain a class selector with an ID selector.
-        </p>
-        <p>HTML</p>
-        <pre><code>
-            &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
-                &ltp class="electronic house" id="chill"&gtThis is about House Music!&lt/p&gt
-        </code></pre>
-        <p>CSS</p>
-        <pre><code>
-            .electronic.edm &#10100
-            color: red;
-            &#10101
-
-            .electronic#chill &#10100
-            color: blue;
-            &#10101           
-        </code></pre>
-        <p>In general, you can not chain more than one type selector because an element can't be two elements at once. 
+            <pre>
+                HTML
+                <code>
+                    &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
+                        &ltp class="electronic house" id="chill"&gtThis is about House Music!&lt/p&gt
+                </code>
+            </pre>
+            <pre>
+                CSS
+                <code>
+                    .electronic.edm {
+                        color: red;
+                    }
+        
+                    .electronic#chill {
+                        color: blue;
+                    }
+                </code>
+            </pre>
+        </p>            
+        <p>
+            In general, you can not chain more than one type selector because an element can't be two elements at once. 
             Chaining two type selectors like &ltdiv&gt and &ltp&gt would give us the selector &ltdivp&gt instead. This
             does not work because there is no &ltdivp&gt element as it does not exist in HTML. Writing it as &ltdiv.p&gt does not work
             either because that tells CSS to look for the element &ltdiv&gt with the "p" class. If you need to apply particular declarations 
             on two type selectors, use the grouping selector instead.
         </p>
-        <h4>Descendant Combinator</h4>
-        <p>The Descendant Combinator is one of four combinators. It is represented with a single space between selectors. This selector only
-        selects the last element written if they also have an ancestor that matches the preceding selector.
-        </p>
-        <p>HTML</p>
-        <pre><code>
-            &ltdiv class="parent"&gtThis is a parent.&ltdiv&gt
-                &ltdiv class="child"&gtThis is a child.&ltdiv&gt
-                    &ltdiv class="child"&gtThis is a child.&ltdiv&gt
 
-            &ltdiv class="child"&gtThis is a child.&ltdiv&gt
-        </code></pre>
-        <p>CSS</p>
-        <pre><code>
-            .parent .child &#10100
-                /* Some declarations */
-            &#10101
-        </code></pre>
-        <p>In the example above, we see that one &ltdiv&gt has the class "parent" and three of them have the class "child". However, the declarations would only apply to both
+        <h4>
+            Descendant Combinator
+        </h4>
+        <p>
+            The Descendant Combinator is one of four combinators. It is represented with a single space between selectors. This selector only
+            selects the last element written if they also have an ancestor that matches the preceding selector.
+            <pre>
+                HTML
+                <code>
+                    &ltdiv class="parent"&gtThis is a parent.&ltdiv&gt
+                        &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+                            &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+
+                    &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+                </code>
+            </pre>
+            <pre>
+                CSS
+                <code>
+                    .parent .child {
+                        /* Some declarations */
+                    }
+                </code>
+            </pre>
+        </p>
+        <p>
+            In the example above, we see that one &ltdiv&gt has the class "parent" and three of them have the class "child". However, the declarations would only apply to both
             nested elements within the class "parent". This is because regardless of how deeply nested the element is, if the last element written element is only selected is any
             prior elements match with the preceding selectors.
         </p>
@@ -169,86 +245,134 @@
         <h2>Properties</h2>
         <dl>
             Typogpraphy Properties
-            <dt>color</dt>
-            <dd>Changes text colour. Values are names of colours such as "red", keywords like "transparent", and even RGB, HEX, HSL values.</dd>
-            <dt>background-color</dt>
-            <dd>Changes background colour. Values are names of colours such as "red", keywords like "transparent", and even RGB, HEX, HSL values.</dd>
-            <dt>font-family</dt>
-            <dd>Changes the font used. Can be a single value, or separate multiple values with comma. If the browser does not support the font, it will cycle on to the next available font. A fallback in inserted
-                in the end, after your desired font, to be used as a fallback.</dd>
-            <dt>font-size</dt>
-            <dd>Changes size of the font. Values are a number followed by "px", such as "22px".</dd>
-            <dt>font-weight</dt>
-            <dd>Changes the boldness of the font. So long as the font supports the boldness, the weight of the font will be changed. Values range from 1px to 1000px. 700px is the equivalent of "bold".</dd>
-            <dt>text-align</dt>
-            <dd>Aligns text. Values are similar to word processors, such as "text-align: center". </dd>
+            <dt>
+                color
+            </dt>
+            <dd>
+                Changes text colour. Values are names of colours such as "red", keywords like "transparent", and even RGB, HEX, HSL values.
+            </dd>
+            <dt>
+                background-color
+            </dt>
+            <dd>
+                Changes background colour. Values are names of colours such as "red", keywords like "transparent", and even RGB, HEX, HSL values.
+            </dd>
+            <dt>
+                font-family
+            </dt>
+            <dd>
+                Changes the font used. Can be a single value, or separate multiple values with comma. If the browser does not support the font, it will cycle on to the next available font. A fallback in inserted
+                in the end, after your desired font, to be used as a fallback.
+            </dd>
+            <dt>
+                font-size
+            </dt>
+            <dd>
+                Changes size of the font. Values are a number followed by "px", such as "22px".
+            </dd>
+            <dt>
+                font-weight
+            </dt>
+            <dd>
+                Changes the boldness of the font. So long as the font supports the boldness, the weight of the font will be changed. Values range from 1px to 1000px. 700px is the equivalent of "bold".
+            </dd>
+            <dt>
+                text-align
+            </dt>
+            <dd>
+                Aligns text. Values are similar to word processors, such as "text-align: center".
+            </dd>
         </dl>
 
-        <h2>Adding CSS to HTML</h2>
-        <h4>External CSS</h4>
-        <p>To implement CSS to HTML externally, we have to create a CSS file within the same directory. This is then linked in the HTML opening and closing &lthead&gt tags with a void &ltlink&gt element.</p>
-        <p>HTML</p>
-        <pre><code>
-            &lthead&gt
-                &ltlink rel="stylesheet" href="styles.css"&gt
-            &lt/head&gt 
-        </code></pre>
-        <p>CSS</p>
-        <pre><code>
-            div {
-                color: white;
-                background-color: black;
-            }
-
-            p {
-                color: red;
-            }
-        </code></pre>
-        <p>After adding a void &ltlink&gt element within the &lthead&gt tags of the HTML file, we still have to add an 
+        <h2>
+            Adding CSS to HTML
+        </h2>
+        <h4>
+            External CSS
+        </h4>
+        <p>
+            To implement CSS to HTML externally, we have to create a CSS file within the same directory. This is then linked in the HTML opening and closing &lthead&gt tags with a void &ltlink&gt element.
+            <pre>
+                HTML
+                <code>
+                    &lthead&gt
+                        &ltlink rel="stylesheet" href="styles.css"&gt
+                    &lt/head&gt
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    div {
+                        color: white;
+                        background-color: black;
+                    }
+            
+                    p {
+                        color: red;
+                    }
+                </code>
+            </pre>
+        <p>
+            After adding a void &ltlink&gt element within the &lthead&gt tags of the HTML file, we still have to add an 
             href attribute. This leads the link to the CSS file, which could be an absolute URL, or in this scenario a relative location
-            of the HTML file. The "rel" attribute is required as it specifies the relationship between the HTML file and the linked file. 
+            of the HTML file. The "rel" attribute is required as it specifies the relationship between the HTML file and the linked file.
         </p>
-        <p>Using the example above, the CSS file styles.css is already filled with a type selector, &ltdiv&gt with a declaration block of
+        <p>
+            Using the example above, the CSS file styles.css is already filled with a type selector, &ltdiv&gt with a declaration block of
             a white text and black background surrounded by opening and closing curly brackets. The name of the file doesn't matter, but
             generally are named "style" or "styles".
         </p>
-        <p>External CSS method is used to keep the files smaller and makes it look cleaner. Also, because you only need to edit CSS in one place,
+        <p>
+            External CSS method is used to keep the files smaller and makes it look cleaner. Also, because you only need to edit CSS in one place,
             it is easier to keep track of when dealing with multiple pages of similar styles.
         </p>
-        <h4>Internal CSS</h4>
-        <p>Internal CSS involves adding CSS within the HTML file itself, only having a need for one file. With this method, all the rules are placed
+
+        <h4>
+            Internal CSS
+        </h4>
+        <p>
+            Internal CSS involves adding CSS within the HTML file itself, only having a need for one file. With this method, all the rules are placed
             within a pair of opening and closing &ltstyle&gt tags. This "style" block is then placed inside the opening/closing &lthead&gt tags of our
             HTML file. Since everything is in the HTML file, a &ltlink&gt element is no longer needed that the external method uses. Afterwards, the same
             declaration blocks in CSS are written the same way in the HTML file.
+            <pre>
+                HTML
+                <code>
+                    &lthead&gt
+                        &ltstyle&gt
+                            div {
+                                color: white;
+                                background-color: black;
+                            }
+                        
+                            p {
+                                color: red;
+                            }
+                        &lt/style&gt
+                    &lt/head&gt
+                    &ltbody&gt
+                    ...
+                    &lt/body&gt    
+                </code>
+            </pre>
         </p>
-        <pre><code>
-            &lthead&gt
-                &ltstyle&gt
-                    div &#10100
-                        color: white;
-                        background-color: black;
-                    &#10101
-              
-                    p &#10100
-                    color: red;
-                    &#10101
-                &lt/style&gt
-            &lt/head&gt
-            &ltbody&gt
-            ...
-            &lt/body&gt              
-        </code></pre>
 
-        <h4>Inline CSS</h4>
-        <p>Inline CSS allows you to add styles directly to HTML elements, but this method is generally avoided. The way this works is by using the "style=" attribute
+        <h4>
+            Inline CSS
+        </h4>
+        <p>
+            Inline CSS allows you to add styles directly to HTML elements, but this method is generally avoided. The way this works is by using the "style=" attribute
             inside the element tags. Within the quotations, you write the declarations the same way.
-        </p>
-        <pre><code>
-            &ltbody&gt
-                *ltdiv style="color: white; background-color: black;"&gt...&lt/div&gt
-            &lt/body&gt                  
-        </code></pre>
-        <p>This method is generally only used to style a single element. However, due to the nature of this method, it generally is avoided to keep things clean.
+            <pre>
+                HTML
+                <code>
+                    &ltbody&gt
+                        *ltdiv style="color: white; background-color: black;"&gt...&lt/div&gt
+                    &lt/body&gt   
+                </code>
+            </pre>
+        <p>
+            This method is generally only used to style a single element. However, due to the nature of this method, it generally is avoided to keep things clean.
             Once you begin to add more declarations, the HTML starts to get messy and difficult to navigate. If you want other elements to have the same declarations,
             then you'll have to write or copy those as well thus making it feel bloated. This method also overrides the other two methods so use it sparringly if never at all.
         </p>

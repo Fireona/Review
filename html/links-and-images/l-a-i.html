@@ -9,29 +9,56 @@
 <body>
     <h1>Links and Images</h1>
     <h2>Links</h2>
-    <p>Use &lta&gt, an anchor tag, to create links.
-    <p>There are:</p><ul>
-            <li>Absolute Links</li>
-            <li>Relative Links</li>
-        </ul>
-    <p>Each anchor tag uses an href attribute that designates the image location.</p>
-    <p>To go to YouTube, input "https://www.youtube.com/".</p>
+    <p>
+        Use &lta&gt, an anchor tag, to create links.
+    </p>
+    <ul>
+        There are:
+        <li>Absolute Links</li>
+        <li>Relative Links</li>
+    </ul>
+    <p>
+        Each anchor tag uses an href attribute that designates the image location.
+    </p>
+    <p>
+        To go to YouTube, input "https://www.youtube.com/".
+    </p>
     <a href="https://www.youtube.com/">YouTube</a>
-    <p>If we want to open in a new tab, add " target="_blank"" after the href attribute.</p>
+    <p>
+        If we want to open in a new tab, add " target="_blank"" after the href attribute.
+    </p>
     <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-    <p>However, if left as is, this leaves security issues open with JavaScript. For this reason, we add " rel=noopener noreferrer " after the target attribute.</p>
+    <p>
+        However, if left as is, this leaves security issues open with JavaScript. For this reason, we add " rel=noopener noreferrer " after the target attribute.
+    </p>
     <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
-    <p>"noopener" is a safety protocol. Itensures the newly opened tab that it can not access or interact with the page opened from.</p>
-    <p>"norefferer" provides the benefits of noopener, but also hides information of where the link came from.</p>
-    <p>Without using "noopener", this leads to security issues that are called phishing attacks where the opened link has the possibility of changing the original webpage to something different. This is known as <b>tabnapping</b>.</p>
+    <p>
+        "noopener" is a safety protocol. Itensures the newly opened tab that it can not access or interact with the page opened from.
+    </p>
+    <p>
+        "norefferer" provides the benefits of noopener, but also hides information of where the link came from.
+    </p>
+    <p>
+        Without using "noopener", this leads to security issues that are called phishing attacks where the opened link has the possibility of changing the original webpage to something different. This is known as <b>tabnapping</b>.
+    </p>
     <h2>Images</h2>
-    <p>When bringing in images onto a webpage, use &ltimg&gt tag.</p>
-    <p>&ltimg&gt tags are void elements, so a closing tag is not necessary.</p>
-    <p>However, just like anchor tags, they do have a destination attribute similar to href. For images, src is used.</p>
+    <p>
+        When bringing in images onto a webpage, use &ltimg&gt tag.
+    </p>
+    <p>
+        &ltimg&gt tags are void elements, so a closing tag is not necessary.
+    </p>
+    <p>
+        However, just like anchor tags, they do have a destination attribute similar to href. For images, src is used.
+    </p>
     <img src="./images/towelienoidea.jpeg">
-    <p>We must add an alt attribute to describe the image for the visually impaired as well.</p>
+    <p>
+        We must add an alt attribute to describe the image for the visually impaired as well.
+    </p>
     <img src="./images/towelienoidea.jpeg" alt="Towelie character, subtitled with 'I have no idea what is going on'">
-    <p>Unfortunately the provided image is too large, so we can specify the image size with 'height=' and 'width='.</p>
+    <p>        
+        Unfortunately the provided image is too large, so we can specify the image size with 'height=' and 'width='.
+    </p>
     <img src="./images/towelienoidea.jpeg" alt="Towelie character, subtitled with 'I have no idea what is going on'" height="600" width="600">
     <br>
     <a href="../../css/intro-to-css/i-t-css.html" target="_self" rel="noopener noreferrer">Next Lesson: Intro to CSS</a>

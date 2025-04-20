@@ -7,20 +7,22 @@
         <title>The Box Model</title>
     </head>
     <body>
-        <h1>The Box Model</h1>
+        <h1>
+            The Box Model
+        </h1>
         <p>
             The simplest way to structure a webpage is to envision all the elements on the page as a set of building
             blocks. The simplest shape for us to understand is a rectangular box. You can have one surrounding 
             another, be surrounded by one, next another, or even all three at the same time. Let's use the example below:
+            <pre>
+                CSS
+                <code>
+                    * {
+                        outline: 2px solid red;
+                    }
+                </code>
+            </pre>
         </p>
-        <p>
-            CSS
-        </p>
-        <pre><code>
-            * &#10100
-                outline: 2px solid red;
-            &#10101
-        </code></pre>
         <img src="./images/boxes.png" alt="Image of Box Model with elements in boxes, next to, above/below, etc.">
         <p>
             Here we have an image with some content written in HTML, each element surrounded with a 2px solid red 
@@ -31,26 +33,54 @@
             There are many methods to size the boxes to your desire, including the space between each of them. This 
             is done by adding the &ltpadding&gt, &ltborder&gt, and &ltmargin&gt properties to the declaration. To summarize:
             <dl>
-                <dt>Padding</dt>
-                <dd>Defines the space between the border of the box and the content.</dd>
-                <dt>Border</dt>
-                <dd>Defines the space between the border and the the margin.</dd>
-                <dt>Margin</dt>
-                <dd>Defines the space between the margin and adjacent margins of other boxes.</dd>
+                <dt>
+                    Padding
+                </dt>
+                <dd>
+                    Defines the space between the border of the box and the content.
+                </dd>
+                <dt>
+                    Border
+                </dt>
+                <dd>
+                    Defines the space between the border and the the margin.
+                </dd>
+                <dt>
+                    Margin
+                </dt>
+                <dd>
+                    Defines the space between the margin and adjacent margins of other boxes.
+                </dd>
             </dl>
         </p>
         <img src="./images/box-model.png" alt="Anatomy of the Box Model">
-        <p>Watch the videos below and read the summaries.</p>
-        <h4><a href="https://www.youtube.com/watch?v=rIO5326FgPE" target="_self" rel="noopener noreferrer">Learn CSS Box Model in 8 Minutes by Web Dev Simplified</a></h4>
+        <br>
+        <p>
+            Watch the videos below and read the summaries.
+        </p>
+        <br>     
+        <h4>
+            <a href="https://www.youtube.com/watch?v=rIO5326FgPE" target="_self" rel="noopener noreferrer" class="h4-link-alignment">Learn CSS Box Model in 8 Minutes by Web Dev Simplified</a>
+        </h4>
         <p>
             <dl>Box Model Properties
-                <dt>"height:"</dt>
-                <dd>Defines the vertical space of the content box, not including the padding.</dd>
-                <dt>"width:"</dt>
-                <dd>Defines the horizontal space of the content box, not including the padding.</dd>
+                <dt>
+                    "height:"
+                </dt>
+                <dd>
+                    Defines the vertical space of the content box, not including the padding.
+                </dd>
+                <dt>
+                    "width:"
+                </dt>
+                <dd>
+                    Defines the horizontal space of the content box, not including the padding.
+                </dd>
             </dl>
             <ul>
-                <li>Margins between boxes collapse (share) with each other, but the size will be determined by the larger value.</li>
+                <li>
+                    Margins between boxes collapse (share) with each other, but the size will be determined by the larger value.
+                </li>
                 <li>
                     When using the property "box-sizing: border-box", it sets the determined width and height values to be 
                     the hard limit. This limit will include the content, padding, and border and will never be surpassed. 
@@ -59,14 +89,21 @@
             </ul>
         </p>
         <br>
-        <h4><a href="https://www.youtube.com/watch?v=HdZHcFWcAd8" target="_self" rel="noopener noreferrer">box-sizing: border-box (EASY!) by ByteGrad</a></h4>
+        <h4>
+            <a href="https://www.youtube.com/watch?v=HdZHcFWcAd8" target="_self" rel="noopener noreferrer" class="h4-link-alignment">box-sizing: border-box (EASY!) by ByteGrad</a>
+        </h4>
         <p>
             <dl>Properties
-                <dt>"box-sizing: content-box"</dt>
-                <dd>Works exactly like "border-box", except the limits only go up the the content box. The values on padding 
+                <dt>
+                    "box-sizing: content-box"
+                </dt>
+                <dd>
+                    Works exactly like "border-box", except the limits only go up the the content box. The values on padding 
                     border are not included in content-box.
                 </dd>
             </dl>
+        </p>
+        <p>
             Note: There is no margin-box because margin is not really part of the element itself. Margin is more about the 
             space between adjacent boxes.
         </p>

@@ -44,14 +44,23 @@ a {
     color: rgb(115, 115, 240);
 }
 
+/* HTML Contents */
 .htmlh1 {
     color: rgb(160, 30, 30);
 }
 
+
+/* CSS Contents */
 .cssh1 {
     color: rgb(50, 50, 255);
 }
 
+.h4-link-alignment {
+    display: block;
+    margin: 0;
+}
+
+/*Flexbox Contents */
 .flexboxh1 {
     color: rgb(100, 50, 0);
 }
