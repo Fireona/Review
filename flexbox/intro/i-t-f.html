@@ -119,12 +119,27 @@
             <h3>
                 Quiz
             </h3>
-                <p class="question">What makes an element a flex container?</p>
-                <p class="answer">Any element with the property <code>display: flex</code> is a flex container.</p>
-                <p class="question">What makes an elment a flex item?</p>
-                <p class="answer">Any element that lives with the flex container.</p>
-                <p class="question">How do you create a flex item?</p>
-                <p class="answer">Creating any content within an element that has the <code>display: flex</code> property.</p>
+                <p class="question">
+                    What makes an element a flex container?
+                </p>
+                <p class="answer">
+                    Any element with the property <code>display: flex</code> is a flex container.
+                </p>
+                <p class="question">
+                    What makes an element a flex item?
+                </p>
+                <p class="answer">
+                    Any <strong>direct child of a flex container</strong> (an element with the <code>display: flex</code> 
+                    property) becomes a flex item. Descendants deeper than one level are not flex items unless their 
+                    immediate parent is also a flex container.
+                </p>
+                <p class="question">
+                    How do you create a flex item?
+                </p>
+                <p class="answer">
+                    A flex item is made when an element is a direct descendant of another element with a <code>display: flex</code> 
+                    property.
+                </p>
             <br>
             <a href="../" target="_self" rel="noopener noreferrer">Next Lesson: Growing and Shrinking</a>
             <br>
