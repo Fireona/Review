@@ -55,9 +55,9 @@
             <pre>
                 HTML
                 <code>
-                    &ltdiv class="main"&gt
-                        &ltdiv class="list subsection"&gtRed text&lt/div&gt
-                    &lt/div&gt
+                    &lt;div class="main"&gt;
+                        &lt;div class="list subsection"&gt;Red text&lt;/div&gt;
+                    &lt;/div&gt;
                 </code>
             </pre>
             <pre>
@@ -85,9 +85,9 @@
             <pre>
                 HTML
                 <code>
-                    &ltdiv class="main"&gt
-                        &ltdiv class="list" id="subsection"&gtBlue text&lt/div&gt
-                    &lt/div&gt 
+                    &lt;div class="main"&gt;
+                        &lt;div class="list" id="subsection"&gt;Blue text&lt;/div&gt;
+                    &lt;/div&gt; 
                 </code>
             </pre>
             <pre>
@@ -106,8 +106,8 @@
             </pre>
         </p>
         <p>
-            Over here, we see that both have their own class selectors, &ltmain&gt and &ltlist&gt. As we continue
-            to look in the lines, there's also an ID Selector here as well, the ID &ltsubsection&gt. In accordance 
+            Over here, we see that both have their own class selectors, &lt;main&gt; and &lt;list&gt;. As we continue
+            to look in the lines, there's also an ID Selector here as well, the ID &lt;subsection&gt;. In accordance 
             to the casacde, rule two will apply and make the text color blue because ID selectors have the highest 
             level of specificity.
         </p>
@@ -116,9 +116,9 @@
             <pre>
                 HTML
                 <code>
-                    &ltdiv class="main"&gt
-                        &ltdiv class="list" id="subsection"&gtRed text on yellow background&lt/div&gt
-                    &lt/div&gt
+                    &lt;div class="main"&gt;
+                        &lt;div class="list" id="subsection"&gt;Red text on yellow background&lt;/div&gt;
+                    &lt;/div&gt;
                 </code>
             </pre>
             <pre>
@@ -138,7 +138,7 @@
             </pre>
         </p>
         <p>
-            In this case, we see that both rules have the ID selector used for the ID &ltsubsection&gt. If we
+            In this case, we see that both rules have the ID selector used for the ID &lt;subsection&gt;. If we
             look a bit closer, only rule two has the addition of a class selector. Going down the cascade, rule two
             has more specficity than rule one, therefore applying the font color red to the text. However, since no 
             declaration was made in rule two in regards to the background color, it will inherit the declaration 
@@ -146,7 +146,7 @@
         </p>
         <p>
             Note: Special symbols that are used for different selectors like the universal selector (*) or the 
-            combinator symbols (+, ~, &gt, and an empty space) do not add specificity.
+            combinator symbols (+, ~, &gt;, and an empty space) do not add specificity.
             <pre>
                 CSS
                 <code>
@@ -183,7 +183,7 @@
         </p>
         <p>
             In this example, the same situation occurs. Both are using the same class selectors and the same 
-            exact classes. The child combinator (&gt) does not change specificity, so priority is given way to 
+            exact classes. The child combinator (&gt;) does not change specificity, so priority is given way to 
             rule two, applying a font fize of 24px.
             <pre>
                 CSS
@@ -202,7 +202,7 @@
         </p>
         <p>
             In this scenario we a universal selector used and a type selector. Priority will be given to rule two 
-            because rule one uses an universal selector that has no specificity value. The type selector &lth1&gt 
+            because rule one uses an universal selector that has no specificity value. The type selector &lt;h1&gt; 
             has a higher specificity value over the universal selector so our text color will be orange.
         </p>
 
@@ -216,9 +216,9 @@
             <pre>
                 HTML
                 <code>
-                    &ltdiv id="parent"&gt
-                        &ltdiv class="child"&gt&lt/div&gt
-                    &lt/div&gt
+                    &lt;div id="parent"&gt;
+                        &lt;div class="child"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
                 </code>
             </pre>
             <pre>
@@ -236,9 +236,9 @@
         </p>
         <p>
             In this situation, we see that we have an ID selector applying a red font color to the text and a class 
-            selector applying a blue font color to the text. While the class &ltchild&gt element inherits the red 
-            font color property, that particular property only applies directly to the class &ltparent&gt element. 
-            The class &ltchild&# will still apply a blue font color to its text because is more directed towards the 
+            selector applying a blue font color to the text. While the class &lt;child&gt; element inherits the red 
+            font color property, that particular property only applies directly to the class &lt;parent&gt; element. 
+            The class &lt;child&# will still apply a blue font color to its text because is more directed towards the 
             element itself and has higher specificity than an inherited property, even if it comes from a selector 
             with a higher specificity.
         </p>
@@ -263,7 +263,7 @@
             </pre>
         </p>
         <p>
-            In this example, if we have a single element that has both the &ltalert&gt and &ltwarning&gt classes, 
+            In this example, if we have a single element that has both the &lt;alert&gt; and &lt;warning&gt; classes, 
             the cascade will go through every other factor. This includes inherited properties (none), and specificity 
             (neither more than the other). We see that *ltwarning*gt was the last one to be defined and no other 
             factor could determine which rule was more prioritized or more specific, the element gets applied with 

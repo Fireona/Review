@@ -68,9 +68,9 @@
             <pre>
                 HTML
                 <code>
-                    &ltp class="blue"&gt This is a blue paragraph.
-                        &ltp class="blue"&gt This is also a blue paragraph.
-                            &ltdiv class="red"&gt This is a red paragraph.
+                    &lt;p class="blue"&gt; This is a blue paragraph.
+                        &lt;p class="blue"&gt; This is also a blue paragraph.
+                            &lt;div class="red"&gt; This is a red paragraph.
                 </code>
             </pre>        
             <pre>
@@ -95,9 +95,9 @@
             <pre>
                 HTML
                 <code>
-                    &ltp class="blue"&gt This is a blue paragraph.
-                        &ltp class="blue"&gt This is also a blue paragraph.
-                            &ltp class="red"&gt This is a blue paragraph.
+                    &lt;p class="blue"&gt; This is a blue paragraph.
+                        &lt;p class="blue"&gt; This is also a blue paragraph.
+                            &lt;p class="red"&gt; This is a blue paragraph.
                 </code>
             </pre>
             <pre>
@@ -166,8 +166,8 @@
             <pre>
                 HTML
                 <code>
-                    &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
-                        &ltp class="electronic house"&gtThis is about House Music!&lt/p&gt
+                    &lt;div class="electronic edm"&gt;Electronic Music&lt;/div&gt;
+                        &lt;p class="electronic house"&gt;This is about House Music!&lt;/p&gt;
                 </code>
             </pre>
             <pre>
@@ -186,8 +186,8 @@
             <pre>
                 HTML
                 <code>
-                    &ltdiv class="electronic edm"&gtElectronic Music&lt/div&gt
-                        &ltp class="electronic house" id="chill"&gtThis is about House Music!&lt/p&gt
+                    &lt;div class="electronic edm"&gt;Electronic Music&lt;/div&gt;
+                        &lt;p class="electronic house" id="chill"&gt;This is about House Music!&lt;/p&gt;
                 </code>
             </pre>
             <pre>
@@ -205,9 +205,9 @@
         </p>            
         <p>
             In general, you can not chain more than one type selector because an element can't be two elements at once. 
-            Chaining two type selectors like &ltdiv&gt and &ltp&gt would give us the selector &ltdivp&gt instead. This
-            does not work because there is no &ltdivp&gt element as it does not exist in HTML. Writing it as &ltdiv.p&gt does not work
-            either because that tells CSS to look for the element &ltdiv&gt with the "p" class. If you need to apply particular declarations 
+            Chaining two type selectors like &lt;div&gt; and &lt;p&gt; would give us the selector &lt;divp&gt; instead. This
+            does not work because there is no &lt;divp&gt; element as it does not exist in HTML. Writing it as &lt;div.p&gt; does not work
+            either because that tells CSS to look for the element &lt;div&gt; with the "p" class. If you need to apply particular declarations 
             on two type selectors, use the grouping selector instead.
         </p>
 
@@ -220,11 +220,11 @@
             <pre>
                 HTML
                 <code>
-                    &ltdiv class="parent"&gtThis is a parent.&ltdiv&gt
-                        &ltdiv class="child"&gtThis is a child.&ltdiv&gt
-                            &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+                    &lt;div class="parent"&gt;This is a parent.&lt;div&gt;
+                        &lt;div class="child"&gt;This is a child.&lt;div&gt;
+                            &lt;div class="child"&gt;This is a child.&lt;div&gt;
 
-                    &ltdiv class="child"&gtThis is a child.&ltdiv&gt
+                    &lt;div class="child"&gt;This is a child.&lt;div&gt;
                 </code>
             </pre>
             <pre>
@@ -237,7 +237,7 @@
             </pre>
         </p>
         <p>
-            In the example above, we see that one &ltdiv&gt has the class "parent" and three of them have the class "child". However, the declarations would only apply to both
+            In the example above, we see that one &lt;div&gt; has the class "parent" and three of them have the class "child". However, the declarations would only apply to both
             nested elements within the class "parent". This is because regardless of how deeply nested the element is, if the last element written element is only selected is any
             prior elements match with the preceding selectors.
         </p>
@@ -291,13 +291,13 @@
             External CSS
         </h4>
         <p>
-            To implement CSS to HTML externally, we have to create a CSS file within the same directory. This is then linked in the HTML opening and closing &lthead&gt tags with a void &ltlink&gt element.
+            To implement CSS to HTML externally, we have to create a CSS file within the same directory. This is then linked in the HTML opening and closing &lt;head&gt; tags with a void &lt;link&gt; element.
             <pre>
                 HTML
                 <code>
-                    &lthead&gt
-                        &ltlink rel="stylesheet" href="styles.css"&gt
-                    &lt/head&gt
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href="styles.css"&gt;
+                    &lt;/head&gt;
                 </code>
             </pre>
             <pre>
@@ -313,12 +313,12 @@
                 </code>
             </pre>
         <p>
-            After adding a void &ltlink&gt element within the &lthead&gt tags of the HTML file, we still have to add an 
+            After adding a void &lt;link&gt; element within the &lt;head&gt; tags of the HTML file, we still have to add an 
             href attribute. This leads the link to the CSS file, which could be an absolute URL, or in this scenario a relative location
             of the HTML file. The "rel" attribute is required as it specifies the relationship between the HTML file and the linked file.
         </p>
         <p>
-            Using the example above, the CSS file styles.css is already filled with a type selector, &ltdiv&gt with a declaration block of
+            Using the example above, the CSS file styles.css is already filled with a type selector, &lt;div&gt; with a declaration block of
             a white text and black background surrounded by opening and closing curly brackets. The name of the file doesn't matter, but
             generally are named "style" or "styles".
         </p>
@@ -332,14 +332,14 @@
         </h4>
         <p>
             Internal CSS involves adding CSS within the HTML file itself, only having a need for one file. With this method, all the rules are placed
-            within a pair of opening and closing &ltstyle&gt tags. This "style" block is then placed inside the opening/closing &lthead&gt tags of our
-            HTML file. Since everything is in the HTML file, a &ltlink&gt element is no longer needed that the external method uses. Afterwards, the same
+            within a pair of opening and closing &lt;style&gt; tags. This "style" block is then placed inside the opening/closing &lt;head&gt; tags of our
+            HTML file. Since everything is in the HTML file, a &lt;link&gt; element is no longer needed that the external method uses. Afterwards, the same
             declaration blocks in CSS are written the same way in the HTML file.
             <pre>
                 HTML
                 <code>
-                    &lthead&gt
-                        &ltstyle&gt
+                    &lt;head&gt;
+                        &lt;style&gt;
                             div {
                                 color: white;
                                 background-color: black;
@@ -348,11 +348,11 @@
                             p {
                                 color: red;
                             }
-                        &lt/style&gt
-                    &lt/head&gt
-                    &ltbody&gt
+                        &lt;/style&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
                     ...
-                    &lt/body&gt    
+                    &lt;/body&gt;    
                 </code>
             </pre>
         </p>
@@ -366,9 +366,9 @@
             <pre>
                 HTML
                 <code>
-                    &ltbody&gt
-                        *ltdiv style="color: white; background-color: black;"&gt...&lt/div&gt
-                    &lt/body&gt   
+                    &lt;body&gt;
+                        *ltdiv style="color: white; background-color: black;"&gt;...&lt;/div&gt;
+                    &lt;/body&gt;   
                 </code>
             </pre>
         <p>

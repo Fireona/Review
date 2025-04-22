@@ -31,7 +31,7 @@
         </p>
         <p>
             There are many methods to size the boxes to your desire, including the space between each of them. This 
-            is done by adding the &ltpadding&gt, &ltborder&gt, and &ltmargin&gt properties to the declaration. To summarize:
+            is done by adding the &lt;padding&gt;, &lt;border&gt;, and &lt;margin&gt; properties to the declaration. To summarize:
             <dl>
                 <dt>
                     Padding
@@ -150,7 +150,7 @@
                 CSS
                 <code>
                     .box {
-                        margin: &ltmargin-top&gt &ltmargin-right&gt &ltmargin-bottom&gt &ltmargin-left&gt
+                        margin: &lt;margin-top&gt; &lt;margin-right&gt; &lt;margin-bottom&gt; &lt;margin-left&gt;
                     }
                 </code>
             </pre>
@@ -175,7 +175,7 @@
             </pre>
         </p>
         <p>
-            In the first declaration, the values are defined for &lttop-and-bottom&gt and &ltleft-and-right&gt.
+            In the first declaration, the values are defined for &lt;top-and-bottom&gt; and &lt;left-and-right&gt;.
         </p>
         <h4>
             <code>auto</code> and Centering
@@ -238,9 +238,9 @@
             <pre>
                 HTML
                 <code>
-                    &lth2&gt
+                    &lt;h2&gt;
                         Collapsing Margins
-                    &lt/h2&gt
+                    &lt;/h2&gt;
                 </code>
             </pre>
             <pre>
@@ -257,7 +257,7 @@
             </pre>
         </p>
         <p>
-            Here we have a scenario where &lth2&gt element has a bottom margin of 20px while our &ltp&gt element 
+            Here we have a scenario where &lt;h2&gt; element has a bottom margin of 20px while our &lt;p&gt; element 
             has a top margin of 10px. When the two margins collapse with each other, only the greater value stands 
             as the margin, that being 20px.
         </p>
@@ -269,12 +269,12 @@
             <pre>
                 HTML
                 <code>
-                    &lth2&gt
+                    &lt;h2&gt;
                         Collapsing Margins
-                    &lt/h2&gt
-                    &ltdiv&gt
-                        &ltp&gtExample text.&lt/p&gt
-                    &lt/div&gt                        
+                    &lt;/h2&gt;
+                    &lt;div&gt;
+                        &lt;p&gt;Example text.&lt;/p&gt;
+                    &lt;/div&gt;                        
                 </code>
             </pre>
             <pre>
@@ -295,8 +295,8 @@
             </pre>
         </p>
         <p>
-            Here we have a <code>&ltp&gt</code> with a top margin of 30px nested within a <code>&ltdiv&gt</code> element that 
-            has a top margin of 40px. We also have an <code>&lth2&gt</code> element with a bottom margin of 20px. If 
+            Here we have a <code>&lt;p&gt;</code> with a top margin of 30px nested within a <code>&lt;div&gt;</code> element that 
+            has a top margin of 40px. We also have an <code>&lt;h2&gt;</code> element with a bottom margin of 20px. If 
             margins did not collapse, we would be looking at a margin of 90px. However, because they do, there is no 
             need to adjust the top margins to remove unneccessary vertical space.
         </p>
