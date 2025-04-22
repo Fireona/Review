@@ -46,15 +46,38 @@
             </p>
             <a href="https://codepen.io/TheOdinProjectExamples/pen/QWgNxrp" target="_blank" rel="noopener noreferrer">Example 1</a>
             <p>
-
+                <pre>
+                    HTML
+                    <code>
+                        &lt;div class="flex-container"&gt;
+                            &lt;div class="one"&gt;&lt;/div&gt;
+                            &lt;div class="two"&gt;&lt;/div&gt;
+                            &lt;div class="three"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    </code>
+                </pre>
+                <pre>
+                    CSS
+                    <code>
+                        .flex-container {
+                            /* display: flex; */
+                          }
+                          
+                          /* this selector selects all divs inside of .flex-container */
+                          .flex-container div {
+                            background: peachpuff;
+                            border: 4px solid brown;
+                            height: 100px;
+                            /* flex: 1; */
+                          }
+                    </code>
+                </pre>                
+            </p>
+            <p>
+                In the example, when you removing the comments tags in the CSS declarations (&#47&#42 and &#42&#47)
             </p>
 
-            <p>This is a <strong>strong</strong> tag with spaces before and after the element.</p>
-            <p>This is a<strong>strong</strong>tag without spaces before and after the element.</p>
-            
-
-
-
+            <br>
             <a href="../" target="_self" rel="noopener noreferrer">Next Lesson: Growing and Shrinking</a>
             <br>
             <a href="../flexbox.html" target="_self" rel="noopener noreferrer">Back to Flexbox</a>
