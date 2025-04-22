@@ -82,6 +82,15 @@ li {
     color: rgb(100, 50, 0);
 }
 
+.answer {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.question:hover + .answer{
+    opacity: 1;
+}
+
 .flexbox-intro-link {
     margin: 0;
 }

@@ -74,9 +74,57 @@
                 </pre>                
             </p>
             <p>
-                In the example, when you removing the comments tags in the CSS declarations (&#47&#42 and &#42&#47)
+                In the example, when you remove the comments tags in the CSS declarations (&#47;&#42; and &#42;&#47;),
+                you set all three &lt;div&gt;s to be arranged horizontally. When hitting the 1x, 0.5x, 0.25x magnifiers,
+                the spacing between all three are equal even when zoomed out. This is how they 'flex'.
+            </p>
+            <p>
+                If you add another &lt;div&gt; to the HTML, you will get four &lt;div&gt; tags spread evenly.
             </p>
 
+
+            <h2>
+                Flex Containers and Flex Items
+            </h2>
+            <p>
+                <img src="./images/flexbox-properties.png" alt="Flexbox divided into Items and Categories">
+                <br>
+                Flexbox is composed a plethora of properties that are divided into two categories:
+                <dl>
+                    <dt>
+                        Flex Container
+                    </dt>
+                    <dd>
+                        Any element that has <code>display: flex</code>.
+                    </dd>
+                    <dt>
+                        Flex Item
+                    </dt>
+                    <dd>
+                        An element that lives directly inside of a flex container.
+                    </dd>
+                </ul>
+                <br>
+                <img src="../../images/there-is-more.gif" alt="But wait, there's more video">
+                <br>
+                Any element can be both a flex container <em>and</em> a flex item.
+                <br>
+                <img src="./images/flexbox-item-and-property.png" alt="Flex Item can also be a container">
+                <br>
+                In a nutshell, flexbox can produce complex layouts like the one below:
+                <img src="./images/flexbox-layout-example.png" alt="Layout of Flexbox Capabilities">
+            </p>
+
+
+            <h3>
+                Quiz
+            </h3>
+                <p class="question">What makes an element a flex container?</p>
+                <p class="answer">Any element with the property <code>display: flex</code> is a flex container.</p>
+                <p class="question">What makes an elment a flex item?</p>
+                <p class="answer">Any element that lives with the flex container.</p>
+                <p class="question">How do you create a flex item?</p>
+                <p class="answer">Creating any content within an element that has the <code>display: flex</code> property.</p>
             <br>
             <a href="../" target="_self" rel="noopener noreferrer">Next Lesson: Growing and Shrinking</a>
             <br>
