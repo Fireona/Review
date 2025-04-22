@@ -36,6 +36,21 @@ h1 {
     word-wrap: break-word;
 }
 
+h2 {
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+h4 {
+    text-decoration: underline;
+    font-weight: 1000;
+}
+
 .hometopics {
     font-size: 24px;
 }
@@ -49,13 +64,12 @@ a {
     color: rgb(160, 30, 30);
 }
 
-
 /* CSS Contents */
 .cssh1 {
     color: rgb(50, 50, 255);
 }
 
-.h4-link-alignment {
+.h2-link-alignment {
     display: block;
     margin: 0;
 }
@@ -65,11 +79,13 @@ a {
     color: rgb(100, 50, 0);
 }
 
-h3 {
-    font-size: 24px;
-    text-decoration: underline;
+.flexbox-intro-link {
+    margin: 0;
 }
 
+.itf-preview-strong {
+    margin: 0;
+}
 
 code {
     color: #e7bdd5;
