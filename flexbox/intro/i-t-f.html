@@ -96,24 +96,37 @@
                         Flex Container
                     </dt>
                     <dd>
-                        Any element that has <code>display: flex</code>.
+                        Any element that has the declaration <code>display: flex</code>.
                     </dd>
                     <dt>
                         Flex Item
                     </dt>
                     <dd>
-                        An element that lives directly inside of a flex container.
+                        An element that is a direct child element of a flex container.
                     </dd>
                 </ul>
                 <br>
                 <img src="../../images/there-is-more.gif" alt="But wait, there's more video">
                 <br>
-                Any element can be both a flex container <em>and</em> a flex item.
+                Any element within the flex container, can be both also a flex container <em>and</em> a flex item.
                 <br>
                 <img src="./images/flexbox-item-and-property.png" alt="Flex Item can also be a container">
                 <br>
                 In a nutshell, flexbox can produce complex layouts like the one below:
                 <img src="./images/flexbox-layout-example.png" alt="Layout of Flexbox Capabilities">
+            </p>
+            <br>
+            <p>
+                <ul>Summary
+                    <li>
+                        A child element can only be a "flex item" if, and only if, the parent has the property "display: flex" 
+                        and the child element is a directly descending element to the parent (one level).
+                    </li>
+                    <li>
+                        Any further descending elements (two or more) may not necessarily be a flex item if their parent element 
+                        is not a flex container.
+                    </li>
+                </ul>
             </p>
 
 
