@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../styles.css">
+        <title>Growing and Shrinking</title>
+    </head>
+    <body>
+        <h1>
+            Growing and Shrinking
+        </h1>
+        <h3>
+            Overview
+        </h3>
+        <ul>
+            The three properties that are defined by the <code>flex</code> shorthand.
+        </ul>
+
+
+        <h4>
+            Flex Shorthand
+        </h4>
+        <p>
+            When using the <code>flex</code> declaration, it is actually a shorthand for three properties that affect 
+            how flex items size themselves in the flex container. The <code>flex</code> is a shorthand for:
+            <ul>
+                <li>
+                    <code>flex-grow</code>
+                </li>
+                <li>
+                    <code>flex-shrink</code>
+                </li>
+                <li>
+                    <code>flex-basis</code>
+                </li>
+            </ul>            
+        </p>
+        <br>
+        <img src="images/flex-shorthand.png" alt="Flex Shorthand Example">
+        <br>
+        <p>
+            In the diagram above, we see &lt;div&gt; is defined by <code>flex: 1</code>. This is in reality a shorthand 
+            for:
+            <ul>
+                <li>
+                    <code>flex-grow: 1</code>
+                </li>
+                <li>
+                    <code>flex-shrink: 1</code>
+                </li>
+                <li>
+                    <code>flex-basis: 0</code>
+                </li>
+            </ul>
+            In many cases, when the flex shorthand is defined by one value, it only affects the property <code>flex-grow</code>. 
+            If we use the example from <a href="https://codepen.io/TheOdinProjectExamples/pen/QWgNxrp" target="_self" rel="noopener noreferrer">our previous lesson</a>, 
+            we changed our element to become a flex container. Following up from that, we also applied <code>flex: 1</code>, 
+            which is actually a shorthand to write <code>flex: 1 1 0</code>.
+        </p>
+        <p>
+            The default values for <code>flex</code> is:
+            <ul>
+                <li>
+                    <code>flex-grow: 0</code>
+                </li>
+                <li>
+                    <code>flex-shrink: 1</code>
+                </li>
+                <li>
+                    <code>flex-basis: auto</code>
+                </li>
+            </ul>
+             What this means is:
+            <ul>
+                <li>
+                    Items do not grow.
+                </li>
+                <li>
+                    The items can shrink.
+                </li>
+                <li>
+                    Their sizes are based on content, <code>width</code>, or <code>min-content</code>.
+                </li>
+            </ul>
+        </p>
+
+
+        <h4>
+            Flex-grow
+        </h4>
+        <p>
+            <code>flex-grow</code> expects a single number as its value, which determines the flex item's "growth 
+            factor". In our earlier example, when we declared <code>flex: 1</code> to all &lt;div&gt;s in the 
+            container, we told all divs to grow the same rate. If we wrote one <code>div</code> to have 
+            <code>flex-grow: 2</code>, then that <code>div</code> would grow twice as large.            
+        </p>
+        <p>
+            In <a href="https://codepen.io/TheOdinProjectExamples/pen/YzQqvgK" target="_self" rel="noopener noreferrer">this link</a>,
+            you can see there is flex shorthand applied, with default values for <code>flex-shrink</code> and 
+            <code>flex-basis</code>. By changing the value of <code>flex-grow</code>, you can see that the <code>div</code>
+            expands horizontally accordingly to the value specified with respect to the other &lt;div&gt; elements.
+        </p>
+        <p>
+            Summary
+            <ul>
+                <li>
+                    Affects how flex-items grow.
+                </li>
+                <li>
+                    Value of <code>0</code> prevents growth, any greater value will allow the item to grow.
+                </li>
+                <li>
+                    <code>flex: 1</code> is shorthand for <code>flex: 1 1 0</code>.
+                </li>
+            </ul>
+        </p>
+
+        <h4>
+            Flex-shrink
+        </h4>
+        <p>
+            Similar to <code>flex-grow</code>, <code>flex-shrink</code> sets how a flex item "shrinks". This only 
+            functions when the size of all three flex items becomes larger than the parent. Lets make a scenario using 
+            the same example above. If we had the three &lt;div&gt;s to have a specified equal width and that value 
+            exceeded our container's. What would happen is the three flex items would have to shrink in order to fit 
+            in the flex container.
+        </p>
+        <p>
+            The default shrink factor is <code>flex-shrink: 1</code>. If you write <code>flex-shrink: 0</code>, then 
+            the items will not shrink at all. By applying a higher value to <code>flex-shrink</code>, the items will 
+            shrink at a greater rate.
+        </p>
+        <p>
+            <a href="https://codepen.io/TheOdinProjectExamples/pen/JjJXZVz" target="_self" rel="noopener noreferrer">In this scenario</a>,
+            we have three &lt;div&gt;s that have a specified width. If we shrink the window of the browser, <code>.two</code> 
+            will never become smaller than the declared <code>width: 250px;</code>. This applies even when <code>flex-grow</code>
+            stated for all &lt;div&gt;s to be equally sized.
+        </p>
+        <p>
+            An important fact to notice here when specifying <code>flex-grow</code> or <code>flex-shrink</code>,
+            flex items do not necessarily respect any given values to <code>width</code>. In the above example, three 
+            &lt;div&gt;s are given a width of 250px, but they are "flexed" to fill the container when big enough. The 
+            opposite will occur when scenario is reversed. If the container is too small,the default behavior is for 
+            the flex items to shrink.
+        </p>
+        <p>
+            <ul>
+                Summary:
+                <li>
+
+                </li>
+            </ul>
+        </p>
+
+
+        <h4>
+            Flex-basis
+        </h4>
+        <p>
+            <code>flex-basis</code> sets the initial size of a flex item. This sets as the baseline for any <code>flex-grow</code> 
+            or <code>flex-shrink</code> values. The shorthand value defaults to <code>flex-basis: 0%</code>. When using the value 
+            <code>auto</code> for flex-basis tells the item to check for a width declaration.
+            <ul>
+                In the example we set in Flex-Shrink, the value for <code>flex-basis</code> was set to <code>auto</code> 
+                because if left at a value of <code>0</code>, then the &lt;div&gt;s would ignore the container's width and then 
+                shrink evenly.
+            </ul>
+        </p>
+        <p>
+            Note: There is a difference between the default value of <code>flex-basis</code> and the way <code>flex</code>> 
+            defines it if no <code>flex-basis</code> was declared. The actual default value for <code>flex-basis</code> 
+            is <code>auto</code>, but when we specify <code>flex: 1</code>, it automatically interprets it as <code>flex: 1 1 0</code>. 
+            If we only want to adjust an item's <code>flex-grow</code>, we must do so without the shorthand.
+                <br>
+                In conclusion:
+                <li>
+                    <code>flex</code> is shorthand for <code>flex: 0 1 auto</code>. This does not let items grow.
+                </li>
+                <li>
+                    <code>flex: 1</code> is shorthand for <code>flex: 1 1 0</code>. This lets items grow.
+                </li>
+                <li>
+                    If we only want to adjust an item's <code>flex-grow</code>, we can do it directly without the shorthand.
+                </li>
+                <li>
+                    An alternative is to write the entire value shorthand <code>flex: 1 1 auto</code>, the equivalent of <code>flex: auto</code>.
+                </li>
+            </ul>            
+        </p>
+        
+        
+        <h4>
+            flex-auto
+        </h4>
+        <p>
+            When <code>auto</code> is defined as as flex keyword, it is the same property values of <code>flex-grow: 1</code>, 
+            <code>flex-shrink: 1</code>, and <code>flex-basis: auto</code>. This is also the shorthand for 
+            <code>flex: 1 1 auto</code>.
+        </p>
+        <p>
+            A note to be aware of is <code>flex: auto</code> is not the default value when using the flex shorthand.
+        </p>
+
+
+        <h2>
+            <a href="https://www.w3.org/TR/css-flexbox-1/#flex-common" target="_self" rel="noopener noreferrer">W3C's Flex Section</a>
+        </h2>
+        <p>
+            Below are four flex values that represent most commonly-desired effects:
+            <dl>
+                <dt>
+                    flex: initial
+                </dt>
+                <dd>
+                    Equivalent to <code>flex: 0 1 auto</code>. Sizes the item based on their 
+                    <code>width</code>/<code>height</code> properties. (If the item's main size property computes to auto, 
+                    this will size the flex item based on its contents). Makes an item inflexible when there is positive
+                    free space, but allows it to shrink to its minimum size where there is insufficient space. Alignment 
+                    abilities or 'auto' margins can be used ot align flex items along the main axis.
+
+                    <ul>Summary:
+                        <li>
+                            <code>flex-grow: 0</code> prevents the item from growing.
+                        </li>
+                        <li>
+                            <code>flex-shrink: 1</code> allows the item to shrink if necessary.
+                        </li>
+                        <li>
+                            <code>flex-basis: auto</code> means the item's starting size is based on the <code>width</code>, 
+                            the content, or default behavior.
+                        </li>
+                        <li>
+                            Behaves like a block-level element. Takes up only as much space as needed, shrinks if needed, but 
+                            doesn't grow to fill extra space.
+                        </li>
+                    </ul>
+                </dd>
+                <dt>
+                    flex: auto
+                </dt>
+                <dd>
+                    Equivalent to <code>flex: 1 1 auto</code>. Sizes the item based on their 
+                    <code>width</code>/<code>height</code> properties, but makes them fully flexible allowing them to absorb 
+                    any free space along the main axis. If all items are either <code>flex: auto</code>, <code>flex: initial</code>, 
+                    or <code>flex: none</code>, then any positive free space after the items have been sized will be distributed 
+                    evenly to the items with <code>flex: auto</code>.
+                    
+                    <ul>Summary:
+                        <li>
+                            <code>flex-grow: 1</code> allows the item to grow.
+                        </li>
+                        <li>
+                            <code>flex-shrink: 1</code> allows the item to shrink if necessary.
+                        </li>
+                        <li>
+                            <code>flex-basis: auto</code> means the item's starting size is based on the <code>width</code>, 
+                            the content, or default behavior.
+                        </li>
+                        <li>
+                            Very flexible. Item grows and shrinks based on available space, and respects content size.
+                        </li>
+                        <li>
+                            Commonly used when you want items to scale proportionally but also let content influence size.
+                        </li>
+                    </ul>
+                </dd>
+                <dt>
+                    flex: none
+                </dt>
+                <dd>
+                    Equivalent to <code>flex: 0 0 auto</code>. Sizes the item based on their 
+                    <code>width</code>/<code>height</code> properties, but makes them fully inflexible. Similar to <code>flex: inital</code>, 
+                    but flex items are not allowed to shrink even when overflowing.
+
+                    <ul>Summary
+                        <li>
+                            <code>flex-grow: 0</code> prevents the item from growing.
+                        </li>
+                        <li>
+                            <code>flex-shrink: 0</code> prevents the item from shrinking.
+                        </li>
+                        <li>
+                            <code>flex-basis: auto</code> means the item's starting size is based on the <code>width</code>, 
+                            the content, or default behavior.
+                        </li>
+                        <li>
+                            Completely rigid. Keeps items their natural size no matter what.
+                        </li>
+                        <li>
+                            Useful when you want a fixed-size item inside a flexible layout (like a sidebar or logo).
+                        </li>
+                    </ul>
+                </dd>
+                <dt>
+                    flex: &lt;postive-number&gt;
+                </dt>
+                <dd>
+                    Equivalent to <code>flex: "&#35>0" 1 0</code>. Makes the flex item flexible and sets the flex basis(?) 
+                    to zero, resulting in an item that receives the specified proportion of the free space in the flex container(?). 
+                    If all items in the flex container use this pattern, their sizes will be proporitonal to the specified 
+                    flex factor.
+
+                    <ul>Summary
+                        <li>
+                            <code>flex-grow: &#35>1</code> allows the item to grow at specified value.
+                        </li>
+                        <li>
+                            <code>flex-shrink: 1</code> allows the item to shrink if necessary.
+                        </li>
+                        <li>
+                            <code>flex-basis: 0</code> means the item size starts at 0 width, grows from there.
+                        </li>
+                        <li>
+                            Used to evenly or proportionally divide space among items.
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </p>
+
+
+        <h2>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_self" rel="noopener noreferrer">MDN's Documentation on Flex</a>
+        </h2>
+
+
+        <a href="../axes/axes.html" target="_self" rel="noopener noreferrer">Next Lesson: Axes</a>
+        <br>
+        <a href="../flexbox.html" target="_self" rel="noopener noreferrer">Back to Flexbox</a>
+    </body>
+</html>
