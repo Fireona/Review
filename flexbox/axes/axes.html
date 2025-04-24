@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../styles.css">
+        <title>Axes</title>
+    </head>
+    <body>
+        <h1>
+            Axes
+        </h1>
+        <h2>
+            Overview            
+        </h2>
+        <ul>
+            <li>
+                Learn about the two "axes" of a flex container.
+            </li>
+            <li>
+                How to change the axes to arrange content in columns instead of rows.
+            </li>
+        </ul>
+
+
+        <br>
+
+
+        <h4>
+            Axes
+        </h4>
+        
+        <img src="./images/axe.gif" alt="Kratos grabbing his axe">
+
+
+        <br>
+        
+        
+        <p>
+            Flexbox can work horizontally or vertically, but some rules change depending on the orientation
+            we are working in. The default direction for flex container is horizontal, <code>row</code>, but 
+            it can be changed to vertical, <code>column</code>. The declaration wil look like this:
+        </p>
+        <p>
+            <pre>
+                CSS
+                <code>
+                    .flex-container {
+                        flex-direction: column;
+                    }
+                </code>
+            </pre>
+        </p>
+        <p>
+            Think of your containers as having two axes: the main axis and the cross axis. Direction of the axes 
+            change as a resulting effect when <code>flex-direction</code> changes. In most use cases, <code>flex-direction: row</code>
+            puts the main axis horizontal (left to right), and <code>column</code> puts the main axis vertical (top to bottom).
+        </p>
+        <p>
+            In our first example from <a href="../intro/i-t-f.html" target="_self" rel="noopener noreferrer">Intro to Flexbox</a>, 
+            our parent &lt;div&gt; was given the <code>display: flex</code> property and the items were then arranged 
+            horizontally. <strong>Default setting for flex direction is <code>flex-direction: row</code></strong>. 
+            In <a href="https://codepen.io/TheOdinProjectExamples/pen/BaZKPdw" target="_self" rel="noopener noreferrer">this example</a>, 
+            if we apply the property <code>flex-direction: column</code> instead, the items will stack vertically.
+        </p>
+        <!-- Set the link in above to CodePen as HTML/CSS/JavaScript Editor with a Preview -->
+         <p>
+            From this example, <code>flex-direction: column</code> will not work if the shorthand <code>flex: 1</code> 
+            was used. Remember, <code>flex: 1</code> is shorthand for <code>flex: 1 1 0</code>. From this, the 
+            flex-basis states the initial size of an item, which is defined as "0" in this scenario meaning to "grow" from nothing. 
+            Empty &lt;div&gt;s, by default, have 0 height. With a lack of content or "room to grow", the items remain empty, 
+            giving the appearance of the borders only. Even with a declared property of <code>height: 80px</code>, our 
+            flex-basis property still tells us to start from 0. Our <code>height: 80px</code> instead then behaves as a height 
+            limiter.
+            <br>
+            <ul>
+                Summary for <code>flex: 1</code> and why it doesn't work.
+                <!-- When using "flex: 1", it does not obey our height declaration, "height: 80px", to start from there. Rather it 
+                 ignores it and interprets it as a height limiter. As a result, with no height, our items do not "grow" to "fill" 
+                 our container. -->
+                <li>
+                    <code>flex: 1</code> stands for <code>flex-grow: 1</code>, <code>flex-shrink: 1</code>, <code>flex-basis: 0</code>. 
+                    <code>flex-basis: 0</code> says the initial size of the item starts at 0.
+                </li>
+                <li>
+                    Height declarations will be ignored in favor of <code>flex-basis</code> when using <code>flex-basis: 0</code>.Any 
+                    declared <code>height</code>s will not be used as a starting point, but act as a height limiter. 
+                </li>
+                <li>
+                    Empty &lt;div&gt;s have a height of 0 by default. With no content to fill the item, only borders remain visible.
+                </li>
+            </ul>
+            <ul>
+                Summary for <code>flex: 1 1 auto</code>.
+                <!-- When using "flex: 1 1 auto", our flex-basis states "start growing from where you have been told or from nothing". 
+                 Since we declared "height: 80px", flexbox sets the items at a height of 80px each right from the start. This "stretches" 
+                 or "fills" our items and gives them the appearance of boxes stacked on top of another. -->
+                <li>
+                    <code>flex: 1 1 0</code> stands for <code>flex-grow: 1</code>, <code>flex-shrink: 1</code>, <code>flex-basis: auto</code>. 
+                    <code>flex-basis: auto</code> means "Start from where you have been told or from nothing".
+                </li>
+                <li>
+                    With <code>height: 80px</code> declared, flex-basis' initial size starts at 80px.
+                </li>
+                <li>
+                    With our &lt;div&gt;s being told by <code>flex-basis: auto</code> to start growing at our declared <code>height: 80px</code>, 
+                    our items appear "filled" or "stretched" as boxes stacked on top another.
+                </li>
+            </ul>
+            <br>
+            Alternatively, another option is to achieve a similar result is to apply a <code>height</code> on the 
+            parent container or to use <code>flex-grow: 1</code> instead.
+         </p>
+         <p>
+            Note: When changing the <code>flex-direction</code> to <code>column</code>, the <code>flex-basis</code> 
+            refers to height instead of width (use the visual in the example above).
+         </p>
+         <p>
+            Default behaviour is <code>flex-direction: row</code> which arranges things horizontally. This often functions 
+            nicely without changing other details in CSS is because block-level elements default to the full width of the parent. 
+            Changing things to vertical with <code>flex-direction: column</code> adds complexity. Block-level elements default to 
+            the height of their content, and in this case, there is no content.
+         </p>
+
+
+         <br>
+
+
+         <h4>
+            Questions
+         </h4>
+         <p class="question">
+            How do you make flex items arrange themselves vertically instead of horizontally?
+         </p>
+         <p class="answer">
+            By applying the declaration <code>flex-direction: column</code> to the flex container.
+         </p>
+         <p class="question">
+            In a <code>column</code> flex-container, what does <code>flex-basis</code> refer to?
+         </p>
+         <p class="answer">
+            <code>height</code>.
+         </p>
+         <p class="question">
+            In a <code>row</code> flex-container, what does the <code>flex-basis</code> refer to?
+         </p>
+         <p class="answer">
+            <code>width</code>.
+         </p>
+         <p class="question">
+            Why do the previous two questions have different answers?
+         </p>
+         <div class="answer">
+            They have different answers because of the direction of the content is arranged. Flexbox 
+            lays out items along a main axis, which is defined by the <code>flex-direction</code>.
+            <ul>
+                <li>
+                    In a <code>row</code> direction, the main axis is horizontal, so <code>flex-basis</code> controls <code>width</code>.
+                </li>
+                <li>
+                    In a <code>column</code> direction, the main axis is vertical, so <code>flex-basis</code> controls <code>height</code>.
+                </li>
+            </ul>
+            <code>flex-basis</code> always defines the <b>initial size of a flex item along the main axis</b>, which 
+            is why it refers to different physical properties depending on the layout direction.
+        </div>
+
+
+        <br>
+        <a href="../alignment/alignment.html" target="_self" rel="noopener noreferrer">Next Lesson: Alignment</a>
+        <br>
+        <a href="../../flexbox/flexbox.html" target="_self" rel="noopener noreferrer">Back to Flexbox</a>
+    </body>
+</html>
