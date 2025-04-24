@@ -194,12 +194,17 @@
             </ul>
         </p>
         <p>
-            Note: There is a difference between the default value of <code>flex-basis</code> and the way <code>flex</code>> 
-            defines it if no <code>flex-basis</code> was declared. The actual default value for <code>flex-basis</code> 
+            Note: There is a difference between the default value of <code>flex-basis</code> and the way <code>flex</code> 
+            defines it if <code>flex-basis</code> was not declared. The actual default value for <code>flex-basis</code> 
             is <code>auto</code>, but when we specify <code>flex: 1</code>, it automatically interprets it as <code>flex: 1 1 0</code>. 
             If we only want to adjust an item's <code>flex-grow</code>, we must do so without the shorthand.
-                <br>
-                In conclusion:
+        </p>
+        <p>
+            <ul>
+                Summary:
+                <li>
+                    <code>flex-basis</code> sets the initial size of an item.
+                </li>
                 <li>
                     <code>flex</code> is shorthand for <code>flex: 0 1 auto</code>. This does not let items grow.
                 </li>
@@ -211,6 +216,9 @@
                 </li>
                 <li>
                     An alternative is to write the entire value shorthand <code>flex: 1 1 auto</code>, the equivalent of <code>flex: auto</code>.
+                </li>
+                <li>
+                    Valid values are: <code>auto</code>, <code>em</code>, <code>%</code>, and <code>min-content</code>.
                 </li>
             </ul>            
         </p>
@@ -228,10 +236,10 @@
             <code>flex: 1 1 auto</code>.
         </p>
         <p>
-            A note to be aware of is <code>flex: auto</code> is not the default value when using the flex shorthand.
+            A note to be aware of is <code>flex: auto</code> is not the default value when using the <code>flex</code> shorthand.
         </p>
         <p>
-            Summary
+            Summary:
             <ul>
                 <li>
                     When applied as the keyword (value) to <code>flex</code>, it is a shorthand for writing <code>flex: 1 1 auto</code> 
@@ -245,10 +253,10 @@
 
 
         <h2>
-            <a href="https://www.w3.org/TR/css-flexbox-1/#flex-common" target="_self" rel="noopener noreferrer">W3C's Flex Section</a>
+            <a href="https://www.w3.org/TR/css-flexbox-1/#flex-common" target="_blank" rel="noopener noreferrer">W3C's Flex Section</a>
         </h2>
         <p>
-            Below are four flex values that represent most commonly-desired effects:
+            Below are four flex values that give the most commonly-desired effects:
             <dl>
                 <dt>
                     flex: initial
@@ -258,7 +266,7 @@
                     <code>width</code>/<code>height</code> properties. (If the item's main size property computes to auto, 
                     this will size the flex item based on its contents). Makes an item inflexible when there is positive
                     free space, but allows it to shrink to its minimum size where there is insufficient space. Alignment 
-                    abilities or 'auto' margins can be used ot align flex items along the main axis.
+                    abilities or 'auto' margins can be used to align flex items along the main axis.
 
                     <ul>
                         Summary:
@@ -278,6 +286,9 @@
                         </li>
                     </ul>
                 </dd>
+                
+                <br>
+
                 <dt>
                     flex: auto
                 </dt>
@@ -308,6 +319,9 @@
                         </li>
                     </ul>
                 </dd>
+
+                <br>
+
                 <dt>
                     flex: none
                 </dt>
@@ -336,11 +350,14 @@
                         </li>
                     </ul>
                 </dd>
+
+                <br>
+
                 <dt>
                     flex: &lt;postive-number&gt;
                 </dt>
                 <dd>
-                    Equivalent to <code>flex: "&#35>0" 1 0</code>. Makes the flex item flexible and sets the flex basis(?) 
+                    Equivalent to <code>flex: "&#35>0" 1 0</code>. Makes the flex item flexible and sets the flex basis 
                     to zero, resulting in an item that receives the specified proportion of the free space in the flex container(?). 
                     If all items in the flex container use this pattern, their sizes will be proporitonal to the specified 
                     flex factor.
@@ -369,8 +386,157 @@
 
 
         <h2>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_self" rel="noopener noreferrer">MDN's Documentation on Flex</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank" rel="noopener noreferrer">MDN's Documentation on Flex</a>
         </h2>
+        <p>
+            Default value for using the shorthand <code>flex</code> is <code>flex-grow: 0</code>, <code>flex-shrink: 1</code>, <code>flex-basis auto</code>.
+        </p>
+        <p>
+            Default values for <code>flex-grow</code>:
+            <ul>
+                <li>
+                    <code>Any number equal or greater than 0</code>.
+                </li>
+                <li>
+                    <code>inherit</code>
+                </li>
+                <li>
+                    <code>initial</code>
+                </li>
+                <li>
+                    <code>revert</code>
+                </li>
+                <li>
+                    <code>revert-layer</code>
+                </li>
+                <li>
+                    <code>unset</code>
+                </li>
+            </ul>
+        </p>
+        <p>
+            Default values for <code>flex-shrink</code>
+            <ul>
+                <li>
+                    <code>Any number equal or greater than 0</code>.
+                </li>
+                <li>
+                    <code>inherit</code>
+                </li>
+                <li>
+                    <code>initial</code>
+                </li>
+                <li>
+                    <code>revert</code>
+                </li>
+                <li>
+                    <code>revert-layer</code>
+                </li>
+                <li>
+                    <code>unset</code>
+                </li>
+            </ul>
+        </p>
+        <p>
+            Default values for <code>flex: basis</code>
+            <ul>
+                <li>
+                    <code>em</code>
+                </li>
+                <li>
+                    <code>px</code>
+                </li>
+                <li>
+                    <code>%</code>
+                </li>
+                <li>
+                    <code>auto</code>
+                </li>
+                <li>
+                    Intrinsic Sizing Keywords:
+                    <ul>
+                        <li>
+                            <code>max-content</code>
+                        </li>
+                        <li>
+                            <code>min-content</code>
+                        </li>
+                        <li>
+                            <code>fit-content</code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Automatically Sized Based on Flex Item's Content:
+                    <ul>
+                        <li>
+                            <code>content</code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Global Values:
+                    <ul>
+                        <li>
+                            <code>inherit</code>
+                        </li>
+                        <li>
+                            <code>initial</code>
+                        </li>
+                        <li>
+                            <code>revert</code>
+                        </li>
+                        <li>
+                            <code>revert-layer</code>
+                        </li>
+                        <li>
+                            <code>unset</code>
+                        </li>
+                    </ul>
+                </li>                
+            </ul>
+        </p>
+        <p>
+            When using valid values paired the <code>flex</code> shorthand, with:
+            <ol>
+                <li>
+                    One Value
+                    <ul>
+                        <li>
+                            Changes the <code>flex</code> shorthand to <code>flex-grow: 'value'</code> or
+                            <code>flex: 'value' 1 0</code>. It will never affect <code>flex-shrink</code>.
+                        </li>
+                        <li>
+                            If defined by a valid value for <code>flex-basis</code>, changes the <code>flex</code> shorthand to 
+                            <code>flex: 0 1 'value'</code>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Two Values
+                    <ul>
+                        <li>
+                            First value changes the <code>flex</code> shorthand to <code>flex-grow: 'value'</code> or
+                            <code>flex: 'value' 1 0</code>. It will never affect <code>flex-shrink</code>.
+                        </li>
+                        <li>
+                            Second value must be a valid value for <code>flex-basis</code>. This changes the <code>flex</code> 
+                            shorthand to <code>flex: 0 1 'value'</code>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Three Values
+                    <ul>
+                        <li>
+                            If all values are valid values, then changes the <code>flex</code> shorthand to 
+                            <code>flex: 'first value' 'second value' 'third value'</code>, affecting the properties 
+                            of <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> respectively.
+                        </li>
+                    </ul>
+                </li>                    
+            </ol>
+        </p>
 
 
         <a href="../axes/axes.html" target="_self" rel="noopener noreferrer">Next Lesson: Axes</a>
