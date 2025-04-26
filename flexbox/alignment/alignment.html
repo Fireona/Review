@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../styles.css">
+        <title>Alignment</title>
+    </head>
+    <body>
+        <h1>
+            Alignment
+        </h1>
+
+
+        <h2>
+            Overview
+        </h2>
+
+
+        <ul>
+            <li>
+                Learn how to align items insides a flex container vertically and horizontally.
+            </li>
+        </ul>
+
+
+        <img src="./images/alignment-car.gif" alt="Tilted Car giving handshake">
+
+
+        <h3>
+            Alignment
+        </h3>
+        <p>
+            <a href="https://codepen.io/TheOdinProjectExamples/pen/MWoyBzR" target="_blank" rel="noopener noreferrer">Let's use this example.</a>
+            <!-- Replace link with interactable Text editor/Viewer -->
+            <p class="question">
+                What happens if we add <code>flex: 1</code> to <code>.item</code>?
+            </p>
+            <p class="answer">
+                The three items are stretched evenly within the flex container to fill up the available width.
+            </p>
+        </p>
+        <p>
+            What if we wanted to have each container retain it's <code>width</code> and distribute the available 
+            space evenly? Then we remove <code>flex: 1</code> and add <code>justify-content: space-between</code> 
+            to <code>.container</code>.
+        </p>
+        <br>
+        <img src="./images/justify-content-property.png" alt="Example of justify-content property">
+        <br>
+        <p>
+            <strong><code>justify-content</code> is used to align items along the main axis</strong>. This property 
+            is applied to the item's container. Now apply the value <code>center</code> to <code>justify-content</code>. 
+            This brings the items back the way it was originally but the items are brought to the center of the container.
+        </p>
+        <p>
+            Now what if we wanted to align our items along the cross axis? We have to add a new property called 
+            <code>align-items</code>. To align our items to the center of the container, we now add <code>align-items: center</code>. 
+        </p>
+        <img src="./images/justify-content-center.png" alt="Example of justify-content: center">
+        <p>
+            Recall from our <a href="../axes/axes.html" target="_blank" rel="noopener noreferrer">last lesson in Axes</a>, 
+            the main axis and cross axis will change depending on our flex container's <code>flex-direction</code>. 
+            By default, our <code>flex-direction</code> is set to <code>row</code>. So <code>justify-content</code> 
+            will align the main axis (orizontal) and <code>align-items</code> will align items vertically. 
+            <strong>This is the default if no declarations were made to <code>flex-direction</code></strong>.
+        </p>
+        <p>
+            When <code>flex-direction</code> is set to <code>column</code>, then <code>justify-content</code> 
+            aligns vertically and <code>align-items</code> aligns horizontally.
+        </p>
+
+
+        <h4>
+            Gap
+        </h4>
+        <p>
+            <a href="https://codepen.io/TheOdinProjectExamples/pen/qBjZyea" target="_blank" rel="noopener noreferrer">
+            The property <code>gap</code> on the flex container adds a specified gap between flex items</a>. It is a 
+            newly introduced property, so it is a rare resource to see. However, <code>gap</code> is still a very 
+            useful property that is safe to use.
+        </p>
+
+
+        <br>
+
+
+        <h3>
+            <a href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/" target="_blank" rel="noopener noreferrer">Josh Comeau's Interactive Guide to Flexbox</a>
+        </h3>
+        <p>
+            This website reviews what we have learned prior to alignment.
+        </p>
+
+
+        <br>
+
+
+        <h3>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox" target="_blank" rel="noopener noreferrer">MDN's Typical use cases of Flexbox</a>
+        </h3>
+        <p>
+            Flexbox is a CSS layout solution when you want to lay out a collection of items in one dimension or 
+            control spacing between items.
+        </p>
+        <h4>
+            Navigation
+        </h4>
+        <p>
+            The most common way of navigation is to have a list of items displayed along the interior of a horizontal 
+            bar. Doing so often leaves us with extra space. This additonal space can be displayed outside of the 
+            item, resulting in items being spaced from each other with a whitespace between or around said items.
+            <ul>                
+                Space distributed outside the item.
+                <a href="https://developer.mozilla.org/en-US/play?id=RjJ3t9bJxSsBgXa%2BwmGPx8ayvvHIor7%2FQI43NgoAoLaY3vqMleF3a1bb6h%2BfGQa3Tvvv8F9rZxWNu1LL" target="_blank" rel="noopener noreferrer">Example</a>.
+                <li>
+                    Use alignment properties and <code>justify-content</code>. In the example above, items are displayed 
+                    at their natural size and with <code>justify-content: space-between</code>, they are also spaced equally. 
+                    The whitespace size can be controlled using <code>space-around</code> or <code>space-evenly</code> values. 
+                    <code>start</code> can be used to insert whitespaces at the end of items, or <code>end</code> to insert 
+                    before the item, or <code>center</code> to center navigation items.
+                    <br>
+                    <br>
+                    <ul>Summary:
+                        <li>
+                            Methods of controlling whitespace sizes through the values to <code>justify-content: </code>:
+                            <ul>
+                                <li>
+                                    <code>space-between</code> distributes whitespace evenly, only between items.
+                                    <br>
+                                    <img src="./images/justify-content-value-between.png" alt="Whitespace Distribution of space-between">
+                                </li>
+                                <li>
+                                    <code>space-around</code> distributes all available whitespace around individual items.
+                                    <br>
+                                    <img src="./images/justify-content-value-around.png" alt="Whitespace Distribution of space-around">
+                                </li>
+                                <li>
+                                    <code>space-evenly</code> distributes all available whitespace around and between all items equally.
+                                    <br>
+                                    <img src="./images/justify-content-value-evenly.png" alt="Whitespace Distribution of space-evenly">
+                                </li>
+                                <li>
+                                    Use <code>start</code> to place all available whitespace at the end of items.
+                                    <br>
+                                    <img src="./images/justify-content-value-start.png" alt="Whitespace Distribution of space-start">
+                                </li>
+                                <li>
+                                    Use <code>end</code> to place all available whitespace before the items.
+                                    <br>
+                                    <img src="./images/justify-content-value-end.png" alt="Whitespace Distribution of space-end">
+                                </li>
+                                <li>
+                                    Use <code>center</code> to place all items in the center, gapless, and distribute all remaining  whitespace 
+                                    before and after items.
+                                    <br>
+                                    <img src="./images/justify-content-value-center.png" alt="Whitespace Distribution of space-center">
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                <br>
+                </li>
+                Space distributed inside the item
+                <a href="https://developer.mozilla.org/en-US/play?id=YXvLyBkmwdcMCcNElcuPugxcj4%2Bip%2F5rore4DC9npSBCRTlFfaUwbHD9ligr3vPdivH5O4YnqrnCoHZO" target="_blank" rel="noopener noreferrer">Example</a>.
+                <li>
+                    Another method of whitespace distribution is within the items instead of creating whitespace between items. 
+                    This is done through using the <code>flex</code> properties. Refer back to the <a href="../growing-and-shrinking/" target="_blank" rel="noopener noreferrer">lesson on growing and shrinking</a>.
+                </li>
+            </ul>
+        </p>
+
+
+        <h4>
+            Split Navigation
+        </h4>
+        <p>
+            Another method to align items on the main axis is to use auto margins. This allows different groups of 
+            items to be aligned left and others aligned right.
+        </p>
+        <a href="https://developer.mozilla.org/en-US/play?id=6zM%2FlumqbHdU1u6fYnlJWbxqs7vv2WIfNcSZI8qkyR05tIltaeNKAm8rDtuC5pxOZe7E4b1ytaqt3JE7" target="_blank" rel="noopener noreferrer">Example</a>
+        <p>
+            Items are aligned on the main axis to <code>justify-content</code> with the value <code>normal</code>. 
+            <code>normal</code> behaves as <code>start</code> (<code>justify-content: flex-start</code>), the initial 
+            behavior of flexbox. Using <code>gap</code> creates a literal gap between items. Also, the last item is 
+            pushed to the right with the property <code>margin-left</code> with a value of <code>auto</code>. By
+            placing the class selector on the appropriate item, you can see where the split happens.
+        </p>
+        <br>
+        <p>
+            Summary
+            <ul>
+                The following values to the property <code>justify-content</code>:
+                <li>                    
+                    <code>normal</code> behaves the same as <code>start</code> (the default to Flexbox).
+                </li>
+                <br>
+                <code>gap</code> creates a literal gap between items with value stated.
+            </ul>
+        </p>
+
+
+
+        <h4>
+            Center Item
+        </h4>
+        <a href="https://developer.mozilla.org/en-US/play?id=u2wkV5sW7Cx55MJImgtxC9ZyFPm9bkjs84CcYUd0xmGyoEQeMpSuxSXMeJtrpjGBocstDFlE5s7Dd4NW" target="_blank" rel="noopener noreferrer">Example</a>.
+        <p>
+            With flexbox, you can apply the value <code>center</code> to <code>justify-content</code> and 
+            <code>align-items</code> to center items. However, it can be done with CSS box alignment properties as 
+            well. First, remove <code>display: flex</code> from the container, as well as the <code>justify-content</code>
+            and <code>align-items</code> properties. Afterwards, to achieve vertical centering, use <code>align-content: center</code>. 
+            To finish with horizontal centering, apply <code>margin: auto</code> to the child element.
+        </p>
+
+
+        <h4>
+            Card layout pushing footer down
+        </h4>
+
+
+        <h4>
+            Media Objects
+        </h4>
+
+
+        <h4>
+            Form Controls
+        </h4>
+
+
+        <br>
+
+
+        <h3>
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener noreferrer">CSS Tricks "Guide to Flexbox"</a>
+        </h3>
+    </body>
+</html>
+
