@@ -103,6 +103,11 @@
             Flexbox is a CSS layout solution when you want to lay out a collection of items in one dimension or 
             control spacing between items.
         </p>
+
+
+        <br>
+
+
         <h4>
             Navigation
         </h4>
@@ -171,6 +176,9 @@
         </p>
 
 
+        <br>
+
+
         <h4>
             Split Navigation
         </h4>
@@ -186,7 +194,6 @@
             pushed to the right with the property <code>margin-left</code> with a value of <code>auto</code>. By
             placing the class selector on the appropriate item, you can see where the split happens.
         </p>
-        <br>
         <p>
             Summary
             <ul>
@@ -199,6 +206,8 @@
             </ul>
         </p>
 
+        
+        <br>
 
 
         <h4>
@@ -218,18 +227,204 @@
             Card layout pushing footer down
         </h4>
         <p>
-            
+            <a href="https://developer.mozilla.org/en-US/play?id=guXfxNyOnqLcoyYvgDMjADklZZBBjLsQ1x1Tr5b9VbFCve5DwR9CCYAvzl7NbQ99wiDfYF%2B5Dc7t9QOa" target="_blank" rel="noopener noreferrer">Example</a>.
         </p>
+        <p>
+            When laying out card components with Flexbox or Grid, the layout methods only work on direct children 
+            of the flex or grid component. This is because with variable amounts of content, the card will stretch 
+            to the height of the grid area of flex container. Any content inside uses regular block layouts which 
+            ends with a footer rising up to the end of contents, due to a lack thereof, instead of staying at the 
+            bottom.
+        </p>
+        <img src="./images/card-layout.png" alt="Footer risen without Flex properties" width="50%" height="50%">
+        </p>
+        <p>
+            In summary:
+            <ul>
+                <li>
+                    Layout methods for Grid and Flexbox only work with direct descending elements. 
+                </li>
+                <li>
+                    When there is a variable amount of content between cards, the card will stretch to the height of the
+                    grid area or flex container.
+                </li>
+                <li>
+                    With a lack of content, footers will rise to the end of content when using block layouts.
+                </li>
+            </ul>
+        </p>
+        <p>
+            To solve this, we use <code>flex-direction: column</code> in Flexbox. By setting the content area with
+            <code>flex: 1</code>, items can grow and shrink from a flex-basis of 0. Since this item is the only item 
+            that grows in the card, it takes up all available space in the container, pushing the footer to the 
+            bottom.
+            <br>
+            In summary:
+            <ul>
+                <li>
+                    To make a card with a footer using Flexbox, use <code>flex-direction: column</code> with 
+                    <code>flex: 1</code>. 
+                </li>
+                <li>
+                    <code>flex: 1</code> being shorthand for <code>flex: 1 1 0</code>, items in the 
+                    container are allowed to grow and shrink. <code>flex-basis</code> grows the items from 0.
+                </li>
+                <li>
+                    Being the only item in the container, the item takes all available space in the container.
+                </li>
+            </ul>
+        </p>
+
+
+        <br>
 
 
         <h4>
             Media Objects
         </h4>
+        <p>
+            A media object is an image or other media eleemnt with some descriptive text side-by-side. 
+            Very common in web design, and media objects should be able to be flipped, moving the image from 
+            one side to the other.
+        </p>
+        <p>
+            This style is commonly used for comments and places where images are placed next to their descriptions.
+            By taking sizing information from the media object, the container can flex the media object to take 
+            up the remaining space.
+        </p>
+        <p>
+            <a href="https://developer.mozilla.org/en-US/play?id=X2e2VID0oAxBuKPyOdZLNk2hNV3i3Nll%2FOl%2BSodpUWzoLmf762Q%2Bc9cH5u%2F1XrWpDzBXVWFrFqfUy0vz" target="_blank" rel="noopener noreferrer">Example</a>.
+        </p>
+        <p>
+            In the example above, the media object is aligned to <code>flex: start</code> and <code>.content</code> 
+            is set to grow with a factor of <code>1</code>. To prevent an image from growing too large, apply 
+            <code>max-width</code> to the image. Any <code>width</code> or <code>max-width</code> applied to an image 
+            becomes the <code>flex-basis</code>.
+        </p>
+        <p>
+            In summary:
+            <ul>
+                <li>
+                    By applying a <code>max-width</code> to our image (media object), we are able to set a limit size to 
+                    prevent the item from growing too large
+                    <pre>
+                        CSS
+                        <code>
+                            .image img {
+                                max-width: 100px;
+                            }
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Any declaration of <code>width</code> or <code>max-width</code> to a flex-item will become the new 
+                    <code>flex: basis</code>.
+                </li>
+            </ul>
+        </p>
+        <p>
+            Both sides can also grow and shrink in proportion as well if <code>1</code> is used. This gives two columns 
+            of equal size. This can be achieved by:
+            <ul>
+                <li>
+                    Setting both content and image to <code>flex: auto</code>.
+                </li>
+                <li>
+                    A size declaration applied directly to the flex items (<code>width</code>, <code>max-width</code>, 
+                    <code>height</code>, <code>max-height</code>).
+                </li>
+            </ul>
+        </p>
+        <p>
+            You can also set different growth factors on each side. In the example, you can set the image with 
+            <code>flex: 1</code> and the content with <code>flex: 3</code>. Both will have a <code>flex-basis</code> 
+            value of 0, but rate of growth is respective to the values indicated to <code>flex-grow</code>.
+        </p>
+        <h5>
+            Flipping the Media Object
+        </h5>
+        <a href="https://developer.mozilla.org/en-US/play?id=BwJj71t0INb%2Fgqq5mbrypy39XmU%2BMTGXSdlQd0rKveEuF%2FuwSe%2BgbggdHH6jAUrvtxxIqSGTnzf1ZWkS" target="_blank" rel="noopener noreferrer">Example</a>
+        <p>
+            To switch the positions of the media object and the content, set <code>flex-direction</code> property to
+            <code>row-reverse</code> to the container.
+        </p>
+
+
+        <br>
 
 
         <h4>
             Form Controls
-        </h4>
+        </h4>        
+        <ul>
+            Note:
+            <li>
+                A wrapper is a casual term to define a "container" for like elements. In this case, the flex container 
+                is the "wrapper" for the "flex items".
+            </li>
+            <li>
+                The &lt;button&gt; element was omitted to keep a low number of elements.
+            </li>
+            <li>
+                What is &lt;input&gt;?
+                <ul> 
+                    &lt;input&gt; is a single-line text control by default (type="text").
+                    <li>
+                        "Single-line" is as literal it can be. A single-line of continuous text. Multi-line requires &lt;textarea&gt;.
+                    </li>
+                    <li>
+                        Does not create new lines with Enter <code>↵</code>.
+                    </li>
+                    <li>
+                        Text overflowing the width scrolls horizontally. Input element's width controlled by layout rules (Flexbox and CSS)
+                    </li>
+                    A form of "text control".
+                    <li>
+                        A "control" in web development refers to any interactive UI element a user can use to input or select data.
+                        Or in short:
+                        <br>
+                        A text control is a form control that lets users to type text into a field.
+                    </li>
+                    <li>
+                        Other "form controls" include:
+                        <ul>
+                            <li>
+                                &lt;input type="checkbox"&gt; for checkboxes. Boolean toggle.
+                            </li>
+                            <li>
+                                &lt;input type="radio"&gt; for radio buttons. Select one out of a group.
+                            </li>
+                            <li>
+                                &lt;input type="password"&gt; for password fields. Hides input with dots.
+                            </li>
+                            <li>
+                                &lt;select&gt; for dropdowns.
+                            </li>
+                            <li>
+                                &lt;button&gt; for buttons.
+                            </li>
+                            <li>
+                                &lt;input type="email"&gt; for validating emails.
+                            </li>
+                            <li>
+                                &lt;input type="numbers"&gt; only for numeric input.
+                            </li>
+                        </ul>
+                    </li>
+                    a
+                </ul>
+            </li>
+        </ul>
+        <a href="https://developer.mozilla.org/en-US/play?id=Xp7%2FBYNbDVUPA8kEhcy19tIdl8jYsdUg8fss9HkhZLo09qbj%2FMcTm9Hv7fCRncTxhatelC5NPrq4OPu9" target="_blank" rel="noopener noreferrer">Example.</a>
+        <p>
+            Flexbox is useful when styling form controls. Forms have several small elements that we typically want to 
+            align with each other. A common pattern is to have &lt;label&gt; and &lt;input&gt; pair combined with a 
+            &lt;button&gt; (common in search forms and newsletter sign-ups).
+        </p>
+        <p>
+            &lt;label&gt;, &lt;input&gt;, and &lt;button&gt; are contained in a wrapper set to <code>display: flex</code>.
+            This setting allows for the &lt;input&gt; to grow, while the &lt;label&gt; and &lt;button&gt; do not.
+        </p>
 
 
         <br>
@@ -238,6 +433,16 @@
         <h3>
             <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener noreferrer">CSS Tricks "Guide to Flexbox"</a>
         </h3>
+        <p>
+            Go through Parts 1-3 and 5. Others will be gone through in the future. Might be useful to save the page for future references.
+        </p>
+
+
+        <a href="../../" target="_self" rel="noopener noreferrer">Next Lesson:</a>
+        <br>
+        <a href="../flexbox.html" target="_self" rel="noopener noreferrer">Back to Flexbox</a>
+        <br>
+        <a href="../../index.html" target="_self" rel="noopener noreferrer">Back to Homepage</a>
     </body>
 </html>
 
