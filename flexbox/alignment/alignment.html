@@ -69,6 +69,101 @@
             When <code>flex-direction</code> is set to <code>column</code>, then <code>justify-content</code> 
             aligns vertically and <code>align-items</code> aligns horizontally.
         </p>
+        <ul>
+            Summary:
+            <li>
+                Property <code>flex-direction</code> sets the direction of main axis.
+                <ul>Values:
+                    <li>
+                        <code>row</code> is the default. Starts from left, progresses to the right.
+                    </li>
+                    <li>
+                        <code>row-reverse</code> starts from the right, progresses to the left.
+                    </li>
+                    <li>
+                        <code>column</code> starts from the top, progresses to the bottom.
+                    </li>
+                    <li>
+                        <code>column-reverse</code> starts from the bottom, progresses to the top.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Property <code>justify-content</code> shifts flex items along the main axis.
+                <ul>Values:
+                    <li>
+                        <code>flex-start</code> shifts items closest to the point of origin of the axis (or distributes 
+                        remaining whitespace to the end).
+                    </li>
+                    <li>
+                        <code>flex-end</code> shifts items furthest from the point of origin of the axis (or distributes 
+                        remaining whitespace to the start).
+                    </li>
+                    <li>
+                        <code>center</code> shifts items towards the center of the alotted whitespace along the axis (or 
+                        distributes remaining whitespace surrounding all items).
+                    </li>
+                    <li>
+                        <code>space-between</code> takes total whitespace along the axis and divides evenly in between spaces.
+                    </li>
+                    <li>
+                        <code>space-around</code> takes total whitespace along the axis and divides evenly around items.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Property <code>align-items</code> shifts flex items along the cross axis.
+                <ul>
+                    Values:
+                    <li>
+                        <code>flex-start</code> shifts items closest to the point of origin of the axis (or distributes 
+                        remaining whitespace to the end).
+                    </li>
+                    <li>
+                        <code>flex-end</code> shifts items furthest from the point of origin of the axis (or distributes 
+                        remaining whitespace to the start).
+                    </li>
+                    <li>
+                        <code>center</code> shifts items towards the center of the alotted whitespace along the axis (or 
+                        distributes remaining whitespace surrounding all items).
+                    </li>
+                    <li>
+                        <code>space-between</code> takes total whitespace along the axis and divides evenly in between spaces.
+                    </li>
+                    <li>
+                        <code>space-around</code> takes total whitespace along the axis and divides evenly around items.
+                    </li>
+                    <li>
+                        <code>stretch</code> takes remaining whitespace along the axis and stretches items to fill the space. 
+                        This only works if no <code>height</code> or <code>width</code> properties were declared for each individual 
+                        item. Does not work for <code>justify-content</code>. It will not function if <code>height</code> (if set 
+                        on a vertical axis), <code>width</code> (if set on a horizontal axis),<code>align-self</code>, or 
+                        min/max sizes were declared.
+
+                        From ChatGPT:
+                        <code>stretch</code> causes flex items to expand along the cross axis to match the container's size - 
+                        but only if the item does not already have an explicit size (<code>height</code> or <code>width</code> 
+                        depending on flex direction).
+                        It does not apply to <code>justify-content</code>, and it is disabled if:
+                        <ul>
+                            <li>
+                                The item has a fixed size on the cross axis (e.g <code>height</code> in a <code>flex-direction: row</code>.
+                            </li>
+                            <li>
+                                The item uses <code>align-self</code> to override alignment.
+                            </li>
+                            <li>
+                                The item has <code>min-</code> or <code>max-</code> limits that restrict stretching.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Property <code>align-self</code> functions similarly to <code>align-items</code>, but only when targetting 
+                specific items (with Class and ID Selectors).
+            </li>
+        </ul>
 
 
         <h4>
