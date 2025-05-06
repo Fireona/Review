@@ -164,6 +164,36 @@
                 Property <code>align-self</code> functions similarly to <code>align-items</code>, but only when targetting 
                 specific items (with Class and ID Selectors).
             </li>
+            <li>
+                Property <code>flex-wrap</code> allows flex items to wrap onto additional lines along the cross 
+                axis when the total size of the items along the main axis exceeds the size of the flex container. This 
+                helps prevent items from shrinking too small to fit on a single line.
+                <br>
+                <ul>
+                    Values:
+                    <li>
+                        <code>wrap</code> value declares items to be wrapped along the main axis and create new lines 
+                        along the cross axis.
+                    </li>
+                    <li>
+                        The declaration of <code>flex-wrap: wrap-reverse</code> allows flex items to be wrapped onto new lines along the 
+                        cross axis when the total size of the items exceed the container's. However, the values of the cross 
+                        axis are inverted. This in turn will also affect how other declarations work, such as:
+                        <ul>
+                            <li>
+                                <code>align-items</code>
+                            </li>
+                            <li>
+                                <code>align-self</code>
+                            </li>
+                            <li>
+                                <code>align-content</code>
+                            </li>
+                        </ul>
+                        
+                    </li>
+                </ul>
+            </li>
         </ul>
 
 
