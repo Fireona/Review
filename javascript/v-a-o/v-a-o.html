@@ -11,6 +11,7 @@
             <p class="javascript vao title">
                 Variables and Operators
             </p>
+            <img src="../../images/math.gif" alt="Brain Processing GIF">
         </div>
         <div>
             <div class="javascript vao header">
@@ -79,14 +80,16 @@
                 </pre>
                 <p>
                     Just like how CSS documents have the extensions <code>.css</code> for stylesheets, JavaScript has the
-                    extension <code>.js</code>. External JavaScript files are used for more complex scripts.
+                    extension <code>.js</code>. External JavaScript files are used for more complex scripts. 
                 </p>
                 <p>
                     External JavaScript files can be named freely into almost anything. So long as they have the <code>.js</code>
-                    extension, it will function.
+                    extension, it will function. JavaScript files can be named anything, and can even be nameless 
+                    (just <code>.js</code>).
                 </p>
             </div>
         </div>
+
         <div>
             <div class="javascript vao header">
                 <p>
@@ -101,9 +104,99 @@
                 <p>
                     Variables can be declared using the <code>let</code> keyword.
                 </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let name = "John";
+                        let surname = "Doe";
+
+                        console.log(name);
+                        console.log(surname);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
                 <p>
-                    Create
+                    Inputting the above script will enter two logs into the console, one for the <code>name</code> and 
+                    another for <code>surname</code>.
                 </p>
+                <p>
+                    Variables can also be re-assigned.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let age = 11;
+                        console.log(age);
+
+                        age = 54;
+                        
+                        console.log(age);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    In the above script, the second declaration of <code>age</code> has omitted the variable 
+                    <code>let</code>. This is because the variable had already been declared earlier, and you do not need it 
+                    again when re-assigning values to variables.
+                </p>
+                <p>
+                    When we have a constant that is never changed (like pi), we can use the keyword<code>const</code> instead.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        const pi = 3.14;
+                        pi = 10;
+
+                        console.log(pi);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    When inputting the above script, an error occurs. It does not reach the console log. This method of 
+                    creating errors helps identify the location of said error and what is wrong.
+                </p>
+                <img src="../../images/matherror.gif" alt="Flinstones Math Error GIF">
+                <p>
+                    In short, there are two methods of declaring a variable:
+                    <ul>
+                        <li>
+                            <code>let</code>, which can be re-assigned.
+                        </li>
+                        <li>
+                            <code>const</code>, which can <b>not</b> be re-assigned.
+                        </li>
+                    </ul>                    
+                </p>
+                <p>
+                    In the past, the original method of declaring variables was the keyword <code>var</code>. However, 
+                    there were issues when used that were fixed when <code>let</code> and <code>const</code> were 
+                    introduced. Today, <code>var</code> is no longer used but you may still encounter it in other areas.
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <div class="javascript vao header">
+                <p>
+                    Numbers
+                </p>
+            </div>
+            <div class="javascript vao text">
+                <p>
+                    Numbers are the foundation of programming logic. Basic mathematical equations are also valid JavaScript.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        console.log((3+2)-76 * (1+1))
+                    </code>
+                    &lt;&#47;script&#47;
+                </pre>
+                <p>
+                    By directly inputting an arithmetic equation into the console, it can do calculations and evaluations.
+                </p>
+                <img src="../../images/patrick-mindblown.gif" alt="Patrick Star Mindblown GIF">
             </div>
         </div>
         
