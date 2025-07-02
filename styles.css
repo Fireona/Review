@@ -21,7 +21,7 @@ body {
     margin: 50px 60px;
 }
 
-h1 {
+h1, .title {
     width: 100%;
     font-size: 3rem;
     font-style: italic;
@@ -30,7 +30,7 @@ h1 {
     word-wrap: break-word;
 }
 
-h2 {
+h2, .header {
     font-weight: 900;
     text-decoration: underline;
 }
@@ -98,4 +98,12 @@ li {
 
 code {
     color: #e7bdd5;
+}
+
+/* JavaScript Contents */
+
+.vao-heading {
+    font-size: 36px;
+    font-weight: 900;
+    text-decoration: underline;    
 }
