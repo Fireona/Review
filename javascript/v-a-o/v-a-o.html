@@ -42,6 +42,7 @@
             </div>
         </div>
 
+
         <div>
             <div class="javascript vao header">
                 <p>
@@ -89,6 +90,7 @@
                 </p>
             </div>
         </div>
+
 
         <div>
             <div class="javascript vao header">
@@ -176,6 +178,7 @@
             </div>
         </div>
 
+
         <div>
             <div class="javascript vao header">
                 <p>
@@ -200,13 +203,19 @@
             </div>
         </div>
 
+
         <div>
             <div class="javascript vao header">
                 <p>
                     <a href="https://javascript.info/variables#variable-naming" target="_self" rel="noopener noreferrer">JavaScript.info on Variable Naming</a>
                 </p>
             </div>
-            <div class="javascript vao text">
+            <div class="javascript vao subheader">
+                <p>
+                    Variable Naming
+                </p>
+            </div>
+            <div class="javascript vao text">                
                 <p>
                     There are two limitations on variable names in JavaScript:
                     <ul>
@@ -261,7 +270,7 @@
                 </pre>
                 <p>
                     Non-Latin characters such as Cyrillic letters, Chinese logograms, and etc. are <i>technically allowed</i>,
-                    but there is an international convetion to use English in variable names. This also helps to preserve 
+                    but there is an international convention to use English in variable names. This also helps to preserve 
                     the work through conventional means and make it easier to use.
                 </p>
                 <pre>
@@ -284,6 +293,212 @@
                     </code>
                 </pre>
             </div>
+
+            <div class="javascript vao subheader">
+                <p>
+                    Constants
+                </p>
+            </div>
+            <div class="javascript vao text">
+                <p>
+                    To declare a constant, use <code><b>const</b></code>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        const pi = 3.14
+                        const g = 22/7
+                    </code>
+                    &lt;script&#47;&gt;
+                </pre>
+                <p>
+                    Variables declared using <code>const</code> are called constants and can not have values re-assigned. 
+                    Any attempt doing so will result in an error.
+                </p>
+                <p>
+                    A practice between developers is to assign constants to values that are difficult to remember. These 
+                    constants are named using capital letters and underscores. Some examples are colors in hexadecimal values.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        const COLOR_RED = "#F00";
+                        const COLOR_GREEN = "#0F0";
+                        const COLOR_BLUE = "00F";
+                        const COLOR_ORANGE = "#FF7F00";
+
+                        // ...when we need to pick a color
+                        let color = COLOR_ORANGE;
+                        alert(color);
+                    </code>
+                    &lt;script&#47;&gt;
+                </pre>
+                <p>
+                    In this scenario, using the const <code>COLOR_ORANGE</code> is much easier to handle than it's 
+                    hexadecimal value "#FF7F00". It is easier to remember, type, and recognize.
+                </p>
+                <p>
+                    There are rules to follow when using capitals in a constant. Some values are assigned before execution 
+                    (before a page is loaded). There are also values are calculated first during the execution, but do not 
+                    change after the initial assignment.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        const pageLoadTime = 
+                    </code>
+                    &lt;script&#47;&gt;
+                </pre>
+                <p>
+                    The value of <code>pageLoadTime</code> is not known before a page is loaded, so it is named normally. 
+                    However, because it is still a constant as it's value does not change once assigned. This means that 
+                    capital-named constants are used for aliases that are "hard-coded" values.
+                </p>
+            </div>
+
+            <div class="javascript vao subheader">
+                <p>
+                    Name things right
+                </p>
+            </div>
+            <div class="javascript vao text">
+                <p>
+                    Any variable should have an alias that should be easily recognizable that describes the data it represents. 
+                    A good example would be how easy a variable is recognized after doing something else for a period of time.
+                </p>
+                <p>
+                    A general guideline:
+                    <ul>
+                        <li>
+                            Use human-readable names like <code>userName</code> or <code>shoppingCart</code>.
+                        </li>
+                        <li>
+                            Avoid using abbreviations or short names such as <code>x</code>, <code>b</code>, <code>c</code>, etc. 
+                            unless you know what you are doing.
+                        </li>
+                        <li>
+                            Make names maximally descriptive and concise. Some bad examples are <code>data</code> and 
+                            <code>value</code> because they don't tell use anything. It is only acceptable if the context makes it 
+                            obvious what data or value they are referring to.
+                        </li>
+                        <li>
+                            Terms should be agreed upon in mind and with the team. If a site visitor is called <code>user</code>
+                            then we should name related variables as <code>currentUser</code> or <code>newUser</code> rather than 
+                            something oblivious as <code>currentVisitor</code> or <code>newManInTown</code>.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="javascript vao subheader">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <div class="javascript vao text">
+                <ul>
+                    Variable Naming
+                    <li>
+                        The name can only contain letters, digits, or the symbols <code>$</code> or <code>_</code>.
+                    </li>
+                    <li>
+                        The first character can not be a digit.
+                    </li>
+                    <li>
+                        The first letter of all words in the target variable must be capitalized with the exception of the first.
+                    </li>
+                    <li>
+                        The symbols <code>$</code> and <code>_</code> are symbols that have no meaning to them and can be used in names.
+                    </li>
+                    <li>
+                        Two variables with the same spelling but with different letter cases are considered to be separate entities.
+                    </li>
+                    <li>
+                        Non-Latin characters such as Cyrillic letters or Chinese logograms <i>can</i> be used as variables but 
+                        should be frowned upon as it is conventional to use English and easier to understand.
+                    </li>
+                    <li>
+                        Certain words can not be used as they are used as keywords in JavaScript. Some examples being:
+                        <ul>
+                            <li>
+                                <code>let</code>
+                            </li>
+                            <li>
+                                <code>class</code>
+                            </li>
+                            <li>
+                                <code>return</code>
+                            </li>
+                            <li>
+                                <code>function</code>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    Constants
+                    <li>
+                        To assign a constant, use the keyword <code>const</code>.
+                    </li>
+                    <li>
+                        Once assigned a value, it can not be changed.
+                    </li>
+                    <li>
+                        Common practice is to use constants when dealing with values that are difficult to remember. Keep it simple, 
+                        and assign names that make it easily to remember and recognize.
+                    </li>
+                    <li>
+                        When naming constants, web developers follow a particular guideline.
+                        <ul> Use Uppercase (or ALL_CAPS) for constants that have:
+                            <li>
+                                Values known before execution.
+                            </li>
+                            <li>
+                                Values that are hard-coded, never change, and used in multiple places.
+                            </li>
+                            <li>
+                                Values that serve as configuration,settings or fixed references.
+                            </li>
+                        </ul>
+                        <ul>
+                            Use camelCase (like regular variables) for constants that have:
+                            <li>
+                                Values that are computed or retrieved during execution.
+                            </li>
+                            <li>
+                                Not meant to be reassigned but still not universal constants.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    Name things right
+                    <li>
+                        Any variable should have a name that accurately desribes the value it represents concisively.
+                    </li>
+                    <li>
+                        <ul>
+                            Guideline:
+                            <li>
+                                Use human-readable names.
+                            </li>
+                            <li>
+                                Don't use abbreviations or symbols such as <code>x</code> unless it is easy to identify the data it 
+                                represents.
+                            </li>
+                            <li>
+                                Don't use ambiguous terms such as <code>data</code> or <code>value</code> unless it is easy to identify 
+                                the value and its context.
+                            </li>
+                            <li>
+                                Make sure the term is agreeable in your head and with the team. Rather than creating a unique term for 
+                                every visitor to a webpage such as <code>thisVistor</code> or <code>newGuy</code>, use something simple like 
+                                <code>newUser</code> or <code>currentUser</code>.
+                            </li>
+                        </ul>
+                        
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <div>
@@ -293,7 +508,124 @@
                 </p>
             </div>
             <div class="javascript vao text">
-                
+                <p>
+                    Arithmetic Operations
+                    <ul>
+                        <li>
+                            Operations are defined by operators (variables and quantitative values) and operands:
+                            <ul>
+                                <li>
+                                    <code>*</code>
+                                </li>
+                                <li>
+                                    <code>/</code>
+                                </li>
+                                <li>
+                                    <code>+</code>
+                                </li>
+                                <li>
+                                    <code>-</code>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Addition (<code>+</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    let y = 2;
+                                    let z = x + y;
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                        <li>
+                            Subtraction (<code>-</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    let y = 2;
+                                    let z = x - y;
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                        <li>
+                            Multiplication (<code>*</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    let y = 2;
+                                    let z = x * y;
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                        <li>
+                            Division (<code>/</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    let y = 2;
+                                    let z = x / y;                     
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                        <li>
+                            Remainder, also known as modulo operation (<code>%</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    let y = 2;
+                                    let z = x % y;
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                        <li>
+                            Incrementation (<code>++</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    x++;
+                                    let z = x;              
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                        <li>
+                            Decrementation (<code>--</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    x--;
+                                    let z = x;
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                        <li>
+                            Exponentiation (<code>**</code>)
+                            <pre>
+                                &lt;script&gt;
+                                <code>
+                                    let x = 5;
+                                    x**;
+                                    let z = x;
+                                </code>
+                                &lt;script&#47;&gt;
+                            </pre>
+                        </li>
+                    </ul>
+                </p>                
             </div>
         </div>
 
