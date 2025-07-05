@@ -8,7 +8,7 @@
     </head>
     <body>
         <div>
-            <p class="javascript vao title">
+            <p class="javascript javascriptcolor vao topic">
                 Variables and Operators
             </p>
             <img src="../../images/math.gif" alt="Brain Processing GIF">
@@ -168,7 +168,7 @@
                         <li>
                             <code>const</code>, which can <b>not</b> be re-assigned.
                         </li>
-                    </ul>                    
+                    </ul>
                 </p>
                 <p>
                     In the past, the original method of declaring variables was the keyword <code>var</code>. However, 
@@ -215,7 +215,7 @@
                     Variable Naming
                 </p>
             </div>
-            <div class="javascript vao text">                
+            <div class="javascript vao text">
                 <p>
                     There are two limitations on variable names in JavaScript:
                     <ul>
@@ -571,7 +571,7 @@
                                 <code>
                                     let x = 5;
                                     let y = 2;
-                                    let z = x / y;                     
+                                    let z = x / y;
                                 </code>
                                 &lt;script&#47;&gt;
                             </pre>
@@ -625,7 +625,7 @@
                             </pre>
                         </li>
                     </ul>
-                </p>                
+                </p>
             </div>
         </div>
 
@@ -636,7 +636,77 @@
                 </p>
             </div>
             <div class="javascript vao text">
-                
+                <p>
+                    There are two types of numbers in JavaScript, one with or without decimals.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 3.14;
+                        ley y = 3;
+                    </code>
+                    &lt;script&#47;&gt;
+                </pre>
+                <p>
+                    Extra large or extra small numbers can be written with scientific notation.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 123e5; // 12300000
+                        let y = 123e-5; // 0.00123
+                    </code>
+                    &lt;script&#47;&gt;
+                </pre>
+                <p>
+                    JavaScript stores numbers as double precision floating point numbers, following the internatioal 
+                    IEEE 754 standard.
+                <p>
+                    Floating point numbers are like scientific notation.
+                </p>
+                <pre>
+                    <code>
+                        1.23 x 10^5 = 123,000
+                    </code>
+                </pre>
+                <p>
+                    1.23 is the "fraction" (also called <b>mantissa</b> or <b>significand</b>) and the 5 is the 
+                    exponent (dictates decimal position).
+                </p>
+                <p>
+                    The way the number is stored in JavaScript is by using 64 bits (binary), or double precision 
+                    (single precision is 32 bits).
+                </p>
+                <ul>
+                    <li>
+                        Bit 0 stores the integer sign telling if it is positive or negative.
+                    </li>
+                    <li>
+                        Bits 1-11 stores the exponent, telling how large or small a number is.
+                    </li>
+                    <li>
+                        Bits 12-63 stores the fraction or significand.
+                    </li>
+                </ul>
+                <p>
+                    Writing in 64 bit double precision allows for 15-17 digits.
+                </p>
+                <p>
+                    The IEEE 754 is an international standard that defines how floating point numbers are stored, 
+                    what the bits mean, and how to handle special values like <b>Infinity</b> and <b>NaN</b>. This 
+                    standard is followed by JavaScript and other languages such as C, Python, and Java.
+                </p>
+                <p>
+                    Due to the nature of the <a href="../../miscellaneous/binary-system/binary-system.html" target="_self" rel="noopener noreferrer">binary system</a>, 
+                    floating point arithmetic is not always 100% accurate.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 0.2 + 0.1;
+                    </code>
+                    &lt;script&#47;&gt;
+                </pre>
             </div>
         </div>
 
@@ -661,6 +731,8 @@
                 
             </div>
         </div>
+        <br>
+        <a href="../i-n/i-n.html" target="_self" rel="noopener noreferrer">Next Lesson: Installing Node.js</a>
         <br>
         <a href="../javascript.html" target="_self" rel="noopener noreferrer">Back to JavaScript Notes</a>
         <br>
