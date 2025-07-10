@@ -727,10 +727,12 @@
                     that perfectly represent them. The end result of the evaluation process gives us "0.30000000000000004" 
                     but when returning as a decimal string (a set of value to be displayed as is), we get "0.3". This is 
                     because JavaScript follows a rule:
-                    <br>
-                    "When converting a number to a string, use the shortest decimal representation that will round-trip 
-                    correctly back to the same binary value."
-                    <br>
+                </p>
+                <p>
+                    <b>"When converting a number to a string, use the shortest decimal representation that will round-trip 
+                    correctly back to the same binary value."</b>
+                </p>
+                <p>
                     This means that although the binary representation is "0.30000000000000004", the shorest decimal string 
                     that best represents is "0.3" (this also means when converting back to binary, this value is can also 
                     return the binary value "0.30000000000000004").
