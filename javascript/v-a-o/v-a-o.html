@@ -58,11 +58,11 @@
                 <p>
                     Create a new HTML file and add the following script:
                     <pre>
+                        &lt;script&gt;
                         <code>
-                            &lt;script&gt;
-                                console.log("Hello, World!")
-                            &lt;&#47;script&gt;
+                            console.log("Hello, World!")
                         </code>
+                        &lt;&#47;script&gt;
                     </pre>
                     When you inspect the page and enter the Console tab of the DevTools, you will see the script pop up.
                 </p>
@@ -76,7 +76,7 @@
                 </p>
                 <pre>
                     <code>
-                        &lt;script src="javascript.js"&gt;&lt;/script&gt;
+                        &lt;script src="javascript.js"&gt;&lt;&#47;script&gt;
                     </code>
                 </pre>
                 <p>
@@ -194,7 +194,7 @@
                     <code>
                         console.log((3+2)-76 * (1+1))
                     </code>
-                    &lt;&#47;script&#47;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     By directly inputting an arithmetic equation into the console, it can do calculations and evaluations.
@@ -228,45 +228,49 @@
                     </ul>
                 </p>
                 <pre>
-                    For Example:
+                    &lt;script&gt;
                     <code>
                         let userName;
                         let test123;
                     </code>
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Words go one after another, with each word starting with a capital letter with the <b>exception of the 
-                    first word.</b>
+                    first word</b>.
                 </p>
                 <pre>
-                    For Example:
+                    &lt;script&gt;
                     <code>
                         thisVeryLongSetOfWordsStrungTogether
                     </code>
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     The dollar sign <code>$</code> and the underscore <code>_</code> can also be used in names. They are 
                     regular symbols, just like letters, without any special meaning.
                 </p>
                 <pre>
-                    For Example:
+                    &lt;script&gt;
                     <code>
                         let $ = 1;
                         let _ = 2;
 
                         console.log($+_);
                     </code>
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Two variables that are spelt the same but have different letter case used are considered to be 
                     <b>different variables</b>.
                 </p>
                 <pre>
-                    For Example:
+                    &lt;script&gt;
                     <code>
                         fire;
                         FIRE;
                     </code>
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Non-Latin characters such as Cyrillic letters, Chinese logograms, and etc. are <i>technically allowed</i>,
@@ -274,23 +278,25 @@
                     the work through conventional means and make it easier to use.
                 </p>
                 <pre>
-                    For Example:
+                    &lt;script&gt;
                     <code>
                         let имя = '...';
                         let 我 = '...';
                     </code>
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     There are also sets of reserved words that can not be used. These are keywords that are used by the 
                     language itself. Some examples being <code>let</code>, <code>class</code>, <code>return</code>, and 
-                    <code>function</code>. Attempting to use these words as variables will result in errors.
+                    <code>function</code>. Attempting to use these words as variables will result in errors. For example:
                 </p>
-                <pre>
-                    For Example:
+                <pre>                    
+                    &lt;script&gt;
                     <code>
                         let let = 5;
                         let return = 10;
                     </code>
+                    &lt;&#47;script&gt;
                 </pre>
             </div>
 
@@ -309,7 +315,7 @@
                         const pi = 3.14
                         const g = 22/7
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Variables declared using <code>const</code> are called constants and can not have values re-assigned. 
@@ -331,7 +337,7 @@
                         let color = COLOR_ORANGE;
                         alert(color);
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     In this scenario, using the const <code>COLOR_ORANGE</code> is much easier to handle than it's 
@@ -347,7 +353,7 @@
                     <code>
                         const pageLoadTime = 
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     The value of <code>pageLoadTime</code> is not known before a page is loaded, so it is named normally. 
@@ -501,6 +507,7 @@
             </div>
         </div>
 
+
         <div>
             <div class="javascript vao title">
                 <p>
@@ -537,7 +544,7 @@
                                     let y = 2;
                                     let z = x + y;
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                         <li>
@@ -549,7 +556,7 @@
                                     let y = 2;
                                     let z = x - y;
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                         <li>
@@ -561,7 +568,7 @@
                                     let y = 2;
                                     let z = x * y;
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                         <li>
@@ -573,7 +580,7 @@
                                     let y = 2;
                                     let z = x / y;
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                         <li>
@@ -585,7 +592,7 @@
                                     let y = 2;
                                     let z = x % y;
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                         <li>
@@ -597,7 +604,7 @@
                                     x++;
                                     let z = x;              
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                         <li>
@@ -609,7 +616,7 @@
                                     x--;
                                     let z = x;
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                         <li>
@@ -621,13 +628,14 @@
                                     x**;
                                     let z = x;
                                 </code>
-                                &lt;script&#47;&gt;
+                                &lt;&#47;script&gt;
                             </pre>
                         </li>
                     </ul>
                 </p>
             </div>
         </div>
+
 
         <div>
             <div class="javascript vao title">
@@ -645,7 +653,7 @@
                         let x = 3.14;
                         ley y = 3;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Extra large or extra small numbers can be written with scientific notation.
@@ -656,8 +664,14 @@
                         let x = 123e5; // 12300000
                         let y = 123e-5; // 0.00123
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
+
+                <div class="javascript vao subheader">
+                    <p>
+                        JavaScript Numbers are Always 64-bit Floating Point
+                    </p>
+                </div>
                 <p>
                     JavaScript stores numbers as double precision floating point numbers, following the internatioal 
                     IEEE 754 standard.
@@ -696,6 +710,29 @@
                     what the bits mean, and how to handle special values like <b>Infinity</b> and <b>NaN</b>. This 
                     standard is followed by JavaScript and other languages such as C, Python, and Java.
                 </p>
+                
+                <div class="javascript vao subheader">
+                    <p>
+                        Integer Precision
+                    </p>
+                </div>
+                <p>
+                    Integers, numbers without a period or exponent notation, are accurate up to 15 digits.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 999999999999999; // x will be 999999999999999
+                        let y = 9999999999999999; // y will be 10000000000000000
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+
+                <div class="javascript vao subheader">
+                    <p>
+                        Floating Precision
+                    </p>
+                </div>
                 <p>
                     Due to the nature of the <a href="../../miscellaneous/binary-system/binary-system.html" target="_self" rel="noopener noreferrer">binary system</a>, 
                     floating point arithmetic is not always 100% accurate.
@@ -705,7 +742,7 @@
                     <code>
                         let x = 0.2 + 0.1;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Writing the script above will not have the evaluation of "0.3" but rather a very close value to it.
@@ -719,7 +756,7 @@
                     <code>
                         let x = (0.2 * 10 + 0.1 * 10) / 10;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Due to the nature of JavaScript (binary system), the process is a bit more complicated. Each variable 
@@ -742,6 +779,12 @@
                     to keep all data as human-readable possible. Therefore, all numerical values will be given a considerably 
                     shorter decimal string, but one that is still accurate to the initial input.
                 </p>
+
+                <div class="javascript vao subheader">
+                    <p>
+                        Adding Numbers and Strings
+                    </p>
+                </div>
                 <p>
                     When adding two numbers, the result will be a number. 
                     <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_add" target="_blank" rel="noopener noreferrer">Example</a>.
@@ -753,7 +796,7 @@
                         let y = 20;
                         let z = x + y;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     However, take caution as the <code>+</code> operator as both for additon and concatenation. When 
@@ -767,7 +810,7 @@
                         let y = "20";
                         let z = x + y;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     If you add a number and a string, the result will be a string concatenation.
@@ -780,7 +823,7 @@
                         let y = "20";
                         let z = x + y;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Likewise, if you add a string and a number, the result will be a string concatenation.                    
@@ -793,10 +836,10 @@
                         let y = 20;
                         let z = x + y;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
-                    A common mistake to make is thinking the below script to result in 30.
+                    A common mistake to make is thinking the example below to result in 30.
                     <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_add_strings3" target="_blank" rel="noopener noreferrer">Example</a>.
                 </p>
                 <pre>
@@ -806,7 +849,7 @@
                         let y = 20;
                         let z = "The result is: " + x + y;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     The truth is, the string only displays the value inside as is. Just like the previous examples with adding 
@@ -815,7 +858,7 @@
                 <p>
                     Another common mistake is in this
                     <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_add_strings4" target="_blank" rel="noopener noreferrer">example</a>,
-                    the answer we expect is 102030, but not quite.
+                    the answer we expect is 102030, but is not quite so.
                 </p>
                 <pre>
                     &lt;script&gt;
@@ -825,13 +868,342 @@
                         let z = "30";
                         let result = x + y + z;
                     </code>
-                    &lt;script&#47;&gt;
+                    &lt;&#47;script&gt;
                 </pre>
                 <p>
                     Like in basic mathematics, JavaScript will follow the order of operations. So <code>x</code> and <code>y</code> 
                     will merge first becoming "30". However, because <code>z</code> is a string cantenation, the result be 
                     as such becoming "3030".
+                    <ul>
+                        TL:DR;
+                        <li>
+                            JavaScript interpreter works from left to right.
+                        </li>
+                        <li>
+                            First 10 + 20 is added because <code>x</code> and <code>y</code> are both numbers.
+                        </li>
+                        <li>
+                            Then 30 + "30" is concatenated because z is a string.
+                        </li>
+                    </ul>
                 </p>
+                
+
+                <div class="javascript vao subheader">
+                    <p>
+                       Numeric Strings 
+                    </p>
+                </div>
+                <p>
+                    JavaScript strings can have numeric content.                    
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 100; // x is a number
+
+                        let y = "100"; // y is a string
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    JavaScript will try to convert strings to numbers in all numeric operations. For instance, this
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_string1" target="_blank" rel="noopener noreferrer">example</a>
+                    for divison.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = "100";
+                        let y = "10";
+                        let z = x / y;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    For multipying, this 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_string2" target="_blank" rel="noopener noreferrer">example</a>
+                    works.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = "100";
+                        let y = "10";
+                        let z = x * y;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    For subtraction, this
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_string3" target="_blank" rel="noopener noreferrer">example</a>
+                    works.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = "100";
+                        let y = "10";
+                        let z = x - y;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    But 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_string4" target="_blank" rel="noopener noreferrer">this</a>                    
+                    does not work.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = "100";
+                        let y = "10";
+                        let z = x + y;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    Do not forget that when using the <code>+</code> operator on strings, the result ends in a string concatenator.
+                </p>
+
+                <div class="javascript vao subheader">
+                    <p>
+                        NaN - Not a Number
+                    </p>
+                </div>
+                <p>
+                    <code>NaN</code> is a JavaScript reserved word indicating that a number is not a legal number. Attempting to do
+                    arithmetic with a non-numeric string will result in <code>NaN</code>. For
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_divide_string" target="_blank" rel="noopener noreferrer">example</a>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 100 / "Apple";
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    However, if the string is numeric string, the result will be a number. Like 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_divide_number" target="_blank" rel="noopener noreferrer">so</a>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 100 / "10";
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    The global JavaScript function <code>isNan()</code> can be used to find out if a value is not a number. In 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_divide_number" target="_blank" rel="noopener noreferrer">this</a>
+                    case:
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 100 / "Apple";
+                        isNaN(x);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    Be careful when using <code>NaN</code>. If used as a variable, the result will also ne <code>NaN</code>. Such 
+                    as 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_nan_math" target="_blank" rel="noopener noreferrer">this</a>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = NaN;
+                        let y = 5;
+                        let z = x + y;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    Or it could end up as a concatenation. Like in this 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_nan_concat" target="_blank" rel="noopener noreferrer">scenario</a>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = NaN;
+                        let y = "5";
+                        let z = x + y;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    <code>NaN</code> is a number: <code>typeof NaN</code> returns <code>number</code>. Like in 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_nan_typeof" target="_blank" rel="noopener noreferrer">here</a>                    
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        type of NaN;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    Oddly enough, while <code>NaN</code> stands for "Not a Number", JavaScript still groups it under the 
+                    "Numbers" family. The reason why is because under the IEEE 754 standard for representing numbers, 
+                    <code>NaN</code> is considered to be a unique number type. In summary, the reasons 
+                    why <code>NaN</code>:
+                    <ul>
+                        Is <b>Not</b> a Number:
+                        <li>
+                            It has no meaningful or distinct numerical value.
+                        </li>
+                        <li>
+                            Arises from operations like <code>0/0</code>, <code>Math.sqrt(-1)</code>, or <code>"hello" * 5</code>.
+                        </li>
+                    </ul>
+                    <ul>
+                        <b>Is</b> a Number:
+                        <li>
+                            Under the IEEE 754 standards for numbers, <code>NaN</code> is considered a <b>valid</b> value of the Number type.
+                        </li>
+                        <li>
+                            It is represented as a reserved bit pattern within floating-point numbers.
+                        </li>
+                        <li>
+                            <code>typeof NaN === "number"</code> confirms this classification in JavaScript.
+                        </li>
+                    </ul>
+                </p>
+
+                <div class="javascript vao subheader">
+                    <p>
+                        Infinity
+                    </p>
+                </div>
+                <p>
+                    <code>Infinity</code> (or <code>-Infinity</code>) is the value JavaScript will return if you calculate 
+                    a number outside the largest possible number. 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_infinity" target="_blank" rel="noopener noreferrer">Like so</a>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let myNumber = 2;
+                        // Execute until Infinity
+                        while (myNumber != Infinity) {
+                            myNumber = myNumber * myNumber;
+                        }
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    Division by zero also generates <code>Infinity</code>.
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_infinity_zero" target="_blank" rel="noopener noreferrer">Like this</a>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 2 / 0;
+                        let y = -2 / 0;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    <code>Infinity</code> is a number: entering <code>typeof Infinity</code> will return <code>number</code>.
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_infinity_typeof" target="_blank" rel="noopener noreferrer">For example</a>.
+                </p>
+
+                <div class="javascript vao subheader">
+                    <p>
+                        Hexadecimal
+                    </p>
+                </div>
+                <p>
+                    JavaScript interprets numeric constants as hexadecimal if they are preceded by <code>0x</code>. Like 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_hex" target="_blank" rel="noopener noreferrer">this</a>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 0xFF;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <ul>
+                    Never write a number with a zero at the front, i.e <code>07</code>.
+                    <li>
+                        Some JavaScript versions interpret numbers as octal if written with a leading zero.
+                    </li>
+                </ul>
+                <p>
+                    By default, JavaScript displays numbers as base 10 decimals. However, by using the tag <code>toString()</code>, 
+                    you can display numbers from <b>base 2</b> to <b>base 36</b>.
+                    <ul>
+                        <li>
+                            Binary is <b>base 2</b>.
+                        </li>
+                        <li>
+                            Octal is <b>base 8</b>.
+                        </li>
+                        <li>
+                            Decimal is <b>base 10</b>.
+                        </li>
+                        <li>
+                            Hexadecimal is <b>base 16</b>.
+                        </li>
+                    </ul>
+                    This
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers_tostring" target="_blank" rel="noopener noreferrer">example</a> 
+                    demonstrates the use case.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let myNumber = 32;
+                        myNumber.toString(32);
+                        myNumber.toString(16);
+                        myNumber.toString(12);
+                        myNumber.toString(10);
+                        myNumber.toString(8);
+                        myNumber.toString(2);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+
+                <div class="javascript vao subheader">
+                    <p>
+                        JavaScript Numbers as Objects
+                    </p>
+                </div>
+                <p>
+                    In most cases, JavaScript numbers are primitive values created from literals.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let x = 123;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <ul>
+                    <li>
+                        Literals are the raw input, i.e <code>42</code>, <code>"hello"</code>.
+                    </li>
+                    <li>
+                        Primitive values are core  data types the literals create (<code>number</code>, <code>string</code>, etc.)
+                    </li>
+                    <li>
+                        Objects are containers that group values and behaviors.
+                    </li>
+                </ul>
+
+
+                <a href="" target="_blank" rel="noopener noreferrer"></a>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        You are gay.
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
             </div>
         </div>
 
@@ -847,14 +1219,14 @@
             </div>
         </div>
 
+
         <div>
             <div class="javascript vao title">
                 <p>
                     <a href="https://javascript.info/operators" target="_self" rel="noopener noreferrer">JavaScript.info's Basic Operators</a>
                 </p>
             </div>
-            <div class="javascript vao text">
-                
+            <div class="javascript vao text">                
             </div>
         </div>
         <br>
