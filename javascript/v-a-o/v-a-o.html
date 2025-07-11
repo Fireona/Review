@@ -1194,16 +1194,109 @@
                         Objects are containers that group values and behaviors.
                     </li>
                 </ul>
-
-
-                <a href="" target="_blank" rel="noopener noreferrer"></a>
+                <p>
+                    Numbers can also be defined as objects with the keyword <code>new</code>. Consider 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_number_object" target="_blank" rel="noopener noreferrer">this</a>.
+                </p>
                 <pre>
                     &lt;script&gt;
                     <code>
-                        You are gay.
+                        let x = 123;
+                        let y = new Number(123);
                     </code>
                     &lt;&#47;script&gt;
                 </pre>
+                <p>
+                    Here we see <code>x</code> is the number while <code>y</code> is the object. The primitive value (number) 
+                    here is <code>x</code> and <code>123</code> is the number literal. Meanwhile, in the second line of 
+                    variable declaration, <code>y</code> is the number object.
+                </p>
+                <p>
+                    While we can create Number objects, it is best advised not to do so. The keyword <code>new</code> complicates 
+                    codes and slows down execution speed, causing Number Objects to produce unexpected results.
+                </p>
+                <p>
+                    In the following
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_number_object1" target="_blank" rel="noopener noreferrer">example</a>, 
+                    when using the <code>==</code> operator, <code>x</code> and <code>y</code> are equal.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        // x is a number;
+                        let x = 500;
+
+                        // y is an object
+                        let y = new Number (500);
+                        document.getElementById("demo").innerHTML = (x==y);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    However, in the 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_number_object2" target="_blank" rel="noopener noreferrer">example</a>
+                    below, <code>x</code> and <code>y</code> are not equal when using the <code>===</code> operator.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        // x is a number
+                        let x = 500;
+
+                        // y is an object
+                        let y = new Number(500);
+                        document.getEleemntById("demo").innerHTML = (x===y);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    Back then in JavaScript, the <code>==</code> operator was used to compared two values for equality. 
+                    However, doing so will allow JavaScript to convert values to be of the same type before comparing them. 
+                    This lead to unexpected conversions behind the scenes.
+                </p>
+                <p>
+                    This brought forth the operator <code>===</code>. This operator is used now to compare to values for 
+                    equality, but it does not convert any values into any type at all. It only takes the values as is.
+                </p>
+                <p>
+                    In the 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_number_object3" target="_blank" rel="noopener noreferrer">example</a>
+                    below, is <code>(x == y)</code> true or false?
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        // x is an object
+                        let x = new Number(500);
+
+                        // y is an object
+                        let y = new Number(500);
+
+                        document.getElementById("demo").innerHTML = (x==y);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    In the 
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_number_object4" target="_blank" rel="noopener noreferrer">example</a>
+                    below, is <code>(x === y)</code> true or false?
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        // x is an object
+                        let x = new Number(500);
+
+                        // y is an object
+                        let y = new Number(500);
+
+                        document.getElementById("demo").innerHTML = (x===y);
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    JavaScript will always return <code>false</code> value when comparing two objects.
+                </p>
             </div>
         </div>
 
@@ -1216,6 +1309,14 @@
             </div>
             <div class="javascript vao text">
                 
+                <a href="" target="_blank" rel="noopener noreferrer"></a>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        You are gay.
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>                
             </div>
         </div>
 
