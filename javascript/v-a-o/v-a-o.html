@@ -1370,10 +1370,68 @@
                     </p>
                 </div>
                 <p>
-                    The <code>Number</code> object, 
+                    The <code>Number</code> object has various methods that allow for standard numbers to be manipulated. 
+                    One good example is rounding a number to a fixed number of decimal places with <code>toFixed&#40;&#41;</code>.
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        const lotsOfDecimal = 1.7665849587;
+                        lotsOfDecimal;
+                        const twoDecimalPlaces = lotsOfDecimal.toFixed&#40;2&#41;;
+                        twoDecimalPlaces;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    If we copy the lines above into the console log, we end up with a value of <code>1.77</code> 
+                    for <code>twoDecimalPlaces</code>.
+                </p>
+                <div class="javascript vao subheader">
+                    <p>
+                        Converting to number data types
+                    </p>
+                </div>
+                <p>
+                    Some numbers are stored as a string type which can cause problems when making calculations. For 
+                    example, if we use the following code in the console:
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let myNumber = "74";
+                        myNumber += 3;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    The console returns to us with a value of 743 and not 77. As referred back in 
+                    <a href="https://www.w3schools.com/js/js_numbers.asp" target="_blank" rel="noopener noreferrer">W3Schools' on JavaScript Numbers</a>, 
+                    the addition of a number with a string results with a string concatenation. To confirm that the 
+                    result is a string, use the following in the console:
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        typeof myNumber;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    To remedy this blight, we need to use the following:
+                </p>
+                <pre>
+                    &lt;script&gt;
+                    <code>
+                        let myNumber = "74";
+                        myNumber = Number&#40;myNumber&#41; + 3;
+                    </code>
+                    &lt;&#47;script&gt;
+                </pre>
+                <p>
+                    The result is then 77, as we initially expected.
                 </p>
 
-                    
                 
 
                 <a href="" target="_blank" rel="noopener noreferrer"></a>
