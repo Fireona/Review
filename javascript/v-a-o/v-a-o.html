@@ -1515,6 +1515,35 @@
 
                 <div class="javascript vao subheader">
                     <p>
+                        Increment and Decrement Operators
+                    </p>
+                </div>
+                <p>
+                    In some use cases, we will want to repeatedly add or subtract one to or from a numeric variable 
+                    value. This is done with the increment (<code>++</code>) or decrement (<code>--</code>) 
+                    operators. This only ever increases or decreases the value of a variable, respectively, by a 
+                    value of 1 only. Afterwards, the variable is updated with the new value.
+                </p>
+                <pre>
+                    <code>
+                        let num1 = 5;
+                        num1--;
+                        num1;
+                    </code>
+                </pre>
+                <p>
+                    Or:
+                </p>
+                <pre>
+                    <code>
+                        let num2 = 5;
+                        num2++;
+                        num2;
+                    </code>
+                </pre>
+                
+                <div class="javascript vao subheader">
+                    <p>
                         Assignment Operators
                     </p>
                 </div>
@@ -1534,8 +1563,79 @@
                     the values of the variables can be changed as we did by writing <code>x = y</code> at the end.
                 </p>
                 <p>
-                    There are also more complex types of operators.
+                    There are also more complex types of operators:
                 </p>
+                <dl>
+                    <dt>
+                        Additon <code>+=</code>
+                    </dt>
+                    <dd>
+                        Adds the value on right to the left variable value and returns the new variable value.
+                        <pre>
+                            <code>
+                                x += 4;
+                            </code>
+                        </pre>
+                        This is shorthand writing for:
+                        <pre>
+                            <code>
+                                x = x + 4;
+                            </code>
+                        </pre>
+                    </dd>
+                    <dt>
+                        Subtraction <code>-=</code>
+                    </dt>
+                    <dd>
+                        Subtracts the value on the right from the variable value on the left, returns the new variable.
+                        <pre>
+                            <code>
+                                x -= 3;
+                            </code>
+                        </pre>
+                        This is shorthand writing for:
+                        <pre>
+                            <code>
+                                x = x - 3;
+                            </code>
+                        </pre>                        
+                    </dd>
+                    <dt>
+                        Multiplication <code>*=</code>
+                    </dt>
+                    <dd>
+                        Multiplies the variable value on the left by the variable on the right, and returns the new variable.
+                        <pre>
+                            <code>
+                                x *= 5;
+                            </code>
+                        </pre>
+                        This is shorthand writing for:
+                        <pre>
+                            <code>
+                                x = x * 5;
+                            </code>
+                        </pre>
+                    </dd>
+                    <dt>
+                        Division <code>/=</code>
+                    </dt>
+                    <dd>
+                        Divides the variable value on the left by the value on the right, and returns the new value.
+                        <pre>
+                            <code>
+                                x /= 6;
+                            </code>
+                        </pre>
+                        This is shorthand writing for:
+                        <pre>
+                            <code>
+                                x = x / 6;
+                            </code>
+                        </pre>
+                    </dd>
+                </dl>
+            
 
 
 
