@@ -20,8 +20,8 @@ body {
     padding: 0;
     margin: 50px 150px;
 }
-
-h1, .topic {
+/* topic */
+h1, .chapter {
     width: 100%;
     font-size: 60px;
     font-style: italic;
@@ -29,21 +29,35 @@ h1, .topic {
     text-decoration: underline;
     word-wrap: break-word;
 }
-
-h2, .title {
-    font-size: 36px;
+/* title */
+h2, .section {
+    font-size: 48px;
     font-weight: 900;
     text-decoration: underline;
 }
-
-h3, .subheader {
-    font-size: 24px;
+/* subheader */
+h3, .subection {
+    font-size: 36px;
     text-decoration: underline;
+    font-weight: 900;
 }
 
-h4 {
+h4, .topic {
+    font-size: 24px;
     text-decoration: underline;
     font-weight: 1000;
+}
+
+h5, .subtopic {
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: 900;
+}
+
+h6, .note {
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: 900;
 }
 
 .hometopics {
