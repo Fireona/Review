@@ -36,7 +36,7 @@ h2, .section {
     text-decoration: underline;
 }
 /* subheader */
-h3, .subection {
+h3, .subsection {
     font-size: 36px;
     text-decoration: underline;
     font-weight: 900;
