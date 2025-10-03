@@ -1891,6 +1891,143 @@
                     </p>
                 </div>
                 <p>
+                    When we typically use the <code>&#43;</code> operator, we intuitively know that it means to 
+                    take the sum of two or more numbers. However when applying the binary form to two strings, it 
+                    causes the two strings to merge, causing what is called an concatenation.
+                </p>
+                <pre>
+                    <code>
+                        let s = "my" + "string";
+                        alert(s);
+                    </code>
+                </pre>
+                <p>
+                    The resulting alert will bring about the combination of <code>my</code> and <code>string</code>, 
+                    <code>mystring</code>. This is also applied to whether if one operand is not a string and the other 
+                    is a string:
+                </p>
+                <pre>
+                    <code>
+                        alert( '1' + 2 );
+                        alert( 2 + '1' );
+                    </code>
+                </pre>
+                <p>
+                    What we'll have from the scenarios above is a concatenation. In the first example, we'll have 
+                    the alert return us the combination of <code>'1'</code> and <code>2</code>, becoming <code>"12"</code>.
+                    Likewise in the latter instance, we'll get the combination of <code>'2'</code> and <code>1</code>, 
+                    and <code>"21"</code> will pop out. Whether the first or second operand is a string or not, the 
+                    result will still be the same.
+                </p>
+                <pre>
+                    <code>
+                        alert(2 &#43; 2 &#43; '1' )
+                    </code>
+                </pre>
+                <p>
+                    When introducing more variables and values, treat it in the order of the way it is written, similar 
+                    to mathematical functions, from left to right. Here, the values <code>2</code> and <code>2</code> 
+                    will get summed up into <code>4</code> before merging with the string, <code>'1'</code>. As a result, 
+                    we get <code>"41"</code>.
+                </p>
+                <pre>
+                    <code>
+                        alert('1' &#43; 2 &#43; 2);
+                    </code>
+                </pre>
+                <p>
+                    Just like the previous example, we proceed based on the order of the way it was written. The first 
+                    operand is a string, which will concentenate <code>'1'</code> and <code>2</code>, becoming <code>"12"</code>. 
+                    This is then followed up with <code>'12'</code> merging with <code>2</code>, resulting in 
+                    <code>"122"</code>.
+                </p>
+                <p>
+                    The binary <code>&#43;</code> is the only operator that behaves in this matter. Other operators 
+                    that are used arithmetically only work with numbers and always converts their operands into 
+                    numbers.
+                </p>
+                <pre>
+                    <code>
+                        alert( 6 &#45; '2' );
+                        alert( '6' &#47; '2' );
+                    </code>
+                </pre>
+                <p>
+                    Even if we should make an attempt to use other arithmetic operators with a number and a string, 
+                    the string will first be converted into a number. As such, we return with our expected values of 
+                    <code>4</code> and <code>3</code>.
+                </p>
+
+                <div class="javascript vao section">
+                    <p>
+                        Numeric conversion, unary &#43;
+                    </p>
+                </div>
+                <p>
+                    In the previous subsection, the operator <code>&#43;</code> was the binary form. In it's unary form, 
+                    it is applied to an individual value. When applied to number, it does not do anything. When applied 
+                    to a string however, the unary operator changes the string into a number.
+                </p>
+                <pre>
+                    <code>
+                    let x &#61; 1;
+                    alert( &#43;x );
+
+                    let y &#61; &#45;2;
+                    alert ( &#43;y );
+
+                    alert( &#43;true );
+                    alert( &#43;"");
+                    </code>
+                </pre>
+                <p>
+                    When running the alert, we get a return of each operand strictly as a number. As such, we get returns 
+                    of <code>1</code>, <code>&#45;2</code>, <code>1</code>, and <code>0</code>. The boolean <code>true</code> 
+                    is converted to a value of <code>1</code> when changed into a number. As for <code>""</code>, this is 
+                    is what is called an empty string. Although is has no characters within the string, when applied with 
+                    the unary operator <code>&#45;</code>, it becomes a numerical value of 0. The unary operator functions 
+                    the same as writing <code>Number(...)</code>, but is shorter.
+                </p>
+                <p>
+                    There if often a necessity to convert strings to numbers. When getting values from HTML form fields, 
+                    they often come in the form of strings. When adding them together, we would just get strings back.
+                </p>
+                <pre>
+                    <code>
+                        let apples = "2";
+                        let oranges = "3";
+
+                        alert( apples &#43; oranges);
+                    </code>
+                </pre>
+                <p>
+                    Here, when we add the variables <code>apples</code> and <code>oranges</code> together, we get a string 
+                    of <code>"23"</code>. So in order to treat them as values, we use the unary operator.
+                </p>
+                <pre>
+                    <code>
+                        let apples &#61; "2";
+                        let oranges &#61; "3";
+
+                        alert ( &#45;apples &#45; &#45;oranges );
+                    </code>
+                </pre>
+                <p>
+                    In our alert, we've properly applied to unary operators to both operands, converting them from strings 
+                    into numerical values. As such, we get the numerical value <code>5</code> as we expected.
+                </p>
+                <p>
+                    Although it is a little convuluted to be using so many plus symbols, it is essential to make everything 
+                    clear and concise to prevent any issues from coming up. As such, unary pluses are applied before binary 
+                    operands due to the precedence order.
+                </p>
+
+                <div class="javascript vao section">
+                    <p>
+                        Operator Precedence
+                    </p>
+                </div>
+                <p>
                     
                 </p>
 
