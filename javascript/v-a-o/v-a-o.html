@@ -1830,14 +1830,70 @@
                     (<code>&#42;&#42;</code>) may need some elaboration.
                 </p>
 
-                <div class="javascript vao subsection">
+                <div class="javascript vao topic">
                     <p>
                         Remainder
                     </p>
                 </div>
                 <p>
-
+                    The remainder operator (also known as the modulo operator), <code>&#37;</code>, has no relation 
+                    to percentages although sharing the same character. By writing <code>a &#37; b</code>, the 
+                    remaining integer stemming from the division of <code>a &#47; b</code> is brought forward. Example:
                 </p>
+                <pre>
+                    <code>
+                        alert ( 5 &#37; 2 );
+                        alert ( 8 &#37; 3 );
+                        alert ( 8 &#37; 4 );
+                    </code>
+                </pre>
+                <p>
+                    When dividing the left number by the right number, occassionally the integers do not fit perfectly. When this occurs, 
+                    we have a remainder prior to using a decimal. In the first example, we have a remainder of 1. 
+                    Likewise, in the second and third examples, we have a remainder of 2 and 0 respectively.
+                </p>
+                
+                <div class="javascript vao topic">
+                    <p>
+                        Exponentiation
+                    </p>
+                </div>
+                <p>
+                    Exponentiation operators raises up the base to the exponential power. Althought written as <code>a &#42;&#42; b</code>, 
+                    it is better understood as <code>aᵇ</code>, as taught in schools. Some examples:
+                </p>
+                <pre>
+                    <code>
+                        alert ( 2 &#42;&#42; 2 );
+                        alert ( 2 &#42;&#42; 3 );
+                        alert ( 2 &#42;&#42; 4 );
+                    </code>
+                </pre>
+                <p>
+                    In these examples, we have a base of 2 with an exponential power of 2, 3 and 4. This should give 
+                    us values of 4, 8 and 16 respectively. Exponential operators also work for non-integer numbers as well:
+                </p>
+                <pre>
+                    <code>
+                        alert ( 4 &#42;&#42; (1&#47;2) );
+                        alert ( 8 &#42;&#42; (1&#47;3) );
+                    </code>
+                </pre>
+                <p>
+                    In the first example, with a exponential power of ½ is also an alternate method of writing a 
+                    square root. As such, the return value will be 2. Similarly, ⅓ is a cubic root resulting in a 
+                    return of 2 as well.
+                </p>
+
+                <div class="javascript vao subsection">
+                    <p>
+                        String concatenation with binary &#43;
+                    </p>
+                </div>
+                <p>
+                    
+                </p>
+
             </div>
         </div>
 
