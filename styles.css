@@ -127,3 +127,9 @@ code {
     font-weight: 900;
     text-decoration: underline;    
 }
+
+td, th {
+    border: 2px solid #3d3d3d;
+    text-align: left;
+    padding: 8px;
+}

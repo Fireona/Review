@@ -2028,8 +2028,199 @@
                     </p>
                 </div>
                 <p>
+                      When there are multiple operators in a single expression, the order of operation is defined by the 
+                      precendence, or the default priority order of operators.                  
+                </p>
+                <pre>
+                    <code>
+                        1 &#43; 2 &#42; 2
+                    </code>
+                </pre>
+                <p>
+                    In basic mathematics, we are taught that multiplication takes a priority before the addition. This priority 
+                    is the essence of precendence. The multiplication operator has a high precedence that the addition. Higher than 
+                    the multiplication lies the parantheses that overcome all precedence orders. If the default order of the expression 
+                    is not satisfactory, we use parantheses to change it:
+                </p>
+                <pre>
+                    <code>
+                        ( 1 &#43; 2 ) &#42; 2
+                    </code>
+                </pre>
+                <p>
+                    Javascript uses a plethora of operators, each with it's own corresponding precendence number. The 
+                    operator with the larger precendence number goes first. If the precedence order is the same, then 
+                    the expression is read in the order from left to write.
+                </p>
+                <table class="javascript vao" id="precendence-table">
+                    <tr>
+                        <th>
+                            Precedence
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Sign
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            ...
+                        </td>
+                        <td>
+                            ...
+                        </td>
+                        <td>
+                            ...
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            14
+                        </td>
+                        <td>
+                            unary plus
+                        </td>
+                        <td>
+                            <code>&#43;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            14
+                        </td>
+                        <td>
+                            unary negation
+                        </td>
+                        <td>
+                            <code>&#45;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            13
+                        </td>
+                        <td>
+                            exponentiation
+                        </td>
+                        <td>
+                            <code>&#42;&#42;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            muliplication
+                        </td>
+                        <td>
+                            <code>&#42;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            12
+                        </td>
+                        <td>
+                            division
+                        </td>
+                        <td>
+                            <code>&#47;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            11
+                        </td>
+                        <td>
+                            addition
+                        </td>
+                        <td>
+                            <code>&#43;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            11
+                        </td>
+                        <td>
+                            subtraction
+                        </td>
+                        <td>
+                            <code>&#45;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ...
+                        </td>
+                        <td>
+                            ...
+                        </td>
+                        <td>
+                            ...
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            assignment
+                        </td>
+                        <td>
+                            <code>&#61;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ...
+                        </td>
+                        <td>
+                            ...
+                        </td>
+                        <td>
+                            ...
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    The listed table provides the order of precedence for the operators gone over. Through observation, 
+                    the "unary plus" has a higher precendence of <code>14</code>, which is higher than the addition's 
+                    precedence of <code>11</code>. This means in the expression <code>&#43;apples &#43; &#43;oranges</code>, 
+                    the unary pluses take priority and function first before taking the sum.
+                </p>
+
+                <div class="javascript vao section">
+                    <p>
+                        Assignment
+                    </p>
+                </div>
+                <p>
+                    As a reminder, even the assignment <code>&#61;</code> is also an operator in of itself. It's 
+                    actually listed in the precedence table with a low priority of <code>2</code>. Due to this low 
+                    evaluation on the precedence order, the expressions undergo calculations first before <code>&#61;</code> 
+                    is evaluated and then stored:
+                </p>
+                <pre>
+                    <code>
+                        x &#61; 2 &#42; 2 &#43; 1
+
+                        alert&#40; x &#41; &#47;&#47; 5
+                    </code>
+                </pre>
+
+                <div class="javascript vao subsection">
+                    <p>
+                        Assignment &#61; returns a value
+                    </p>
+                </div>
+                <p>
                     
                 </p>
+                
 
             </div>
         </div>
