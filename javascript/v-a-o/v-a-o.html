@@ -2218,11 +2218,318 @@
                     </p>
                 </div>
                 <p>
-                    
+                    There are special implications for the operator <code>&#61;</code>. All operators in JavaScript 
+                    return a value, this includes <code>&#43;</code>, <code>&#45;</code> and even <code>&#61;</code>. 
+                    When the expression <code>x &#61; value</code> is executed, <code>value</code> is assigned to the 
+                    variable <code>x</code> using the assignment (<code>&#61;</code>) operator. The expression itself 
+                    then returns <code>value</code>.
+                </p>
+                <pre>
+                    <code>
+                        let a &#61; 1;
+                        let b &#61; 2;
+
+                        let c &#61; 3 - (a &#61; b &#43; 1);
+
+                        alert( a ); &#47;&#47; 3
+                        alert( c ); &#47;&#47; 0
+                    </code>
+                </pre>
+                <p>
+                    Here we have an expression that lies within another expression. The result stemming from the expression 
+                    <code>a &#61; b &#42; 1</code> is the value that is then assigned to <code>a</code> (value of <code>3</code>). 
+                    The newly resassigned value is then used in calculations done in the future. Although, new values can be 
+                    reassigned to existing variables, it's use case is frowned upon as it makes code less clear or unreadable.
                 </p>
                 
+                <div class="javascript vao subsection">
+                    <p>
+                        Chaining assignments
+                    </p>
+                </div>
+                <p>
+                    When chained assignments take place, they are to be read from right to left.
+                </p>
+                <pre>
+                    <code>
+                        let a, b, c;
+
+                        a &#61; b &#61; c &#61; 2 &#43; 2;
+
+                        alert( a ); &#47;&#47; 4
+                        alert( b ); &#47;&#47; 4
+                        alert( c ); &#47;&#47; 4
+                    </code>
+                </pre>
+                <p>
+                    From the expressions above, the evaluation of <code>2 &#43; 2</code> takes place first. Once the 
+                    calculation is completed, it then gets assigned to the variables of the left: <code>c</code>, <code>b</code>, 
+                    and <code>a</code>. As a result, all variables share the same value. However, this method of assignment 
+                    is also be halted to keep code clear and readable.
+                </p>
+                <pre>
+                    <code>
+                        c &#61; 2 &#43; 2;
+                        b &#61; c;
+                        a &#61; c;
+                    </code>
+                </pre>
+
+                <div class="javascript vao section">
+                    <p>
+                        Modify-in-place
+                    </p>
+                </div>
+                <p>
+                    There will be use cases to apply an operator to a variable and store new results into the same variable.
+                </p>
+                <pre>
+                    <code>
+                        let n &#61; 2;
+                        n &#61; n &#43; 5;
+                        n &#61; n &#42; 2;
+                    </code>
+                </pre>
+                <p>
+                    This method of writing code is repetitive and mundane, so it can be rewritten with the operators <code>&#43;&#61;</code> 
+                    and <code>&#42;&#61;</code>.
+                </p>
+                <pre>
+                    <code>
+                        let n &#61; 2;
+                        n &#43;&#61; 5; &#47;&#47; now n &#61; 7 (same as n &#61; n &#43; 5)
+                        n &#42;&#61; 2; &#47;&#47; now n &#61; 14 (same as n &#61; n &#42; 2)
+                    </code>
+                </pre>
+                <p>
+                    The abbreviated operators exist for all arithmetical and bitwise operators: <code>&#47;&#61;</code>, <code>&#45;&#61;</code>, etc.
+                    They also have the same precedence level as a standard assignment operator &#40;<code>&#61;</code>&#41;. 
+                    As a result, they often run once other operators of higher precedence have been evaluated.
+                </p>
+                <pre>
+                    <code>
+                        let n &#61; 2;
+
+                        n &#42;&#61; 3 &#43; 5; &#47;&#47; right part is evaluated first, same as n &#42;&#61; 8
+
+                        alert&#40; n &#41;; &#47;&#47; 16
+                    </code>
+                </pre>
+
+                <div class="javascript vao section">
+                    <p>
+                        Increment/decrement
+                    </p>
+                </div>
+                <p>
+                    Increasing or decreasing a number by a value of one is a common numerical operation. The operators used are:
+                </p>
+                <pre>
+                    Increment <code>&#42;&#42;</code> increases a variable by 1:
+                    <code>
+                        let counter &#61; 2;
+                        counter &#42;&#42;;  &#47;&#47; works the same as counter &#61; counter &#42; 1, but shorter to write
+                        alert &#40; counter &#41;; &#47;&#47; 3
+                    </code>
+                    Decrement <code>&#45;&#45;</code> decreases a variable by 1:
+                    <code>
+                        let counter &#61; 2;
+                        counter &#45;&#45;; &#47;&#47; works the same as counter &#61; counter &#45; 1, but shorter to write
+                        alert &#40; counter &#41;; &#47;&#47; 1
+                    </code>
+                    Note: Increment/Decrement can only be applied to variables. Attempts to apply on a value such as <code>5&#42;&#42;</code> 
+                    will result in an error.
+                </pre>
+                <p>
+                    The operators <code>&#42;&#42;</code> and <code>&#45;&#45;</code> can be placed before or after a variable. 
+                </p>
+                <ul>
+                    <li>
+                        Writing the operator after the variable is it's "postfix form" &#40;<code>counter&#42;&#42;</code>&#41;.
+                    </li>
+                    <li>
+                        When writing the operator before the variable is it's "prefix form" &#40;<code>counter&#45;&#45;</code>&#41;. 
+                    </li>
+                </ul>
+                <p>
+                    Both operators will only increase or decrease the value of <code>counter</code> by <code>1</code>. There are 
+                    subtle differences in the return results. The prefix form returns the new values before reassignment. As for the 
+                    postfix form, the console returns old values before reassignment.
+                </p>
+                <pre>
+                    Prefix form returns new value and reassigns variable
+                    <code>
+                        let counter &#61; 1;
+                        let a &#61; &#43;&#43;counter; &#47;&#47; &#40;&#42;&#41;
+
+                        alert&#40;a&#41;; &#47;&#47; 2
+                    </code>
+                    Postfix form returns original value and reassigns variable with new value
+                    <code>
+                        let counter &#61; 1;
+                        let a &#61; counter&#43;&#43;; &#47;&#47; &#40;&#42;&#41;
+
+                        alert&#40;a&#41;; &#47;&#47; 1
+                    </code>
+                </pre>
+                <p>
+                    In the line &#40;&#42;&#41;, the postfix form <code>counter&#43;&#43;</code>, the incrementation occurs but only 
+                    after returning the value before it is incremented. Therefore the console returns a value of <code>1</code> before 
+                    it is assigned the new value after incrementation.
+                </p>
+                <ul>
+                    Summary:
+                    <li>
+                        If the result of increment/decrement is not used, there is no difference in which form to use.
+                        <pre>
+                            <code>
+                                let counter &#61; 0;
+                                counter&#43;&#43;;
+                                &#43;&#43;counter;
+                                alert&#40; counter &#41;; &#47;&#47; 2, the lines above did the same
+                            </code>
+                        </pre>
+                        In this scenario, the incremented value of <code>counter</code> is not used before a second incrementation. 
+                        Therefore, it does not matter whether the prefix or postfix form is used.
+                    </li>
+                    <li>
+                        If we wish to increment a value but also immediately use the resulting value, then we need to use 
+                        the prefix form:
+                        <pre>
+                            <code>
+                                let counter &#61; 0;
+                                alert&#40; &#43;&#43;counter &#41;; &#47;&#47; 1
+                            </code>
+                        </pre>
+                    </li>
+                    <li>
+                        Inversely, if we want to increment the value but use it's original value, the postfix form is required:
+                        <pre>
+                            <code>
+                                let counter &#61; 0;
+                                alert&#40; counter&#43;&#43; &#41; &#47;&#47; 0
+                            </code>
+                        </pre>
+                    </li>
+                    <li>
+                        Operators can also be used inside expressions as well, however their precedence is higher than 
+                        most other arithmetical operations.
+                        <pre>
+                            <code>
+                                let counter &#61; 1;
+                                alert&#40; 2 &#42; &#43;&#43;counter &#41;; &#47;&#47; 4
+                            </code>
+                        </pre>
+                        Compare to:
+                        <pre>
+                            <code>
+                                let counter &#61; 1;
+                                alert&#40; 2 &#42; counter&#43;&#43; &#41;; &#47;&#47; 2, &#8757; counter returns original value
+                            </code>
+                        </pre>
+                        Although there is no "rule" dictating you can not do multiple calculations in a single line, refrain 
+                        from doing so to keep code clean. As such, it is better to write with a the thought "one line &#45; one action":
+                        <pre>
+                            <code>
+                                let counter &#61; 1;
+                                alert&#40; 2 &#43; counter &#41;;
+                                counter&#43;&#43;
+                            </code>
+                        </pre>
+                    </li>
+                </ul>
+
+                <div class="javascript vao section">
+                    <p>
+                        Bitwise Operators
+                    </p>
+                </div>
+                <p>
+                    Bitwise operators treat arguments as 32-bit integer numbers and work on the level of their binary 
+                    representation. One thing to keep in mind is these operators are not specific to JavaScript, but 
+                    are also followed in most programming languages. Here is a list:
+                </p>
+                <ul>
+                    <li>
+                        AND &#40;<code>&#38;</code>&#41;
+                    </li>
+                    <li>
+                        OR &#40;<code>&#124;</code>&#41;
+                    </li>
+                    <li>
+                        XOR &#40;<code>&#94;</code>&#41;
+                    </li>
+                    <li>
+                        NOT &#40;<code>&#126;</code>&#41;
+                    </li>
+                    <li>
+                        LEFT SHIFT &#40;<code>&lt;&lt;</code>&#41;
+                    </li>
+                    <li>
+                        RIGHT SHIFT &#40;<code>&gt;&gt;</code>&#41;
+                    </li>
+                    <li>
+                        ZERO-FILL RIGHT SHIFT &#40;<code>&gt;&gt;&gt;</code>&#41;
+                    </li>
+                </ul>
+                <p>
+                    Bitwise operators are used very rarely, mostly when dealing with numbers on the very lowest (bitwise) level. 
+                    Web development has very little use for these operators, but is often used in fields like cryptography.
+                </p>
+
+                <div class="javascript vao section">
+                    <p>
+                        Comma
+                    </p>
+                </div>
+                <p>
+                    The comma operator <code>&#44;</code> is one of the rarest and scarcely used operators. In those occassions, 
+                    the operator is used to write shorter code. It allows us to evaluate several expressions, each divided by 
+                    the comma <code>&#44;</code>. Each expression is evaluated but only the last is returned.
+                </p>
+                <pre>
+                    <code>
+                        let a &#61; &#40;1 &#43; 2&#44; 3 &#43; 4&#41;;
+
+                        alert&#40; a &#41;; &#47;&#47; &#40;result of 3 &#42; 4&#41;
+                    </code>
+                </pre>
+                <p>
+                    The first argument, <code>1 &#43; 2</code> is evaluated but is thrown away. The last argument that was 
+                    expressed is <code>3 &#43; 4</code>, which then returns an expected value of <code>7</code>. The comma 
+                    <code>&#44;</code> also has very low precedence, even lower than <code>&#61;</code> so the parantheses 
+                    used in the above example are crucial.
+                </p>
+                <pre>                    
+                    <code>
+                        let a &#61; 1 &#43; 2&#44; 3 &#43; 4;
+                    </code>
+                </pre>
+                <p>
+                    If argument omits the use of parantheses, then by following the order of precendence, the <code>&#43;</code> 
+                    goes first. This calculates the sum of <code>a &#61; 3&#44; 7</code>, and then follows the assignment 
+                    <code>&#61;</code> operator, assigning <code>a &#61; 3</code> while the remaining code is dropped. It is 
+                    the equivalent of writing <code>&#40;a &#61; 1 &#43; 2&#41;&#44; 3 &#43; 4</code>.
+                </p>
+                <p>
+                    So why the need for an operator that throws away all code but the last expression? There are occassions 
+                    people use it in more complex constructs to put several actions in one line.
+                </p>
+                <pre>
+                    <code>
+                        &#47;&#47; three operations in one line
+                        for &#40;a &#61; 1&#44; b &#61; 3&#44; c &#61; a &#42; b; a &lt; 10; a&#43;&#43; &#123;
+                        ...
+                        &#125;
+                    </code>
+                </pre>
+                <p>
+                    These are a number of tricks that are used in JavaScript frameworks. However, they don't improve 
+                    code readability, so think well before using them.
+                </p>
 
             </div>
+
         </div>
 
 
