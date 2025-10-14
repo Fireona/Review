@@ -91,6 +91,46 @@
                     (just <code>.js</code>).
                 </p>
             </div>
+            <div class="javascript vao subsection">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <div class="javascript vao text">
+                <ul>
+                    How to run JavaScript code                    
+                    <li>
+                        Insert the <code>script</code> tag into the HTML code.
+                        <pre>
+                            <code>
+                                ...
+                                &lt;body&gt;
+                                
+                                    &lt;script&gt;
+                                    &#47;&#47; JavaScript goes here
+                                    console.log&#40;"Hello, World!"&#41;
+                                &lt;&#47;body&gt;
+                                ...
+                            </code>
+                        </pre>
+                        Enter the Console tab in the Developer Tools via Inspect Element to view output of the script.
+                    </li>
+                    <li>
+                        If using an external file, then link the file the same way with previous CSS files.
+                        <pre>
+                            <code>
+                                &lt;script src="javascript.js"&gt;&lt;&#47;script&gt;
+                            </code>
+                        </pre>
+                        Like how CSS files end in <code>.css</code>, JavaScript files end in <code>.js</code>.
+                    </li>
+                    <li>
+                        Use the command &#40;function&#41; <code>console.log</code> to identify and return the value 
+                        of the argument &#40;the variable&#41;. Though this is the most commonly used function, there 
+                        are other use cases &#40;such as a debugging tool&#40;.
+                    </li>
+                </ul>
+            </div>
         </div>
 
 
@@ -120,7 +160,7 @@
                     &lt;&#47;script&gt;
                 </pre>
                 <p>
-                    Inputting the above script will enter two logs into the console, one for the <code>name</code> and 
+                    Inputting the above script will enter declarations into the console, one for the <code>name</code> and 
                     another for <code>surname</code>.
                 </p>
                 <p>
@@ -144,7 +184,7 @@
                     again when re-assigning values to variables.
                 </p>
                 <p>
-                    When we have a constant that is never changed (like pi), we can use the keyword<code>const</code> instead.
+                    When we have a constant that is never changed (like pi), we can use the keyword <code>const</code> instead.
                 </p>
                 <pre>
                     &lt;script&gt;
@@ -177,6 +217,54 @@
                     there were issues when used that were fixed when <code>let</code> and <code>const</code> were 
                     introduced. Today, <code>var</code> is no longer used but you may still encounter it in other areas.
                 </p>
+            </div>
+            <div class="javascript vao subsection">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <div class="javascript vao text">
+                <ul>
+                    Variables
+                    <li>
+                        Like in mathematics, variables are containers for data in code.
+                        <pre>
+                            <code>
+                                &lt;script&gt;
+                                    let city &#61; "Toronto";
+                                    let country &#61; "Canada";
+
+                                    console.log&#40;city&#41;
+                                    console.log&#40;country&#41;
+                            </code>
+                        </pre>
+                        Use the keyword <code>let</code> to generate an identity and also give a value to it.                
+                    </li>
+                    <li>
+                        Once a variable has been created and entered into the console via <code>console.log</code>, the 
+                        value can be reassigned at any time without having to use <code>let</code>.
+                        <pre>
+                            <code>
+                                let age &#61; 33;
+                                console.log&#40;age&#41;
+
+                                age &#61; 34;
+                                console.log&#40;age&#41;
+                            </code>
+                        </pre>
+                    </li>
+                    <li>
+                        Constants <code>const</code> are just like variables but once values are assigned to them, they can 
+                        never be reassigned. Doing so will return will errors, making it easy to locate and identify problems.
+                        <pre>
+                            <code>
+                                const pi &#61;22&#47;7;
+
+                                console.log&#40;pi&#41;;
+                            </code>                    
+                        </pre>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -524,104 +612,211 @@
             <p>
                 Operations are defined by operators (variables and quantitative values) and operands:
             </p>
-                <ul>
-                    <li>
-                        Addition (<code>+</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                let y = 2;
-                                let z = x + y;
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                    <li>
-                        Subtraction (<code>-</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                let y = 2;
-                                let z = x - y;
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                    <li>
-                        Multiplication (<code>*</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                let y = 2;
-                                let z = x * y;
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                    <li>
-                        Division (<code>/</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                let y = 2;
-                                let z = x / y;
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                    <li>
-                        Remainder, also known as modulo operation (<code>%</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                let y = 2;
-                                let z = x % y;
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                    <li>
-                        Incrementation (<code>++</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                x++;
-                                let z = x;              
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                    <li>
-                        Decrementation (<code>--</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                x--;
-                                let z = x;
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                    <li>
-                        Exponentiation (<code>**</code>)
-                        <pre>
-                            &lt;script&gt;
-                            <code>
-                                let x = 5;
-                                x**;
-                                let z = x;
-                            </code>
-                            &lt;&#47;script&gt;
-                        </pre>
-                    </li>
-                </ul>
+            <ul>
+                <li>
+                    Addition (<code>+</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            let y = 2;
+                            let z = x + y;
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+                <li>
+                    Subtraction (<code>-</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            let y = 2;
+                            let z = x - y;
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+                <li>
+                    Multiplication (<code>*</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            let y = 2;
+                            let z = x * y;
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+                <li>
+                    Division (<code>/</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            let y = 2;
+                            let z = x / y;
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+                <li>
+                    Remainder, also known as modulo operation (<code>%</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            let y = 2;
+                            let z = x % y;
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+                <li>
+                    Incrementation (<code>++</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            x++;
+                            let z = x;              
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+                <li>
+                    Decrementation (<code>--</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            x--;
+                            let z = x;
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+                <li>
+                    Exponentiation (<code>**</code>)
+                    <pre>
+                        &lt;script&gt;
+                        <code>
+                            let x = 5;
+                            x**;
+                            let z = x;
+                        </code>
+                        &lt;&#47;script&gt;
+                    </pre>
+                </li>
+            </ul>
+            <div class="javascript vao subsection">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <table>
+                <tr>
+                    <th>
+                        Function
+                    </th>
+                    <th>
+                        Operator
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Addition
+                    </td>
+                    <td>
+                        <code>&#43;</code>
+                    </td>
+                    <td>
+                        Adds numbers and/or strings together.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Subtraction
+                    </td>
+                    <td>
+                        <code>&#45;</code>
+                    </td>
+                    <td>
+                        Subtracts the right value from the left value.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Multiplication
+                    </td>
+                    <td>
+                        <code>&#42;
+                    </td>
+                    <td>
+                        Multiplies the left value by the right value.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Division
+                    </td>
+                    <td>
+                        &#47;
+                    </td>
+                    <td>
+                        Divides the left value by the right value.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Modulo or Remainder
+                    </td>
+                    <td>
+                        <code>&#37;</code>
+                    </td>
+                    <td>
+                        Divides the left value by the right value, and returns the remainder.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Incrementation
+                    </td>
+                    <td>
+                        <code>&#43;&#43;</code>
+                    </td>
+                    <td>
+                        Increments value by 1 only.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Decrementation
+                    </td>
+                    <td>
+                        <code>&#45;&#45;</code>
+                    </td>
+                    <td>
+                        Decrements value by 1 only.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Exponentiation
+                    </td>
+                    <td>
+                        <code>&#42;&#42;</code>
+                    </td>
+                    <td>
+                        Multiplies the base value by the power of the exponentiated value.
+                    </td>
+                </tr>
+            </table>
+            
         </div>
 
 
@@ -1286,6 +1481,61 @@
                     JavaScript will always return <code>false</code> value when comparing two objects.
                 </p>
             </div>
+
+            <div class="javascript vao subsection">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <ul>
+                Numbers
+                <li>
+                    There are two types of numbers, either they have or do not have a decimal.
+                </li>
+                <li>
+                    Extra large or extra small numbers are written with scientific notation.
+                </li>
+            </ul>
+            <ul>
+                JavaScript Numbers are Always 64-bit Floating Point
+                <li>
+                    Numbers are stored as double precision floating point numbers &#40;IEEE 754&#41;, similar to 
+                    scientific notation.
+                </li>
+                <pre>
+                    <code>
+                        1.23 x 10^5 &#61; 123,000
+                    </code>
+                </pre>
+                <li>
+                    1.23 is classed as the fraction &#40;or <b>mantissa</b> or <b>significand</b>&#41; and the 5 is the 
+                    exponent &#40;dictating decimal position&#41;.
+                </li>
+                How numbers are stored in JavaScript with 64 bits
+                <li>
+                    Bit 0 stores the integer indicating whether the value is negative or positive.
+                </li>
+                <li>
+                    Bits 1-11 stores exponent, indicating how small or large a number is.
+                </li>
+                <li>
+                    Bits 12-63 stores the fraction.
+                </li>
+                <li>
+                    Double precision allows for a limit of 15-17 digits.
+                </li>
+                <li>
+                    IEEE 754 is an international standard defining how numbers are stored, what each bit stands for, 
+                    and how special numbers like <code>Infinity</code> and <code>NaN</code> are handled. Other languages 
+                    like C, Python and Java also follow this standard.
+                </li>
+            </ul>
+            <ul>
+                Integer Precision
+                <li>
+                    Integers, or numbers without a period or exponent notation, are accurate up to 15 digits.
+                </li>
+            </ul>
         </div>
 
 
@@ -2052,7 +2302,7 @@
                     operator with the larger precendence number goes first. If the precedence order is the same, then 
                     the expression is read in the order from left to write.
                 </p>
-                <table class="javascript vao" id="precendence-table">
+                <table class="javascript vao">
                     <tr>
                         <th>
                             Precedence
@@ -2527,20 +2777,10 @@
                     These are a number of tricks that are used in JavaScript frameworks. However, they don't improve 
                     code readability, so think well before using them.
                 </p>
-
             </div>
 
         </div>
-
-
-                <a href="" target="_blank" rel="noopener noreferrer"></a>
-                <pre>
-                    &lt;script&gt;
-                    <code>
-                        You are gay.
-                    </code>
-                    &lt;&#47;script&gt;
-                </pre>
+        
 
         <br>
         <a href="../i-n/i-n.html" target="_self" rel="noopener noreferrer">Next Lesson: Installing Node.js</a>
