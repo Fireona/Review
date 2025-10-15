@@ -1315,6 +1315,11 @@
                     <li>
                         Some JavaScript versions interpret numbers as octal if written with a leading zero.
                     </li>
+                    <li>
+                        In the past, when octal number systems were used, there was confusion 
+                        in the values used. The octal system had to be revised and now any octal 
+                        number must start with <code>0o</code>.
+                    </li>
                 </ul>
                 <p>
                     By default, JavaScript displays numbers as base 10 decimals. However, by using the tag <code>toString()</code>, 
@@ -1511,6 +1516,8 @@
                     1.23 is classed as the fraction &#40;or <b>mantissa</b> or <b>significand</b>&#41; and the 5 is the 
                     exponent &#40;dictating decimal position&#41;.
                 </li>
+            </ul>
+            <ul>
                 How numbers are stored in JavaScript with 64 bits
                 <li>
                     Bit 0 stores the integer indicating whether the value is negative or positive.
@@ -1533,7 +1540,178 @@
             <ul>
                 Integer Precision
                 <li>
-                    Integers, or numbers without a period or exponent notation, are accurate up to 15 digits.
+                    Integers, or numbers without a period or exponent notation, are accurate up to 15 digits. Any number 
+                    exceeding the limit will be represented in notation form.
+                    <pre>
+                        <code>
+                            let x &#61; 999999999999999; &#47;&#47; x will be 999999999999999
+                            let y &#61; 9999999999999999; &#47;&#47; y will be 10000000000000000
+                            let z &#61; 10000000000000000; &#47;&#47; z will be 1e+16
+                        </code>
+                    </pre>
+                </li>
+            </ul>
+            <ul>
+                Floating Precision
+                <li>
+                    Due to the limitations of the binary system JavaScript, working with very large or very small numbers 
+                    can lead to some minor inaccuracies.
+                    <pre>
+                        <code>
+                            let x &#61; 0.2 &#43; 0.1;
+                        </code>
+                    </pre>
+                    To circumvent this issue, we have to rewrite the expression in a way that lets the console function in 
+                    the way we expect:
+                    <pre>
+                        <code>
+                            let x &#61; &#40;0.2 &#42; 10 &#43; 0.1 &#42; 10&#41; &#47; 10;
+                        </code>
+                    </pre>
+                </li>
+            </ul>
+            <ul>
+                Adding Numbers and Strings
+                <li>
+                    Adding two numbers will result in a number. 
+                </li>
+                <li>
+                    Adding two strings toegether will result in a string concatenation. The <code>&#42;</code> 
+                    operator is used for both adding and concatenation.
+                </li>
+                <li>
+                    Adding a number and a string will result in a string concatenation. 
+                </li>
+                <li>
+                    Just like in mathematics, an expression will follow the order of operations, the order of 
+                    precedence. If all operators have the same level of precedence, then they will proceed from 
+                    the left to the right.
+                </li>
+            </ul>
+            <ul>
+                Numeric strings
+                <li>
+                    JavaScript strings can have numeric content, and JavaScript will try to convert strings into 
+                    numbers in all numeric operations. The only exception to this rule is when using the <code>&#42;</code> 
+                    operator, you end up with a string concatenation.
+                </li>
+            </ul>
+            <ul>
+                NaN - Not a Number
+                <li>
+                    <code>NaN</code> is a unique keyword reserved in JavaScript to indicating a numerical quantity that is 
+                    not a legal number.
+                    <pre>
+                        <code>
+                            let x &#61; 25 &#47; "Orange"
+                        </code>
+                    </pre>
+                    This fails and returns "NaN", short for "Not a Number", because JavaScript can not perform the 
+                    calculation with a string literal that has no clear quantitative value.
+                </li>
+                <li>
+                    We can check a value is not a number with the function <code>isNaN&#40;&#41;</code>.
+                    <pre>
+                        <code>
+                            let x &#61; 100 &#47; "Apple";
+                            isNan&#40;x&#41;;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    If <code>NaN</code> is used as a variable, the return will also be <code>NaN</code>.
+                    <pre>
+                        <code>
+                            let x &#61; NaN;
+                            let y &#61; 5;
+                            let z &#61; x &#42; y;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    If used with a string, the result will be concatenated.
+                    <pre>
+                        <code>
+                            let x &#61;
+                            let y &#61; "5";
+                            let z &#61; x &#42; y;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Although <code>NaN</code> is technically not a legal number, it is still technically a number 
+                    type. In detail, <code>NaN</code>:
+                    <ul>
+                        Is Not a number because
+                        <li>
+                            Has no meaningful or distinct numerical value.
+                        </li>
+                        <li>
+                            Comes from operations like <code>0&#47;0</code>,<code>&#8730;&#45;1</code>, or <code>"" &#42; 5</code>.
+                        </li>
+                        Is a Number because:
+                        <li>
+                            Considered a Number Type under IEEE 754.
+                        </li>
+                        <li>
+                            Represented as a reserved bit pattern within floating-point numbers.
+                        </li>
+                        <li>
+                            <code>typeof NaN &#61;&#61;&#61; "number"</code> confirms this classification in JavaScript.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                Infinity
+                <li>
+                    <code>Infinity</code> &#40;or <code>&#45;infinity</code>&#41; is the value JavaScript returns if the value 
+                    is outside the largest possible number.
+                </li>
+                <li>
+                    Division by 0 generates <code>Infinity</code>.
+                </li>
+                <li>
+                    <code>Infinity</code> is a number type.
+                </li>
+            </ul>
+            <ul>
+                Hexadecimal
+                <li>
+                    JavaScript will take all numeric constants as hexadecimal when starting with <code>0x</code>. So 
+                    never write a number starting with only <code>0</code>, but with <code>0x</code>.
+                </li>
+            </ul>
+            <ul>
+                JavaScript Numbers as Objects
+                <li>
+                    In most cases, JavaScript numbers are primitive values created from literals.
+                    <ul>
+                        <li>
+                            Literals are the raw input. If variables are containers holding the values, then literals 
+                            are the items within containers.
+                        </li>
+                        <li>
+                            Primitive values are the data types that are created from literals.
+                        </li>
+                        <li>
+                            Objects are containers that group values and behaviours.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Numbers can also be defined as objects with the keyword<code>new</code>.
+                </li>
+                <li>
+                    Refrain from using <code>new</code> as it makes code complicated and slows execution speed. It also causes 
+                    Number Objects to rpoduce unexpected results.
+                </li>
+                <li>
+                    <code>&#61;&#61;</code> compares two values based on quantitative or numerical value. If needed, the values 
+                    will undergo a conversion.
+                </li>
+                <li>
+                    <code>&#61;&#61;&#61;</code> compares two values exactly as they are, including their type.
                 </li>
             </ul>
         </div>
