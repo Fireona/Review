@@ -84,6 +84,11 @@ li {
     list-style-type: none;
 }
 
+/* No style ul */
+.ul-nostyle {
+    list-style-type: none;;
+}
+
 
 /* HTML Contents */
 .htmlcolor {
