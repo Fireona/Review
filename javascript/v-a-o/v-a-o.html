@@ -220,51 +220,54 @@
             </div>
             <div class="javascript vao subsection">
                 <p>
-                    Summary
+                    Summary from Odin Project
                 </p>
             </div>
-            <div class="javascript vao text">
-                <ul>
+            <div class="javascript vao summary">
+                <p>
                     Variables
-                    <li>
-                        Like in mathematics, variables are containers for data in code.
-                        <pre>
-                            <code>
-                                &lt;script&gt;
-                                    let city &#61; "Toronto";
-                                    let country &#61; "Canada";
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Like in mathematics, variables are containers for data in code.
+                    <pre>
+                        <code>
+                            &lt;script&gt;
+                                let city &#61; "Toronto";
+                                let country &#61; "Canada";
 
-                                    console.log&#40;city&#41;
-                                    console.log&#40;country&#41;
-                            </code>
-                        </pre>
-                        Use the keyword <code>let</code> to generate an identity and also give a value to it.                
-                    </li>
-                    <li>
-                        Once a variable has been created and entered into the console via <code>console.log</code>, the 
-                        value can be reassigned at any time without having to use <code>let</code>.
-                        <pre>
-                            <code>
-                                let age &#61; 33;
-                                console.log&#40;age&#41;
+                                console.log&#40;city&#41;
+                                console.log&#40;country&#41;
+                        </code>
+                    </pre>
+                    Use the keyword <code>let</code> to generate an identity and also give a value to it.                
+                </li>
+                <li>
+                    Once a variable has been created and entered into the console via <code>console.log</code>, the 
+                    value can be reassigned at any time without having to use <code>let</code>.
+                    <pre>
+                        <code>
+                            let age &#61; 33;
+                            console.log&#40;age&#41;
 
-                                age &#61; 34;
-                                console.log&#40;age&#41;
-                            </code>
-                        </pre>
-                    </li>
-                    <li>
-                        Constants <code>const</code> are just like variables but once values are assigned to them, they can 
-                        never be reassigned. Doing so will return will errors, making it easy to locate and identify problems.
-                        <pre>
-                            <code>
-                                const pi &#61;22&#47;7;
+                            age &#61; 34;
+                            console.log&#40;age&#41;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Constants <code>const</code> are just like variables but once values are assigned to them, they can 
+                    never be reassigned. Doing so will return will errors, making it easy to locate and identify problems.
+                    <pre>
+                        <code>
+                            const pi &#61;22&#47;7;
 
-                                console.log&#40;pi&#41;;
-                            </code>                    
-                        </pre>
-                    </li>
-                </ul>
+                            console.log&#40;pi&#41;;
+                        </code>                    
+                    </pre>
+                </li>
+            </ul>
             </div>
         </div>
 
@@ -487,12 +490,15 @@
             </div>
             <div class="javascript vao subsection">
                 <p>
-                    Summary
+                    Summary of Variable Naming from Javascript.info
                 </p>
             </div>
-            <div class="javascript vao text">
-                <ul>
+            <div class="javascript vao summary">
+                <p>
                     Variable Naming
+                </p>
+            </div>                
+                <ul>
                     <li>
                         The name can only contain letters, digits, or the symbols <code>$</code> or <code>_</code>.
                     </li>
@@ -530,8 +536,12 @@
                         </ul>
                     </li>
                 </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Constants                    
+                </p>
+            </div>
                 <ul>
-                    Constants
                     <li>
                         To assign a constant, use the keyword <code>const</code>.
                     </li>
@@ -566,14 +576,18 @@
                         </ul>
                     </li>
                 </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Name Things Right                    
+                </p>
+            </div>
                 <ul>
-                    Name things right
                     <li>
                         Any variable should have a name that accurately desribes the value it represents concisively.
                     </li>
                     <li>
-                        <ul>
-                            Guideline:
+                        Guidelines:
+                        <ul>                            
                             <li>
                                 Use human-readable names.
                             </li>
@@ -1489,11 +1503,15 @@
 
             <div class="javascript vao subsection">
                 <p>
-                    Summary
+                    Summary on W3School's on JavaScript Arithmetic
                 </p>
             </div>
-            <ul>
-                Numbers
+            <div class="javascript vao summary">
+                <p>
+                    Numbers
+                </p>
+            </div>
+            <ul>                
                 <li>
                     There are two types of numbers, either they have or do not have a decimal.
                 </li>
@@ -1501,8 +1519,12 @@
                     Extra large or extra small numbers are written with scientific notation.
                 </li>
             </ul>
-            <ul>
-                JavaScript Numbers are Always 64-bit Floating Point
+            <div class="javascript vao summary">
+                <p>
+                    JavaScript Numbers are Always 64-bit Floating Point
+                </p>
+            </div>
+            <ul>                
                 <li>
                     Numbers are stored as double precision floating point numbers &#40;IEEE 754&#41;, similar to 
                     scientific notation.
@@ -1517,8 +1539,12 @@
                     exponent &#40;dictating decimal position&#41;.
                 </li>
             </ul>
+            <div class="javascript vao summary">
+                <p>
+                    How Numbers are Stored in JavaScript with 64 bits
+                </p>
+            </div>
             <ul>
-                How numbers are stored in JavaScript with 64 bits
                 <li>
                     Bit 0 stores the integer indicating whether the value is negative or positive.
                 </li>
@@ -1537,8 +1563,12 @@
                     like C, Python and Java also follow this standard.
                 </li>
             </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Integer Precision
+                </p>
+            </div>
             <ul>
-                Integer Precision
                 <li>
                     Integers, or numbers without a period or exponent notation, are accurate up to 15 digits. Any number 
                     exceeding the limit will be represented in notation form.
@@ -1551,8 +1581,12 @@
                     </pre>
                 </li>
             </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Floating Precision
+                </p>
+            </div>
             <ul>
-                Floating Precision
                 <li>
                     Due to the limitations of the binary system JavaScript, working with very large or very small numbers 
                     can lead to some minor inaccuracies.
@@ -1570,8 +1604,12 @@
                     </pre>
                 </li>
             </ul>
-            <ul>
-                Adding Numbers and Strings
+            <div class="javascript vao summary">
+                <p>
+                    Adding Numbers and Strings                    
+                </p>
+            </div>
+            <ul>                
                 <li>
                     Adding two numbers will result in a number. 
                 </li>
@@ -1588,16 +1626,24 @@
                     the left to the right.
                 </li>
             </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Numeric Strings                    
+                </p>
+            </div>
             <ul>
-                Numeric strings
                 <li>
                     JavaScript strings can have numeric content, and JavaScript will try to convert strings into 
                     numbers in all numeric operations. The only exception to this rule is when using the <code>&#42;</code> 
                     operator, you end up with a string concatenation.
                 </li>
             </ul>
+            <div class="javascript vao summary">
+                <p>
+                    NaN - Not a Number                    
+                </p>
+            </div>
             <ul>
-                NaN - Not a Number
                 <li>
                     <code>NaN</code> is a unique keyword reserved in JavaScript to indicating a numerical quantity that is 
                     not a legal number.
@@ -1662,8 +1708,12 @@
                     </ul>
                 </li>
             </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Infinity                    
+                </p>
+            </div>
             <ul>
-                Infinity
                 <li>
                     <code>Infinity</code> &#40;or <code>&#45;infinity</code>&#41; is the value JavaScript returns if the value 
                     is outside the largest possible number.
@@ -1675,15 +1725,24 @@
                     <code>Infinity</code> is a number type.
                 </li>
             </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Hexadecimal                    
+                </p>
+            </div>
             <ul>
-                Hexadecimal
                 <li>
                     JavaScript will take all numeric constants as hexadecimal when starting with <code>0x</code>. So 
                     never write a number starting with only <code>0</code>, but with <code>0x</code>.
                 </li>
             </ul>
+
+            <div class="javascript vao summary">
+                <p>
+                    JavaScript Numbers as Objects                    
+                </p>
+            </div>
             <ul>
-                JavaScript Numbers as Objects
                 <li>
                     In most cases, JavaScript numbers are primitive values created from literals.
                     <ul>
@@ -1730,7 +1789,8 @@
                     </p>
                 </div>
                 <p>
-                    There are two numbers of numbers.
+                    Numbers are broken into different parts with terms to describe each section, and different combinations 
+                    make different kinds of numbers.
                 </p>
                 <ul>
                     <li>
@@ -2083,19 +2143,19 @@
                         Tests whether the left and right values are identical to one another.
                         <pre>
                             <code>
-                                5 === 2 + 4
+                                5 &#61;&#61;&#61; 2 &#43; 4
                             </code>
                         </pre>
                         Returns a "false" value.
                     </dd>
                     <dt>
-                        Strict-non-equality <code>!&#61;&#61;</code>
+                        Strict-non-equality <code>&#33;&#61;&#61;</code>
                     </dt>
                     <dd>
                         Tests whether the left and right values are <b>not</b> identical to one another.
                         <pre>
                             <code>
-                                5 !== 2 + 3
+                                5 &#33;&#61;&#61; 2 &#43; 3
                             </code>
                         </pre>
                         Returns a "false" value.
@@ -2170,6 +2230,232 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="javascript vao subsection">
+                <p>
+                    Summary on MDN's Basic Math in JavaScript - Numbers and Operators
+                </p>
+            </div>
+            <div class="javascript vao summary">
+                <p>
+                    Types of numbers
+                </p>
+            </div>
+            <ul>                
+                <li>
+                    All numerical quantities are broken into two types:
+                    <ul>                        
+                        <li>
+                            Integers, numbers without a fraction &#40;significand or mantissa&#41;.
+                        </li>
+                        <li>
+                            Floating point numbers &#40;or known as floats&#41;, numbers with decimal points.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    There are also different kinds of number systems used:
+                    <ul>
+                        <li>
+                            Binary &#45; Lowest level language of computers, comprised of only <code>0</code> and <code>1</code>.
+                        </li>
+                        <li>
+                            Octal &#45; Base 8, uses 0 to 7 in each digit. Octal numbers must start with the code <code>0o</code>.
+                        </li>
+                        <li>
+                            Decimal &#45; Base 10, uses 0 to 9 in each digit. Number system used in everyday life.
+                        </li>
+                        <li>
+                            Hexadecimal &#45; Base 16, uses 0 to 9 followed by a to f in each digit. Commonly found in colour 
+                            settings.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    All numbers, integers, decimals fall under a single data type: <code>Numbers</code>. Only equivalent data types 
+                    can be managed and altered in the same way.
+                </li>                    
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    It's All Numbers to Me
+                </p>
+            </div>
+            <ul>
+                <li>
+                    You can check the values of any variable and constant by simply them into the console <code>F12</code>. 
+                    You can also check if they are of the same datatype &#40;Numbers&#41; with the function <code>typeof</code>.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Useful Number Methods
+                </p>
+            </div>
+            <ul>
+                <li>
+                    The object <code>Number</code> allow for standard numbers to be molded with particular methods.
+                    <ul>
+                        <li>
+                            Add <code>toFixed&#40;&#41;</code> after a variable to fix the number of decimal places.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Converting to number data types
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Use <code>Number</code> to convert a numeral string into a number.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Arithmetic Operators
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Addition <code>&#43;</code>
+                </li>
+                <li>
+                    Subtraction <code>&#45;</code>
+                </li>
+                <li>
+                    Multiplication <code>&#42;</code>
+                </li>
+                <li>
+                    Division <code>&#47;</code>
+                </li>
+                <li>
+                    Remainder &#40;Also known as Modulo&#41; <code>&#37;</code>
+                </li>
+                <li>
+                    Exponent <code>&#42;&#42;</code>
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Increment and Decrement Operators
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Increment operator &#40;<code>&#43;&#43;</code>&#41; increases value by <code>1</code>.
+                </li>
+                <li>
+                    Decrement &#40;<code>&#45;&#45;</code>&#41; decreases value by <code>1</code>.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Assignment Operator
+                </p>
+            </div>
+            <ul>
+                <li>
+                    The assignment operator &#40;<code>&#61;</code>&#41; assigns value to variables.
+                </li>
+                <li>
+                    Other variations include:
+                    <ul>
+                        <li>
+                            Addition Assignment &#40;<code>&#43;&#61;</code> operator will add the values together and 
+                            overwrite the variable with the new value in the expression.
+                            <pre>
+                                <code>
+                                    let x &#61; 5
+                                    let x &#43;&#61; 5 &#47;&#47; shorthand for x &#61; x &#43; 5
+                                    console.log&#40;x&#41;; &#47;&#47; Should return 10
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            Subtraction Assignment &#40;<code>&#45;&#61;</code> operator will subtract the values in order 
+                            and overwrite the variable with the new value in the expression.
+                            <pre>
+                                <code>
+                                    let x &#61; 5
+                                    let x &#45;&#61; 5 &#47;&#47; shorthand for x &#61; x &#45; 5
+                                    console.log&#40;x&#41;; &#47;&#47; Should return 0
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            Multiplication Assignment &#40;<code>&#42;</code>&#41; operator will multiply the values in order 
+                            and overwrite the variable with the new value in the expression.
+                            <pre>
+                                <code>
+                                    let x &#61; 5
+                                    let x &#42;&#61; 5 &#47;&#47; shorthand for x &#61; x &#42; 5
+                                    console.log&#40;x&#41;; &#47;&#47; Should return 25
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            Division Assignment &#40;<code>&#47;</code>&#41; operator will divide the values in order and 
+                            overwrite the variable with the new value in the expression.
+                            <pre>
+                                <code>
+                                    let x &#61; 5
+                                    let x &#47;&#61; 5 &#47;&#47; shorthand for x &#61; x &#47; 5
+                                    console.log&#40;x&#41;; &#47;&#47; Should return 1
+                                </code>
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Comparison Operators
+                </p>
+            </div>
+            <ul>
+                <li>
+                    List of Comparison Operators
+                    <ul>
+                        <li>
+                            Strict equality &#40;<code>&#61;&#61;&#61;</code>&#41; tests whether the values of the left and 
+                            right side are equal. This includes whether they of are of the same data type.
+                            <ul>
+                                <li>
+                                    This is not to be confused with the operator <code>&#61;&#61;</code>. This operator functions 
+                                    similarly but does not compare whether they are of the same data type. This is referred to as 
+                                    "loose equality". If necessary, the console will forcefully convert the data types 
+                                    &#40;also known as coercion&#41; to be of the same type, if required, so they may be compared.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Strict non-equality &#40;<code>&#33;&#61;&#61;</code>&#41; tests whether the values of the left and 
+                            right side are <b>not</b> equal.
+                        </li>
+                        <li>
+                            Lesser than &#40;<code>&lt;</code>&#41; operator tests whether the left value is smaller than the right value.
+                        </li>
+                        <li>
+                            Greater than &#40;<code>&gt;</code>&#41; operator tests whether the left value is larger than the right value.
+                        </li>
+                        <li>
+                            Lesser than or equal to &#40;<code>&lt;&#61;</code>&#41; operator tests whether the left value is smaller than or equal 
+                            to the right value.
+                        </li>
+                        <li>
+                            Greater than or equal to &#40;<code>&gt;&#61;</code>&#41; operator tests whether the left value is larger than or equal 
+                            to the right value.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Use of the comparison operators only return the booleans &#40;literals that only have two results&#41; <code>true</code> 
+                    or <code>false</code>. These two particular booleans are used consistently whenever choices are made.
+                </li>
+            </ul>
+
         </div>
 
 
@@ -2413,7 +2699,7 @@
                     of <code>1</code>, <code>&#45;2</code>, <code>1</code>, and <code>0</code>. The boolean <code>true</code> 
                     is converted to a value of <code>1</code> when changed into a number. As for <code>""</code>, this is 
                     is what is called an empty string. Although is has no characters within the string, when applied with 
-                    the unary operator <code>&#45;</code>, it becomes a numerical value of 0. The unary operator functions 
+                    the unary operator <code>&#43;</code>, it becomes a numerical value of 0. The unary operator functions 
                     the same as writing <code>Number(...)</code>, but is shorter.
                 </p>
                 <p>
@@ -2437,7 +2723,7 @@
                         let apples &#61; "2";
                         let oranges &#61; "3";
 
-                        alert ( &#45;apples &#45; &#45;oranges );
+                        alert ( &#43;apples &#43; &#43;oranges );
                     </code>
                 </pre>
                 <p>
@@ -2769,7 +3055,7 @@
                     will result in an error.
                 </pre>
                 <p>
-                    The operators <code>&#42;&#42;</code> and <code>&#45;&#45;</code> can be placed before or after a variable. 
+                    The operators <code>&#43;&#43;</code> and <code>&#45;&#45;</code> can be placed before or after a variable. 
                 </p>
                 <ul>
                     <li>
@@ -2946,7 +3232,7 @@
                 <pre>
                     <code>
                         &#47;&#47; three operations in one line
-                        for &#40;a &#61; 1&#44; b &#61; 3&#44; c &#61; a &#42; b; a &lt; 10; a&#43;&#43; &#123;
+                        for &#40;a &#61; 1&#44; b &#61; 3&#44; c &#61; a &#42; b; a &lt; 10; a&#43;&#43;&#41; &#123;
                         ...
                         &#125;
                     </code>
@@ -2956,6 +3242,340 @@
                     code readability, so think well before using them.
                 </p>
             </div>
+
+            <div class="javascript vao subsection">
+                <p>
+                    Summary of JavaScript.info's Basic Operators
+                </p>
+            </div>
+            <div class="javascript vao summary">
+                <p>
+                    Terms: "Unary", "Binary", "Operand"
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Operands are values, variables, etc. that operators are applied to.
+                </li>
+                <li>
+                    A unary operator is an operator only applied to a single operand. An example would be the subtraction 
+                    operator &#40;&#45;&#41; to signify a negative number.
+                </li>
+                <li>
+                    A binary operator is our typical operator when applied to two operands.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Maths
+                </p>
+            </div>
+            <ul>
+                List of mathematical operations supported                    
+                <li>
+                    Addition &#40;<code>&#43;</code>&#41;
+                </li>
+                <li>
+                    Subtraction &#40;<code>&#45;</code>&#41;
+                </li>
+                <li>
+                    Multiplication &#40;<code>&#42;</code>&#41;
+                </li>
+                <li>
+                    Division &#40;<code>&#47;</code>&#41;
+                </li>
+                <li>
+                    Remainder &#40;<code>&#37;</code>&#41;
+                </li>
+                <li>
+                    Exponentiation &#40;<code>&#42;&#42;</code>&#41;
+                </li>                    
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Remainder
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Returns the remaining value through the division operation.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Exponentiation
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Multiplies the base by itself by a number of the exponentiating value.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    String concatenation with the binary &#43;
+                </p>
+            </div>
+            <ul>
+                <li>
+                    String concatenation occurs when the <code>&#43;</code> operator is used with one or more 
+                    string literals. The moment this occurs, JavaScript coverts any non-string values into strings 
+                    and links them together. Instead of performing arithmetic addition, the operator acts as the bond 
+                    tying the string and following values together.
+                    <pre>
+                        <code>
+                            let s &#61; "How" &#43; "hard" &#43; "can" &#43; "it" &#43; "be"
+                            alert&#40;s&#41; &#47;&#47; Returns the string "Howhardcanitbe"
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    String concatenation will occur regardless of the order of the string and values. In expressions with 
+                    more than two operands, operate on it in the order it is written.
+                    <pre>
+                        <code>
+                            let sugoi  &#61; 1 &#43; big &#43; doodoo
+                            alert sugoi &#47;&#47; returns 1bigdoodoo
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    The binary operator &#43; is the only operator to behave this way. Other operators used arithmetically will 
+                    only work with numbers, and always converts the operands into numbers.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Numeric Conversion, unary &#43;
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Applying the binary operator <code>&#43;</code> to strings causes concatenation. However, when 
+                    applying the unary form it behaves different. When applied to a number, nothing happens but when 
+                    the operand is a string, it converts the string into a number. It is also a shorthand for writing 
+                    <code>Number&#40;&#41;</code>.
+                </li>
+                <li>
+                    Booleans <code>true</code> and <code>false</code> can be converted into the numbers <code>1</code> and 
+                    <code>0</code> respectively.
+                </li>
+                <li>
+                    Empty strings <code>""</code> behave like a sponge when unary operators <code>&#43;</code> and <code>&#45;</code> 
+                    are applied them, but they return the values <code>1</code> and <code>0</code> respectively.
+                </li>
+                <li>
+                    When we want to add two strings together, we can easily convert the two strings into numbers using the 
+                    unary operator <code>&#43;</code> in front of each operand in a single expression.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Operator Precedence
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Precedence is similar to the order of operations in mathematics but applies to operators. The level of 
+                    precedence each operator has varies. Those with higher precedence are to be calculated first, and we 
+                    continue by going through the expression with a receding level of precedence.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Assignment
+                </p>
+            </div>
+            <ul>
+                <li>
+                    The assignment operator &#40;<code>&#61;</code>&#41; is also an operator, and it has a very low 
+                    level of precedence.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Assignment &#61; returns a value
+                </p>
+            </div>
+            <ul>
+                <li>
+                    The assignment operator &#40;<code>&#61;</code>&#41; is unique. All operators in JavaScript return a value, 
+                    just like <code>&#43;</code> and <code>&#45;</code>, this includes <code>&#61;</code>.
+                </li>
+                <li>
+                    It also has function to reassign values to a variable that is used in the same expression. However, 
+                    this causes issues in the ease of reading code, so it is best to avoid this. Attempt to keep one 
+                    expression per line to maintain clarity.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Chaining Assignments
+                </p>
+            </div>
+            <ul>
+                <li>
+                    In chaining assignments, read them from right to left.
+                    <pre>
+                        <code>
+                            let x, y, z;
+                            x &#61; y &#61; z &#61; 5 &#43; 5;
+
+                            alert&#40; x &#41;; &#47;&#47; 10
+                            alert&#40; y &#41;; &#47;&#47; 10
+                            alert&#40; z &#41;; &#47;&#47; 10
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Avoid using chaining assignments to maintain code clarity.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Modify-in-place
+                </p>
+            </div>
+            <ul>
+                <li>
+                    As mentioned before, the assignment operator &#40;<code>&#61;</code>&#41; also has the function 
+                    to reassign values to a variable used in the same expression.
+                    <pre>
+                        <code>
+                            let x &#61; 5;
+                            x &#61; x &#43; 10;
+                            x &#61; x &#42; 2;
+                        </code>
+                    </pre>
+                    This is a bit time-staking to be doing so it can be rewritten as:
+                    <pre>
+                        <code>
+                            let x &#61; 5;
+                            x &#43;&#61; 10; &#47;&#47; now x &#61; 15 &#40;same as x &#61; x &#43; 10&#41;;
+                            x &#42;&#61; 2; &#47;&#47; now x &#61; 30 &#40;same as x &#61; x &#42; 2&#41;;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Other arithmetic operators also have an abbreviated form, such as <code>&#45;&#61;</code> and <code>&#47;&#61;</code>. 
+                    Just like the standard assignment operator &#40;<code>&#61;</code>&#41;, they hold the same precedence level. As a result, 
+                    any other operators within the same expression holding a higher precedence level must be dealt with first before the 
+                    assignment operator functions.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Increment/Decrement
+                </p>
+            </div>
+            <ul>
+                <li>
+                    The increment &#40;<code>&#43;&#43;</code>&#41; and decrement &#40;<code>&#45;&#45;</code>&#41; increase or decrease 
+                    the values by <code>1</code> respectively.
+                </li>
+                <li>
+                    Both operators have two forms:
+                    <ul>
+                        <li>
+                            Prefix form is the operator placed before the variable.
+                        </li>
+                        <li>
+                            Postfix form is the operator placed after the variable.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    The increment/decrement operators also reassigns the value of the variable, but the console will 
+                    return different values depending on the form used.
+                    <ul>
+                        <li>
+                            Prefix form &#40;<code>&#43;&#43;&#95;</code> or <code>&#45;&#45;&#95;</code>&#41; will always perform 
+                            the function first. Once the values are changed, they are then reassigned and the new values will return 
+                            in the console.
+                        </li>
+                        <li>
+                            Postfix forms &#40;<code>&#95;&#43;&#43;</code> or <code>&#95;&#45;&#45;</code>&#41; will return the values 
+                            first, prior to incrementation or decrementation. What follows then is the function and then finally 
+                            reassignment.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    If the reassigned value from incrementation/decrementation is not used, there is no difference in which form to use.
+                </li>
+                <li>
+                    If we wish to use the reassigned value after incrementation/decrementation, we use the prefix form.
+                </li>
+                <li>
+                    If we wish to use the original values prior to incrementation/decrementation, we use postfix form.
+                </li>
+                <li>
+                    The two operators can also be used in expressions as well, but they both have a higher level of precedence that most 
+                    other artimetic operators. As such, be cautious of which form to use in an expression because expected return values from 
+                    the expression will vary depending on the use either form.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Bitwise Operators
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Bitwise operators treat all operands as 32-bit integers &#40;whole numbers&#41; and perform functions 
+                    at the binary level. These operators are not specific to JavaScript but in most programming languages.
+                    Here is a list:
+                    <ul>
+                        <li>
+                            AND &#40;<code>&#38;</code>&#41;
+                        </li>
+                        <li>
+                            OR &#40;<code>&#124;</code>&#41;
+                        </li>
+                        <li>
+                            XOR &#40;<code>&#94;</code>&#41;
+                        </li>
+                        <li>
+                            NOT &#40;<code>&#126;</code>&#41;
+                        </li>
+                        <li>
+                            LEFT SHIFT &#40;<code>&lt;&lt;</code>&#41;
+                        </li>
+                        <li>
+                            RIGHT SHIFT &#40;<code>&gt;&gt;</code>&#41;
+                        </li>
+                        <li>
+                            ZERO-FILL RIGHT SHIFT &#40;<code>&gt;&gt;&gt;</code>&#41;
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    These operators are used very rarely, mostly when dealing with numbers at the very lowest (bitwise) level. 
+                    Web developers seldom use them, but these operators are often used in cryptography.
+                </li>
+            </ul>
+            <div class="javascript vao summary">
+                <p>
+                    Comma
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Another operator that is scarcely used to shorten code by evaluating several expressions simultaneously, 
+                    each divided with comma &#40;<code>&#44;</code>&#41;.
+                </li>
+                <li>
+                    If there are multiple expressions in a single argument (or line of code), only the final expression is returned.
+                </li>
+                <li>
+                    The comma has a very low precedence, lower than <code>&#61;</code>, so how parantheses are used is crucial.
+                </li>
+                <li>
+                    Even though only the final expression is returned, the comma is used in more complex constructs to place several 
+                    actions in a single line. Such methods are used in many JavaScript frameworks. However, they tend to make 
+                    things unclear and is the reason why they are seldomly used.
+                </li>
+            </ul>
 
         </div>
         
