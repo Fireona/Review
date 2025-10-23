@@ -22,8 +22,7 @@
         </div>
         <div class="javascript dtac text">
             <p>
-                There are several common data types used in JavaScript. Read the article 
-                from
+                There are several common data types used in JavaScript. Read the article from 
                 <a href="https://javascript.info/types" target="_blank" rel="noopener noreferrer">JavaScript.info on Data types</a>.
             </p>
         </div>
@@ -33,12 +32,338 @@
                 <a href="https://javascript.info/types" target="_blank" rel="noopener noreferrer">JavaScript.info on Data Types</a>
             </p>
         </div>
-        <div class="javascript dtac subsection">
+        <div class="javascript dtac text">
+            <div class="javascript dtac subsection">
+                <p>
+                    Data Types
+                </p>
+            </div>
             <p>
-                Data Types
+                Every value in JavaScript always belongs to a certain type, like a string or a number. There are 
+                eight different data types commonly used in JavaScript. Any value can be of any type in any variable 
+                and can be changed at any moment.
             </p>
-        </div>
+            <pre>
+                <code>
+                    &#47;&#47; no error
+                    let message &#61; "hello";
+                    message &#61; 123456;
+                </code>
+            </pre>
+            <p>
+                Programming languages, like JavaScript, are called "dynamically typed", meaning there exist data 
+                types, but they are not bound to any of them.                
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Number
+                </p>
+            </div>
+            <p>
+                Number types represent both integer and floating point numbers. There are many operations for 
+                numbers, such as multiplcation <code>&#42;</code>, division <code>&#47;</code>, addition <code>&#43;</code>, 
+                subtraction <code>&#45;</code>, etc.
+            </p>
+            <p>
+                Outside of typical numbers, we also have "special numeric values" that represent particular values. 
+                These include (but are not limited to) <code>Infinity</code>, <code>&#45;Infinity</code>, and <code>NaN</code>.
+            </p>
+            <ul>
+                <li>
+                    <code>Infinity</code> is a value that represents the mathematical value of Infinity &#40;&#8734;&#41;. 
+                    It is a special value as it represents a value greater than any number. It can be achieved through 
+                    a division of zero:
+                    <pre>
+                        <code>
+                            alert&#40; 1 &#47; 0 &#41;; &#47;&#47; Infinity
+                        </code>
+                    </pre>
+                    Or it can be referenced directly:
+                    <pre>
+                        <code>
+                            alert&#40; Infinity &#41;; &#47;&#47; Infinity
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    <code>NaN</code> represents the inability to calculate an expression, typically a computational 
+                    error. It is a result of incorrect or undefined mathematical operations:
+                    <pre>
+                        <code>
+                            alert&#40; "not a number" &#47; 2 &#41;; &#47;&#47; NaN, such division is erroreous
+                        </code>
+                    </pre>
+                    <code>NaN</code> is sticky. Any further mathematical operation on <code>NaN</code> will return 
+                    <code>NaN</code>:
+                    <pre>
+                        <code>
+                            alert&#40; NaN &#43; 1 &#41;; &#47;&#47; NaN
+                            alert&#40; 3 &#42; NaN &#41;; &#47;&#47; NaN
+                            alert&#40; "not a number" &#47; 2 &#45; 1 &#41;; &#47;&#47; NaN
+                        </code>
+                    </pre>
+                    This also means should <code>NaN</code> appear anywhere in a mathematical expression, it will 
+                    expand through the whole result &#40;the only exception being <code>NaN &#42;&#42; 0</code> 
+                    which results in <code>1</code>&#41;.
+                </li>
+                <li>
+                    Doing mathematical calculations in JavaScript is safe. It is possible to do any calculation: 
+                    divide by zero, treat non-numeric strings as numbers, etc. Scripts won't stop with a fatal error 
+                    ("die"). The worst it can ever do is return <code>NaN</code> as the result.
+                </li>
+            </ul>
+            <p>
+                Special numeric values formally belong in the "Numbers" category. Even though they do not have a 
+                accurate or precise quantitative value, they still count as a number type.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    BigInt
+                </p>            
+            </div>
+            <p>
+                When JavaScript handles the number type, it can not safely represent values larger than <code>2⁵³&#45;1</code>
+                &#40;that's <code>9007199254740991</code>&#41;, or less than <code>&#45;2⁵³&#45;1</code> for negatives. 
+                While JavaScript is fully capable of storing large integers &#40;up to 1.7976931348623157 &#42; 10³⁰⁸&#41;, 
+                it is much too large of a number to fit into the 64 bit storage. So it uses an approximate value 
+                to that is as close to the correct value and will store that instead:
+            </p>
+            <pre>
+                <code>
+                    console.log&#40;9007199254740991 &#43; 1&#41; &#47;&#47; 9007199254740992
+                    console.log&#40;9007199254740991 &#43; 2&#41; &#47;&#47; 9007199254740992
+                </code>
+            </pre>
+            <p>
+                In most cases, <code>±&#40;2⁵³-1</code> is a large range of numbers that covers most scenarios. 
+                However, in some scenarios such as for cryptography or microsecond-precision timestamps, the 
+                range isn't enough so a new type of data was added resulting in <code>BigInt</code>. To indicate 
+                a number that large that should fall under <code>BigInt</code>, we add <code>n</code> at the end 
+                of an integer.
+            </p>
+            <pre>
+                <code>
+                    &#47;&#47; the "n" at the end means it's a BigInt
+                    const bigInt &#61; 1234567890123456789012345678901234567890n;
+                </code>
+            </pre>
+            <div class="javascript dtac topic">
+                <p>
+                    String
+                </p>
+            </div>
+            <p>
+                A string in JavaScript is defined a value in quotes:
+            </p>
+            <pre>
+                <code>
+                    let str &#61; "Hello";
+                    let str2 &#61; 'Single quotes are ok too';
+                    let phrase &#61; `can embed another ${str}`;
+                </code>
+            </pre>
+            <p>
+                There are three types of quotes used in JavaScript:
+            </p>
+            <ul>
+                <li>
+                    Double quotes: <code>"Hello"</code>.
+                </li>
+                <li>
+                    Single quotes: <code>'Hello'</code>.
+                </li>
+                <li>
+                    Backticks: <code>`Hello`</code>.
+                </li>
+            </ul>
+            <p>
+                Double and single quotes fall under an umbrella term of "simple" quotes. There are hardly any 
+                differences in the two. Backticks however are "extended functionality" quotes. They allow for 
+                variables and expressions to be embedded into a string by wrapping them in <code>&#36;&#123;...&#125;</code>.
+            </p>
+            <pre>
+                <code>
+                    let name &#61; "John";
+
+                    &#47;&#47; embed a variable
+                    alert&#40; &#96;Hello, &#36;&#123;name&#125;&#33;&#96; &#41;; &#47;&#47; Hello, John!
+
+                    &#47;&#47; embed an expression
+                    alert&#40; &#96;the result is &#36;&#123;1 &#43; 2&#125;&#96; &#41;; &#47;&#47; the result is 3
+                </code>
+            </pre>
+            <p>
+                The expression inside <code>&#36;&#123;...&#125;</code> is evaluated and the result becomes a part 
+                of the string. Anything could be placed inside, whether a variable like <code>name</code> or an 
+                arithmetical expression like <code>1 &#43; 2</code> or more complex. This function only works 
+                with backticks as other quotes do not have this function.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; "the result is &#36;&#123;1 &#43; 2&#125;" &#41;; &#47;&#47;
+                </code>
+            </pre>
+            <p>
+                In some programming languages, there is a special "character" type for a single character. An 
+                example would be in C and in Java, this is called "char". However, this does not exist in 
+                JavaScript as it has <code>string</code>. It can have zero characters, one character, or 
+                many.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Boolean &#40;logical type&#41;
+                </p>
+            </div>
+            <p>
+                The boolean type has only two values: <code>true</code> and <code>false</code>. These two values 
+                tend to correspond with yes/no answers: <code>true</code> meaning "yes, correct" and <code>false</code> 
+                meaning "no, incorrect".
+            </p>
+            <pre>
+                <code>
+                    let nameFieldChecked &#61; true; &#47;&#47; yes, name field checked
+                    let ageFieldChecked &#61; false; &#47;&#47; no, age field not checked
+                </code>
+            </pre>
+            <p>
+                Boolean values also come as a result of comparisons:
+            </p>
+            <pre>
+                <code>
+                    let isGreater &#61; 4 &gt; 1;
+
+                    alert&#40; isGreater &#41; &#47;&#47; true &#40;the comparison result is "yes"&#41;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    The "null" value
+                </p>
+            </div>
+            <p>
+                The value <code>null</code> is a unique value that does not to any of the previous types mentioned. 
+                It is it's own individual type that only contains the <code>null</code> value:
+            </p>
+            <pre>
+                <code>
+                    let age &#61; null;
+                </code>
+            </pre>
+            <p>
+                <code>null</code> does not function as "reference to a non-existing object" or a "null pointer" 
+                like in other languages. It is a unique value that represents "nothing", "empty", or "value unknown."
+            </p>
+
+            <div class="javascript dtac topc">
+                <p>
+                    The "undefined" value
+                </p>
+            </div>
+            <p>
+                The value <code>undefined</code> is a standalone type that is similar to <code>null</code>. The 
+                difference is the meaning of <code>undefined</code> represents "value is not assigned". Should we 
+                have a variable declared but the value is not assigned, then the value <code>undefined</code> returns.
+            </p>
+            <pre>
+                <code>
+                    let age;
+
+                    alert&#40;age&#41; &#47;&#47; shows "undefined"
+                </code>
+            </pre>
+            <p>
+                Although, it is possible to assign <code>undefined</code> to a variable, it's not advisted to do 
+                so as we have <code>null</code> to represent "empty" or "value unknown". <code>undefined</code> 
+                is a term that is specifically used as a default value for unassigned things.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Objects and Symbols
+                </p>
+            </div>
+            <p>
+                <code>object</code> is a special type. All other types are considered to be "primitive" 
+                because their values can contain only a single entity &#40;a string, number, or etc.&#41;. 
+                However, <code>object</code> types are used to store collections of data and, sometimes, more 
+                complex entities.
+            </p>
+            <p>
+                First we have the <code>symbol</code> type. This is used to create unique identifiers for objects. 
+                This will be explained later, it is mentioned here now just to be aware of it's presence.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    The typeof operator
+                </p>
+            </div>
+            <p>
+                <code>typeof</code> operator returns the type of the operand. It allows us to easily identify the 
+                type of values and easily sort them differently, or even just to gander a check.
+            </p>
+            <pre>
+                <code>
+                    type of undefined &#47;&#47; "undefined"
+
+                    typeof 0  &#47;&#47; "number"
+
+                    typeof 10n &#47;&#47; "bigInt"
+
+                    typeof true &#47;&#47; "boolean"
+
+                    typeof "foo" &#47;&#47; "string"
+
+                    typeof Symbol&#40;"id"&#41; &#47;&#47; "symbol"
+
+                    typeof Math &#47;&#47; "object" &#40;1&#41;
+
+                    typeof null &#47;&#47; "object" &#40;2&#41;
+
+                    typeof alert &#47;&#47; "function" &#40;3&#41;
+                </code>
+            </pre>
+            <p>
+                The last three can be explained as such:
+                <ul>
+                    <li>
+                        <code>Math</code> is a built-in boject that provides mathematical operations.
+                    </li>
+                    <li>
+                        The result of <code>typeof null</code> is <code>"object"</code>. This is an officially 
+                        recognized error in <code>typeof</code>, stemming from the early days of JavaScript and is 
+                        kept for compatibility. <code>null</code> is not an object as it is a special value with a 
+                        type of its own.  
+                        <br>
+                        &#8756; The behaviour of <code>typeof</code> is wrong here.
+                    </li>
+                    <li>
+                        The returning result of <code>typeof alert</code> being <code>function</code> is because <code>alert</code> 
+                        is a function. There is no "function" type, but it falls under the <code>object</code> type. However, 
+                        <code>typeof</code> treats them different, resulting in <code>"function</code>. This also stems from 
+                        the early days of JavaScript. While such behaviours aren't correct, it being so is convenient in 
+                        practice.
+                    </li>
+                </ul>
+            </p>
+            <p>
+                There is also another syntax to be aware of: <code>typeof &#40;x&#41;</code>. This is the same 
+                as writing <code>typeof x</code> As a reminder, <code>typeof</code> is an operator, not a function. 
+                The parantheses are not part of <code>typeof</code>. The common parantheses used, &#40; and &#41;, 
+                are the kind used for mathematical grouping. These typically have mathematical expressions inside, like 
+                <code>&#40;2 &#43; 2&#41;</code>. Syntatically, writing the argument <code>&#40;x&#41;</code> is 
+                allowed as it removes the space between the operator and the argument and some people prefer this. 
+                <br>
+                &#8756; While some prefer writing <code>typeof&#40;x&#41;</code>, writing <code>typeof x</code> is 
+                just as common and share no difference.
+            </p>
         
+        </div>
+
         <br>
         <a href="../js-d-t/js-d-t.html" target="_self" rel="noopener noreferrer">Next Lesson: JavaScript Developer Tools</a>
         <br>
