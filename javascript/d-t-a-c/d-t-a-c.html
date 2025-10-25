@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Data Types and Conditionals</title>
         <link rel="stylesheet" href="../../styles.css">
+        <script src="../../javascript.js" defer></script>
     </head>
     <body>
         <div class="javascript javascriptcolor dtac chapter">
@@ -360,9 +361,232 @@
                 <br>
                 &#8756; While some prefer writing <code>typeof&#40;x&#41;</code>, writing <code>typeof x</code> is 
                 just as common and share no difference.
-            </p>
-        
+            </p>        
         </div>
+
+        <div class="javascript dtac subsection">
+            <p>
+                Lesson Overview
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                This lesson goes over the following:
+            </p>
+            <ul>
+                <li>
+                    Eight different data type names in JavaScript.
+                </li>
+                <li>
+                    Understand the difference between single, double, and backtick quotes.
+                </li>
+                <li>
+                    Embed a variable/expression in a string
+                </li>
+                <li>
+                    Understand what a method is.
+                </li>
+                <li>
+                    The three logical operators.
+                </li>
+                <li>
+                    Understand what comparison operators are.
+                </li>
+                <li>
+                    Understand what conditionals are.
+                </li>
+                <li>
+                    Understand what nesting is.
+                </li>
+                <li>
+                    Understand what truthy and falsy values are.
+                </li>
+            </ul>
+        </div>
+
+        <div class="javascript dtac section">
+            <p>
+                Strings
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                It is entirely possible to be handling with text blocks rather than a bunch of numbers. This depends 
+                the field of work we are handling. Some examples of text blocks are strings, which are simply pieces of 
+                text. These blocks end up being one of the building blocks of JavaScript.
+            </p>
+            <ol>
+                <li>
+                    Read and code along 
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Strings" target="_blank" rel="noopener noreferrer">MDN's tutorial on strings in JavaScript</a>. 
+                    Skip the section <code>Concatenation in context</code> as it will be covered in the future.
+                </li>
+                <li>
+                    Go to through 
+                    <a href="https://www.w3schools.com/js/js_string_methods.asp" target="_blank" rel="noopener noreferrer">W3Schools' lesson on string methods</a> 
+                    to learn about what strings are capable of.
+                </li>
+                <li>
+                    A method is a bit of functionality built into the language or specific data types. In the previous 
+                    step, we are shown different methods that can be applied with strings, such as <code>replace</code> 
+                    and <code>slice</code>. Now, read through 
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener noreferrer">MDN's documentation for strings</a> 
+                    that provides an immense and detailed look into plenty more string methods. There is no need to 
+                    memorize all of them, but many of the document itself is important and should be used as a 
+                    reference in the future.                    
+                </li>
+            </ol>
+        </div>
+
+        <div class="javascript dtac subsection" id="string1">
+            <p>
+                <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Strings" target="_blank" rel="noopener noreferrer">MDN's tutorial on strings in JavaScript</a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+        
+        <div class="javascript dtac subsection" id="string2">
+            <p>
+                <a href="https://www.w3schools.com/js/js_string_methods.asp" target="_blank" rel="noopener noreferrer">W3Schools' lesson on string methods</a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+        <div class="javascript dtac subsection" id="string3">
+            <p>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener noreferrer">MDN's documentation for strings</a> 
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+
+
+        <div class="javascript dtac section">
+            <p>
+                Conditionals
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Here is where we begin to make things happen. Up to this point, we have not done much with programming 
+                that could not be done with basic mathematical skills. We have only been telling the computer simply to 
+                do calculations, but we teach the computer how to make decisions with conditionals. This makes the 
+                computer more capable of doing a lot more tasks.                                
+            </p>
+            <ol>
+                <li>
+                    The first step in conditionals is having a good understanding of 
+                    <a href="https://javascript.info/comparison" target="_blank" rel="noopener noreferrer">conditionals</a>.
+                </li>
+                <li>
+                    W3Schools also has a 
+                    <a href="https://www.w3schools.com/js/js_if_else.asp" target="_blank" rel="noopener noreferrer">lesson on conditionals in JavaScript</a>.
+                </li>
+                <li>
+                    JavaScript.info has a 
+                    <a href="https://javascript.info/logical-operators" target="_blank" rel="noopener noreferrer">a good tutorial on logical operators</a>. 
+                    Be warned when doing the tasks at the end: The questions that have the <code>alert&#40;&#41;</code> 
+                    function will be covered in the future as well. Some answers may not make sense at the moment, 
+                    but they are accurate and will make sense as we progress through the course.
+                </li>
+                <li>
+                    Read and take notes on 
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Conditionals" target="_blank" rel="noopener noreferrer">MDN's article on conditionals</a>. 
+                    It will set a good foundation and has good examples of how to make use of conditionals when 
+                    building websites.
+                </li>
+                <li>
+                    JavaScript.info goes over a 
+                    <a href="https://javascript.info/ifelse" target="_blank" rel="noopener noreferrer">lesson on <code>if&#47;else</code></a>. 
+                    Read over it as a review and do the tasks at the end.
+                </li>
+                <li>
+                    Finally, here we go over 
+                    <a href="https://javascript.info/switch" target="_blank" rel="noopener noreferrer">a lesson on the <code>switch</code> statement</a>. 
+                    This will prove useful when dealing with multiple conditionals.
+                </li>
+            </ol>
+        </div>
+
+        <div class="javascript dtac subsection" id="con1">
+            <p>
+                <a href="https://javascript.info/comparison" target="_blank" rel="noopener noreferrer">JavaScript.info on conditionals</a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+        <div class="javascript dtac subsection" id="con2">
+            <p>
+                <a href="https://www.w3schools.com/js/js_if_else.asp" target="_blank" rel="noopener noreferrer">W3Schools' on conditionals in JavaScript</a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+        <div class="javascript dtac subsection" id="con3">
+            <p>
+                <a href="https://javascript.info/logical-operators" target="_blank" rel="noopener noreferrer">JavaScript.info on logical operators</a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+        <div class="javascript dtac subsection" id="con4">
+            <p>
+                <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Conditionals" target="_blank" rel="noopener noreferrer">MDN on conditionals</a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+        <div class="javascript dtac subsection" id="con5">
+            <p>
+                <a href="https://javascript.info/ifelse" target="_blank" rel="noopener noreferrer">JavaScript.info on <code>if&#47;else</code></a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+        <div class="javascript dtac subsection" id="con6">
+            <p>
+                <a href="https://javascript.info/switch" target="_blank" rel="noopener noreferrer">JavaScript.info <code>switch</code> statement</a>
+            </p>
+        </div>
+        <div class="javascript dtac text">
+            <p>
+                Start
+            </p>
+        </div>
+
+
 
         <br>
         <a href="../js-d-t/js-d-t.html" target="_self" rel="noopener noreferrer">Next Lesson: JavaScript Developer Tools</a>
