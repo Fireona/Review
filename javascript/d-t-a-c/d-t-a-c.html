@@ -877,7 +877,153 @@
                     JavaScript String at&#40;&#41;
                 </p>
             </div>
-            <p></p>
+            <p>
+                <code>at&#40;&#41;</code> returns an indexed element from a string:
+            </p>
+            <pre>
+                <code>
+                    const name &#61; "W3Schools";
+                    let letter &#61; name.at&#40;2&#41;; &#47;&#47; Returns S
+                </code>
+            </pre>
+            <p>
+                Bracked notations &#91;&#93; return an indexed element from a string:
+            </p>
+            <pre>
+                <code>
+                    const name &#61; "W3Schools";
+                    let letter &#61; name &#91;2&#93;;
+                </code>
+            </pre>
+            <p>
+                <code>at&#40;&#41;</code> is a new method introduced to JavaScript in 2022. It not only functions 
+                like <code>charAt&#40;&#41;</code>, but it also the use of negative indexes whereas the former does 
+                not. So we can use <code>myString.at&#40;&#45;2&#41;</code> instead of <code>charAt&#40;myString.length&#45;2&#41;</code>.
+            </p>
+            <p>
+                So what does this mean? Essentially, they function the same: They both return the character at a 
+                certain position in a string:
+            </p>
+            <pre>
+                <code>
+                    let name &#61; "Emily";
+
+                    let letter1 &#61; name.at&#40;2&#41; &#47;&#47; "i"
+                    let letter2 &#61; name&#91;2&#93; &#47;&#47; "i"
+                </code>
+            </pre>
+            <p>
+                JavaScript begins counting from 0, and so returns <code>"i"</code>. However, they do have differences. 
+                This is only apparent when the indexed element is negative or the position does not exist:
+            </p>
+            <pre>
+                Negative index element
+                <code>
+                    let name &#61; "Emily";
+
+                    name.at&#40;&#45;1&#41;;    &#47;&#47; "y", returns the last character
+                    name&#91;&#45;1&#93;;       &#47;&#47; undefined, function fails
+                </code>
+                &#8756; Applying <code>at&#40;&#41;</code> to negative indexes counts characters from the end in reverse.
+                <br>
+                Out-of-range position
+                <code>
+                    let name &#61; "Emily";
+
+                    name.at&#40;10&#41;;    &#47;&#47; undefined
+                    name&#91;10&#93;        &#47;&#47; undefined
+                </code>
+            </pre>
+            <p>
+                <code>&#91;&#93;</code> is a method that has been around for a very long time. <code>.at&#40;&#41;</code> 
+                was brought forward later as is used today because:
+                <ul>
+                    <li>
+                        It supports negative indexes, which counts characters in reverse from the end.
+                    </li>
+                    <li>
+                        Provides more consistency as it has become a proper function and is not a shortcut.
+                    </li>
+                </ul>
+            </p>            
+            
+            <div class="javascript dtac topic">
+                <p>
+                    Property Access <code>&#91; &#93;</code>
+                </p>
+            </div>
+            <p>
+                Property access is the action or function of "accessing" one of the string's positions (or "properties"), 
+                by it's numbered position.
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "HELLO WORLD";
+                    let char &#61; text&#91;0&#93;; &#47;&#47; Returns first character in the string, H
+                </code>
+            </pre>
+            <ul>
+                Note: Property access might be unpredictable:
+                <li>
+                    Makes strings look like arrays (but they are not).
+                </li>
+                <li>
+                    If no character is found, &#91;&#93; returns undefined, while <code>char&#40;&#41;</code> returns 
+                    an empty string.
+                </li>
+                <li>
+                    It is read only. <code>str&#91;0&#93; &#61; "A"</code> gives no error when it does not work.
+                    <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_string_prop2" target="_blank" rel="noopener noreferrer">Example.</a>
+                </li>
+            </ul>
+            <p>
+                This function is the modern method of <code>chartAt&#40;&#41;</code>. They both function the same, 
+                but there is a crucial difference.
+            </p>
+            <pre>
+                <code>
+                    let name &#61; "Emily";
+
+                    name&#91;10&#93;            &#47;&#47; undefined
+                    name.charAt&#40;10&#41;;    &#47;&#47; "" &#40;empty string&#41;
+                </code>
+            </pre>
+            <p>
+                Using <code>&#91;&#93;</code> returns <code>undefined</code> if the position does not exist. Whereas 
+                <code>charAt&#40;&#41;</code> returns an empty string (<code>""</code>).
+            </p>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    JavaScript String concat()
+                </p>
+            </div>
+            <p>
+                <code>concat&#40;&#41;</code> joins two or more strings:
+            </p>
+            <pre>
+                <code>
+                    let text1 &#61; "Hello";
+                    let text2 &#61; "World";
+                    let text3 &#61; text1.concat&#40;" ", text2&#41; &#47;&#47; returns "Hello World"
+                </code>
+            </pre>
+            <p>
+                <code>concat&#40;&#41;</code> method can be used instead of using the <code>&#43;</code> 
+                operator, but both function the same.
+            </p>
+            <pre>
+                <code>
+                    text &#61; "Hello" &#43; " " &#43; "World!";        &#47;&#47; "Hello World!"
+                    text &#61; "Hello".concat&#40;" ", "World!"&#41;;   &#47;&#47; "Hello World!"
+                </code>
+            </pre>
+            <p>
+                As a precaution, all string methods return new strings. They don't modify the original string.
+                As a result, the rule is:
+                <br>
+                <b>Strings are immutable: Strings can not be changed, only replaced.</b>
+            </p>
 
         </div>
 
