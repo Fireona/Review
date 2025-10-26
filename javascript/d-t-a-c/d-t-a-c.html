@@ -759,6 +759,18 @@
                 Just like in mathematics, like variables can only deal with like variables.
             </p>
 
+            <div class="javascript dtac subsection">
+                <p>
+                    Summary of MDN's tutorial on Strings
+                </p>
+            </div>
+            <div class="javascript dtac summary">
+                <p></p>
+            </div>
+            <ul>
+                <li></li>
+            </ul>
+
         </div>
         
 
@@ -769,10 +781,107 @@
             </p>
         </div>
         <div class="javascript dtac text">
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String Length
+                </p>
+            </div>            
             <p>
-                Start
+                The argument <code>length</code> returns the length of a string.
             </p>
+            <pre>
+                <code>
+                    let text &#61; "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    let length &#61; text.length; &#47;&#47; Returns 26
+                </code>
+            </pre>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    Existing String Characters
+                </p>                
+            </div>
+            <p>
+                There are 4 methods of extracting string characters:
+            </p>
+            <ul>
+                <li>
+                    <code>at&#40;position&#41;</code> Method
+                </li>
+                <li>
+                    <code>charAt&#40;position&#41;</code> Method
+                </li>
+                <li>
+                    <code>charCodeAt&#40;position&#41;</code> Method
+                </li>
+                <li>
+                    Using property acces &#91; &#93; like in arrays
+                </li>
+            </ul>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    JavaScript String charAt&#40;&#41;
+                </p>
+            </div>
+            <p>
+                <code>charAt&#40;&#41;</code> returns the character at a specified index (position) in a string.
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "HELLO WORLD";
+                    let char &#61; text.charAt&#40;0&#41;; &#47;&#47; Returns the value H
+                </code>
+            </pre>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    JavaScript String charCodeAt&#40;&#41;
+                </p>
+            </div>
+            <p>
+                <code>charCodeAt&#40;&#41;</code> returns the UTF-16 value of the character at a specified index 
+                in a string. Using this method returns a UTF-16 code* (an integer between 0 and 65535).
+                <br>
+                * - This is not be confused with HTML codes.
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "HELLO WORLD";
+                    let char &#61; text.charCodeAt&#40;0&#41; &#47;&#47; Returns 72
+                </code>
+            </pre>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    JavaScript codePointAt&#40;&#41;
+                </p>
+            </div>
+            <p>
+                <code>codePointAt&#40;&#41;</code> returns the code point value. This is not to be confused with 
+                <code>charCodeAt&#40;&#41;</code>. 
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "HELLO WORLD";
+                    let code &#61; text.codePointAt&#40;0&#41;; &#47;&#47; Returns 72
+                </code>
+            </pre>
+            <p>
+                While <code>charCodeAt&#40;&#41;</code> returns a code that lies within the UTF-16 code point-centric, 
+                <code>codePointAt</code> returns a Unicode code point-centric value. As result, the <code>charCodeAt&#40;&#41;</code> 
+                is used less and <code>codePointAt&#40;&#41;</code> is used in modern coding.
+            </p>
+            <div class="javascript dtac subtopic">
+                <p>
+                    JavaScript String at&#40;&#41;
+                </p>
+            </div>
+            <p></p>
+
         </div>
+
+
 
         <div class="javascript dtac subsection" id="nav-string3">
             <p>
