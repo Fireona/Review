@@ -444,11 +444,325 @@
             </p>
         </div>
         <div class="javascript dtac text">
+            <div class="javascript dtac topic">
+                <p>
+                    The power of words
+                </p>
+            </div>
             <p>
-                Start
+                Words in spoken in human languages are tools used as a means to effectively communciate with one 
+                another. Each word is used is to be used is a specific way to give us control on how to convey the 
+                information we have to another. In coding, we have different languages that allow us to effictively 
+                control how to present information. HTML is used to provide structure and meaning to text. CSS is 
+                used to style it. JavaScript grants us features to manipulate strings. This includes welcome messages, 
+                prompts, displaying ocrrect text labels, sorting items in a specific order, and so on.                
             </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Declaring strings
+                </p>
+            </div>
+            <p>
+                When dealing with strings at face value, they are treated very similarly to numbers. However, this is 
+                only at the surface level. Just like numbers, we declare a variable, initialize it with a string 
+                value, and return the value. The difference in the two is a string requires to be surrounded in quotes. 
+                If this step is omitted or even a single quote is missing, an error is returned.                
+            </p>
+            <pre>
+                Bad examples
+                <code>
+                    const badString1 &#61; This is a test;
+                    const badString2 &#61; 'This is a test;
+                    const badString3 &#61; This is a test';
+                </code>
+            </pre>
+            <p>
+                In the examples above, none of the lines work. Text that are not surrounded in quotes are taken 
+                as variable names, property names, reserved words, or similar. Errors will pop up if the browser 
+                does not recognize unquoted text. If the browser is unable to detect the end of string with closing 
+                quotes or is missing a tick, it may return "unterminated string literal" error, or the console could 
+                jump to a new line and expect us to finish the string from there. Be sure to check for missing quotes 
+                should errors arise.                
+            </p>
+            <pre>
+                <code>
+                    const badString &#61; string;
+                    console.log&#40;badString&#41;
+                </code>
+            </pre>
+            <p>
+                Here we have declared the variable <code>badString</code> to be the same value as <code>string</code>.
+            </p>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    Single quotes, double quotes, and backticks
+                </p>
+            </div>
+            <p>
+                JavaScript uses single quotes (<code>'</code>), double quotes (<code>"</code>), or backticks (<code>`</code>) 
+                to wrap strings in.
+            </p>
+            <pre>
+                <code>
+                    const single &#61; 'Single quotes';
+                    const double &#61; "Double quotes";
+                    const backtick &#61; `Backtick`;
+
+                    console.log(single);
+                    console.log(double);
+                    console.log(backtick);
+                </code>
+            </pre>
+            <p>
+                Always use the same corresponding characters at the start of the string and at the end of the string.
+            </p>
+            <pre>
+                <code>
+                    const badQuotes = 'This is not allowed!"; &#47;&#47; results in an error
+                </code>
+            </pre>
+            <p>
+                Strings declared using single quotes and strings declared with double quotes are the same. Use whichever 
+                you prefer, but remain consistent and use one only.
+            </p>
+            <p>
+                Strings declared using backticks are unique strings called "template literal". Template literals 
+                behave almost identically to standard strings, but they have some special properties:
+                <ul>
+                    <li>
+                        JavaScript can be embedded in them.
+                    </li>
+                    <li>
+                        You can declare template literals over multiple lines.
+                    </li>
+                </ul>
+            </p>
+            <div class="javascript dtac topic">
+                <p>
+                    Embedding JavaScript
+                </p>                
+            </div>
+            <p>
+                Inside a template literal, JavaScript variables or expressions can be wrapped with <code>&#36;&#123;...&#125;</code> 
+                and whatever the result may be will be returned in the string:
+            </p>
+            <pre>
+                <code>
+                    const name &#61; "Chris";
+                    const greeting &#61; `Hello, &#36;&#123;name&#125;`;
+                    console.log&#40;greeting&#41;; &#47;&#47; "Hello, Chris"
+                </code>
+            </pre>
+            <p>
+                This technique can be used to join two variables:
+            </p>
+            <pre>
+                <code>
+                    const one &#61; "Hello, ";
+                    const two &#61; "how are you?";
+                    const joined &#61; `&#36;&#123;one&#125;&#36;&#123;two&#125;`;
+                    console.log&#40;joined&#41;; &#47;&#47; "Hello, how are you?"
+                </code>
+            </pre>
+            <p>
+                As you already know, joining two or more strings together like so is called a concatenation.
+            </p>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    Concatenation in context
+                </p>
+            </div>
+            <p>
+                Use <a href="https://developer.mozilla.org/en-US/play?id=noZE2pA27iR63yDhR2wIxH07nlj5o%2BhyqnkPvyjaYPNn9sXYuJ6%2F%2Bd5ti25NNLBgCGoZYSStmMEybRDE" target="_blank" rel="noopener noreferrer">this</a> 
+                as an example. A <code>window.prompt&#40;&#41;</code> function is used, eliciting the user to 
+                answer with a dialogue box. The text entered will then be saved and stored in a variable, in this 
+                case, <code>name</code>. The window then displays a string that is imbedded into a generic greeting message.
+            </p>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    Concatentation using "+"
+                </p>
+            </div>
+            <p>
+                <code>&#36;&#123;&#125;</code> can only be used with template literals and do not work with standard 
+                strings. Normal strings are concatenated with the <code>&#43;</code> operator.
+            </p>
+            <pre>
+                <code>
+                    const greeting2 &#61; "Hello";
+                    const name2 &#61; "Bob";
+                    console.log&#40;greeting2 &#43; ", " &#43; name2&#41; &#47;&#47; "Hello, Bob"
+                </code>
+            </pre>
+            <p>
+                To improve on readability and clarity, use template literals:
+            </p>
+            <pre>
+                <code>
+                    const greeting3 &#61; "Howdy";
+                    const name3 &#61; "Ramesh";
+                    console.log&#40;`&#36;&#123;greeting3&#125;, &#36;&#123;name3&#125;`&#41;; &#47;&#47; "Howdy, Ramesh"
+                </code>
+            </pre>
+            
+            <div class="javascrip dtac subtopic">
+                <p>
+                    Including expressions in strings
+                </p>
+            </div>
+            <p>
+                JavaScript expressions can also be placed into template literals, like variables. The results will be returned:
+            </p>
+            <pre>
+                <code>
+                    const song &#61; "Fight the Youth";
+                    const score &#61; 9;
+                    const highestScore &#61; 10;
+                    const output &#61; `I like the song &#36;&#123;song&#125;. I gave it a score of &#36;&#123; &#40;score &#47; highestScore&#41; &#42; 100
+                    &#125;&#37;.`;
+                    console.log&#40;output&#41;; &#47;&#47; "I like the song Fight the Youth. I gave it a score of 90&#37;."
+                </code>
+            </pre>
+
+            <div class="javascrip dtac topic">
+                <p>
+                    Multiline strings
+                </p>
+            </div>
+            <p>
+                Template literals respect line breaks in the source code, so writing strings that span multiple 
+                lines look like this:
+            </p>
+            <pre>
+                <code>
+                    const newline &#61; `One day you finally knew
+                    what you had to do, and began,`;
+                    console.log&#40;newline&#41;
+
+                    &#47;&#42;
+                    One day you finally knew
+                    what you had to do, and began,
+                    &#42;&#47;
+                </code>
+            </pre>
+            <p>
+                In order to have the equivalent of a linebreak without using whitespace, use <code>&#47;n</code> 
+                in the string:
+            </p>
+            <pre>
+                <code>
+                    const newline &#61; `One day you finally knew&#47;nwhat you had to do, and began,`;
+                    console.log&#40;newline&#41;
+
+                    &#47;&#42;
+                    One day you finally knew
+                    what you had to do, and began,
+                    &#42;&#47;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topc">
+                <p>
+                    Including quotes in strings
+                </p>
+            </div>
+            <p>
+                Due to the fact that quotes are used to dictate the start and end of a string, they can't be used 
+                to quote actual quotes:
+            </p>
+            <pre>
+                <code>
+                    const badQutoes &#61; "She said "I think so!"";
+                </code>
+            </pre>
+            <p>
+                To remedy this, we use different quotes for the string:
+            </p>
+            <pre>
+                <code>
+                    const goodQuotes1 &#61; 'She said "I think so!"';
+                    const goodQuotes2 &#61; `She said "I'm not going in there!"`;
+                </code>
+            </pre>
+            <p>
+                Another method is to "escape" the concerning the quotation marks. Escaping characters is to 
+                do something to them in order to ensure they are recognized as text and not part of the code. 
+                In order to achieve this in JavaScript we add a backslash <code>\</code> just before the character:
+            </p>
+            <pre>
+                <code>
+                    const bigmouth &#61; 'I\'ve got no right to take my place...';
+                    console.log&#40;bigmouth&#41;;
+                </code>
+            </pre>
+            <p>
+                This technique can also be used to insert other special characters.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Numbers vs. strings
+                </p>
+            </div>
+            <p>
+                As we know, adding a string and a number results in a string concatenation:                                
+            </p>
+            <pre>
+                <code>
+                    const coolBandName &#61; "Front ";
+                    const number  &#61; 242;
+                    console.log&#40;coolBandName &#43; number&#41; &#47;&#47; "Front 242"
+                </code>
+            </pre>
+            <p>
+                How numbers are to be displayed as strings is explicitly defined, so the browser automatically 
+                converts the number to a string and concatenates the two strings.
+                <br>
+                If we have a numeric variable that we want to covert into a string or string variable, or vice versa, 
+                we can use two constructs:
+                <ul>
+                    <li>
+                        <code>Number&#40;&#41;</code> function converts anything applied to it into a number if possible:
+                    </li>
+                </ul>
+            </p>
+            <pre>
+                <code>
+                    const myString &#61; "123";
+                    const myNum &#61; Number&#40;myString&#41;
+                    console.log&#40;typeof myNum&#41;
+                    &#47;&#47; number
+                </code>
+            </pre>
+            <p>
+                <ul>
+                    <li>
+                        Inversely, <code>String&#40;&#41;</code> functions coverts following arugments into a string:
+                    </li>
+                </ul>
+            </p>
+            <pre>
+                <code>
+                    const myNum &#61; 123;
+                    const myString2 &#61; String&#40;myNum2&#41;;
+                    console.log&#40;typeof myString2&#41;
+                    &#47;&#47;
+                </code>
+            </pre>
+            <p>
+                These constructs are very useful in a variety of situations. With a significant amount of data 
+                types available, it is crucial to be able to understand what type of data is being applied to what. 
+                Just like in mathematics, like variables can only deal with like variables.
+            </p>
+
         </div>
         
+
+
         <div class="javascript dtac subsection" id="nav-string2">
             <p>
                 <a href="https://www.w3schools.com/js/js_string_methods.asp" target="_blank" rel="noopener noreferrer">W3Schools' lesson on string methods</a>
