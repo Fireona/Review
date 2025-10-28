@@ -1,16 +1,19 @@
-function toggleText(button) {
-    // Find the parent <div> of the clicked button>
-    const parentDiv = button.closest(".text");
+// Button collapses all "text"-class containers immediately following "section"-class containers
+function toggleNextText(button) {
+  // Find the closest section div (the title container)
+  const section = button.closest(".section");
 
-    // Find all child elements inside that parent div, except the button
-    const children = parentDiv.querySelectorAll(":scope > *:not(button)");
+  // Find the next sibling element that has the "text" class
+  const textBlock = section.nextElementSibling;
 
-    // Loop through and toggle visibility for those children
-    children.forEach(child=> {
-        if (child.style.display === "none") {
-            child.style.display = "block";
-        } else {
-            child.style.display = "none";
-        }
-    });
-};
+  // If the next element exists and has the "text" class, toggle it
+  if (textBlock && textBlock.classList.contains("text")) {
+    if (textBlock.style.display === "none") {
+      textBlock.style.display = "block";
+      button.textContent = "–"; // change button to minus when open
+    } else {
+      textBlock.style.display = "none";
+      button.textContent = "+"; // change button back to plus when closed
+    }
+  }
+}

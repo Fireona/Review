@@ -26,38 +26,37 @@ h1, .chapter {
     font-size: 60px;
     font-style: italic;
     font-weight: 900;
-    text-decoration: underline;
     word-wrap: break-word;
 }
 /* title */
 h2, .section {
     font-size: 48px;
     font-weight: 900;
-    text-decoration: underline;
 }
 /* subheader */
 h3, .subsection {
     font-size: 36px;
-    text-decoration: underline;
     font-weight: 900;
 }
 
 h4, .topic {
     font-size: 24px;
-    text-decoration: underline;
     font-weight: 1000;
 }
 
 h5, .subtopic {
     font-size: 16px;
-    text-decoration: underline;
     font-weight: 900;
 }
 
 h6, .note {
     font-size: 12px;
-    text-decoration: underline;
     font-weight: 900;
+}
+
+/* Issue with text decoration originating in js/dtac with button having underline */
+.chapter p, .section p, .subsection p, .topic p, .subtopic p, .note p {
+    text-decoration: underline;
 }
 
 .summary {
@@ -143,4 +142,29 @@ td, th {
     border: 2px solid #3d3d3d;
     text-align: left;
     padding: 8px;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section button {
+    all: unset;
+    text-decoration: none !important;
+    background: #616161;
+    border: 1px;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff;
+    transition: background 0.2s, color 0.2s;    
+    cursor: pointer;
+}
+
+.section p button:hover {
+    background: #eee;
+    color: #ad0000c7;
 }
