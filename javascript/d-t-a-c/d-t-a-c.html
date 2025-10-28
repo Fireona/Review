@@ -1037,7 +1037,521 @@
                     Extracting String Parts
                 </p>
             </div>
+            <p>
+                There are three methods for extracting a part of a string:
+            </p>
+            <ul>
+                <li>
+                    <code>slice&#40;start, end&#41;</code>
+                </li>
+                <li>
+                    <code>substring&#40;start, end&#41;</code>
+                </li>
+                <li>
+                    <code>substr&#40;start, length&#41;</code>
+                </li>
+            </ul>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String slice ()
+                </p>
+            </div>
+            <p>
+                <code>slice&#40;&#41;</code> extracts a portion of the string and returns the extracted portion 
+                in a new string. This method requires two parameters: the start position, and end position 
+                &#40;the end position is not included&#41;. Do not forget JavaScript starts counting positions 
+                from "0".
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Apple, Banana, Kiwi";
+                    let part &#61; text.slice&#40;7, 13&#41;; &#47;&#47; Returns Banana
+                </code>
+            </pre>
+            <p>
+                When the second parameter is omitted, all positions before the first parameter are sliced:
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Apple, Banana, Kiwi"
+                    let part &#61; text.slice&#40;7&#41; &#47;&#47; Returns Banana, Kiwi
+                </code>
+            </pre>
+            <p>
+                If a parameter is negative, then the counter starts from the end:
+            </p>
+            <pre>
+                <code>
+                    let text &#61;&#61; "Apple, Banana, Kiwi"
+                    let part &#61; text.slice&#40;-12&#41; &#47;&#47; &#47;&#47; Returns Banana, Kiwi
+                </code>
+            </pre>
+            <p>
+                The following example has two negative parameters:
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Apple, Banana, Kiwi"
+                    let part &#61; text.slice&#40;-12, -6&#41;; &#47;&#47; Returns Banana
+                </code>
+            </pre>
 
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String substring()
+                </p>
+            </div>
+            <p>
+                <code>substring&#40;&#41;</code> is similar to <code>slice&#40;&#41;</code>, but the former 
+                does not accept negative parameters. If there are negative values entered into <code>substring&#40;&#41;</code>, 
+                they will be treated as 0.
+            </p>
+            <pre>
+                <code>
+                    let str &#61; "Apple, Banana, Kiwi"
+                    let part &#61; str.substring&#40;7, 13&#41;; &#47;&#47; Returns Banana
+                </code>
+            </pre>
+            <p>
+                <code>substring&#40;&#41;</code> will omit characters outside the selected first parameter if 
+                there is no second parameter.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String substr&#40;&#41;
+                </p>
+            </div>
+            <p>
+                <code>substr&#40;&#41;</code> is also similar to <code>slice&#40;&#41;</code>. The difference here 
+                is the second parameter designates the length of the extracted portion. This method is no longer 
+                used or supported in the latest JavaScript standard. <code>substring&#40;&#41;</code> and 
+                <code>slice&#40;&#41;</code> are now used instead.
+            </p>
+            <pre>
+                <code>
+                    let str &#61; "Apple, Banana, Kiwi"
+                    let part &#61; str.substr&#40;7, 6&#41; &#47;&#47; Returns Banana
+                </code>
+            </pre>
+            <p>
+                Omittance of the second parameters will cause <code>substr&#40;&#41;</code> to slice the rest of 
+                the string.
+            </p>
+            <pre>
+                <code>
+                    let str &#61; "Apple, Banana, Kiwi"
+                    let part &#61; str.substr&#40;7&#41;; &#47;&#47; Returns Banana, Kiwi
+                </code>
+            </pre>
+            <p>
+                Like the previous methods, the position counts from the end if the element is negative.
+            </p>
+            <pre>
+                <code>
+                    let str &#61; "Apple, Banana, Kiwi"
+                    let part &#61; str.substr&#40;&#45;4&#41;; &#47;&#47;  Returns Kiwi
+                </code>
+            </pre>
+            <img src="../../images/j-t-unamused.gif" alt="Justin Timberlake unamused">
+            <br>
+
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    Converting to Upper and Lower Case
+                </p>
+            </div>
+            <p>
+                A string is converted to upper case with <code>toUpperCase&#40;&#41;</code>. To convert a string 
+                to lower case, use <code>toLowerCase&#40;&#41;</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String toUpperCase()
+                </p>
+            </div>
+            <pre>
+                <code>
+                    let text1 &#61; "Hello World!";
+                    let text2 &#61; text1.toUpperCase&#40;&#41;; &#47;&#47; Returns "HELLO WORLD!"
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String toLowerCase()
+                </p>
+            </div>
+            <pre>
+                <code>
+                    let text1 &#61; "Hello World!";
+                    let text2 &#61; text1.toLowerCase&#40;&#41;; &#47;&#47; Returns "hello world!"
+                </code>
+            </pre>
+
+
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String isWellFormed()
+                </p>
+            </div>
+            <p>
+                <code>isWellFormed&#40;&#41;</code> is a function that returns booleans. It will return <code>true</code> 
+                if the string is well formed, and <code>false</code> if not. A not well formed string is one that 
+                contains lone surrogates (a Unicode surrogate code point taht is not part of a valid surrogate pair 
+                used to represent characters in UTF-16 encoding).
+            </p>
+            <pre>
+                Well Formed
+                <code>
+                    let text &#61; "Hello world!";
+                    let result &#61; text.isWellFormed&#40;&#41; &#47;&#47; Returns true
+                </code>
+                Not Well Formed
+                <code>
+                    let text &#61; "Hello World \uD800";
+                    let result &#61; text.isWellFormed&#40;&#41; &#47;&#47; Returns false
+                </code>
+            </pre>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String toWellFormed()
+                </p>
+            </div>
+            <p>
+                <code>toWellFormed&#40;&#41;</code> is a method of returning new strings with all "lone surrogates" 
+                being replaced with the Unicode replacement character (U+FFFD).
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Hello World \uD800";
+                    let result &#61; text.toWellFormed&#40;&#41; &#47;&#47; Returns "Hello World �"
+                </code>
+            </pre>
+            
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    JavaScript trim
+                </p>
+            </div>
+            <p>
+                There three different trim methods:
+            </p>
+            <ul>
+                <li>
+                    <code>.trim&#40;&#41;</code>
+                </li>
+                <li>
+                    <code>.trimStart&#40;&#41;</code>
+                </li>
+                <li>
+                    <code>.trimEnd&#40;&#41;</code>
+                </li>
+            </ul>
+
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String trim()
+                </p>
+            </div>
+            <p>
+                <code>trim&#40;&#41;</code> removes whitespace from both sides of a string:
+            </p>
+            <pre>
+                <code>
+                    let text1 &#61; "   Hello World!    ";
+                    let text2 &#61; text1.trim&#40;&#41; &#47;&#47; Returns "Hello World!"
+                </code>
+            </pre>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String trimStart()
+                </p>
+            </div>
+            <p>
+                <code>trimStart&#40;&#41;</code> is similar to trim, but removes whitespace in the beginning of 
+                the string.
+            </p>
+            <pre>
+                <code>
+                    let text1 &#61; "   Hello World!    ";
+                    let text2 &#61; text1.trimStart&#40;&#41;; &#47;&#47; Returns "Hello World!    "
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript string trimEnd()
+                </p>
+            </div>
+            <p>
+                <code>trimEnd&#40;&#41;</code> removes whitespace in the end of a string.
+            </p>
+            <pre>
+                <code>
+                    let text1 &#61; "   Hello World!";
+                    let text2 &#61; text1.trimEnd&#40;&#41;; &#47;&#47; Returns "    Hello World!"
+                </code>
+            </pre>
+
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    JavaScript String Padding
+                </p>
+            </div>
+            <p>
+                Padding scripts were added via ECMA2017 so support two string methods in JavaScript: <code>padStart&#40;&#41;</code> 
+                and <code>padEnd&#40;&#41;</code>. These two functions add padding to the start and end of a string. 
+                These two functions are string methods, as such all numbers that require to be padded must be converted 
+                into a string first.
+            </p>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String padStart()
+                </p>
+            </div>
+            <p>
+                <code>padStart&#40;&#41;</code> method adds padding at the start of a string. It pads a string 
+                with another string (multiple times) until it reaches a given length.
+            </p>
+            <pre>
+                Pad with "0" until reaching length 4:
+                <code>
+                    let text &#61; "5";
+                    let padded &#61; text.padStart&#40;4,"0"&#41;; &#47;&#47; Returns 0005
+                </code>
+                Pad with "x" until reaching length 4:
+                <code>
+                    let text &#61; "5";
+                    let padded &#61; text.padStart&#40;4,"x"&#41;; &#47;&#47; Returns xxx5
+                </code>
+            </pre>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String padEnd()
+                </p>
+            </div>
+            <p>
+                <code>padEnd&#40;&#41;</code> pads a string at the end. It will pad the string at the end with 
+                another string (multiple times) until reaching the set length.
+            </p>
+            <pre>
+                Pad with "0" until reaching length 4:
+                <code>
+                    let text &#61; "5";
+                    let padded &#61; text.padEnd&#40;4,"0"&#41;; &#47;&#47; Returns 5000
+                </code>
+                Pad with "x" until reaching length 4:
+                <code>
+                    let text &#61; "5";
+                    let padded &#61; text.padEnd&#40;4,"x"&#41;; &#47;&#47; Returns 5xxx
+                </code>
+            </pre>
+
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    JavaScript String repeat()
+                </p>
+            </div>
+            <p>
+                <code>repeat&#40;&#41;</code> method has three properties in its function:
+            </p>
+            <ul>
+                <li>
+                    It returns a string with a number of copies of a string.
+                </li>
+                <li>
+                    Returns a new string.
+                </li>
+                <li>
+                    It does not change the original string.
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    let text &#61; "Hello world!";
+                    let result &#61; text.repeat&#40;2&#41;; &#47;&#47; Returns Hello world!Hello world!
+                </code>
+                <code>
+                    let text &#61; "Hello world!";
+                    let result &#61; text.repeat&#40;4&#41;; &#47;&#47; Returns Hello world!Hello world!Hello world!Hello world!
+                </code>
+            </pre>
+            <p>
+                The syntax is <code>name.repeat&#40;count&#41;</code>. A parameter is required for the method to 
+                work, the lowest being 0. If the parameter is set to "0", an empty string is returned <code>""</code>.
+            </p>
+
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    Replacing String Content
+                </p>
+            </div>
+            <p>
+                <code>replace&#40;&#41;</code> method replaces a specified value with another value in a string:
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Please visit Microsoft!";
+                    let newText &#61; text.replace&#40;"Microsoft", "W3Schools"&#41;; &#47;&#47; Returns "Please visit W3Schools!"
+                </code>
+            </pre>
+            <p>
+                <code>replace&#40;&#41;</code> method:
+            </p>
+            <ul>
+                <li>
+                    Does not change the string it is called on.
+                </li>
+                <li>
+                    Will return a new string.
+                </li>
+                <li>
+                    Replaces <b>only the first match</b>.
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    let x &#61; "Please visit Microsoft and Microsoft!";
+                    let newText &#61; text.replace&#40;"Microsoft", "W3Schools"&#41; &#47;&#47; Returns "Please visit W3Schools and Microsoft!"
+                </code>
+            </pre>
+            <p>
+                The parameters are also case sensitive:
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Please visit Microsoft!"
+                    let newText &#61; text.replace&#40;"MICROSOFT", "W3Schools"&#41; &#47;&#47; Fails
+                </code>
+            </pre>
+            <p>
+                In order to make the method work regardless of cases, use a regular expression with an <code>&#47;i</code> 
+                flag. This will disregard case sensitivity. (Regular expressions are written without quotes).
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Please visit Microsoft!";
+                    let newText &#61; text.replace&#40;&#47;MICROSOFT&#47;i, "W3Schools"&#41;; &#47;&#47; Returns "Please visit W3Schools!"
+                </code>
+            </pre>
+            <p>
+                If we wish to replace all matches, use a regular expression with a <code>&#47;g</code> 
+                flag (global match):
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Please visit Microsoft and Microsoft!";
+                    let newText &#61; text.replace&#40;&#47;Microsoft&#47;g, "W3Schools!"&#41;; &#47;&#47; Returns "Please visit W3Schools and W3Schools!"
+                </code>
+            </pre>
+            <p>
+                Both the insenstive flag <code>&#47;i</code> and global flag <code>&#47;g</code> can be combined 
+                in the parameters to disregard case sensitivity and replaces all found matches.
+            </p>
+
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    JavaScript String ReplaceAll&#40;&#41;
+                </p>
+            </div>
+            <p>
+                <code>replaceAll&#40;&#41;</code> method was introduced to JavaScript in 2017:
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "I love cats. Cats are very easy to love. Cats are very popular."
+                    text &#61; text.replaceAll&#40;"Cats","Dogs"&#41;;
+                    text &#61; text.replaceAll&#40;"cats","dogs"&#41;; &#47;&#47; Returns "I love dogs. Dogs are very easy to love. Dogs are very popular."
+                </code>
+            </pre>
+            <p>
+                <code>replaceAll&#40;&#41;</code> method enables us to target a regular expression instead of 
+                a string to be replaced. If the parameter is a regular expression, be sure to include the global 
+                flag <code>&#47;g</code> or a TypeEroor is returned.
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "I love cats. Cats are very easy to love. Cats are very popular."
+                    text &#61; text.replaceAll&#40;&#47;Cats&#47;g,"Dogs"&#41;;
+                    text &#61; text.replaceAll&#40;&#47;cats&#47;g,"dogs"&#41;; &#47;&#47; ""
+                </code>
+            </pre>
+
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    Converting a String to an Array
+                </p>
+            </div>
+            <p>
+                If we want to work with a string as an array, we can convert it into an array.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    JavaScript String split()
+                </p>
+            </div>
+            <p>
+                A string can be converted into an array with the <code>split&#40;&#41;</code> method (
+                <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_string_split" target="_blank" rel="noopener noreferrer">link to example</a>
+                ):
+            </p>
+            <pre>
+                <code>
+                    text.split&#40;","&#41;; &#47;&#47; Split on commas
+                    text.split&#40;" "&#41;; &#47;&#47; Split on spaces
+                    text.split&#40;"|"&#41;; &#47;&#47; Split on pipe
+                </code>
+            </pre>
+            <p>
+                If the separator is omitted, the returned array will contain the wrong string in the index <code>&#91;0&#93;</code>. 
+                If the separator is <code>""</code>, then the returned array will be an array of single characters.
+                <a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_string_split_char" target="_blank" rel="noopener noreferrer">Link to example</a>.
+            </p>
+            <pre>
+                <code>
+                    let text &#61; "Hello";
+                    text.split&#40;""&#41; &#47;&#47; Returns Hello but each character is line broken in between
+                </code>
+            </pre>
+
+
+
+            <div class="javascript dtac subsection">
+                <p>
+                    Summary of W3Schools' on String Methods
+                </p>
+            </div>
+            <div class="javascript dtac summary">
+                <p></p>
+            </div>
+            <ul>
+                <li></li>
+            </ul>
+
+
+            
         </div>
 
 

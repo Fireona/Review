@@ -13,4 +13,4 @@ function toggleText(button) {
             child.style.display = "none";
         }
     });
-}
+};
