@@ -13,9 +13,7 @@
             <p>
                 Data Types and Conditionals
             </p>
-        </div>
-
-        
+        </div>        
 
         <div class="javascript dtac subsection">
             <p>
@@ -442,7 +440,7 @@
                         and <code>slice</code>. Now, read through 
                         <a href="#nav-string3" rel="noopener noreferrer" id="string3">MDN's documentation for strings</a> 
                         that provides an immense and detailed look into plenty more string methods. There is no need to 
-                        memorize all of them, but many of the document itself is important and should be used as a 
+                        memorize all of them, but much of the document itself is important and should be used as a 
                         reference in the future.                    
                     </li>
                 </ol>
@@ -1160,10 +1158,6 @@
                     let part &#61; str.substr&#40;&#45;4&#41;; &#47;&#47;  Returns Kiwi
                 </code>
             </pre>
-            <img src="../../images/j-t-unamused.gif" alt="Justin Timberlake unamused">
-            <br>
-
-
 
             <div class="javascript dtac subsection">
                 <p>
@@ -1239,8 +1233,6 @@
                     let result &#61; text.toWellFormed&#40;&#41; &#47;&#47; Returns "Hello World �"
                 </code>
             </pre>
-            
-
 
             <div class="javascript dtac subsection">
                 <p>
@@ -1308,8 +1300,6 @@
                 </code>
             </pre>
 
-
-
             <div class="javascript dtac subsection">
                 <p>
                     JavaScript String Padding
@@ -1366,8 +1356,6 @@
                 </code>
             </pre>
 
-
-
             <div class="javascript dtac subsection">
                 <p>
                     JavaScript String repeat()
@@ -1401,8 +1389,6 @@
                 The syntax is <code>name.repeat&#40;count&#41;</code>. A parameter is required for the method to 
                 work, the lowest being 0. If the parameter is set to "0", an empty string is returned <code>""</code>.
             </p>
-
-
 
             <div class="javascript dtac subsection">
                 <p>
@@ -1472,8 +1458,6 @@
                 in the parameters to disregard case sensitivity and replaces all found matches.
             </p>
 
-
-
             <div class="javascript dtac subsection">
                 <p>
                     JavaScript String ReplaceAll&#40;&#41;
@@ -1501,8 +1485,6 @@
                     text &#61; text.replaceAll&#40;&#47;cats&#47;g,"dogs"&#41;; &#47;&#47; ""
                 </code>
             </pre>
-
-
 
             <div class="javascript dtac subsection">
                 <p>
@@ -1541,8 +1523,8 @@
                     text.split&#40;""&#41; &#47;&#47; Returns Hello but each character is line broken in between
                 </code>
             </pre>
-
-
+            <br>
+            <img src="../../images/cap-america-i-can-do-this-all-day.gif" alt="Captain America saying 'I can do this all day'">
 
             <div class="javascript dtac subsection">
                 <p>
@@ -1554,11 +1536,13 @@
             </div>
             <ul>
                 <li></li>
-            </ul>
-
-
-            
+            </ul>            
         </div>
+
+
+
+        <img src="../../images/j-t-unamused.gif" alt="Justin Timberlake unamused">
+        <br>
 
 
 
@@ -1570,8 +1554,171 @@
         </div>
         <div class="javascript dtac text">
             <p>
-                Start
+                As a note, this is a compilation of methods. You do not need to memorize them all but it is 
+                useful to have bookmarked as a reference.
             </p>
+            <p>
+                Strings are useful in the fact that they are able to hold values by using text. A common function  
+                used is checking the length of a string using <code>length&#40;&#41;</code> method. Another 
+                common function is concatenation method using <code>&#43;</code> and <code>&#43;&#61;</code> 
+                operators. We can also check the type of data they are with <code>indexOf&#40;&#41;</code>. We can 
+                also extract substrings with <code>substring&#40;&#41;</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Creating strings
+                </p>
+            </div>
+            <p>
+                Strings can be created as primitives, with string literals, or as objects, using the <code>string&#40;&#41;</code> 
+                operator.
+            </p>
+            <pre>
+                <code>
+                    const string1 &#61; "A string primitive";
+                    const string2 &#61; 'Also a string primitive';
+                    const string3 &#61; `Yet another string primitive`;
+                </code>
+                <code>
+                    const string4 &#61; new String&#40;"A String Object"&#40;;
+                </code>
+            </pre>
+            <p>
+                String primitives and string objects share many properties but are separated by their differences 
+                and caveats. More will be explained 
+                <a href="#nav-spso">below</a>.
+            </p>
+            <p>
+                String literals are identified with the use of either single quotes <code>''</code> or double 
+                quotes <code>""</code>. The use of backticks <code>``</code> are also string literals but are 
+                more specifically a "template literal": a form that allows interpolation (embedding expressions 
+                directly inside a string).
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Character access
+                </p>
+            </div>
+            <p>
+                There are two methods to access an individual character in a string. The first method is with 
+                the <code>charAt&#40;&#41;</code> method:
+            </p>
+            <pre>
+                <code>
+                    "cat".charAt&#40;1&#41; &#47;&#47; Returns value "a"
+                </code>
+            </pre>
+            <p>
+                The other method treats the string as an array-like object, where individual characters correspond 
+                to a numerical index:
+            </p>
+            <pre>
+                <code>
+                    "cat"&#91;1&#93; &#47;&#47; Retuns value "a"
+                </code>
+            </pre>
+            <p>
+                The square brackets <code>&#91;&#93;</code> are specifically used for character access. Any attempts 
+                to delete or assign values to properties will fail.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Comparing strings                    
+                </p>
+            </div>
+            <p>
+                Use the lesser than operator <code>&lt;</code> or the greater than <code>&gt;</code> to compare 
+                strings:
+            </p>
+            <pre>
+                <code>
+                    const a &#61; "a";
+                    const b &#61; "b";
+                    if &#40;a &lt; b&#41; &#123;
+                        &#47;&#47; true
+                        console.log&#40;&#96;&#36;&#123;a&#125; is less than &#36;&#123;b&#125;.&#96;&#41;;
+                    &#125; else if &#40;a &gt; b&#41; &#123;
+                        console.log&#40;&#96;&#36;&#123;a&#125; is greater than &#36;&#123;b&#125;.&#96;&#41;;
+                    &#125; else &#123;
+                        console.log&#40;&#96;&#36;&#123;a&#125; and &#36;&#123;b&#125;.&#96;&#41;;
+                </code>
+            </pre>
+            <p>
+                Remember that all comparison operators, including <code>&#61;&#61;&#61;</code> and <code>&#61;&#61;</code> 
+                compare strings case-sensitively. A way to compare strings case-insensitively is by converting both 
+                strings to the same case (whether upper or lower case) prior to comparing them.
+            </p>
+            <pre>
+                <code>
+                    function areEqualInsensitive&#40;str1, str2&#41; &#123;
+                        return str.toUpperCase&#40;&#41; &#61;&#61;&#61; str.toUpperCase&#40;&#41;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                Whether we change to lowercase <code>toLowerCase</code> or uppercase <code>toUpperCase</code> 
+                does not really make too much of a difference in most scenarios concering the Latin alphabet. 
+                The issues only begin to show when dealing with characters, or languages, outside the 
+                English tongue.
+            </p>
+            <ul>
+                <li>
+                    The German lowercase letter <code>ß</code>> and <code>ss</code>> are both changed to 
+                    <code>SS</code> with <code>toUpperCase&#40;&#41;</code>.
+                </li>
+                <li>
+                    Turkish alphabet has several characters that do not transform nicely with English letters. 
+                    For this particular situation, we can not use the standard case methods, but we have to use 
+                    <code>toLocaleLowerCase&#40;"tr&#41;</code>.
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    const areEqualInUpperCase &#61; &#40;str1&#44; str2&#41; &#61;&gt;
+                        str1.toUpperCase&#40;&#41; &#61;&#61;&#61; str.toUpperCase&#40;&#41;;
+                    const areEqualInLowerCase &#61; &#40;str1&#44; str2&#41; &#61;&gt;
+                        str1.toLowerCase&#40;&#41; &#61;&#61;&#61; str.toUpperCase&#40;&#41;;
+                    
+                    areEqualInUpperCase&#40;"ß"&#44; "ss"&#41;; &#47;&#47; true; should be false
+                    areEqualInLowerCase&#40;"ı"&#44; "I"&#41;; &#47;&#47; false; should be true
+                </code>
+            </pre>
+            <p>
+                As a result of the complications that arose from these conditions, the solution to comparing 
+                case-insensitive equality was brought forward with <code>Intl.Collator</code> API or with 
+                the string's <code>localeCompare&#40;&#41;</code> method. They share the same interface and 
+                both have <code>sensitivity</code> option set to either <code>"accent"</code> or <code>"base"</code>.
+            </p>
+            <pre>
+                <code>
+                    const areEqual &#61; &#40;str1&#44; str2&#44; locale &#61; "en-US"&#41; &#61;&gt;
+                        str.localeCompare&#40;str2&#44; locale&#44; &#123 sensitivity: "accent" &#125;&#41; &#61;&#61;&#61; 0;
+                    
+                    areEqual&#40;"ß"&#44; "ss"&#44; "de"&#41;; &#47;&#47; false
+                    areEqual&#40;"ı"&#44; "I"&#44; "tr"&#41;; &#47;&#47; true
+                </code>
+            </pre>
+            <p>
+                An alternative method to <code>localeCompare&#40;&#41;</code> is with <code>strcmp&#40;&#41;</code>. 
+                They both allow sorting strings in locale-aware manners.
+            </p>
+
+            <div class="javascript dtac topic" id="nav-spso">
+                <p>
+                    String primitives and String objects
+                </p>
+            </div>
+            <p>
+                JavaScript distinguishes between <code>String</code> objects and primitive string values as different 
+                data type entities. (This also is true for Boolean and Numbers.)
+            </p>
+            <p>                                
+            </p>
+
+
         </div>
 
 
@@ -1636,6 +1783,8 @@
             </p>
         </div>
 
+
+
         <div class="javascript dtac section" id="nav-conditional2">
             <button onclick="toggleNextText(this)">+</button>
             <p>
@@ -1647,6 +1796,8 @@
                 Start
             </p>
         </div>
+
+
 
         <div class="javascript dtac section" id="nav-conditional3">
             <button onclick="toggleNextText(this)">+</button>
@@ -1660,6 +1811,8 @@
             </p>
         </div>
 
+
+
         <div class="javascript dtac section" id="nav-conditional4">
             <button onclick="toggleNextText(this)">+</button>
             <p>
@@ -1672,6 +1825,8 @@
             </p>
         </div>
 
+
+
         <div class="javascript dtac section" id="nav-conditional5">
             <button onclick="toggleNextText(this)">+</button>
             <p>
@@ -1683,6 +1838,8 @@
                 Start
             </p>
         </div>
+
+
 
         <div class="javascript dtac section" id="nav-conditional6">
             <button onclick="toggleNextText(this)">+</button>
