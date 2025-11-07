@@ -16,6 +16,7 @@
         <div>
             <ul>
                 <pre>
+                    JavaScript Simplest Function
                     <code>
                         function makeCoffee&#40;&#41; &#123;
                             console.log&#40;"Brewing coffee..."&#41;;
@@ -24,14 +25,19 @@
                 </pre>
                 <code>function</code>
                 <li>
-                    Defines what should happen when the function is later called. Similar to a set of 
-                    instructions to a recipe.
+                    Defines what should happen when the function is called. Similar to a set of 
+                    instructions to a recipe. The example has a function called <code>makeCoffee</code> 
+                    and all code starting from the opening parantheses (<code>&#40;...</code>) to the 
+                    closing curly brackets (<code>...&#125;</code>) are considered to be part of said 
+                    function.
                 </li>
                 <br>
                 Function name
                 <li>
                     A label for the task to be performed. Here, the task is called <code>makeCoffee</code> 
-                    since the function is about making coffee. <code>makeCoffee</code> is the function name.
+                    since the function is about making coffee. Marked in the example with:
+                    <br>
+                    <code>makeCoffee</code>
                 </li>
                 <br>
                 Parantheses <code>&#40;&#41;</code>
@@ -41,13 +47,15 @@
                 </li>
                 <li>
                     A signal to start performing the <code>function</code> the moment the name of the function is 
-                    called. A trigger when name of function pops up.
+                    called. A trigger when the name of a function pops up.
                 </li>
                 <br>
                 Function body <code>&#123;...&#125;</code>
                 <li>
                     The main body of a function is inside <code>&#123;&#125;</code>. Inside will be the list of 
-                    tasks to undertake when called.
+                    tasks to undertake when called. Marked in the example with:
+                    <br>
+                    <code>&#123; console.log&#40;"Hello!"&#41;; &#125;</code>
                 </li>
                 <br>
                 <code>console.log</code>
@@ -66,7 +74,7 @@
                     A command given to JavaScript to run the called function (usually by function name).
                 </li>
                 <br>
-                <pre>
+                <pre>JavaScript Argument and Parameters
                     <code>
                         function greet&#40;name&#41; &#123;
                             console.log&#40;"Hello, " &#43; name &#43; "!"&#41;;
@@ -86,8 +94,160 @@
                     The actual value we feed into the function when called. The argument here is <code>"Sam"</code>.
                 </li>
                 <br>
+                <pre>Return Values
+                    <code>
+                        function add&#40;a&#44; b&#41; &#123;
+                            return a &#43; b;
+                        &#125;
 
-                
+                        let sum &#61; add&#40;2&#44; 3&#41;;
+                        console.log&#40;sum&#41;
+                    </code>
+                </pre>
+                Return
+                <li>
+                    Sends a value back to whoever called the function. Marked in the example with:
+                    <br>
+                    <code>return a &#43; b</code>
+                </li>
+                Variable
+                <li>
+                    A named "box" that stores a value. Marked in the example with:
+                    <br>
+                    <code>let sum &#61; ...</code>
+                </li>
+                Function Expression
+                <pre>JavaScript
+                    <code>
+                        const sayHi &#61; function &#40;&#41; &#123;
+                            console.log&#40;"Hi!"&#41;;
+                    </code>
+                </pre>
+                <li>
+                    Function stored inside a variable. Typically has no name and is "anonymous". Marked in the
+                    example with:
+                    <br>
+                    <code>const sayHi &#61; function&#40;&#41; &#123;&#125;</code>.
+                </li>
+                Arrow Function
+                <pre>JavaScript
+                    <code>
+                        const sayHi  &#61; &#40;&#41; &#61;&gt; &#123;
+                            console.log&#40;"Hi!"&#41;;
+                    </code>
+                </pre>
+                <li>
+                    Shorter way of writing a function and more common in modern JavaScript. Marked in the example 
+                    with:
+                    <br>
+                    <code>&#40;&#41; &#61;&gt; &#123;&#125;</code>
+                </li>
+                Anonymous Function
+                <li>
+                    An anonymous function is a function without a name and is often used in other code. Marked in 
+                    the example with:
+                    <br>
+                    <code>function&#40;&#41; &#123;&#125;</code>.
+                </li>
+                Methods and Objects
+                <pre>
+                    <code>
+                        const person &#61; &#123;
+                            name: "Alex";
+                            greet: function&#40;&#41; &#123;
+                                console.log&#40;"Hi, I'm " &#43; this.name&#41;;
+                            &#125;
+                        &#125;;
+
+                        person.greet&#40;&#41;;
+                    </code>
+                </pre>
+                Object
+                <li>
+                    Container for related data and functions. Marked in the example with:
+                    <br>
+                    <code>&#123; name: "Alex", greet: function&#40;&#41; &#123; ... &#125;&#125;</code>
+                </li>
+                Property
+                <li>
+                    A piece of data stored in an object. Marked in the example with:
+                    <br>
+                    <code>name: "Alex"</code>
+                </li>
+                Method
+                <li>
+                    A function inside an object. Marked in the example with:
+                    <br>
+                    <code>greet: function&#40;&#41;  &#123; ... &#125;</code>
+                </li>
+                This
+                <li>
+                    Refers to the current object. Marked in the example with:
+                    <br>
+                    <code>this.name</code>
+                </li>
+                Statement <code>;</code>
+                <li>
+                    A single instruction. Typically ends with <code>;</code>
+                </li>
+                Scope
+                <li>
+                    Where a variable or function can be used or seen.
+                </li>
+                Declaration
+                <li>
+                    Creating something new (like a variable or function). Example:
+                    <br>
+                    <code>function greet&#40;&#41; &#123;&#125;</code>
+                </li>
+                Expression
+                <li>
+                    Any bit of code that produces a valuel. Examples:
+                    <br>
+                    <code>2 &#43; 2</code>;
+                    <code>"Hello" &#43; "World"</code>;
+                </li>
+                Execution
+                <li>
+                    The computer actually running the code, or "calling" a function.
+                </li>
+                Syntax
+                <li>
+                    Grammar rules of the language.
+                </li>
+                Callback
+                <li>
+                    A function passed into another function to be run later. Example:
+                    <br>
+                    <code>setTimeout&#40;&#40;&#41; &#61;&gt; console.log&#40;"Done"&#41;&#44;1000&#41;;</code>
+                </li>                
+            </ul>
+
+            <div class="miscalleous mftb subsection">
+                <p>Analogies</p>
+            </div>
+            <ul>
+                <li>
+                    A function is akin to a complete recipe.
+                </li>
+                <li>
+                    A parameter is a <i>placeholder</i> ingredient. ("Add __ cups of sugar").
+                </li>
+                <li>
+                    An argument is the <i>actual ingredient</i> you use. ("Add 2 cups of sugar").
+                </li>
+                <li>
+                    A return value is the <i>finished dish</i>.
+                </li>
+                <li>
+                    A method is a <i>recipe</i> that belongs to a specific <i>chef</i> (object).
+                </li>
+                <li>
+                    An expression is a <i>mini recipe</i> that creates a value ("mix flour + water").
+                </li>
+                <li>
+                    A call is when you make the recipe.
+                </li>
             </ul>
             
         </div>

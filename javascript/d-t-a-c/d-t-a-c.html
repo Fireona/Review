@@ -1718,12 +1718,66 @@
                 data type entities. (This also is true for Boolean and Numbers.)
             </p>
             <p>
-                String literals, as we mentioned earlier, are noted by the single or double quotes. String literals 
-                and strings returned from using <code>String</code> in a non-constructor context (paraphrased as 
-                called without using the <code>new</code> keywork) are primitive strings. In most circumstances, when a
+                String literals, as we mentioned earlier, are marked by the use of single or double quotes. String 
+                literals and strings returned from using <code>String</code> in a non-constructor context (in verbatim, 
+                are called without using the <code>new</code> keyword) are primitive strings. In situations when a 
                 method is called upon a primitive string or when property lookups occur, JavaScript will automatically 
-                wrap the string primitive and perform the function 
+                wrap the string primitive and perform said function.
             </p>
+            <pre>
+                <code>
+                    const strPrim &#61; "foo"; &#47;&#47; A literal is a string primitive
+                    const strPrim2 &#61; String&#40;1&#41; &#47;&#47; Coerved into the string primitive "1"
+                    const strPrim3 &#61; String&#40;true&#41; &#47;&#47; Coerced into the string primitive "true"
+                    const strObj &#61; new String&#40;strPrim&#41; &#47;&#47; String with new returns a string wrapper object
+
+                    console.log&#40;typeof strPrim&#41;; &#47;&#47; "string"
+                    console.log&#40;typeof strPrim2&#41;; &#47;&#47; "string"
+                    console.log&#40;typeof strPrim3&#41;; &#47;&#47; "string"
+                    console.log&#40;typeof strObj&#41;; &#47;&#47; "object"
+                </code>
+            </pre>
+            <ul>
+                <li>
+                    As a note, it is very rare we find ourselves using <code>String</code> as a constructor (the process 
+                    of making said string).
+                </li>
+            </ul>
+            <p>
+                When <code>eval&#40;&#41;</code> is used, string primitives and <code>String</code> objects will 
+                return different results. Primitives used in <code>eval</code> are treated as source code while 
+                <code>String</code> objects are treated as is and will return as the object.
+            </p>
+            <pre>
+                <code>
+                    const s1 &#61; "2 &#43; 2"; &#47;&#47; creates a string primitive
+                    const s2 &#61; new String &#40;"2 &#43; 2"&#41;; &#47;&#47; creates a String object
+                    console.log&#40;eval&#40;s1&#41;&#41;; &#47;&#47; returns the number 4
+                    console.log&#40;eval&#40;s2&#41;&#41;; &#47;&#47; returns the string "2 &#43; 2"
+                </code>
+            </pre>
+            <p>
+                The code can break due to these reasons when encountering <code>String</code> objects instead of a 
+                primitive string.
+            </p>
+            <ul>
+                <li>
+                    A <code>String</code> object can awlays be converted to its primitive counterpart with the 
+                    <code>valueOf&#40;&#41;</code> method.
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    console.log&#40;eval&#40;s2.valueOf&#40;&#41;&#41;&#41;; &#47;&#47; returns the number 4
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    String coercion
+                </p>
+            </div>
+            <p></p>
 
 
         </div>
