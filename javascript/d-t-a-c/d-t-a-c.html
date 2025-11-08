@@ -1777,7 +1777,69 @@
                     String coercion
                 </p>
             </div>
-            <p></p>
+            <p>
+                There is an abundance of built-in operations (methods) that use strings, and require their arguments 
+                changed into strings prior to being called. As a result of this process, <code>String</code> objects 
+                behave similarly to string primitives. This process prior to being called can be briefed as follows: 
+            </p>
+            <ul>
+                <li>
+                    Strings are returned as-is.
+                </li>
+                <li>
+                    <code>undefined</code> turns into <code>"undefined"</code>.
+                </li>
+                <li>
+                    <code>null</code> turns into <code>"null"</code>.
+                </li>
+                <li>
+                    <code>true</code> turns into <code>"true"</code>; <code>false</code> turns into <code>"false"</code>.
+                </li>
+                <li>
+                    Numbers are converted with the same algorithm as <code>toString&#40;10&#41;</code>.
+                </li>
+                <li>
+                    <code>BigInts</code> are converted with the same algorithm as <code>toString&#40;10&#41;</code>.
+                </li>
+                <li>
+                    <code>Symbols</code> return a <code>TypeError</code>.
+                </li>
+                <li>
+                    Objects are converted into particular data types by a specific step-by-step process called a 
+                    <b>"conversion chain"</b> that sets the order and the fallback options:
+                    <ol>
+                        <li>
+                            Checks for a custom <code>&#91;Symbol.toPrimitive&#93;</code> method. This checks the object for 
+                            a particular set of rules to turn it into a primitive value.
+                        </li>
+                        <li>
+                            If the first step fails, the next step is to call <code>.toString&#40;&#41;</code>.
+                        </li>
+                        <li>
+                            If the second step fails, what follows is to call <code>.valueOf&#40;&#41;</code>.
+                        </li>
+                        <li>
+                            Whatever primitive value comes back (string, number, boolean, etc.), JavaScript will then change 
+                            that (coerce) into a string.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+            <p>
+                There are also alternative methods of achieving very similar results in JavaScript:
+            </p>
+            <ul>
+                <li>
+                    Template literal: <code>`&#37;&#123;x&#125;`</code> does exactly the steps explained above for 
+                    the embedded expression.
+                </li>
+                <li>
+                    <code>String&#40;&#41;</code> function: <code>String&#40;x&#41;</code> uses the same algorithm to 
+                    convert <code>x</code>, however <code>Symbols</code> do not return <code>TypeError</code> and instead 
+                    return <code>"Symbol&#40;description&#41;</code>; <code>description</code> is simply a description 
+                    of the Symbol.
+                </li>
+            </ul>
 
 
         </div>
