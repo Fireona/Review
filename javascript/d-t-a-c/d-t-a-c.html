@@ -621,7 +621,7 @@
                 </code>
             </pre>
             
-            <div class="javascrip dtac subtopic">
+            <div class="javascript dtac subtopic">
                 <p>
                     Including expressions in strings
                 </p>
@@ -640,7 +640,7 @@
                 </code>
             </pre>
 
-            <div class="javascrip dtac topic">
+            <div class="javascript dtac topic">
                 <p>
                     Multiline strings
                 </p>
@@ -1840,9 +1840,10 @@
                     of the Symbol.
                 </li>
             </ul>
-
-
+            <!-- TBC -->
         </div>
+
+        <img src="../../images/panda-never-ends.gif" alt="Panda crying it never ends">
 
 
 
@@ -1894,6 +1895,8 @@
             </ol>
         </div>
 
+
+
         <div class="javascript dtac section" id="nav-conditional1">
             <button onclick="toggleNextText(this)">+</button>
             <p>
@@ -1901,9 +1904,254 @@
             </p>
         </div>
         <div class="javascript dtac text">
+            <div class="javascript dtac subsection">
+                <p>
+                    Comparisons
+                </p>
+            </div>
             <p>
-                Start
+                There are variety of comparison operators from mathematics. Some we know are:                
             </p>
+            <ul>
+                <li>
+                    Greater/less than: <code>a &gt; b</code>,<code>a &lt; b</code>
+                </li>
+                <li>
+                    Greater/less than or equals: <code>a &gt;&#61; b</code>, <code>a &lt;&#61; b</code>
+                </li>
+                <li>
+                    Equals: <code>a &#61;&#61;</code>. As a note, double equality sign <code>&#61;&#61;</code> stands 
+                    for the equality test, while a single equality sign <code>&#61;</code> means an assignment.
+                </li>
+                <li>
+                    Not equals: In mathematics, it is written as <code>&#8800;</code>, but in JavaScript it is written 
+                    as <code>a &#33;&#61; b</code>.
+                </li>
+            </ul>
+            <p>
+                This article will expand more on similar comparisons, how JavaScript makes them as well as important 
+                peculiarities. By the end, you should have a good idea on how to avoid "JavaScript quirks" and related 
+                issues.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Boolean is the result
+                </p>
+            </div>
+            <p>
+                Boolean comparison operators will return boolean values:
+            </p>
+            <ul>
+                <li>
+                    <code>true</code> - means "yes", "correct", or "the truth".
+                </li>
+                <li>
+                    <code>false</code> - means "no", "wrong", or "not the truth".
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    alert&#40; 2 &gt; 1 &#41;; &#47;&#47; true &#40;correct&#41;
+                    alert&#40; 2 &#61;&#61; 1 &#41;; &#47;&#47; false &#40;wrong&#41;
+                    alert&#40; 2 &#33;&#61; 1 &#41;; &#47;&#47; true &#correct&#41;
+                </code>
+            </pre>
+            <p>
+                A comparison result can be assigned to a variable, just like any value:
+            </p>
+            <pre>
+                <code>
+                    let result &#61; 5 &gt; 4;  &#47;&#47; assign the result of the comparison
+                    alert&#40; result &#41;; &#47;&#47; true
+                </code>
+            </pre>
+            
+            <div class="javascvript dtac topic">
+                <p>
+                    String comparison
+                </p>
+            </div>
+            <p>
+                JavaScript uses a so-called "dictionary" or "lexicographical" to determine whether a string 
+                is greater than another. However, these strings are compared letter-by-letter.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; 'Z' &gt; 'A' &#41;; &#47;&#47; true
+                    alert&#40; 'Glow' &gt; 'Glee' &#41;; &#47;&#47; true
+                    alert&#40; 'Bee' &gt; 'Be' &#41;; &#47;&#47; true
+                </code>
+            </pre>
+            <p>
+                The method of comparing the two strings follows an algorithm that uses a simple process:
+            </p>
+            <ol>
+                <li>
+                    Compare the first character of both strings
+                </li>
+                <li>
+                    If the first character is greater (or less) than the other string's, then the first string 
+                    is greater (or less than) the second. The process is finished.
+                </li>
+                <li>
+                    If both strings' first characters are the same, we move to the next character in the string 
+                    and compare them the same way.
+                </li>
+                <li>
+                    Repeat until the end of the string.
+                </li>
+                <li>
+                    If both strings end at the same length, then they are equal. Otherwise, the longer string is 
+                    greater.
+                </li>
+            </ol>
+            <p>
+                Going by the first example, <code>'Z' &gt; 'A'</code> reaches the result first at the first step.
+            </p>
+            <p>
+                Meanwhile, the second comparison requires more steps. <code>'Glow</code> and <code>'Glee'</code> 
+                require us make more comparisons as strings are compared character-by-character:
+                <ol>
+                    <li>
+                        <code>G</code> is the same as <code>G</code>.
+                    </li>
+                    <li>
+                        <code>l</code> is the same as <code>l</code>.
+                    </li>
+                    <li>
+                        <code>o</code> is greater than <code>e</code>. The process stops here as the first string is greater.
+                    </li>
+                </ol>
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Comparison of different types
+                </p>
+            </div>
+            <p>
+                JavaScript will convert values of different types into numbers:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; '2' &gt; 1 &#41;; &#47;&#47; true, string '2' becomes a number 2
+                    alert&#40; '01' &#61;&#61; 1 &#41;; &#47;&#47; true, string '01' becomes a number 1
+                </code>
+            </pre>
+            <p>
+                Boolean values <code>true</code> and <code>false</code> become values <code>1</code> and <code>0</code>
+                respectively.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; true &#61;&#61; 1 &#41;; &#47;&#47; true
+                    alert&#40; false &#61;&#61; 0 &#40;; &#47;&#47; true
+                </code>
+            </pre>
+            <p>
+                An awkward situation can appear that simultaneously:
+            </p>
+            <ul>
+                <li>
+                    Two values are equal.
+                </li>
+                <li>
+                    One of them is <code>true</code> as a boolean and the other is <code>false</code> as a boolean.
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    let a &#61; 0;
+                    alert&#40; Boolean &#40;a&#41; &#41;; &#47;&#47; false
+
+                    let b &#61; "0";
+                    alert&#40; Boolean &#40;b&#41; &#41;; &#47;&#47; true
+
+                    alert&#40;a &#61;&#61; b&#41;; &#47;&#47; true!
+                </code>
+            </pre>
+            <p>
+                In the above example, there are several things to explain:
+            </p>
+            <ol>
+                <li>
+                    The alert function is called using a Boolean method using <code>a</code> as the argument. We know 
+                    <code>a &#61; 0</code> and as a result, when <code>0</code> is converted into Boolean with <code>Boolean&#40;&#41;</code>, 
+                    it returns as <code>false</code>.
+                </li>
+                <li>
+                    Here we have an assignment stating <code>b &#61; "0"</code>. The alert function called uses the 
+                    method <code>Boolean&#40;&#41;</code> to convert <code>b</code> into a boolean. However, the rule is 
+                    any non-empty string is considered to be as "truthy". This means that any string, so long as it has 
+                    something or anything it, will have a boolean of <code>true</code>. Therefore, <code>Boolean&#40;b&#41;</code> 
+                    will return as <code>true</code>.
+                </li>
+                <li>
+                    Here we have an alert function being called with the expression <code>a &#61;&#61; b</code>. The 
+                    loose equality operator (<code>&#61;&#61;</code>) is used to compare two entities of the same type. 
+                    We know <code>a</code> is equal to <code>0</code>, a number, while <code>b</code> is equal to <code>"0"</code>, 
+                    a string. The operator then converts <code>"0"</code> into a number, becoming <code>0</code>. As 
+                    a result of this, the operator compares <code> 0 &#61;&#61; 0</code>, which will return with <code>true</code>. 
+                    <br>
+                    &#8756; Even though the boolean values are different, the loose comparison operator (<code>&#61;&#61;</code>) 
+                    will convert the entities into the same type as they are, not as any other entity they will be.
+                </li>
+            </ol>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Strict Equality
+                </p>
+            </div>
+            <p>
+                Loose equality is unable to differentiate <code>0</code> from <code>false</code>:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; 0 &#61;&#61; false &#41;; &#47;&#47; true
+                </code>
+            </pre>
+            <p>
+                The same also applies to empty strings:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; '' &#61;&#61; false &#41;; &#47;&#47; true
+                </code>
+            </pre>
+            <p>
+                This is a result that stems from operands of different types that are converted to numbers through 
+                the loose equality operator (<code>&#61;&#61;</code>). Empty strings are treated similarly to the 
+                boolean <code>false</code>, and become a value of <code>0</code> through the loose equality operator.
+            </p>
+            <p>
+                To amend this, we use the strict equality operator (<code>&#61;&#61;&#61;</code>) which checks 
+                the equality without performing a type conversion. Should we have a scenario where <code>a</code> 
+                and <code>b</code> variables are of different types, then performing <code>a &#61;&#61;&#61; b</code> 
+                will return a <code>false</code> value since there are no type conversions occuring.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; 0 &#61;&#61;&#61; false &#41;; &#47;&#47; false, because the types are different
+                </code>
+            </pre>
+            <p>
+                A "strict non-equality" operator (<code>&#33;&#61;&#61;</code>) operator exists as well that works 
+                similarly to <code>&#33;&#61;</code>. The strict non-equality operator <code>&#33;&#61;&#61;</code> 
+                compares both type and value whereas the singular non-equality operator <code>&#33;&#61;</code> only 
+                compares the values (but also converts that values types to a common type). The only drawback would be 
+                the fact it takes more effort into writing, but it makes it clear and concise making it less prone 
+                to errors and confusion.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Comparison with null and undefined
+                </p>
+            </div>
+            <p></p>
+            
         </div>
 
 
