@@ -2150,8 +2150,163 @@
                     Comparison with null and undefined
                 </p>
             </div>
-            <p></p>
-            
+            <p>
+                The values <code>null</code> and <code>undefined</code> behave in strange ways when we compare 
+                them to other values.
+            </p>
+            <p>
+                For strict equality check, we use <code>&#61;&#61;&#61;</code>. This operator compares two values 
+                by checking both value and type.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; null &#61;&#61;&#61; undefined &#41;; &#47;&#47; false
+                </code>
+            </pre>
+            <p>
+                The values of <code>null</code> and <code>undefined</code> are different as they are of different types.
+            </p>
+            <p>
+                For a non-strict check (also known as loose equality) check, the double equality operator (<code>&#61;&#61;</code>) 
+                is used.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; null &#61;&#61; undefined &#41;; &#47;&#47; true
+                </code>
+            </pre>
+            <p>
+                When we use the non-strict equality check on <code>null</code> and <code>undefined</code>, it 
+                returns as <code>true</code>. The results from the early stages of JavaScript when both were 
+                meant to represent "no value", but for different reasons:
+            </p>
+            <ul>
+                <li>
+                    <code>null</code> was meant to represent an intentional "empty" value (like: "there's nothing here")
+                </li>
+                <li>
+                    <code>undefined</code> was meant to represent something that hasn't been assigned at all (like: "this is missing")
+                </li>
+            </ul>
+            <p>
+                For mathematicals and other comparisons, we have <code>&gt;</code>, <code>&lt;</code>, 
+                <code>&gt;&#61;</code> and <code>&lt;&#61;</code>.
+            </p>
+            <p>
+                When <code>null</code> and <code>undefined</code> are converted to numbers, <code>null</code> 
+                becomes <code>0</code> and <code>undefined</code> becomes <code>NaN</code>. Be careful as these 
+                properties have peculiar behaviours.
+            </p>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    Strange result: null vs 0
+                </p>
+            </div>
+            <p>
+                First, a comparison between <code>null</code> and <code>0</code>:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; null &gt; 0 &#41;; &#47;&#47; &#40;1&#41; false
+                    alert&#40; null &#61;&#61; 0 &#41;; &#47;&#47; &#40;2&#41; false
+                    alert&#40; null &gt;&#61; 0 &#41;; &#47;&#47; &#40;3&#41; true
+                </code>
+            </pre>
+            <p>
+                When we think from a mathematical perspective, this comes off as strange. The last statement 
+                dictates <code>null</code> is "greater or equal to zero". This must mean one of the two statements 
+                prior must be true, yet they are both false. This is because the equality check operator (<code>&#61;&#61;</code>) 
+                and comparisons (<code>&gt;</code>, <code>&lt;</code>, <code>&gt;&#61;</code>, <code>&lt;&#61;</code>) 
+                operate differently. Comparisons will convert <code>null</code> into a number, treating is as 
+                <code>0</code>. This explains why (3) <code>null &gt;&#61; 0</code> is true and (1) <code>null &gt; 0</code> 
+                is false.
+            </p>
+            <p>
+                For statement (2), the loose equality check (<code>&#61;&#61;</code>) does not perform any sort 
+                of conversions. This results in both <code>null</code> and <code>undefined</code> equal to each 
+                other but not anything else.
+            </p>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    An incomparable undefined
+                </p>
+            </div>
+            <p>
+                <code>undefined</code> should not be compared to other values:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; undefined &gt; 0 &#41;; &#47;&#47; false &#40;1&#41;
+                    alert&#40; undefined &lt; 0 &#41;; &#47;&#47; false &#40;2&#41;
+                    alert&#40; undefined &#61;&#61; 0 &#41;; &#47;&#47; false &#40;3&#41;
+                </code>
+            </pre>
+            <p>
+                The results return as <code>false</code> because:
+            </p>
+            <ul>
+                <li>
+                    Comparisons (1) and (2) return as <code>false</code> because <code>undefined</code> is a 
+                    unique number type that gets converted to <code>NaN</code> that will always return <code>false</code> 
+                    for all comparisons.                    
+                </li>
+                <li>
+                    The equality check for (3) returns <code>false</code> because as we mentioned earlier, <code>undefined</code> 
+                    will only equal to <code>null</code> and <code>undefined</code> only when using the non-strict 
+                    equality operator.
+                </li>
+            </ul>
+
+            <div class="javascript dtac subtopic">
+                <p>
+                    Avoid problems
+                </p>
+            </div>
+            <p>
+                While it is not necessary to remember all these unique traits by heart, these rules will become 
+                second nature over time. However, there are some things to remember in order to avoid such issues:
+            </p>
+            <ul>
+                <li>
+                    Treat any comparison with <code>undefined</code>/<code>null</code>, excluding strict equality <code>&#61;&#61;&#61;</code>, 
+                    with great care.
+                </li>
+                <li>
+                    Avoid using comparisons <code>&gt;, &lt;, &#61;&gt;, &#61;&lt;</code> with variables that could 
+                    be <code>null</code> or <code>undefined</code> unless you are absolutely sure of what you are doing. 
+                    If variables do have either of these values, check for them separately.
+                </li>
+            </ul>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <ul>
+                <li>
+                    Comparison operators return a boolean value.
+                </li>
+                <li>
+                    Strings are compared letter-by-letter in the "dictionary" order.
+                </li>
+                <li>
+                    Values of different types will get converted into numbers when compared except when using the 
+                    strict equality check (<code>&#61;&#61;&#61;</code>).
+                </li>
+                <li>
+                    <code>null</code> and <code>undefined</code> are equal only to each other when using non-strict 
+                    equality check (<code>&#61;&#61;</code>).
+                </li>
+                <li>
+                    Take caution when using comparisons like <code>&gt;</code> or <code>&lt;</code> with variables 
+                    that could be <code>null</code> or <code>undefined</code>. It is also best to check for <code>null</code> 
+                    and <code>undefined</code> separetly.
+                </li>
+            </ul>
+
         </div>
 
 
