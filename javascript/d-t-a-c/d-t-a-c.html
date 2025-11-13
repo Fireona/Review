@@ -2313,10 +2313,440 @@
             </p>
         </div>
         <div class="javascript dtac text">
+            <div class="javascript dtac section">
+                <p>
+                    Logical Operators
+                </p>
+            </div>
             <p>
-                Start
+                There are four logical operators in JavaScript:
             </p>
+            <ul>
+                <li>
+                    <code>&#124; &#124;</code> (OR)
+                </li>
+                <li>
+                    <code>&#38;&#38;</code> (AND)
+                </li>
+                <li>
+                    <code>&#33;</code> (NOT)
+                </li>
+                <li>
+                    <code>&#63;&#63;</code> (Nullish Coalescing). This will be focused on later.
+                </li>
+            </ul>
+            <p>
+                These logical operators can be applied to values of any type and the result can be returned as 
+                any type. They are not restricted to only boolean values.
+            </p>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    <code>&#124;&#124;</code> (OR)
+                </p>
+            </div>
+            <p>
+                The operator "OR" is represented with the symbols of two vertical lines (<code>&#38;&#35;124;</code>):
+            </p>
+            <pre>
+                <code>
+                    result &#61; a &#124;&#124; b;
+                </code>
+            </pre>
+            <p>
+                In classical programming, the logical OR was meant to maniupulate boolean values only. If any of 
+                its arguments were <code>true</code>, they would return as <code>true</code>, otherwise it would 
+                have had returned as <code>false</code>. In JavaScript, the operator was made slightly more complex 
+                but have greater functionality. Before digging into it, we will run with boolean values. There 
+                are four possible logical combinations:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; true &#124;&#124;  true&#41;; &#47;&#47; true
+                    alert&#40; false &#124;&#124; true&#41;; &#47;&#47; true
+                    alert&#40; true &#124;&#124; false&#41;; &#47;&#47; true
+                    alert&#40; false &#124;&#124; false&#41;; &#47;&#47; false
+                </code>
+            </pre>
+            <p>
+                In the example provided, we see that the result is always <code>true</code> except when both 
+                operands are <code>false</code>.
+            </p>
+            <p>
+                If any of the two operands are not booleans, it will be converted into a boolean for the evaluation. 
+                As we went over before in comparisons, when converted into boolean values, the number <code>1</code> 
+                is treated as <code>true</code> whilst the number <code>0</code> is treated as <code>false</code>:
+            </p>
+            <pre>
+                <code>
+                    if &#40;1 &#124;&#124; 0&#41; &#123; &#47;&#47; works just like if &#40; true &#124;&#124; false&#41;
+                        alert&#40; 'truthy!' &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                Most of the time, OR <code>&#124;&#124;</code> is used in <code>if</code> statements to test if 
+                any given conditions are <code>true</code>:
+            </p>
+            <pre>
+                <code>
+                    let hour &#61; 9;
+
+                    if &#40;hour &lt; 10 &#124;&#124;hour &gt; 18&#41; &#123;
+                        alert&#40; 'The office is closed.' &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                More conditions can be placed:
+            </p>
+            <pre>
+                <code>
+                    let hour &#61; 12;
+                    let isWeekend &#61; true;
+
+                    if &#40;hour &lt; 10 &#124;&#124; hour &gt; 18 &#124;&#124; isWeekend&#41; &#123;
+                        alert&#40; 'The office is closed.' &#41;; &#47;&#47; it is the isWeekend
+                    &#125;
+                </code>
+            </pre>
+            
+            <div class="javascript dtac subsection">
+                <p>
+                    OR "&#124;&#124;" finds the first truthy value
+                </p>
+            </div>
+            <p>
+                The logic described previously are classical behaviours. Now we introduce the "extra" features 
+                that JavaScript provides. In an extended algorithm and with multiple OR'ed values:
+            </p>
+            <pre>
+                <code>
+                    result &#61; value1 &#124;&#124; value2 &#124;&#124; value3;
+                </code>
+            </pre>
+            <p>
+                The OR <code>&#124;&#124;</code> will do the following:
+            </p>
+            <ul>
+                <li>
+                    Evalutes operands from left to right.
+                </li>
+                <li>
+                    Each separate operand is converted into a boolean. If the result is <code>true</code>, it stops 
+                    there and returns the original value of that operand.
+                </li>
+                <li>
+                    If all operands have been evaluated and only returned as <code>false</code>, then it will return 
+                    the last operand.
+                </li>
+            </ul>
+            <p>
+                A value is returned in its original form with any conversions. In a chain of OR <code>&#124;&#124;</code>, 
+                it will return the first truthy value or the last value should no truthy value is found.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; 1 &#124;&#124; 0 &#41;; &#47;&#47; 1 &#40;1 is truthy&#41;
+
+                    alert&#40; null &#124;&#124; 1 &#41;; &#47;&#47; &#40;1 is the first truthy value&#41;
+                    alert&#40; null &#124;&#124; 0 &#124;&#124; 1&#41;; &#47;&#47; 1 &#40;the first truthy value&#41;
+                    alert&#40; undefined &#124;&#124; null &#124;&#124; 0 &#41;; &#47;&#47; 0 &#40;all falsy, returns last value&#41;
+                </code>
+            </pre>
+            <p>
+                What results is a peculiar usage of OR <code>&#124;&#124;</code> compared to its classical counterpart.
+            </p>
+            <ol>
+                <li>
+                    <b>Getting the first truthy value from a list of variables or expressions</b>
+                    <pre>
+                        <code>
+                            let firstName &#61; "";
+                            let lastName &#61; "";
+                            let nickName &#61; "SuperCoder";
+
+                            alert&#40; firstName &#124;&#124; lastName &#124;&#124; nickName &#124;&#124; "Anonymous"&#41; &#47;&#47; SuperCoder
+                        </code>
+                    </pre>
+                    Here we have three variables, <code>firstName</code>, <code>lastName</code>, and <code>nickName</code>. 
+                    These three viables can have assigned values, or they can remain undefined or even have falsy values. 
+                    So we use OR <code>&#124;&#124;</code> here to display the one that has any important information. 
+                    Both <code>firstName</code> and <code>lastName</code> have values that are empty strings so they 
+                    are considered as falsy and given the <code>false</code> value.
+                    <br>
+                    The logical OR operator continues and since <code>nickName</code> is the only one assigned a value, 
+                    <code>SuperCoder</code>, the operator determines that <code>nickName</code> is truthy and will 
+                    stop there. This results in <code>SuperCoder</code> being shown in the alert.
+                    <br>
+                    Should <code>nickName</code> have remained unassigned, then the logical operator would determine 
+                    <code>nickName</code> as falsy and continued towards the last variable "Anonymous". With three 
+                    falsy variables, "Anonymous" would have then returned and popped up in the alert.
+                </li>
+                <br>
+                <li>
+                    <b>Short-circuit evaluation</b>
+                    <br>
+                    An extra feature of the logical OR operator is the "short-circuit" evaluation. This feature makes 
+                    the operator process the arguments until it reaches the first truthy value. The value is then 
+                    returned immediately and will not process any other arguments that come after it. This becomes 
+                    a very useful aspect in determining if any operand is not a value but an expression with conditions 
+                    such as variable assignment or a function call.
+                    <pre>
+                        <code>
+                            true &#124;&#124; alert&#40;"not printed"&#41;;
+                            false &#124;&#124; alert&#40;"printed"&#41;
+                        </code>
+                    </pre>
+                    In the first line, the first operand is <code>true</code>, which is considered to be truthy so 
+                    the OR logic operator stops there. However, the second line has two operands and the first one 
+                    is considered as falsy, so the operator continues to the second operand causing the alert to 
+                    be called.
+                    <br>
+                    This feature is used to execute commands only if the left operand is falsy.
+                </li>
+            </ol>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    && (AND)
+                </p>
+            </div>
+            <p>
+                The AND operator is represented with two ampersands, <code>&#38;&#38;</code>.
+            </p>
+            <pre>
+                <code>
+                    result &#61; a &#38;&#38; b;
+                </code>
+            </pre>
+            <p>
+                AND operator <code>&#38;&#38;</code> will return a <code>true</code> value if both operands are 
+                truthy. If any operands are considered to be falsy, the operator will return <code>false</code>.
+            </p>
+            <pre>
+                <code>
+                    alert&#40; true &#38;&#38; true &#41;;      &#47;&#47; true
+                    alert&#40; false &#38;&#38; true &#41;;     &#47;&#47; false
+                    alert&#40; true &#38;&#38; false &#41;;     &#47;&#47; false
+                    alert&#40; false &#38;&#38; false; &#41;    &#47;&#47; false
+                </code>
+            </pre>
+            <p>
+                Here is an example with the function <code>if</code>:
+            </p>
+            <pre>
+                <code>
+                    let hour &#61; 12;
+                    let minute &#61; 30;
+
+                    if &#40;hour &#61;&#61; 12 &#38;&#38; minute &#61;&#61; 30&#41; &#123;
+                        alert&#40; 'The time is 12:30' &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                Similar to the OR logical operator (<code>&#124;&#124;</code>), any value is allowed as an operand 
+                of AND:
+            </p>
+            <pre>
+                <code>
+                    if &#40;1 &#38;&#38; 0&#41; &#123;  &#47;&#47; evaluated as true &#38;&#38; false
+                        alert&#40; "won't work, because the result is falsy" &#41;;
+                    &#125;
+                </code>
+            </pre>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    AND "&#38;&#38;" finds the first falsy value
+                </p>
+            </div>
+            <p>
+                If given multiple AND'ed values:
+            </p>
+            <pre>
+                <code>
+                    result &#61; value1 &#38;&#38; value2 &#38;&#38; value3;
+                </code>
+            </pre>
+            <p>
+                The AND operator <code>&#38;&#38;</code> does the following:
+            </p>
+            <ul>
+                <li>
+                    Evalutes operands from left to right.
+                </li>
+                <li>
+                    Each operand is converted into a a boolean. If the result is <code>false</code>, the operator 
+                    stops and returns the original value of that particular operand.
+                </li>
+                <li>
+                    If all operands have been evaluated as "truthy", then the operator returns the last operand.
+                </li>
+            </ul>
+            <p>
+                This means AND returns the first falsy value or the last value (operand) if none were found. The 
+                AND operator <code>&#38;&#38;</code> works very similarly to the OR operator <code>&#124;&#124;</code>. 
+                The determining difference between the two operators is <b>AND returns the first falsy value</b> 
+                and <b>OR returns the first truthy value</b>.
+            </p>
+            <pre>
+                <code>
+                    &#47;&#47; if the first operand is truthy,
+                    &#47;&#47; AND returns the second operand:
+                    alert&#40; 1 &#38;&#38; 0 &#41;;    &#47;&#47; 0
+                    alert&#40; 1 &#38;&#38; 5 &#41;;    &#47;&#47; 5
+
+                    &#47;&#47; if the first operand is falsy,
+                    &#47;&#47; AND returns it. The second operand is ignored
+                    alert&#40; null &#38;&#38; 5 &#41;; &#47;&#47; null
+                    alert&#40; 0 &#38;&#38; "no matter what" &#41;; &#47;&#47; 0
+                </code>
+            </pre>
+            <p>
+                The AND operator can also be used with more than two variables in a single line. The example 
+                below returns the first falsy value:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; 1 &#38;&#38; 2 &#38;&#38; null &#38;&#38; 3 &#41;;   &#47;&#47; null
+                </code>
+            </pre>
+            <p>
+                Only the last value is returned when all operands are truthy:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; 1 &#38;&#38; 2 &#38;&#38; 3 &#41;;   &#47;&#47; 3, the last one is returned
+                </code>
+            </pre>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    Precendence of AND <code>&#38;&#38;</code> is higher than OR <code>&#124;&#124;</code>
+                </p>
+            </div>
+            <p>
+                The AND logic operator <code>&#38;&#38;</code> is higher in precendence than that of the OR logic 
+                operator <code>&#124;&#124;</code>.
+            </p>
+            <pre>
+                <code>
+                    a &#38;&#38; b &#124;&#124; c &#38;&#38; d
+                </code>
+            </pre>
+            <p>
+                Here, the AND operator and OR operators are used, but it is essentially written as:
+            </p>
+            <pre>
+                <code>
+                    &#40;a &#38;&#38; b&#41; &#124;&#124; &#40;c &#38;&#38; d&#41;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Don't replace <code>if</code> with <code>&#124;&#124;</code> or <code>&#38;&#38;</code>
+                </p>
+            </div>
+            <p>
+                There are occasions where some developers use the AND operator <code>&#38;&#38;</code> as a "shorter 
+                way to write <code>if</code>". As an example:
+            </p>
+            <pre>
+                <code>
+                    let x &#61; 1;
+
+                    &#40;x &gt; 0&#41; &#38;&#38; alert&#40; 'Greater than zero!' &#41;;
+                </code>
+            </pre>
+            <p>
+                The function called in the latter part of <code>&#38;&#38;</code> will only occur should the 
+                evaluation ever get to that point. This means that it will only ever occur if the statement 
+                (x &gt; 0) remain true. This is analogous to:                
+            </p>
+            <pre>
+                <code>
+                    let x &#61; 1;
+
+                    if &#40;x &gt; 0&#41; alert&#40; 'Greater than zero!' &#41;;
+                </code>
+            </pre>
+            <p>
+                Though it appears to be much shorter when using the <code>&#38;&#38;</code> method, using <code>if</code> 
+                is much more clearer and coherent. To give meaning and use to all tools for their given purpose: 
+                use <code>&#38;&#38;</code> if we want to use AND, use <code>if</code> if we want <code>if</code>.
+            </p>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    ! (NOT)
+                </p>                
+            </div>
+            <p>
+                The boolean NOT operator is represented with an exclamation sign <code>&#33;</code>.
+            </p>
+            <pre>
+                <code>
+                    result &#61; &#33;value;
+                </code>
+            </pre>
+            <p>
+                The operator accepts a single argument and:                
+            </p>
+            <ul>
+                <li>
+                    Converts the operand to boolean type: <code>true&#47;false</code>
+                </li>
+                <li>
+                    Returns the inverse value
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    alert&#40; &#33;true &#41;;     &#47;&#47; false
+                    alert&#40; &#33;false &#41;;    &#47;&#47; true
+                </code>
+            </pre>
+            <p>
+                A double NOT <code>&#33;&#33;</code> is sometimes used to convert a value to a boolean type:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; &#33;&#33;"non-empty string" &#41;;  &#47;&#47; true
+                    alert&#40; &#33;&#33;null &#41;;                &#47;&#47; false
+                </code>
+            </pre>
+            <p>
+                We have the first NOT used to convert our value into a boolean and also returning its inverse 
+                value (false). The second NOT is used to inverse it once more, returning as <code>true</code>. 
+                This gives us a simple value-to-boolean conversion.                
+            </p>
+            <p>
+                An alternative method of doing so is using the <code>Boolean</code> method:
+            </p>
+            <pre>
+                <code>
+                    alert&#40; Boolean&#40;"non-empty string"&#41; &#41;;   &#47;&#47; true
+                    alert&#40; Boolean&#40;null&#41; &#41;;                 &#47;&#47; false
+                </code>
+            </pre>
+            <p>
+                The NOT operator <code>&#33;</code> has the highest precendence of all operators. It will always 
+                execute first.
+            </p>
+
+            <div class="javascript dtac summary">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <p></p>
+
         </div>
+
+
 
 
 
