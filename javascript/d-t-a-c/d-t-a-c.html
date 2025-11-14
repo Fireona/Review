@@ -13,7 +13,7 @@
             <p>
                 Data Types and Conditionals
             </p>
-        </div>        
+        </div>
 
         <div class="javascript dtac subsection">
             <p>
@@ -26,6 +26,52 @@
                 <a href="https://javascript.info/types" target="_blank" rel="noopener noreferrer">JavaScript.info on Data types</a>.
             </p>
         </div>
+
+        <div class="javascript dtac subsection">
+            <p>
+                Contents
+            </p>
+        </div>
+        <ul>
+            <li>
+                <a href="">JavaScript.info on Data Types</a>
+            </li>
+            <li>
+                <a href="">Lesson Overview from The Odin Project</a>
+                <ul>
+                    <li>
+                        <a href="">The Odin Project on Strings</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#nav-string1">MDN's Tutorial on Handling Text-Strings in JavaScript</a>
+            </li>
+            <li>
+                <a href="#nav-string2">W3Schools' Lesson on String Methods</a>
+            </li>
+            <li>
+                <a href="#nav-string3">MDN's Documentation for Strings (Incomplete)</a>
+            </li>
+            <li>
+                <a href="">Conditionals from The Odin Project</a>
+            </li>
+            <li>
+                <a href="#nav-conditional1">JavaScript.info on Comparisons</a>
+            </li>
+            <li>
+                <a href="#nav-conditonal2">JavaScript.info on Logical Operators</a>
+            </li>
+            <li>
+                <a href="#nav-conditional3">MDN on Conditionals</a>
+            </li>
+            <li>
+                <a href="#nav-conditional4">JavaScript.info on <code>if&#47;else</code></a>
+            </li>
+            <li>
+                <a href="#nav-conditional5">JavaScript.info on <code>switch</code> statement</a>
+            </li>
+        </ul>
 
         <div class="javascript dtac section">
             <button onclick="toggleNextText(this)">+</button>
@@ -363,6 +409,8 @@
                 just as common and share no difference.
             </p>        
         </div>
+
+
 
         <div class="javascript dtac section">
             <button onclick="toggleNextText(this)">+</button>
@@ -2736,6 +2784,327 @@
                 The NOT operator <code>&#33;</code> has the highest precendence of all operators. It will always 
                 execute first.
             </p>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    Tasks
+                </p>
+            </div>
+
+            <div class="javascript dtac topic">
+                <p>
+                    What's the result of OR?
+                </p>
+            </div>
+            <p>
+                What is the code below going to output?
+            </p>
+            <pre>
+                <code>
+                    alert&#40; null &#124;&#124; 2 &#124;&#124; undefined &#41;;
+                </code>                
+            </pre>
+            <ol>
+                <li>
+                    Alert function called
+                </li>
+                <li>
+                    OR logic operator comparing 3 variables, (<code>null</code> &#124;&#124; 2 &#124;&#124; undefined). 
+                    Returns first truthy variable.
+                </li>
+                <li>
+                    First OR comparison: <code>null</code>
+                    <ul>
+                        <li>
+                            <code>null</code> converts to boolean values, treated as falsy or <code>false</code>.
+                        </li>
+                        <li>
+                            OR logic continues from <code>false</code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Second OR comparison: <code>2</code>
+                    <ul>
+                        <li>
+                            <code>2</code> converted to boolean values, treated as truthy.
+                        </li>
+                        <li>
+                            Truthy reutrns <code>true</code>.
+                        </li>
+                        <li>
+                            OR logic ends, returns <code>2</code>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    OR logic ended with <code>2</code> returned, third comparison not executed.
+                </li>
+            </ol>
+            <p>
+                &#8756; The code will output <code>2</code>.
+            </p>
+            
+
+            <div class="javascript dtac topic">
+                <p>
+                    What's the result of OR'ed alerts?
+                </p>
+            </div>
+            <p>
+                What will the code below output?
+            </p>
+            <pre>
+                <code>
+                    alert&#40; alert&#40;1&#41; &#124;&#124; 2 &#124;&#124; alert&#40;3&#41; &#41;;
+                </code>
+            </pre>
+            <ol>
+                <li>
+                    Alert function called to expression: <code>alert&#40;1&#41; &#124;&#124; 2 &#124;&#124; alert&#40;3&#41;</code>
+                </li>
+                <li>
+                    Expression in paranthesis needs to be evaluated first
+                </li>
+                <li>
+                    First variable: <code>alert&#40;1&#41;</code>                    
+                    <ul>
+                        <li>
+                            Alert function called. Returns <code>1</code>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    OR comparison between <code>alert&#40;1&#41;</code>, <code>2</code>, and <code>alert&#40;3&#41;</code> initiated.
+                </li>
+                <li>
+                    First variable <code>alert&#40;1&#41;</code> conversion:
+                    <ul>
+                        <li>
+                            <code>alert&#40;1&#41;</code> converted to boolean. Treated as <code>undefined</code>.
+                        </li>
+                        <li>
+                            <code>undefined</code> treated as falsy.
+                        </li>
+                    </ul>
+                    &#8756; <code>alert&#40;1&#41;</code> returns as <code>false</code>, OR logic continues.
+                </li>
+                <li>
+                    Second variable <code>2</code> conversion:
+                    <ul>
+                        <li>
+                            <code>2</code> converted to boolean.
+                        </li>
+                        <li>
+                            Treated as truthy.
+                        </li>
+                    </ul>
+                    &#8756; <code>2</code> returns as <code>true</code>, OR logic ends.
+                </li>
+                <li>
+                    Alert calls upon evaluated expression, returns <code>2</code>.
+                </li>
+            </ol>
+            <p>
+                &#8756; The code will alert twice. First alert will return <code>1</code>. Second alert will 
+                return <code>2</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    What's the result of AND?
+                </p>
+            </div>
+            <p>
+                What is the code below going to show?
+            </p>
+            <pre>
+                <code>
+                    alert&#40; 1 &#38;&#38; null &#38;&#38; 2 &#41;;
+                </code>
+            </pre>
+            <ol>
+                <li>
+                    Alert function called to expression: <code>1 &#38;&#38; null &#38;&#38; 2</code>
+                </li>
+                <li>
+                    AND logic operator comparing 3 variables, <code>1</code>, <code>null</code>, and <code>2</code>.
+                </li>
+                <li>
+                    First variable, <code>1</code>, converted to boolean.
+                    <ul>
+                        <li>
+                            <code>1</code> treated as truthy.
+                        </li>
+                        <li>
+                            Returns <code>true</code> in conversion.
+                        </li>
+                    </ul>
+                    &#8756; <code>1</code> returns as <code>true</code> in boolean conversion. AND logic continues.
+                </li>
+                <li>
+                    Second variable, <code>null</code>, converted to boolean.
+                    <ul>
+                        <li>
+                            <code>null</code> treated as falsy.
+                        </li>
+                        <li>
+                            Returns <code>false</code> in conversion.
+                        </li>
+                    </ul>
+                    &#8756; <code>null</code> returns as <code>false</code> in boolean conversion. AND logic ends.
+                </li>
+                <li>
+                    AND logic operator returns <code>null</code>.
+                </li>
+                <li>
+                    Alert function returns <code>null</code>.
+                </li>
+            </ol>
+            <p>
+                &#8756; The alert function will return <code>null</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    What is the result of AND'ed alerts?
+                </p>
+            </div>
+            <p>
+                What will this code show?
+            </p>
+            <pre>
+                <code>
+                    alert&#40; alert&#40;1&#41; &#38;&#38; alert&#40;2&#41; &#41;;
+                </code>
+            </pre>
+            <ol>
+                <li>
+                    Alert function called to expression: <code>&#40; alert&#40;1&#41; &#38;&#38; alert&#40;2&#41; &#41;</code>
+                </li>
+                <li>
+                    AND logic operator between <code>alert&#40;1&#41;</code> and <code>alert&#40;2&#41;</code>.
+                </li>
+                <li>
+                    Evaluate first operand, <code>alert&#40;1&#41;</code>. Only calls the function, displays <code>1</code>.
+                </li>
+                <li>
+                    Convert first operand, <code>alert&#40;1&#41;</code> into boolean value.
+                    <ul>
+                        <li>
+                            <code>alert&#40;1&#41;</code> becomes <code>undefined</code>, treated as falsy.
+                        </li>
+                        <li>
+                            Returns as <code>false</code> in conversion.
+                        </li>
+                        &#8756; <code>alert&#40;1&#41;</code> returns as <code>undefined</code> in boolean conversion and 
+                        is considered <code>false</code> in boolean values, thus ending AND logic.
+                    </ul>
+                </li>
+                <li>
+                    AND logic operator returns <code>undefined</code>. Inner expression completes.
+                </li>
+                <li>
+                    Outer function is called, <code>alert&#40;undefined&#41;</code>, and displays <code>undefined</code>.
+                </li>
+            </ol>
+            <p>
+                &#8756; The code will have two functions called. The first will have an alert, displaying <code>1</code> 
+                as the result from evaluating the first operand. The second function called will also have an 
+                alert, displaying <code>undefined</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    The result of OR AND OR
+                </p>
+            </div>
+            <p>
+                What will the result be?
+            </p>
+            <pre>
+                <code>
+                    alert&#40; null &#124;&#124; 2 &#38;&#38; 3 &#124;&#124; 4 &#41;;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Check the range between
+                </p>
+            </div>
+            <p>
+                Write an <code>if</code> condition to check that <code>age</code> is between <code>14</code> and 
+                <code>90</code> inclusively.
+                <br>
+                "Inclusively" means that <code>age</code> can reach the edges of <code>14</code> and <code>90</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Check the range outside
+                </p>
+            </div>
+            <p>
+                Write an <code>if</code> condition to check that age is NOT between <code>14</code> and <code>90</code>
+                inclusively.
+                <br>
+                Create two variants: the first one using NOT <code>&#33;</code>, the second one without it.                
+            </p>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    A question about "if"
+                </p>
+            </div>            
+            <p>
+                Which of these <code>alert</code>s are going to execute?
+                <br>
+                What will the results of the expressions be inside <code>if&#40;...&#41;</code>?
+            </p>
+            <pre>
+                <code>
+                    if &#40;&#45;1 &#124;&#124; 0&#41; alert&#40; 'first' &#41;;
+                    if &#40;&#45;1 &#38;&#38; 0&#41; alert&#40; 'second' &#41;;
+                    if &#40;null &#124;&#124; &#45;1 &#38;&#38; 1&#41; alert&#40; 'third' &#41;;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Check the login
+                </p>
+            </div>
+            <p>
+                Write the code which asks for a login with <code>prompt</code>.
+                <br>
+                If the visitor enters <code>"Admin"</code>, then <code>prompt</code> for a password, if the input 
+                is an empty line or Esc - show "Canceled", if it's another string - then show "I don't know you".
+                <br>
+                The password is checked as follows:
+                <br>
+                <ul>
+                    <li>
+                        If it equals "TheMaster", then show "Welcome!",
+                    </li>
+                    <li>
+                        Another string - show "Wrong password",
+                    </li>
+                    <li>
+                        For an empty string or cancelled input, show "Canceled"
+                    </li>
+                </ul>
+            </p>
+            <img src="images/dtac-task-scheme.png" alt="Scheme for Task">
+            <br>
+            <p>
+                Please use nested <code>if</code> blocks. Mind the overall readability of the code.
+                <br>
+                Hint: passing an empty input to a prompt returns an empty string <code>''</code>. Pressing ESC 
+                during a prompt returns <code>null</code>.
+            </p>
+
+
 
             <div class="javascript dtac summary">
                 <p>

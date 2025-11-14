@@ -350,7 +350,6 @@
                     </pre>
                 </li>
             </ul>
-            </div>
         </div>
 
 
@@ -584,117 +583,116 @@
                     Variable Naming
                 </p>
             </div>                
-                <ul>
-                    <li>
-                        The name can only contain letters, digits, or the symbols <code>$</code> or <code>_</code>.
-                    </li>
-                    <li>
-                        The first character can not be a digit.
-                    </li>
-                    <li>
-                        The first letter of all words in the target variable must be capitalized with the exception of the first.
-                    </li>
-                    <li>
-                        The symbols <code>$</code> and <code>_</code> are symbols that have no meaning to them and can be used in names.
-                    </li>
-                    <li>
-                        Two variables with the same spelling but with different letter cases are considered to be separate entities.
-                    </li>
-                    <li>
-                        Non-Latin characters such as Cyrillic letters or Chinese logograms <i>can</i> be used as variables but 
-                        should be frowned upon as it is conventional to use English and easier to understand.
-                    </li>
-                    <li>
-                        Certain words can not be used as they are used as keywords in JavaScript. Some examples being:
-                        <ul>
-                            <li>
-                                <code>let</code>
-                            </li>
-                            <li>
-                                <code>class</code>
-                            </li>
-                            <li>
-                                <code>return</code>
-                            </li>
-                            <li>
-                                <code>function</code>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <ul>
+                <li>
+                    The name can only contain letters, digits, or the symbols <code>$</code> or <code>_</code>.
+                </li>
+                <li>
+                    The first character can not be a digit.
+                </li>
+                <li>
+                    The first letter of all words in the target variable must be capitalized with the exception of the first.
+                </li>
+                <li>
+                    The symbols <code>$</code> and <code>_</code> are symbols that have no meaning to them and can be used in names.
+                </li>
+                <li>
+                    Two variables with the same spelling but with different letter cases are considered to be separate entities.
+                </li>
+                <li>
+                    Non-Latin characters such as Cyrillic letters or Chinese logograms <i>can</i> be used as variables but 
+                    should be frowned upon as it is conventional to use English and easier to understand.
+                </li>
+                <li>
+                    Certain words can not be used as they are used as keywords in JavaScript. Some examples being:
+                    <ul>
+                        <li>
+                            <code>let</code>
+                        </li>
+                        <li>
+                            <code>class</code>
+                        </li>
+                        <li>
+                            <code>return</code>
+                        </li>
+                        <li>
+                            <code>function</code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             <div class="javascript vao summary">
                 <p>
                     Constants                    
                 </p>
             </div>
-                <ul>
-                    <li>
-                        To assign a constant, use the keyword <code>const</code>.
-                    </li>
-                    <li>
-                        Once assigned a value, it can not be changed.
-                    </li>
-                    <li>
-                        Common practice is to use constants when dealing with values that are difficult to remember. Keep it simple, 
-                        and assign names that make it easily to remember and recognize.
-                    </li>
-                    <li>
-                        When naming constants, web developers follow a particular guideline.
-                        <ul> Use Uppercase (or ALL_CAPS) for constants that have:
-                            <li>
-                                Values known before execution.
-                            </li>
-                            <li>
-                                Values that are hard-coded, never change, and used in multiple places.
-                            </li>
-                            <li>
-                                Values that serve as configuration,settings or fixed references.
-                            </li>
-                        </ul>
-                        <ul>
-                            Use camelCase (like regular variables) for constants that have:
-                            <li>
-                                Values that are computed or retrieved during execution.
-                            </li>
-                            <li>
-                                Not meant to be reassigned but still not universal constants.
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <ul>
+                <li>
+                    To assign a constant, use the keyword <code>const</code>.
+                </li>
+                <li>
+                    Once assigned a value, it can not be changed.
+                </li>
+                <li>
+                    Common practice is to use constants when dealing with values that are difficult to remember. Keep it simple, 
+                    and assign names that make it easily to remember and recognize.
+                </li>
+                <li>
+                    When naming constants, web developers follow a particular guideline.
+                    <ul> Use Uppercase (or ALL_CAPS) for constants that have:
+                        <li>
+                            Values known before execution.
+                        </li>
+                        <li>
+                            Values that are hard-coded, never change, and used in multiple places.
+                        </li>
+                        <li>
+                            Values that serve as configuration,settings or fixed references.
+                        </li>
+                    </ul>
+                    <ul>
+                        Use camelCase (like regular variables) for constants that have:
+                        <li>
+                            Values that are computed or retrieved during execution.
+                        </li>
+                        <li>
+                            Not meant to be reassigned but still not universal constants.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             <div class="javascript vao summary">
                 <p>
                     Name Things Right                    
                 </p>
             </div>
-                <ul>
-                    <li>
-                        Any variable should have a name that accurately desribes the value it represents concisively.
-                    </li>
-                    <li>
-                        Guidelines:
-                        <ul>                            
-                            <li>
-                                Use human-readable names.
-                            </li>
-                            <li>
-                                Don't use abbreviations or symbols such as <code>x</code> unless it is easy to identify the data it 
-                                represents.
-                            </li>
-                            <li>
-                                Don't use ambiguous terms such as <code>data</code> or <code>value</code> unless it is easy to identify 
-                                the value and its context.
-                            </li>
-                            <li>
-                                Make sure the term is agreeable in your head and with the team. Rather than creating a unique term for 
-                                every visitor to a webpage such as <code>thisVistor</code> or <code>newGuy</code>, use something simple like 
-                                <code>newUser</code> or <code>currentUser</code>.
-                            </li>
-                        </ul>
-                        
-                    </li>
-                </ul>
-            </div>
+            <ul>
+                <li>
+                    Any variable should have a name that accurately desribes the value it represents concisively.
+                </li>
+                <li>
+                    Guidelines:
+                    <ul>                            
+                        <li>
+                            Use human-readable names.
+                        </li>
+                        <li>
+                            Don't use abbreviations or symbols such as <code>x</code> unless it is easy to identify the data it 
+                            represents.
+                        </li>
+                        <li>
+                            Don't use ambiguous terms such as <code>data</code> or <code>value</code> unless it is easy to identify 
+                            the value and its context.
+                        </li>
+                        <li>
+                            Make sure the term is agreeable in your head and with the team. Rather than creating a unique term for 
+                            every visitor to a webpage such as <code>thisVistor</code> or <code>newGuy</code>, use something simple like 
+                            <code>newUser</code> or <code>currentUser</code>.
+                        </li>
+                    </ul>
+                    
+                </li>
+            </ul>
         </div>
 
 
