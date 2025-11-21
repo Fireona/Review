@@ -3027,6 +3027,38 @@
                     alert&#40; null &#124;&#124; 2 &#38;&#38; 3 &#124;&#124; 4 &#41;;
                 </code>
             </pre>
+            <ol>
+                <li>
+                    Alert function called to expression <code>null &#124;&#124; 2 &#38;&#38; 3 &#124;&#124; 4</code>.
+                </li>
+                <li>
+                    <code>null &#124;&#124; 2 &#38;&#38; 3 &#124;&#124; 4</code>
+                    <ol>
+                        <li>
+                            <code>&#38;&#38;</code> has higher precedence over &#124;&#124;; 2 &#38;&#38; 3 performs first.
+                        </li>
+                        <li>
+                            <code>2 &#38;&#38; 3</code>, finds and returns first falsy value. Both <code>2</code> and 
+                            <code>3</code> return as truthy, so &#38;&#38; will return final operand, <code>3</code>.
+                            <br>
+                            Expression becomes <code>null &#124;&#124; 3 &#124;&#124; 4</code>
+                        </li>
+                        <li>
+                            <code>&#124;&#124;</code> operator now begins on three operands, <code>null</code>, <code>3</code>, and <code>4</code>.
+                        </li>
+                        <li>
+                            <code>&#124;&#124;</code> finds and returns first truthy value, going from left to right in expression. 
+                            <code>null</code> returns as falsy, continues to next operand.
+                            <br>
+                            <code>3</code> returns as truthy. <code>&#124;&#124;</code> logic ends and returns <code>3</code>.
+                        </li>
+                    </ol>
+                    &#8756; Evaluated expression results in <code>3</code>.
+                </li>
+                <li>
+                    The alert function is called, displaying <code>3</code>.
+                </li>
+            </ol>
 
             <div class="javascript dtac topic">
                 <p>
@@ -3039,6 +3071,52 @@
                 <br>
                 "Inclusively" means that <code>age</code> can reach the edges of <code>14</code> and <code>90</code>.
             </p>
+            <ol>
+                <li>
+                    Write an <code>if</code> condition that checks <code>age</code> is:
+                    <ul>
+                        <li>
+                            Greater than and equal to <code>14</code>:
+                            <br>
+                            <code>age &gt;&#61; 14</code>
+                        </li>
+                        <li>
+                            Lesser than and equal to <code>90</code>:
+                            <br>
+                            <code>age &lt;&#61; 90</code>
+                        </li>
+                        &#8756; <code>age &gt;&#61; 14</code>, <code>age &lt;&#61; 90</code>
+                    </ul>
+                </li>
+                <li>
+                    Use <code>&#38;&#38;</code> or <code>&#124;&#124;</code>?
+                    <ul>
+                        Do I need both conditions to be true?
+                        <li>
+                            If yes, use <code>&#124;&#124;</code>.
+                        </li>
+                        <li>
+                            If no, yes <code>&#38;&#38;</code>.
+                        </li>
+                        &#8756; Yes. Use <code>&#124;&#124;</code>.
+                    </ul>
+                </li>
+                <li>
+                    Combine the written statements:
+                    <br>
+                    <code>if</code>, <code>age &gt;&#61; 14</code>, <code>&#38;&#38;</code>, <code>age &lt;&#61; 90</code>.
+                </li>
+                <li>
+                    Insert into <code>if</code> condition:
+                    <br>
+                    <code>if &#40; age &gt;&#61; 14 &#124;&#124; age &lt;&#61; 90 &#41;</code>
+                </li>
+            </ol>
+            <pre>
+                <code>
+                    <code>if &#40; age &gt;&#61; 14 &#124;&#124; age &lt;&#61; 90 &#41;</code>                    
+                </code>
+            </pre>
 
             <div class="javascript dtac topic">
                 <p>
@@ -3051,6 +3129,114 @@
                 <br>
                 Create two variants: the first one using NOT <code>&#33;</code>, the second one without it.                
             </p>
+            <ol>
+                With NOT <code>&#33;</code>
+                <li>
+                    Write <code>if</code> condition that checks if <code>age</code> is NOT between <code>14</code> 
+                    and <code>90</code> inclusively (14 and smaller, 90 and larger), using the NOT <code>&#33;</code> 
+                    operator.
+                </li>
+                <li>
+                    Age conditions are:
+                    <ul>
+                        <li>
+                            Inclusive of 14 and smaller:
+                            <br>
+                            <code>age &gt;&#61; 14</code>
+                        </li>
+                        <li>
+                            Inclusive of 90 and larger:
+                            <br>
+                            <code>age &lt;&#61; 90</code>
+                        </li>
+                        &#8756; <code>age &gt;&#61; 14</code>, <code>age &lt;&#61; 90</code>.
+                    </ul>
+                </li>
+                <li>
+                    Use <code>&#38;&#38;</code> or <code>&#124;&#124;</code>?
+                    <ul>
+                        Do I need both conditions to be true?
+                        <li>
+                            If yes, use <code>&#124;&#124;</code>.
+                        </li>
+                        <li>
+                            If no, use <code>&#38;&#38;</code>.
+                        </li>
+                        &#8756; Yes. Use <code>&#38;&#38;</code>.
+                    </ul>
+                </li>
+                <li>
+                    Combine the operands with operator logic:
+                    <br>
+                    <code>age &gt;&#61; 14 &#38;&#38; age &lt;&#61; 90</code>
+                </li>
+                <li>
+                    Apply <code>NOT</code>:
+                    <br>
+                    <code>&#33;&#40; age &gt;&#61; 14 &#38;&#38; age &lt;&#61; 90 &#41;</code>
+                </li>
+                <li>
+                    Insert into <code>if</code> condition:
+                    <br>
+                    <code>if &#40; &#33;&#40; age &gt;&#61; 14 &#38;&#38; age &lt;&#61; 90 &#41;</code>
+                </li>                
+            </ol>
+            <ol>
+                Without NOT <code>&#33;</code>
+                <li>
+                    Write <code>if</code> condition that checks if <code>age</code> is NOT between <code>14</code> 
+                    and <code>90</code>, inclusively (14 and smaller, 90 and larger).
+                </li>
+                <li>
+                    Age conditions:
+                    <ul>
+                        <li>
+                            Smaller than 14:
+                            <br>
+                            <code>age &lt; 14</code>
+                        </li>
+                        <li>
+                            Larger than 90:
+                            <br>
+                            <code>age &gt; 90</code>
+                        </li>
+                        &#8756; <code>age &lt; 14</code>, <code>age &gt; 90</code>
+                    </ul>
+                </li>
+                <li>
+                    Use <code>&#38;&#38;</code> or <code>&#124;&#124;</code>? Do both conditions need to be true or 
+                    is one enough?
+                    <ul>
+                        <li>
+                            If yes, use <code>&#38;&#38;</code>.
+                        </li>
+                        <li>
+                            If no, use <code>&#124;&#124;</code>.
+                        </li>
+                        &#8756; No, use <code>&#124;&#124;</code>.
+                    </ul>
+                </li>
+                <li>
+                    Combine the operands with operator logic:
+                    <br>
+                    <code>age &lt; 14 &#124;&#124; age &gt; 90</code>
+                </li>
+                <li>
+                    Insert into <code>if</code> condition:
+                    <br>
+                    <code>if &#40; age &lt; 14 &#124;&#124; age &gt; 90</code>
+                </li>
+            </ol>
+            <pre>
+                With NOT &#33;
+                <code>
+                    if &#40; &#33; &#40; age &gt;&#61; 14 &#38;&#38; age &lt;&#61; 90 &#41; &#41;
+                </code>
+                Without NOT
+                <code>
+                    if &#40; age &lt; 14 &#124;&#124; age &gt; 90 &#41;
+                </code>
+            </pre>
             
             <div class="javascript dtac topic">
                 <p>
@@ -3069,6 +3255,57 @@
                     if &#40;null &#124;&#124; &#45;1 &#38;&#38; 1&#41; alert&#40; 'third' &#41;;
                 </code>
             </pre>
+            <ol>
+                <code>if &#40; &#45;1 &#124;&#124; 0 &#41; alert&#40; 'first' &#41;;</code>
+                <li>
+                    OR <code>&#124;&#124;</code> logic applied to operands <code>&#45;1</code> and 0. Returns first 
+                    truthy value, <code>&#45;1</code>.
+                    <br>
+                    <code>if &#40; &#45;1 &#41; alert&#40; 'first' &#41;;</code>
+                </li>
+                <li>
+                    <code>if</code> conditions are satisfied since <code>&#45;1</code> is considered a truthy value. 
+                    This calls on the alert function using the argument <code>'first'</code>.
+                </li>
+                <li>
+                    &#8756; The pop up alert will have <code>'first'</code> in the box.
+                </li>
+            </ol>
+            <ol>
+                <code>if &#40; &#45;1 &#38;&#38; 0 &#41; alert&#40; 'second' &#41;;</code>
+                <li>
+                    AND <code>&#38;&#38;</code> logic applied to operands <code>&#45;1</code> and <code>0</code>. 
+                    Returns first falsy value, <code>0</code>.
+                    <br>
+                    <code>if &#40; 0 &#41; alert&#40; 'second' &#41;;</code>
+                </li>
+                <li>
+                    <code>if</code> conditions are not satisfied since <code>0</code> is considered a falsey value. 
+                    As a result, the alert function is NOT called.
+                </li>
+            </ol>
+            <ol>
+                <code>if &#40; null &#124;&#124; &#45;1 &#38;&#38; 1 &#41; alert&#40; 'third' &#41;;</code>
+                <li>
+                    AND <code>&#38;&#38;</code> logic applied first to operands <code>&#45;1</code> and <code>1</code>. 
+                    Returns first falsey value. Neither values are falsey and returns last operand, <code>1</code>.
+                    <br>
+                    <code>if &#40; null &#124;&#124; 1 &#41; alert&#40; 'third' &#41;;</code>
+                </li>
+                <li>
+                    OR <code>&#124;&#124;</code> logic applied to operands <code>null</code> and <code>1</code>. 
+                    Returns first truthy value, <code>1</code>.
+                    <br>
+                    <code>if &#40; 1 &#41; alert&#40; 'third' &#41;;</code>
+                </li>
+                <li>
+                    Since <code>if</code> conditions are satisfied, alert function is called using the argument 
+                    <code>'third'</code>.
+                </li>
+                <li>
+                    &#8756; The pop up alert will have <code>'third'</code> in the box.
+                </li>
+            </ol>
 
             <div class="javascript dtac topic">
                 <p>
@@ -3103,7 +3340,28 @@
                 Hint: passing an empty input to a prompt returns an empty string <code>''</code>. Pressing ESC 
                 during a prompt returns <code>null</code>.
             </p>
+            <br>
+            <pre>
+                <code>
+                    let who = prompt&#40; 'Who's there?' &#41;
 
+                    if &#40; who &#61;&#61;&#61; null &#124;&#124; who &#61;&#61;&#61; '' &#41; &#123;
+                        alert&#40; 'Canceled' &#41;;
+                    &#125; else if &#40; who &#61;&#61;&#61; 'Admin' &#41; &#123;
+                        let password &#61; prompt&#40;'Password?'&#41;;
+
+                        if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                            alert&#40; 'Canceled' &#41;;
+                        &#125; else if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                            alert&#40; 'Welcome!' &#41;;
+                        &#125; else &#123;
+                            alert&#40; 'Wrong password' &#41;;
+                        &#125;
+                    &#125; else &#123;
+                        alert&#40; 'I don't know you' &#41;
+                    &#125;
+                </code>
+            </pre>
 
 
             <div class="javascript dtac summary">
