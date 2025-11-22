@@ -3340,8 +3340,347 @@
                 Hint: passing an empty input to a prompt returns an empty string <code>''</code>. Pressing ESC 
                 during a prompt returns <code>null</code>.
             </p>
-            <br>
+            <ol>
+                Checking login step-by-step breakdown
+                <li>
+                    Identify simplest sections. Look for parts of the chain that:
+                    <ul>
+                        <li>
+                            Do not depend on anything else - these are usually the simplest comparisons or values.
+                        </li>
+                        <li>
+                            Have no branching - meaning no <code>&#38;&#38;</code>, <code>&#124;&#124;</code>, or nested 
+                            conditions yet.                            
+                        </li>
+                        <li>
+                            Usually, these are the "bottom boxes" (leaf) in our tree/diagram.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Evaluate single expressions first.
+                    <ul>
+                        For example:
+                        <li>
+                            Compare a number to a constant: <code>age &gt;&#71; 14</code> &#8594; truthy/falsy
+                        </li>
+                        <li>
+                            Simple variable check: <code>name</code> &#8594; truthy/falsy
+                        </li>
+                        These are easy and give us a definite boolean value.
+                    </ul>
+                </li>
+                <li>
+                    Combine small pieces. One we are able to determine truthy/falsy results of the simplest boxes:
+                    <ul>
+                        <li>
+                            Tackle one logical operator at a time (<code>&#38;&#38;</code> or <code>&#124;&#124;</code>).
+                        </li>
+                        <li>
+                            Use operator precedence to know which to do first.
+                        </li>
+                        Think: "If I know the left-hand side, what do I need to check next?"
+                    </ul>
+                </li>
+                <li>
+                    Move upward. Gradually combine evaluated sections according to the diagram/tree. Each step becomes 
+                    much simpler as we already know the results of the smaller pieces.
+                </li>
+            </ol>
+            <ol>
+                Where to start
+                <li>
+                    <ul>
+                    Look for "leaves". In a diagram of logical expressions:
+                        <li>
+                            A "leaf" is any single condition that does not depend on other logical operators.
+                        </li>
+                        <li>
+                            Typically, these are atomic comparisons like:
+                            <ul>
+                                <li>
+                                    <code>age &gt;&#61; 14</code>
+                                </li>
+                                <li>
+                                    <code>age &lt;&#61; 90</code>
+                                </li>
+                                <li>
+                                    <code>score &#61;&#61; 0</code>
+                                </li>
+                                <li>
+                                    <code>name</code> truthy/falsy
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    How to pick the first one
+                    <ol>
+                        <li>
+                            Look at the bottom-most boxes in the diagram.
+                        </li>
+                        <li>
+                            Identify one that doesn't feed into any other expression yet - it's evaluated directly.
+                        </li>
+                        <li>
+                            Determine its truthy or falsy result based on the values given (or hypothetical values if none 
+                            are specified).
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Why start here
+                    <ul>
+                        <li>
+                            Once you know the truthy/falsy result of the first leaf, you can plug it into the next 
+                            operator (<code>&#38;&#38;</code> or <code>&#124;&#124;</code>).
+                        </li>
+                        <li>
+                            Then evaluate the next layer of the tree step by step.
+                        </li>
+                        <li>
+                            This prevents you from getting lost in the full chain and keeps the logic manageable.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            <ul>
+                Bottom most leaf
+                <li>
+                    We have a section that asks "Password?" and we have three possible results:
+                    <ul>
+                        <li>
+                            When no input (<code>''</code>) is entered OR the ESC key (<code>null</code>) is hit, the return 
+                            value is <code>'Canceled'</code>.
+                        </li>
+                        <li>
+                            When entering <code>TheMaster</code>, the return value is <code>'Welcome!'</code>.
+                        </li>
+                        <li>
+                            When entering any input besides <code>TheMaster</code>, the return value is <code>'Wrong password'</code>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    When writing the code, we have:
+                    <pre>
+                        Canceled or ESC
+                        <code>
+                            if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125;
+                        </code>
+                        Correct Password
+                        <code>
+                            if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Welcome!' &#41;;
+                            &#125;
+                        </code>
+                        Incorrect Password
+                        <code>
+                            if &#40; password &#33;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Welcome!' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                    In the first statement, we must use two strict equality operators <code>&#61;&#61;&#61;</code> to 
+                    the variables <code>null</code> and <code>''</code> because the operator has a higher precedence 
+                    than the OR logic operator <code>&#124;&#124;</code>.
+                </li>
+                <li>
+                    Combine the written code:
+                    <pre>                       
+                        <code>
+                            if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125;
+                            if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Welcome!' &#41;;
+                            &#125;
+                            if &#40; password &#33;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Wrong password' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Conditions can be set given certain scenarios. We have indicated that the first condition is when 
+                    <code>null</code> (ESC key) or <code>''</code> (an empty field) is entered. If there was another 
+                    condition, we use <code>else if</code>. Since we have the password <code>TheMaster</code> that should 
+                    give us the return value <code>'Welcome!'</code>, <code>else if</code> can be used:
+                    <pre>                       
+                        <code>
+                            if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125; else if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Welcome!' &#41;;
+                            &#125;
+                            if &#40; password &#33;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Wrong password' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Now we have to set a condition for when any password that is not <code>TheMaster</code> is entered, 
+                    it returns as <code>Wrong password</code>. In this case, we use the keyword <code>else</code> to 
+                    cover any other input that is not <code>null</code>, <code>''</code>, or <code>TheMaster</code>:
+                    <pre>
+                        <code>
+                            if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125; else if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Welcome!' &#41;;
+                            &#125; else &#123;
+                                alert&#40; 'Wrong password' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                Bottom leaf conditional complete.
+            </ul>
+            <ul>
+                Top leaf
+                <li>
+                    <ul>
+                        This section, the top leaf, is a branch that has three results:                
+                        <li>
+                            When no input (<code>''</code>) is entered OR the ESC key (<code>null</code>) is pressed, the 
+                            return value is <code>'Canceled'</code>.
+                        </li>
+                        <li>
+                            When entering <code>'Admin'</code>, we enter a second prompt for a password.
+                        </li>
+                        <li>
+                            When entering any other except <code>'Admin'</code>, we get a return value of <code>'I don't know you'</code>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    When writing the code, we have:
+                    <pre>
+                        Canceled or ESC
+                        <code>
+                            if &#40; who &#61;&#61;&#61; null &#124;&#124; who &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125;
+                        </code>
+                        Correct User
+                        <code>
+                            if &#40; who &#61;&#61;&#61; 'Admin' &#41; &#123;
+                                let password &#61; prompt&#40; 'Password?' &#41;;
+                            &#125;
+                        </code>
+                        Incorrect User
+                        <code>
+                            if &#33;&#40; who &#61;&#61;&#61; 'Admin' &#41; &#123;
+                                alert&#40; 'I don't know you' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Just like in the bottom leaf, we can set conditions using keywords <code>else if</code> if 
+                    there are certain requirements to be met, and the keyword <code>else</code> for any other 
+                    conditions:
+                    <pre>
+                        <code>
+                            if &#40; who &#61;&#61;&#61; null &#124;&#124; who &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125; else if &#40; who &#61;&#61;&#61; 'Admin' &#41; &#123;
+                                let password &#61; prompt&#40; 'Password?' &#41;;
+                            &#125; else &#123;
+                                alert&#40; 'I don't know you' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Top leaf is complete.
+                </li>
+            </ul>
+            <ul>
+                Combine top and bottom leaf
+                <li>
+                    Bottom leaf code:
+                    <pre>
+                        <code>
+                            if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125; else if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                                alert&#40; 'Welcome!' &#41;;
+                            &#125; else &#123;
+                                alert&#40; 'Wrong password' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Top leaf code:
+                    <pre>
+                        <code>
+                            if &#40; who &#61;&#61;&#61; null &#124;&#124; who &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125; else if &#40; who &#61;&#61;&#61; 'Admin' &#41; &#123;
+                                let password &#61; prompt&#40; 'Password?' &#41;;
+                            &#125; else &#123;
+                                alert&#40; 'I don't know you' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Insert the bottom leaf's code directly after the prompt from the first leaf:
+                    <pre>
+                        <code>
+                            if &#40; who &#61;&#61;&#61; null &#124;&#124; who &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125; else if &#40; who &#61;&#61;&#61; 'Admin' &#41; &#123;
+                                let password &#61; prompt&#40; 'Password?' &#41;;
+
+                                if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                                    alert&#40; 'Canceled' &#41;;
+                                &#125; else if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                                    alert&#40; 'Welcome!' &#41;;
+                                &#125; else &#123;
+                                    alert&#40; 'Wrong password' &#41;;
+                                &#125;
+
+                            &#125; else &#123;
+                                alert&#40; 'I don't know you' &#41;;
+                            &#125;
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    Add in the prompt leading to the first leaf:
+                    <pre>
+                        <code>
+                            let who &#40; prompt&#40; 'Who's there?' &#41;;
+
+                            if &#40; who &#61;&#61;&#61; null &#124;&#124; who &#61;&#61;&#61; '' &#41; &#123;
+                                alert&#40; 'Canceled' &#41;;
+                            &#125; else if &#40; who &#61;&#61;&#61; 'Admin' &#41; &#123;
+                                let password &#61; prompt&#40; 'Password?' &#41;;
+
+                                if &#40; password &#61;&#61;&#61; null &#124;&#124; password &#61;&#61;&#61; '' &#41; &#123;
+                                    alert&#40; 'Canceled' &#41;;
+                                &#125; else if &#40; password &#61;&#61;&#61; 'TheMaster' &#41; &#123;
+                                    alert&#40; 'Welcome!' &#41;;
+                                &#125; else &#123;
+                                    alert&#40; 'Wrong password' &#41;;
+                                &#125;
+
+                            &#125; else &#123;
+                                alert&#40; 'I don't know you' &#41;;
+                            &#125;
+                        </code>
+                    </pre>                    
+                </li>
+            </ul>
             <pre>
+                Answer
                 <code>
                     let who = prompt&#40; 'Who's there?' &#41;;
 
@@ -3357,11 +3696,73 @@
                         &#125; else &#123;
                             alert&#40; 'Wrong password' &#41;;
                         &#125;
+
                     &#125; else &#123;
                         alert&#40; 'I don't know you' &#41;
                     &#125;
                 </code>
             </pre>
+
+            <div class="javascript dtac note">
+                <p>
+                    Notes
+                </p>
+            </div>
+            <div class="javascript dtac text">
+                <ul>
+                    <li>
+                        Do not forget that a single equality operator (<code>&#61;</code>) is used as an assignment 
+                        operator.
+                    </li>
+                    <li>
+                        When using the loose equality operator (<code>&#61;&#61;</code>), do not forget it behaves quite 
+                        differently to the strict equality operator (<code>&#61;&#61;&#61;</code>). This is more apparent 
+                        when comparing different types come into play. The loose equality operator will convert all values 
+                        into like types before executing any comparisons. So inputs of <code>null</code> and <code>undefined</code> 
+                        may be treated as "equal" because their "values" are the same. For example:
+                        <pre>
+                            <code>
+                                password &#61;&#61; null
+                            </code>
+                        </pre>
+                        If our password was <code>null</code>, then it would also match with:
+                        <ul>
+                            <li>
+                                <code>null</code>
+                            </li>
+                            <li>
+                                <code>undefined</code>
+                            </li>
+                        </ul>
+                        This is a result of how the loose equality operator works:
+                        <pre>
+                            <code>
+                                null &#61;&#61; undefined &#47;&#47; true
+                            </code>
+                        </pre>
+                        So as a result, we use the strict equality operator:
+                        <pre>
+                            <code>
+                                password &#61;&#61;&#61; null &#47;&#47; only true if *exactly* null
+                                password &#61;&#61;&#61; '' &#47;&#47; only true if *exactly* empty string
+                            </code>
+                        </pre>
+                        As a result, the strict equality operator is more safe and more explicit.
+                    </li>
+                    <li>
+                        When creating the condition for the wrong user or password, we used the keyword <code>else</code> 
+                        to state:
+                        <br>
+                        Anything that is not the correct (user or password relative to the leaf) AND is not cancel 
+                        should lead to '...'.
+                        <br>
+                        Originally, we had thought of using the NOT operator (<code>&#33;</code>). However, because the 
+                        keyword <code>else</code> is used to determine all other results that do not fit into other conditions. 
+                        Although the intent and logic behind using NOT might make sense, it may not be as explicit as 
+                        using the keyword <code>else</code>.
+                    </li>
+                </ul>
+            </div>
 
 
             <div class="javascript dtac summary">
