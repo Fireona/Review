@@ -3764,7 +3764,6 @@
                 </ul>
             </div>
 
-
             <div class="javascript dtac summary">
                 <p>
                     Summary
@@ -3785,9 +3784,225 @@
             </p>
         </div>
         <div class="javascript dtac text">
+            <div class="javascript dtac subsection">
+                <p>
+                    Making Decisions in your code - Conditionals
+                </p>
+            </div>
             <p>
-                Start
+                With the use of any programming language, we can instruct our code to make decisions and carry 
+                out tasks independently with given values. Some examples are:
             </p>
+            <ul>
+                <li>
+                    When a player's lives reaches zero in a video game, then it is game over;
+                </li>
+                <li>
+                    For a weather app, a sunrise image is shown when viewing it in the morning. Or;
+                </li>
+                <li>
+                    A starry sky image when viewed at night.
+                </li>
+            </ul>
+
+            <div class="javascript dtac topic">
+                <p>
+                    You can have it on one condition!
+                </p>
+            </div>
+            <p>
+                Conditional statements are the representation of decisions that are made in JavaScript. These 
+                conditionals can range from:choices that are made to the outcomes that stem from the results of 
+                said choices.
+            </p>
+            <ul>
+                <li>
+                    Choices that are made. E.g, taking left path or right path.
+                </li>
+                <li>
+                    Resulting outcomes based on the choices. E.g, Took the left path because it was shorter, or 
+                    took the right path because there were less hazards on the right.
+                </li>
+            </ul>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    if...else statements
+                </p>
+            </div>
+            <p>
+                The most basic type of conditional statement we will use in JavaScript is the <code>if... else</code> 
+                statement.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Basic <code>if...else</code> syntax
+                </p>
+            </div>
+            <p>
+                An example:
+            </p>
+            <pre>
+                <code>
+                    if &#40;condition&#41; &#123;
+                        &#47;&#43; code to run if condition is true &#45;&#47;
+                    &#125; else &#123;
+                        &#47;&#43; run some other code instead &#45;&#47;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                What we have written here:
+            </p>
+            <ol>
+                <li>
+                    The keyword <code>if</code> followed by parantheses.
+                </li>
+                <li>
+                    A condition to test that is placed inside said parantheses. This condition utilizes the comparison 
+                    operators we have learned, and returns either <code>true</code> or <code>false</code>.
+                </li>
+                <li>
+                    A set of curly parantheses that holds some code. The code can be anything we set it to be, and 
+                    will only run if the condition returns <code>true</code>.
+                </li>
+                <li>
+                    The keyword <code>else</code>.
+                </li>
+                <li>
+                    A set of curly brackets that also holds some code. This code can also be anything we set to it, 
+                    and will only run if the condition is not <code>true</code> - i.e. <code>false</code>.
+                </li>
+            </ol>
+            <p>
+                The code from the example is quite clear and human-readable - In short, it says should the condition 
+                return as <code>true</code>, run the first code <code>else</code> run the second code. Furthermore, 
+                it is not absolutely necessary to include the <code>else</code> and the second block of code. The 
+                following is also acceptable:
+            </p>
+            <pre>
+                <code>
+                    if &#40;condition&#41; &#123;
+                        &#47;&#45; code to run if condition is true &#45;&#47;
+                    &#125;
+
+                    &#47;&#45; run some other code &#45;&#47;
+                </code>
+            </pre>
+            <p>
+                If written in this manner, we have to be careful when doing it like so. The initial example had 
+                set the condition with the keyword <code>else</code> to run the second code should the value from 
+                the <code>if</code> condition return as not <code>true</code> - <code>false</code>. By removing 
+                the keyword <code>else</code> from the second condition, the second code will execute but the issue 
+                is it will always execute regardless if the value returned. When setting <code>if</code> conditionals, 
+                you will often only want to run one set of code <i>or</i> the other, but not both.
+            </p>
+            <p>
+                We will sometimes see <code>if..else</code> statements written without curly brackets, but it 
+                should be avoided:
+            </p>
+            <pre>
+                <code>
+                    if &#40;condition&#41; doSomething&#40;&#41;;
+                    else doSomething&#40;&#41;;
+                </code>
+            </pre>
+            <p>
+                While it is a set of valid code, it is easier to understand the code if we use curly brackets 
+                to delimit (mark the boundaries) the block. In addition to delimiters, use multiple lines and 
+                indentation.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    A real example
+                </p>
+            </div>
+            <p>
+                To have a better understanding the use of the syntax, we will create a scenario. A child is asked 
+                for help with a chore by their mother or father. They might say "Hey! If you can help me by going 
+                and doing the shopping, I'll give you some extra allowance so you can afford that toy you wanted." 
+                In JavaScript, that can be represented as:
+            </p>
+            <pre>
+                <code>
+                    let shoppingDone &#61; false;
+                    let childAllowance;
+
+                    if &#40;shoppingDone &#61;&#61;&#61; true &#41; &#123;
+                        childAllowance &#61; 10;
+                    &#125; else &#123;
+                        childAllowance &#61; 5;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                In the code, <code>shoppingDone</code> is a variable that always returns <code>false</code> resulting 
+                in a disappointed child. We have to provide a mechanism for the parent, a code, to set the <code>shoppingDone</code> 
+                variable to <code>true</code> if the child did the shopping.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    else if
+                </p>
+            </div>
+            <p>
+                Earlier, we had made examples with two outcomes or examples. From here, we begin introducing how 
+                to create more than two conditions.
+            </p>
+            <p>
+                If we want to link extra choices or outcomes to <code>if...else</code>, we will need to start 
+                using <code>else if</code>. Every addtional choice requires an extra block to put 
+
+                In order to add more choices or outcomes to <code>if..else</code> conditionals, we need to use 
+                <code>else if</code>. More choices require an additional block to put in between <code>if &#40;&#41; &#123;&#125;</code> 
+                and <code>else &#123;&#125;</code>.
+            </p>
+            <pre>
+                HTML
+                <code>
+                    &lt;label for&#61;"weather"&gt;Select the weather type today: &lt;&#47;label&gt;
+                    &lt;select id&#61;"weather"&gt;
+                        &lt;option value&#61;""&gt;&#45;&#45;Make a choice&#45;&#45;&lt;&#47;option&gt;
+                        &lt;option value&#61;"sunny"&gt;Sunny&lt;&#47;option&gt;
+                        &lt;option value&#61;"rainy"&gt;Rainy&lt;&#47;option&gt;
+                        &lt;option value&#61;"snowing"&gt;Snowing&lt;&#47;option&gt;
+                        &lt;option value&#61;"overcast"&gt;Overcast&lt;&#47;option&gt;
+                    &lt;&#47;select&gt;
+
+                    &lt;p&gt;&lt;&#47;p&gt;
+                </code>
+                JS
+                <code>
+                    const select &#61; document.querySelector&#40;"select"&#41;;
+                    const para &#61; document.querySelector&#40;"p"&#41;;
+
+                    select.addEventListener&#40;"change", setWeather&#41;;
+
+                    function setWeather&#40;&#41; &#123;
+                    const choice &#61; select.value;
+
+                    if &#40;choice &#61;&#61;&#61; "sunny"&#41; &#123;
+                        para.textContent &#61;
+                        "It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.";
+                    &#125; else if &#40;choice &#61;&#61;&#61; "rainy"&#41; &#123;
+                        para.textContent &#61;
+                        "Rain is falling outside; take a rain coat and an umbrella, and don't stay out for too long.";
+                    &#125; else if &#40;choice &#61;&#61;&#61; "snowing"&#41; &#123;
+                        para.textContent &#61;
+                        "The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.";
+                    &#125; else if &#40;choice &#61;&#61;&#61; "overcast"&#41; &#123;
+                        para.textContent &#61;
+                        "It isn't raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.";
+                    &#125; else &#123;
+                        para.textContent &#61; "";
+                    &#125;
+                    &#125;                    
+                </code>
+            </pre>
+
         </div>
 
 
