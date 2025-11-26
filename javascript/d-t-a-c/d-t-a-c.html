@@ -3959,6 +3959,7 @@
                 In order to add more choices or outcomes to <code>if..else</code> conditionals, we need to use 
                 <code>else if</code>. More choices require an additional block to put in between <code>if &#40;&#41; &#123;&#125;</code> 
                 and <code>else &#123;&#125;</code>.
+                <a href="https://developer.mozilla.org/en-US/play?id=cwSTROW52WxjiDE29nBQzj%2BMMZOsdHb5StnIRoWZwxhHSxDdHkPEZL%2F2q2UfD0WJypaiicMVx86tp8Cd" target="_self" rel="noopener noreferrer">Link to example</a>
             </p>
             <pre>
                 HTML
@@ -4002,6 +4003,205 @@
                     &#125;                    
                 </code>
             </pre>
+            <ol>
+                In order we have:
+                <li>
+                    HTML element <code>&lt;select&gt;</code>. This is the an interactable window that allows users to 
+                    select or choose items that fit their needs. Commonly used for ages, titles, states/provinces, etc.
+                </li>
+                <li>
+                    With the help of JavaScript, a reference to the <code>&lt;select&gt;</code> and <code>&lt;p&gt;</code> 
+                    elements are stored. By adding an event listener to the <code>&lt;select&gt;</code> element, the 
+                    value changes how the function <code>setWeather&#40;&#41;</code> runs.
+                </li>
+                <li>
+                    When function <code>setWeather&#40;&#41;</code> is called, the <code>&lt;select&gt;</code> element 
+                    has the variable <code>choice</code> set with the value selected. With the use of a conditional 
+                    statement, different texts can be displayed depending on the selected value of <code>choice</code>. 
+                    Take note of how all conditions are tested in <code>else if &#40;&#41; &#123;&#125;</code> with 
+                    the exception of the first which uses <code>if &#40;&#41; &#123;&#125;</code>.
+                </li>
+                <li>
+                    The final choice is determined with the statement <code>else &#123;&#125;</code>. This statement 
+                    is reserved as a final resort that determines how the code runs should none of the conditions 
+                    (from previous conditions) are <code>true</code>. In the example, the text is removed should the 
+                    user re-select the option "--Make a choice--".
+                </li>
+            </ol>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    A note on comparison operators
+                </p>
+            </div>
+            <p>
+                Comparison operators are used to test the conditions inside conditional statements. The choice 
+                of comparison selectors are:
+            </p>
+            <ul>
+                <li>
+                    <code>&#61;&#61;&#61;</code> and <code>&#33;&#61;&#61;</code> - This tests whether a value is 
+                    identical to or not identical to another, respectively.
+                </li>
+                <li>
+                    <code>&lt;</code> and <code>&gt;</code> - This tests whether a value is less than or greater 
+                    than a value, respectively.
+                </li>
+                <li>
+                    <code>&lt;&#61;</code> and <code>&gt;&#61;</code> - This tests whether a value is equal to or 
+                    less than, or equal to or greather than another.
+                </li>
+            </ul>
+            <p>
+                A common pattern that we will encounter is the testing boolean values, <code>true</code> and <code>false</code>. 
+                Any value can return as <code>true</code>, but the following values will return as <code>false</code> 
+                when tested as a conditional statement: 
+            </p>
+            <ul>
+                <li>
+                    <code>false</code>
+                </li>
+                <li>
+                    <code>undefined</code>
+                </li>
+                <li>
+                    <code>null</code>
+                </li>
+                <li>
+                    <code>0</code>
+                </li>
+                <li>
+                    <code>NaN</code>
+                </li>
+                <li>
+                    <code>''</code> - an empty string.
+                </li>
+            </ul>
+            <p>
+                Any variable name can be used to be tested whether it is considered to be <code>true</code> or 
+                if it exists (meaning, it is not <code>undefined</code>).
+            </p>
+            <p>
+                For instance:
+            </p>
+            <pre>
+                JS
+                <code>
+                    let cheese &#61; "Cheddar";
+
+                    if &#40;cheese&#41; &#123;
+                        console.log&#40;"Yay! Cheese available for making cheese on toast."&#41;;
+                    &#125; else &#123;
+                        console.llg&#40;"No cheese on toast for you today."&#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                When we return back to our example previously with the child and his allowance, we can write this:
+            </p>
+            <pre>
+                <code>
+                    let shoppingDone &#61; false;
+                    let childAllowance;
+
+                    &#47;&#47; We don't need to explicitly specify 'shoppingDone &#61;&#61;&#61; true'
+                    if &#40;shoppingDone&#41; &#123;
+                        childAllowance &#61; 10;
+                    &#125; else &#123;
+                        childAllowance &#61; 5;
+                    &#125;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Nesting if...else
+                </p>
+            </div>
+            <p>
+                It is acceptable to place a <code>if..else</code> statement within another - in other words, 
+                to nest them. If we go back to our weather example earlier, we can introduce the weather application 
+                to more choices depending on the temperature:
+            </p>
+            <pre>
+                <code>
+                    if &#40;choice &#61;&#61;&#61; "sunny"&#41; &#123;
+                        if &#40;temperature &lt; 86&#41; &#123;
+                            para.textContent &#61; `It is &#37;&#123;temperature&#125; degrees outside &#45;
+                            nice and sunny. Let's go out to the beach, or the park, 
+                            and get an ice cream.`;
+                        &#125; else if &#40;temperature &gt;&#61; 86&#41; &#123;
+                            para.textContent &#61; `It is &#37;&#123;temperature&#125; degrees outside &#45; 
+                            If you want to go outside, make sure to put some sunscreen 
+                            on.`
+                        &#125;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                Each <code>if...else</code> statement works completely independently of others, regardless if 
+                they are part of another <code>if...else</code> statement or not.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Logical operators: AND, OR and NOT
+                </p>
+            </div>
+            <p>
+                Logical operators can be used when we need to test multiple conditions without having to nest 
+                <code>if...else</code> statements. When used in conditionals:
+            </p>
+            <ul>
+                <li>
+                    <code>&#38;&#38;</code> - AND; allows us to chain multiple expressions so all of them must 
+                    individually evalute to <code>true</code> for the whole expression to return <code>true</code>.
+                </li>
+                <li>
+                    <code>&#124;&#124;</code> - OR; allows us to chain multiple expressions so that one or more 
+                    must individually evaluate to <code>true</code> for the whole expression to return <code>true</code>.
+                </li>
+            </ul>
+            <p>
+                To give an example of <code>AND</code>:
+            </p>
+            <pre>
+                <code>
+                    if &#40;choice &#61;&#61;&#61; "sunny" &#38;&#38; temperature &lt; 86&#41; &#123;
+                        para.textContent &#61; `It is &#37;&#123;temperature&#125; degrees outside - 
+                        nice and sunny. Let's go out to the beach, or the park, 
+                        and get an ice cream.`;
+                    &#125; else if &#40;choice &#61;&#61;&#61; &#38;&#38; temperature &gt;&#61; 86&#41; &#123;
+                        para.textContent &#61; `It is &#37;&#123;temperature&#125; degrees outside - 
+                        REALLY HOT! If you wan tto goutside, make sure to put 
+                        some sunscreen on.`;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                The first block of code only runs if <code>choice &#61;&#61;&#61; 'sunny'</code> <i>AND</i> 
+                <code>temperature &lt; 86</code> return <code>true</code>.
+            </p>
+            <p>
+                Now an example of <code>OR</code>:
+            </p>
+            <pre>
+                <code>
+                    if &#40;iceCreamVanOutside &#124;&#124; houseStatus &#61;&#61;&#61; "on fire"&#41; &#123;
+                        console.log&#40;"You should leave the house quickly."&#41;;
+                    &#123; else &#125;
+                        console.log&#40;"Probably should just stay in then."&#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                The condition set is whether <code>iceCreamVanOutside</code> OR <code>houseStatus</code> 
+                has a value of <code>on fire</code> return as <code>true</code>, will the code only then 
+                be executed.
+            </p>
+            <p>
+                NOT
+            </p>
 
         </div>
 
