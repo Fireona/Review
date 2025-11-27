@@ -4200,8 +4200,165 @@
                 be executed.
             </p>
             <p>
-                NOT
+                The final logical operator, NOT (<code>&#33;</code>), is used to negate an expression. Using the 
+                example from before:
             </p>
+            <pre>
+                <code>
+                    if &#40;&#33;&#40;iceCreamVanOutside &#124;&#124; houseStatus &#61;&#61;&#61; "on fire"&#41;&#41; &#123;
+                        console.log&#40;"You should leave the house quickly."&#41;;
+                    &#123; else &#125;
+                        console.log&#40;"Probably should just stay in then."&#41;;
+                    &#125;                    
+                </code>
+            </pre>
+            <p>
+                In the written code, should the <code>OR</code> statement return as <code>true</code>, then the 
+                NOT operator will deny it so the expression returns as <code>false</code>.
+            </p>
+            <p>
+                Multiple logical statements can be put together as many times as needed, regardless of how it is 
+                introduced. The following scenario will only run should both <code>OR</code> statements return a 
+                <code>true</code>. This also means that the <code>AND</code> statement will return <code>true</code>.
+            </p>
+            <pre>
+                <code>
+                    if &#40;&#40;x &#61;&#61;&#61; 5 &#124;&#124; y &gt; 3 &#124;&#124; z &lt;&#61; 10&#41; &#38;&#38; &#40;loggedIn &#124;&#124; userName &#61;&#61;&#61; "Steve"&#41;&#41; &#123;
+                        &#47;&#47; run the code
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                A common misconception when using the logical operator <code>OR</code> in conditional statements 
+                is believing that you can check one variable against several possible values by writing the variable 
+                once, followed by listing values with the OR logical operator. Each comparison must be explicitly 
+                include the variable. If only the values are written, those values are always considered truthy, 
+                which return as <code>true</code>.
+            </p>
+            <pre>
+                <code>
+                    if &#40;x &#61;&#61;&#61; 5 &#124;&#124; 7 &#124;&#124; 10 &#124;&#124; 20&#41; &#123;
+                        &#47;&#47; run my code
+                    &#125;
+                </code>
+                If <code>x</code> equals <code>5</code> OR 7 is <code>true</code>.
+            </pre>
+            <p>
+                In the given scenario, the expression inside <code>if &#40;&#41;</code> will always evaluate to be 
+                <code>true</code>, since <code>7</code> (or any non-zero number) will evaluate to <code>true</code>. 
+                The condition is rather stating, "If x equals 5 OR 7 is true". However this is not the intended 
+                logic we had in mind. Instead we have to write it as:
+            </p>
+            <pre>
+                <code>
+                    if &#40; x &#61;&#61;&#61; 5 &#124;&#124; x &#61;&#61;&#61; 7 &#124;&#124; x &#61;&#61;&#61; 10 &#124;&#124; x &#61;&#61;&#61; 20&#41; &#123;
+                        &#47;&#47; run my code
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                In this revision, what the <code>if</code> statement says now is, "If x equals 5, OR x equals 7, 
+                OR x equals 10, OR x equals 20".
+            </p>
+            <p>
+                Another example:
+            </p>
+            <pre>
+                <code>
+                    if &#40;x &#61;&#61;&#61; "apple" &#124;&#124; "banana" &#124;&#124; "cherry" &#41; &#123;
+                        &#47;&#47; some code
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                This code is saying: "If <code>x</code> equals "apple", OR "banana" is <code>true</code>, OR 
+                <code>"cherry"</code> is <code>true</code>." Regardless of what value <code>x</code> could be 
+                assigned with, the operands <code>"banana"</code> and <code>"cherry"</code> will return as 
+                <code>true</code>. Since when converted to boolean values, any non-empty string will be considered 
+                to be truthy - <code>true</code>. As a result, the <code>if</code> statement will always be 
+                <code>true</code> and the code will always run. This is not the intended logic that was meant to be 
+                utilized.
+            </p>
+            <p>
+                If we wish for our <code>if</code> to run as "If <code>x</code> equals "apple", OR <code>x</code> 
+                equals "banana", OR <code>x</code> equals "cherry", then we have make it clear by being specific 
+                and explicit. This is done by writing said statement as:
+            </p>
+            <pre>
+                <code>
+                    if &#40;x &#61;&#61;&#61; "apple" &#124;&#124; x &#61;&#61;&#61; "banana" &#124;&#124; x &#61;&#61;&#61; "chery" &#41; &#123;
+                        some code
+                    &#125;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    switch statements
+                </p>
+            </div>
+            <p>
+                Even with all the conditionals we can use, <code>if...else</code> also has its own set of flaws. 
+                <code>if...else</code> is good for cases when we have multiple choices, each one requiring its 
+                own set of code, with the conditions being convoluted with the use of multiple logical operators. 
+                This becomes quite annoying to deal with, especially if the goal of the statement is to set a variable 
+                with a particular choice of value, or even print out a specific satement that varies on the condition. 
+                This can make coding become a burdensome task, even more so when there is a large number of choices.
+            </p>
+            <p>
+                For such cases, the <code>switch</code> statements are available. <code>switch</code> takes a 
+                single expression or value as input and looks through several choices until it finds one that 
+                matches said value. It then executes the code tied with that choice. For instance:
+            </p>
+            <pre>
+                <code>
+                    switch &#40;expression&#41; &#123;
+                        case choice1:
+                            &#47;&#47; run this code
+                            break;
+
+                        case choice2:
+                            &#47;&#47; run this code instead
+                            break;
+                        
+                        &#47;&#47; add in as many cases as necessary
+                        
+                        default:
+                            &#47;&#47; actually, just run this code
+                            break;
+                    &#125;
+                </code>
+            </pre>
+            <ol>
+                Here we have:
+                <li>
+                    Keyword <code>switch</code>, followed by a pair of parantheses.
+                </li>
+                <li>
+                    An expression or value inside the parantheses.
+                </li>
+                <li>
+                    Keyword <code>case</code>, with a choice afterwards that is the result of what the expression 
+                    or value could be, followed with a colon.
+                </li>
+                <li>
+                    Some code to be executed should the choice match the expression.
+                </li>
+                <li>
+                    Keyword <code>break</code>, followed by a semicolon. If said value or expression matches the 
+                    choice provided, the browser stops executing the code block and moves on to any code that 
+                    appears below the switch statement.
+                </li>
+                <li>
+                    As many different cases necessary (from steps 3 to 5).
+                </li>
+                <li>
+                    Keyword <code>default</code> follows the same code pattern as any of the cases (steps 3 to 5), 
+                    but <code>default</code> does not have a choice that follows it. <code>default</code> also 
+                    does not require the <code>break</code> statement as there is no code to execute following this 
+                    block. It is also the default option that executes should none of the choices match.
+                </li>
+            </ol>
 
         </div>
 
