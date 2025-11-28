@@ -4338,8 +4338,8 @@
                     An expression or value inside the parantheses.
                 </li>
                 <li>
-                    Keyword <code>case</code>, with a choice afterwards that is the result of what the expression 
-                    or value could be, followed with a colon.
+                    Keyword <code>case</code>, with the choice afterwards that is the result of what the expression 
+                    or value could be, proceeded with a colon.
                 </li>
                 <li>
                     Some code to be executed should the choice match the expression.
@@ -4359,6 +4359,265 @@
                     block. It is also the default option that executes should none of the choices match.
                 </li>
             </ol>
+
+            <div class="javascript dtac topic">
+                <p>
+                    A switch example
+                </p>
+            </div>
+            <p>
+                Here is an example where we will use the previous weather forecast application to use a 
+                switch statement:
+            </p>
+            <pre>
+                HTML
+                <code>
+                    &lt;label for&#61;"weather"&gt;Select the weather type today: &lt;&#47;label&gt;
+                    &lt;select id&#61;"weather"&gt;
+                        &lt;option value&#61;""&gt;&#45;&#45;Make a choice&#45;&#45;&lt;&#47;option&gt;
+                        &lt;option value&#61;"sunny"&gt;Sunny&lt;&#47;option&gt;
+                        &lt;option value&#61;"rainy"&gt;Rainy&lt;&#47;option&gt;
+                        &lt;option value&#61;"snowing"&gt;Snowing&lt;&#47;option&gt;
+                        &lt;option value&#61;"overcast"&gt;Overcast&lt;&#47;option&gt;
+                    &lt;&#47;select&gt;
+
+                    &lt;p&gt;&lt;&#47;p&gt;
+                </code>
+                JS
+                <code>
+                    const select &#61; document.querySelector&#40;"select"&#41;;
+                    const para &#61; document.querySelector&#40;"p"&#41;;
+
+                    select.addEventListener&#40;"change", setWeather&#41;;
+
+                    function setWeather&#40;&#41; &#123;
+                        const choice = select.value;
+
+                        swtich&#40;choice&#41; &#123;
+                            case "sunny":
+                                para.textContent &#61;
+                                    "It is nice and sunny outside today. Wear shorts! 
+                                    Go to the beach, or the park, and get an ice cream.";
+                                break;
+                            case "rainy":
+                                para.textContent &#61;
+                                    "Rain is falling outside; take a rain coat and an 
+                                    umbrella, and don't stay out for too long.";
+                                break;
+                            case "snowing" &#61;
+                                para.textContent &#61;
+                                    "The snow is coming down - it is freezing! Best to 
+                                    stay in with a cup of hot chocolate, or go build a 
+                                    snowman.";
+                                break;
+                            case "overcast" &#61;
+                                para.textContent &#61;
+                                    "It isn't raining, but the sky is grey and gloomy; 
+                                    it could turn any minute, so take a rain coat just 
+                                    in case.";
+                                break;
+                            default:
+                                para.textContent &#61; "";
+                        &#125;
+                    &#125;
+                </code>
+                View result code on MDN
+            </pre>
+            
+            <div class="javascript dtac topic">
+                <p>
+                    Ternary operator
+                </p>
+            </div>
+            <p>
+                The ternary operator is a bit of code that tests conditions and returns a value or expression 
+                if it is <code>true</code>, and an alternate result should it be <code>false</code>. This is 
+                ideal for situations when you have two options because it is less code to write compared to 
+                an <code>if...else</code> block. The code should look like so:
+            </p>
+            <pre>
+                <code>
+                    condition &#63; run this code : run this code instead
+                </code>
+            </pre>
+            <p>
+                An example would be like so:
+            </p>
+            <pre>
+                <code>
+                    const greeting &#61; isBirthday
+                        &#63; "Happy birthday Mrs. Smith - we hope you have a great day!"
+                        &#58; "Good morning Mrs. Smith.";
+                </code>
+            </pre>
+            <p>
+                In this example, we have a variable <code>isBirthday</code>. Should the variable be <code>true</code>, 
+                then the user will receive a happy birthday message. If it returns <code>false</code>, then the 
+                user will receive a standard greeting.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Ternary operator example
+                </p>
+            </div>
+            <p>
+                The ternary operator is not only for setting variable values, it can also run functions or lines 
+                of code. In the example below, it shows a simple theme chooser where the appropriate styling for 
+                a website is applied using a ternary operator.
+            </p>
+            <pre>
+                HTML
+                <code>
+                    &lt;label for&#61;"theme"&gt;Select theme: &lt;&#47;label&gt;
+                    &lt;select id&#61;"theme"&gt;
+                        &lt;option value&#61;"white"&gt;White&lt;&#47;option&gt;
+                        &lt;option value&#61;"black"&gt;Black&lt;&#47;option&gt;
+                    &lt;&#47;select&gt;
+
+                    &lt;h1&gt;This is my website&lt;&#47;h1&gt;
+                </code>
+                JS
+                <code>
+                    const select &#61; document.querySelector&#40;"select"&#41;;
+                    const html &#61; document.querySelector&#40;"html"&#41;;
+                    document.body.style.padding &#61; "10px";
+
+                    function update&#40;bgColor, textColor&#41; &#123;
+                        html.style.backgroundColor &#61; bgColor;
+                        html.style.color &#61; textColor;
+                    &#125;
+
+                    select.addEventListener&#40;"change", &#40;&#41; &#61;&gt;
+                        select.value &#61;&#61;&#61; "black";
+                            &#63; update&#40;"black", "white"&#41;
+                            &#58; update&#40;"white", "black"&#41;,
+                    &#125;;
+                </code>
+            </pre>
+            <p>
+                In the example above, we have <code>&lt;select&gt;</code> element that lets the user choose a 
+                theme of black or white. In JavaScript, we have written an <code>update&#40;&#41;</code> function 
+                that takes two different colours as parameters (inputs). The website's background colour is set 
+                to the first provided colour, and the colour of the text is set to the second provided colour.                
+            </p>
+            <p>
+                Later, we come across the <code>change</code> event listener that gives instruction to execute a 
+                function containing the ternary operator. This starts at <code>select.value &#61;&#61;&#61; "black"</code>. 
+                The statement is saying "Should this value be <code>true</code>, run the designated code." The 
+                value <code>true</code> is designated by the symbol <code>?</code>, followed by some code. Its 
+                counterpart, the <code>false</code> branch, is represented by the symbol <code>&#58;</code> with some 
+                code afterwards. When we have selected "Black" from <code>select</code>, the value becomes 
+                <code>true</code> and executes the code designated in the <code>true</code> branch. The <code>update&#40;&#41;</code> 
+                function is called, changing our background colour to black and our text colour to white. Should 
+                the value selected been "White" (<code>false</code>), the <code>false</code> branch will execute 
+                it's condition changing the background colour to white and text colour to black.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Implementing a basic calendar
+                </p>
+            </div>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Conditionals#implementing_a_basic_calendar" target="_self" rel="noopener noreferrer">Link to MDN instructions</a>.
+            <a href="https://developer.mozilla.org/en-US/play?id=ckp%2BLMaKkhCRbdldw3jCKKvi6kYtj8sYYVxkLLRS0DtdzGIKO%2BUK01qrinoCMhwqxLIvPBnEsQMC8Q%2Bq" target="_self" rel="noopener noreferrer">Link to MDN Playgound</a>.
+            <ul>
+                In order to bring about a calendar, we require three things in our code:
+                <li>
+                    <code>&lt;select&gt;</code> element to allow the user to choose between different months.
+                </li>
+                <li>
+                    A <code>change</code> event handler to detect when a value selected in the <code>&lt;select&gt;</code> 
+                    menu changes.
+                </li>
+                <li>
+                    The function <code>createCalendar&#40;&#41;</code> that creates the calendar and displays the 
+                    correct month within the <code>h1</code> element.
+                </li>
+            </ul>
+            <ol>
+                In order to accomplish this scenario:
+                <li>
+                    Click "Play" in the code block provided in the 
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Conditionals#implementing_a_basic_calendar" target="_self" rel="noopener noreferrer">MDN Playground</a>.
+                </li>
+                <li>
+                    Write the conditional statement inside <code>createCalendar&#40;&#41;</code> function, below the 
+                    <code>&#47;&#47; ADD CONDITIONAL HERE</code> comment. It should:
+                    <ol>
+                        <li>
+                            View the selected month (stored in the <code>choice</code> variable. This will be the <code>&lt;select&gt;</code> 
+                            element value after the value changes, "January" for example).
+                        </li>
+                        <li>
+                            Assign a <code>days</code> variable equal to the number of days in the selected month. This will 
+                            require us to look up the number of days in each month of the year. 
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <ul>
+                Hints:
+                <li>
+                    The OR logical operator is the preferred choice here to group multiple months together into a 
+                    single condition as many of them will share the same number of days.
+                </li>
+                <li>
+                    Think about which number of days is the most common, and use that as the default value.
+                </li>                
+            </ul>
+            <p>
+                Use the reset button from the MDN Playground to clear any work done if you should make a mistake. 
+                <a href="https://developer.mozilla.org/en-US/play?id=5aZZa3W1eZm7rztQyKT9RCici4vchX74kU2oM0VsL39K18hBDWMUPIoZIADp%2F%2BfJ2y2xZcJyQd%2FqyW37" target="_self" rel="noopener noreferrer">Click this link to go to MDN's Playground directly</a>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Adding more color choices
+                </p>
+            </div>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Conditionals#adding_more_color_choices" target="_self" rel="noopener noreferrer">Link to MDN Instructions</a>
+            <a href="https://developer.mozilla.org/en-US/play?id=wxHDJpKLvXCGBuN5GbCPcvXtgJhfwKmSh2aTe1nqeGsSbCJ%2F%2BD9vf%2BOg8Zrnin%2F%2BCL4Aup%2FRAZbJ0AI9" target="_self" rel="noopener noreferrer">Link to MDN Playground</a>
+            <p>
+                This task will require us to make use of the ternary operator that we had gone over previously. 
+                In addition, the ternary operator will need to be converted into a switch statement that allows 
+                us to apply more choices to the website. When we look at <code>&lt;select&gt;</code>, there are  
+                five theme choices to go around.
+            </p>
+            <ol>
+                To complete the example:
+                <li>
+                    Click "Play" in the code block on MDN's article so we can make edits in the MDN Playground.
+                </li>
+                <li>
+                    Add a switch statement just underneath the <code>&#47;&#47; ADD SWITCH STATEMENT</code> comment:
+                    <ol>
+                        <li>
+                            It should accept the <code>choice</code> variable as its input expression.
+                        </li>
+                        <li>
+                            For each case, the choice should equal one of the possible <code>&lt;option&gt;</code> values 
+                            that can be selected, that is, <code>white</code>, <code>black</code>, <code>purple</code>, 
+                            <code>yellow</code>, or <code>pyschedelic</code>. Note that the option values are lowercase, 
+                            while the option <i>labels</i>, as displayed in the live output, are capitalized. You should 
+                            use the lowercase values in your code.
+                        </li>
+                        <li>
+                            For each case, the <code>update&#40;&#41;</code> function should be run, and be passed two colour 
+                            values, the first one for the background colour, and the second one for the text colour. Remember 
+                            that colour values are strings, so they need to be wrapped in quotes.
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <ul>
+                Note:
+                <li>
+                    There is no ternary operator in the example. Just write the <code>switch</code> statements.
+                </li>
+            </ul>
+            
+            
 
         </div>
 
