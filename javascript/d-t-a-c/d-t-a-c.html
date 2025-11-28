@@ -3770,10 +3770,7 @@
                 </p>
             </div>
             <p></p>
-
         </div>
-
-
 
 
 
@@ -4616,9 +4613,13 @@
                     There is no ternary operator in the example. Just write the <code>switch</code> statements.
                 </li>
             </ul>
-            
-            
 
+            <div class="javascript dtac summary">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <p></p>
         </div>
 
 
@@ -4630,9 +4631,455 @@
             </p>
         </div>
         <div class="javascript dtac text">
+            <div class="javascript dtac subsection">
+                <p>
+                    Conditional branching: if, '?'
+                </p>
+            </div>
             <p>
-                Start
+                The conditional operator <code>&#63;</code> is used in tandem with <code>if</code> statements to 
+                undertake different actions that have different conditions.
             </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    The "if" statement
+                </p>
+            </div>
+            <p>
+                <code>if&#40;...&#41;</code> statement evaluates the condition inside the parantheses. Should the 
+                result be <code>true</code>, it will execute a block of code.
+            </p>
+            <pre>
+                <code>
+                    let year &#61; prompt&#40;'In which year was ECMAScript-2015 specification publish?',''&#41;;
+
+                    if &#40;year &#61;&#61; 2015&#41; alert&#40; 'You are right!' &#41;;
+                </code>
+            </pre>
+            <p>
+                The example provided is a loose equality check (<code>year &#61;&#61; 2015</code>), but is capable 
+                of handling more complex conditions. With the use of curly brackets, multiple statements can be
+                executed.
+            </p>
+            <pre>
+                <code>
+                    if &#40;year &#61;&#61; 2015&#41; &#123;
+                        alert&#40; "That's correct!" &#41;;
+                        alert&#40; "You're so smart!" &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                It is recommend to use curly brackets <code>&#123;&#125;</code> with the use of every <code>if</code> 
+                statement. This is to ensure clarity and improve readability.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Boolean conversion
+                </p>
+            </div>
+            <p>
+                <code>if</code> statements evaluate the expressions inside the parantheses and will convert the 
+                result to a boolean. There are a set of conversion rules to follow:
+            </p>
+            <ul>
+                <li>
+                    A number <code>0</code>, an empty string <code>""</code>, <code>null</code>, <code>undefined</code>, 
+                    and <code>NaN</code> all become <code>false</code>. These are called "falsy" values.
+                </li>
+                <li>
+                    Any other value are considered to be <code>true</code>, as such are called "truthy".
+                </li>
+            </ul>
+            <p>
+                Here is an example of a statement that is falsy and will never execute:
+            </p>
+            <pre>
+                <code>
+                    if &#40;0&#41; &#123; &#47;&#47; 0 is falsy
+                        ...
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                This one will execute:
+            </p>
+            <pre>
+                <code>
+                    if &#40;1&#41; &#123; &#47;&#47; 1 is truthy
+                        ...
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                Expressions that have been evaluated can also be used in <code>if</code> statements:
+            </p>
+            <pre>
+                <code>
+                    let cond &#61; &#40;year &#61;&#61; 2015&#41; &#47;&#47; equality evaluates to true or false
+
+                    if &#40;cond&#41; &#123;
+                        ...
+                    &#125;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    The "else" clause
+                </p>
+            </div>
+            <p>
+                When the <code>if</code> statement returns as <code>false</code>, code can be executed with the 
+                conditional keyword <code>else</code>:
+            </p>
+            <pre>
+                <code>
+                    let year &#61; prompt&#40;'In which year was the ECMAScript-2015 specification published?', ''&#41;;
+
+                    if &#40;year &lt; 2015&#41; &#123;
+                        alert&#40; 'Too early...' &#41;;
+                    &#125; else if &#40;year &gt; 2015&#41; &#123;
+                        alert&#40; 'Too late...' &#41;;
+                    &#125; else &#123;
+                        alert&#40; 'Exactly!' &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                The statement will first check <code>year &lt; 2015</code>. If it is falsy, it will continue to the 
+                next condition <code>year &gt; 2015</code>. If this also is falsy, it shows the last alert, 
+                <code>alert</code>. Though not shown, more <code>else if</code> blocks can be written and the 
+                final conditional <code>else</code> is optional.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Conditional operator '?'
+                </p>
+            </div>
+            <p>
+                On occasion, it is necesary to assign a variable depending on a condition:
+            </p>
+            <pre>
+                <code>
+                    let acessAllowed;
+                    let age &#61; prompt&#40;'How old are you?',''&#41;;
+
+                    if &#40;age &gt; 18&#41; &#123;
+                        accessAllowed &#61; true;
+                    &#125; else &#123;
+                        accessAllowed &#61; false;
+                    &#125;
+
+                    alert&#40;accessAllowed&#41;
+                </code>
+            </pre>
+            <p>
+                The conditional operator <code>&#63;</code> (sometimes called the "question mark" operator) enables 
+                us to do so in a shorter and simpler way. It is also sometimes referred to as "ternary" because 
+                it has three operands and is the only operator to have that number of. The syntax follows as:
+            </p>
+            <pre>
+                <code>
+                    let result &#61; condition &#63; value1 &#58; value2;
+                </code>
+            </pre>
+            <p>
+                The <code>condition</code> is evaluated. If is truthy, <code>value1</code> is returned. If falsy, then 
+                <code>value2</code> is returned.
+            </p>
+            <pre>
+                <code>
+                    let accessAllowed &#61; &#40;age &gt; 18&#41; &#63; true &#58; false;
+                </code>
+            </pre>
+            <p>
+                In this scenario, we could write the statement without the parantheses surrounding <code>age &gt; 18</code> 
+                based on a technicality. The conditional operator <code>&#63;</code> has a low precedence. As 
+                a result, it executes after the comparison operator <code>&gt;</code>. As such it can be written as:
+            </p>
+            <pre>
+                <code>
+                    &#47;&#47; the comparison operator "age &gt; 18" executes first anyway
+                    &#47;&#47; &#40;no need to wrap it into parantheses&#41;
+                    let accessAllowed &#61; age &gt; 18 &#63; true &#58; false;
+                </code>
+            </pre>
+            <p>
+                However, it is better to include the parantheses for readability and clarity.
+            </p>
+            <ul>
+                Note:
+                <li>
+                    In the example above, the conditional operator <code>&#63;</code> does not need to be included 
+                    as the comparison itself returns <code>true&#47;false</code>:
+                </li>
+            </ul>
+            <pre>
+                <code>
+                    &#47;&#47; the same
+                    let accessAllowed &#61; age &gt; 18;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Multiple '?'
+                </p>
+            </div>
+            <p>
+                A repititve use of the conditional operator <code>&#63;</code> can return values that depend on 
+                multiple conditions:
+            </p>
+            <pre>
+                <code>
+                    let age &#61; prompt&#40;'age?', 18&#41;;
+
+                    let message &#61; &#40;age &lt; 3&#41; &#63; 'Hi, baby!' &#58;
+                        &#40;age &lt; 18&#41; &#63; 'Hello!' &#58;
+                        &#40;age &lt; 100&#41; &#63; 'Greetings!' &#58;
+                        'What an unusual age!';
+                </code>
+            </pre>
+            <ol>
+                It will appear confusing at first glance, however the statement is simply a successive set of 
+                tests:
+                <li>
+                    First conditional operator checks whether <code>age &lt; 3</code>.
+                </li>
+                <li>
+                    If <code>true</code> - returns <code>'Hi, baby!'</code>. If not, the condition continues to the 
+                    next expression after the colon operator <code>&#58;</code> (also known as the else operator), 
+                    and checks <code>age &lt; 18</code>.
+                </li>
+                <li>
+                    If true - returns <code>'Hello!'</code>. If not, the condition continues to the next expression 
+                    after the else operator <code>&#58;</code>, checking <code>age &lt; 100</code>.
+                </li>
+                <li>
+                    If true -returns <code>'Greetings!'</code>. If not, the condition continues to the expression that 
+                    follows after the else operator <code>&#58;</code> returning <code>'What an unusual age!'</code>.
+                </li>
+            </ol>
+            <p>
+                If written with <code>if...else</code>, it looks like:
+            </p>
+            <pre>
+                <code>
+                    if &#40;age &lt; 3&#41; &#123;
+                        message &#61; 'Hi, baby!';
+                    &#125; else if &#40;age &lt; 18&#41; &#123;
+                        message &#61; 'Hello!';
+                    &#125; else if &#40;age &lt; 100&#41; &#123;
+                        message &#61; 'Greetings!';
+                    &#125; else &#123;
+                        message &#61; 'What an unusual age!';
+                    &#125;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Non-traditional use of '?'
+                </p>
+            </div>
+            <p>
+                The conditional operator <code>&#63;</code> can be used to replace <code>if</code>:
+            </p>
+            <pre>
+                <code>
+                    let company &#61; prompt&#40;'Which company created JavaScript?',''&#41;;
+
+                    &#40;company &#61;&#61; 'Netscape'&#41; &#63;
+                        alert&#40;'Right!'&#41; &#58; alert&#40;'Wrong.'&#41;;
+                </code>
+            </pre>
+            <p>
+                The first or second expression that follows after the conditional operator <code>&#63;</code> 
+                gets executed will vary depending on the condition of <code>company &#61;&#61; 'Netscape'</code>. 
+                A result is not assigned to variable but will execute different code that depends on the condition.                 
+            </p>
+            <p>
+                However, avoid using the conditional operator in this manner. While the syntax allows for it to 
+                be written succinctly, it makes the code to be less readable and clear. The equivalent code when 
+                using <code>if</code> looks like this:
+            </p>
+            <pre>
+                <code>
+                    let company &#61; prompt&#40;'Which company created JavaScript?',''&#41;;
+
+                    if &#40;company &#61;&#61; 'Netscape'&#41; &#123;
+                        alert&#40;'Right!'&#41;;
+                    &#125; else &#123;
+                        alert&#40;'Wrong.'&#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                It is much easier to read code that spans vertically, rather than a vastly long horizontal 
+                condition. The purpose of the conditional operator <code>&#63;</code> is to return a single 
+                value or another depending on the conditions set. Specifically keep it for this exact purpose. 
+                Stick to using <code>if</code> should we need to execute different branches of code.
+            </p>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    Tasks
+                </p>
+            </div>
+
+            <div class="javascript dtac topic">
+                <p>
+                    if (a string with zero)
+                </p>
+            </div>
+            <p>
+                Will <code>alert</code> be shown?
+            </p>
+            <pre>
+                <code>
+                    if &#40;"0"&#41; &#123;
+                        alert&#40; 'Hello' &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                Yes. Unless we use a strict equality operator <code>&#61;&#61;&#61;</code>, any non-empty string 
+                is considered truthy, becoming <code>true</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    The name of JavaScript
+                </p>
+            </div>
+            <p>
+                Using the <code>if...else</code> construct, write the code which asks: 'What is the "offical" 
+                name of JavaScript?'
+            </p>
+            <p>
+                If the visitor enteres "ECMAScript", then output "Right!", otherwise - output: 
+                "You don't know? ECMAScript!"
+            </p>
+            <img src="./images/jsinfo-task-2.png" alt="Javascript.info's Task 2 Scheme">
+            <pre>
+                <code>
+                    let name &#61; prompt&#40;'What is the "official" name of JavaScript?',''&#41;;
+
+                    if &#40;name &#61;&#61;&#61; "ECMAScript"&#41; &#123;
+                        alert&#40;'Right!'&#41;;
+                    &#125; else &#123;
+                        alert&#40;'You don't know? ECMAScript!'&#41;
+                    &#125;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Show the sign
+                </p>
+            </div>
+            <p>
+                Using <code>if...else</code>, write the code which gets a number via <code>prompt</code> and then 
+                shows in <code>alert</code>:
+            </p>
+            <ul>
+                <li>
+                    <code>1</code>, if the value is greater than zero.
+                </li>
+                <li>
+                    <code>&#45;1</code>, if the value is less than zero.
+                </li>
+                <li>
+                    <code>0</code>, if equals zero.
+                </li>
+            </ul>
+            <p>
+                In this task, we assume that the input is always a number.
+            </p>
+            <pre>
+                <code>
+                    let value &#61; prompt&#40;'Value?',''&#41;;
+
+                    if &#40;value &gt; 0&#41; &#123;
+                        alert&#40; 1 &#41;;
+                    &#125; else if &#40;value &lt; 0&#41; &#123;
+                        alert&#40; &#45;1 &#41;;
+                    &#125; else &#123;
+                        alert&#40; 0 &#41;;
+                    &#125;                        
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Rewrite 'if' into '?'
+                </p>
+            </div>
+            <p>
+                Rewrite this <code>if</code> using the conditional operator <code>&#63;</code>:
+            </p>
+            <pre>
+                <code>
+                    let result;
+
+                    if &#40;a &#43; b &lt; 4&#41; &#123;
+                        result &#61; 'Below';
+                    &#125; else &#123;
+                        result &#61; 'Over';
+                    &#125;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    let result &#61; &#40;a &#43; b &lt; 4&#41; &#63; 'Below' &#58; 'Over';
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Rewrite 'if...else' into '?'
+                </p>
+            </div>
+            <p>
+                Rewrite <code>if...else</code> using multiple ternary operators <code>&#63;</code>.
+            </p>
+            <p>
+                For readability, it is recommended to split the code into multiple lines.
+            </p>
+            <pre>
+                <code>
+                    let message;
+
+                    if &#40;login &#61;&#61; 'Employee'&#41; &#123;
+                        message &#61; 'Hello';
+                    &#125; else if &#40;login &#61;&#61; 'Director'&#41; &#123;
+                        message &#61; 'Greetings';
+                    &#125; else if &#40;login &#61;&#61; ''&#41; &#123;
+                        message &#61; 'No login';
+                    &#125; else &#123;
+                        message &#61; '';
+                    &#125;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    let message &#61; &#40;login &#61;&#61;&#61; 'Employee'&#41; &#63; 'Hello' &#58;
+                        &#40;login &#61;&#61;&#61; 'Director'&#41; &#63; 'Greetings' &#58;
+                        &#40;login &#61;&#61;&#61; ''&#41; &#63; 'No login' &#58;
+                        ''
+                </code>
+            </pre>
+
+            <div class="javascript dtac summary">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <p></p>
         </div>
 
 
