@@ -5091,9 +5091,349 @@
             </p>
         </div>
         <div class="javascript dtac text">
+            <div class="javascript dtac subsection">
+                <p>
+                    The "switch" statement
+                </p>
+            </div>
             <p>
-                Start
+                Instead of writing multiple <code>if</code> checks, a <code>switch</code> statement in its place. 
+                This method provides a more "detailed" description in comparing a value to multiple variants.
             </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    The syntax
+                </p>
+            </div>
+            <p>
+                The <code>switch</code> statement has one or multiple <code>case</code> blocks plus an optional 
+                default.
+            </p>
+            <pre>
+                <code>
+                    switch&#40;x&#41; &#123;
+                        case 'value1'&#58; &#47;&#47; if &#40;x &#61;&#61;&#61; 'value1'&#41;
+                            ...
+                            &#91;break&#93;
+
+                        case 'value2'&#58; &#47;&#47; if &#40;x &#61;&#61;&#61; 'value2'&#41;
+                            ...
+                            &#91;break&#93;
+
+                        default&#58;
+                            ...
+                            &#91;break&#93;
+                </code>
+            </pre>
+            <ul>
+                <li>
+                    The value of <code>x</code> is checked with strict equality and compared to the value from the 
+                    first <code>case</code> (in this moment, <code>value1</code>). If the strict equality comes falsy, 
+                    the code goes on to the next <code>case</code> check.
+                </li>
+                <li>
+                    If equality is found, <code>switch</code> begins executing the code from the corresponding <code>case</code> 
+                    until the first <code>break</code> is reached (or until the end of <code>switch</code>).
+                </li>
+                <li>
+                    If there is no strict equality found between each <code>case</code>, then <code>default</code> 
+                    code is executed should it exist.
+                </li>
+            </ul>
+
+            <div class="javascript dtac topic">
+                <p>
+                    An example
+                </p>
+            </div>
+            <pre>
+                <code>
+                    let a &#61; 2 &#43; 2;
+
+                    switch &#40;a&#41; &#123;
+                        case 3&#58;
+                            alert&#40; 'Too small' &#41;;
+                            break;
+                        
+                        case 4&#58;
+                            alert&#40; 'Exactly!' &#41;;
+                            break;
+
+                        case 5&#58;
+                            alert&#40; 'Too big' &#41;;
+                            break;
+                        default&#58;
+                            alert&#40; "I don't know such values" &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <ol>
+                <li>
+                    <code>switch</code> first begins to compare <code>a</code> with the first <code>case</code> variant, 
+                    which is <code>3</code>. The statement is proven falsy, and <code>switch</code> continues to the 
+                    next <code>case</code>.
+                </li>
+                <li>
+                    <code>case 4</code> is checked and is proven truthy - <code>true</code>. The code that corresponds 
+                    with <code>case 4</code> is executed until reaching <code>break</code>.
+                </li>
+                <li>
+                    Should no <code>break</code> be found, then the code executes onto the next <code>case</code>
+                    without performing any checks.
+                </li>
+            </ol>
+            <p>
+                An example without <code>break</code>:
+            </p>
+            <pre>
+                <code>
+                    let a &#61; 2 &#43; 2;
+
+                    switch &#40;a&#41; &#123;
+                        case 3&#58;
+                            alert&#40; 'Too small' &#41;;
+                        case 4&#58;
+                            alert&#40; 'Exactly!' &#41;;
+                        case 5&#58;
+                            alert&#40; 'Too big' &#41;;
+                        default&#58;
+                            alert&#40; "I don't know such values" &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                In the scenario provided, once the check in <code>case 4</code> is completed and begins executing 
+                it's code, the following <code>alert</code>s will also trigger. In short, this means not only 
+                will <code>alert&#40; 'Exactly!'&#41;</code> be triggered, but <code>alert&#40; 'Too big'&#41;</code> 
+                and <code>alert&#40; "I don't know such values" &#41;</code> will also be called.
+            </p>
+            <p>
+                Both <code>switch</code> and <code>case</code> also allow arbitrary expressions.
+            </p>
+            <pre>
+                <code>
+                    let a &#61; "1";
+                    let b &#61; 0;
+
+                    switch &#40;&#43;a&#41; &#123;
+                        case b &#43; 1&#58;
+                            alert&#40;"this runs, because &#43;a is 1, exactly equals b&#43;1"&#41;;
+                            break;
+
+                        default&#58;
+                            alert&#40;"this doesn't run"&#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                The expression <code>&#43;a</code> is a numeric conversion with the unary operator <code>&#43;</code>. 
+                As a result, we get a value of <code>1</code>. This new value is then compared to <code>case b &#43; 1</code> 
+                and will return truthy because <code>b &#43; 1</code> is also <code>1</code>. The code then executes 
+                until it reaches <code>break</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Grouping of "case"
+                </p>
+            </div>
+            <p>
+                If there are multiple <code>case</code> that share the same code, they can be grouped:
+            </p>
+            <pre>
+                <code>
+                    let a &#61; 3;
+
+                    switch &#40;a&#41; &#123;
+                        case 4&#58;
+                            alert&#40;'Right!'&#41;;
+                            break;
+
+                        case 3&#58; &#47;&#47; &#40;&#42;&#41;grouped two cases
+                        case 5&#58;
+                            alert&#40;'Wrong!'&#41;;
+                            alert&#40;"Why don't you take a math class?"&#41;;
+                            break;
+                        
+                        default&#58;
+                            alert&#40;'The result is strange. Really.'&#41;;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                With cases <code>3</code> and <code>5</code> grouped, they will now both execute the same code. 
+                This method of "grouping" cases is one of the consequences of how <code>switch&#47;case</code> 
+                functions without using <code>break</code>. The execution of <code>case 3</code> begins from 
+                where we had marked it (<code>&#40;&#42;&#41;</code>), and goes through <code>case 5</code> since 
+                there is no <code>break</code>.
+            </p>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Type matters
+                </p>
+            </div>
+            <p>
+                Do not forget that eqaulity check is always strict. Values must be of the same type in order for 
+                it to be a true strict equality.
+            </p>
+            <pre>
+                <code>
+                    let arg &#61; prompt&#40;"Enter a value?"&#41;;
+                    switch &#40;arg&#41; &#123;
+                        case '0'&#58;
+                        case '1'&#58;
+                            alert&#40; 'One or zero'&#41;;
+                            break;
+
+                        case '2'&#58;
+                            alert&#40; 'Two' &#41;;
+                            break;
+                        
+                        case 3&#58;
+                            alert&#40; 'Never executes!' &#41;;
+                            break;
+                        default&#58;
+                            alert&#40; 'An unknown value' &#41;;
+                    &#125;
+                </code>
+            </pre>
+            <ol>
+                <li>
+                    <code>0</code> and <code>1</code> will cause <code>case '0'</code> and <code>case '1'</code> 
+                    to trigger, calling <code>alert</code>.
+                </li>
+                <li>
+                    <code>2</code> triggers the second code, calling the <code>alert</code>.
+                </li>
+                <li>
+                    <code>prompt&#40;&#41;</code> always receives entered values as a string. When we enter 3 into 
+                    the prompt, we are entering <code>"3"</code>. This does not match <code>case 3</code> because 
+                    <code>3</code> from <code>case</code> is not strictly equal to the string <code>"3"</code> that 
+                    was received from the prompt. As such, <code>case 3</code> does not pass as truthy and <code>swith</code> 
+                    will then move to <code>default</code>.
+                </li>
+            </ol>
+
+            <div class="javascript dtac subsection">
+                <p>
+                    Tasks
+                </p>
+            </div>
+            <div class="javascript dtac topic">
+                <p>
+                    Rewrite the "switch" into an "if"
+                </p>
+            </div>
+            <p>
+                Write the code using <code>if...else</code> which would correspond to the following <code>switch</code>:
+            </p>
+            <pre>
+                <code>
+                    switch &#40;browser&#41; &#123;
+                        case 'Edge'&#58;
+                            alert&#40; "You've got the Edge!" &#41;;
+                            break;
+
+                        case 'Chrome'&#58;
+                        case 'Firefox'&#58;
+                        case 'Safari'&#58;
+                        case 'Opera'&#58;
+                            alert&#40; 'Okay we support these browsers too' &#41;
+                            break;
+
+                        default&#58;
+                            alert&#40; 'We hope this page looks ok!' &#41;
+                    &#125;
+                </code>
+            </pre>
+            <pre>
+                My answer
+                <code>
+                    let browser;
+
+                    if &#40;
+                        browser &#61;&#61;&#61; 'Chrome' &#124;&#124;
+                        browser &#61;&#61;&#61; 'Firefox' &#124;&#124; 
+                        browser &#61;&#61;&#61; 'Safari' &#124;&#124;
+                        browser &#61;&#61;&#61; 'Opera'
+                    &#41; &#123;
+                        alert&#40; 'Okay we support these browsers too' &#41;;
+
+                    &#125; else if &#40;
+                        browser &#61;&#61;&#61; 'Edge' 
+                    &#41; &#123;
+                        alert&#40; "You've got the Edge!" &#41;;
+
+                    &#125; else &#123;
+                        alert&#40; 'We hope this page looks ok!' &#41;;
+                </code>
+                JavaScript.info Answer
+                <code>
+                    if &#40;browser &#61;&#61;&#61; 'Edge'&#41; &#123;
+                        alert&#40;"You've got the Edge!"&#41;;
+                    &#125; else if &#40;browser &#61;&#61;&#61; 'Chrome' &#124;&#124; 
+                        browser &#61;&#61;&#61; 'Firefox' &#124;&#124; 
+                        browser &#61;&#61;&#61; 'Safari' &#124;&#124; 
+                        browser &#61;&#61;&#61; 'Opera'&#41; &#123;
+                        alert&#40; 'Okay we support these browsers too' &#41;;
+                    &#123; else &#125;
+                        alert&#40; 'We hope this page looks ok!' &#41;;
+                    &#125;
+                </code>
+            </pre>
+
+            <div class="javascript dtac topic">
+                <p>
+                    Rewrite "if" into "switch"
+                </p>
+            </div>
+            <p>
+                Rewrite the code below using a isngle <code>switch</code> statement:
+            </p>
+            <pre>
+                <code>
+                    let a &#61; &#43;prompt&#40;'a&#63;',''&#41;;
+
+                    if &#40;a &#61;&#61; 0&#41; &#123;
+                        alert&#40; 0 &#41;;
+                    &#125;
+                    if &#40;a &#61;&#61; 1&#41; &#123;
+                        alert&#40; 1 &#41;;
+                    &#125;
+
+                    if &#40;a &#61;&#61; 2 &#124;&#124; a &#124;&#124; 3&#41; &#123;
+                        alert&#40; '2,3' &#41;;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    let a &#61; &#43;prompt&#40;'a&#63;',''&#41;;
+
+                    switch&#40;a&#41; &#123;
+                        case 0&#58;
+                            alert&#40; 0 &#41;;
+                            break;
+                        
+                        case 1&#58;
+                            alert&#40; 1 &#41;;
+                            break;
+
+                        case 2 &#58;
+                        case 3 &#58;
+                            alert&#40; '2,3' &#41;;
+                            break;
+                    &#125;
+                </code>
+            </pre>
+            <p>
+                While <code>break</code> is not an absolute requirement at the end, it is added in the scenarios 
+                should we add more <code>case</code>s. Given the situation we would add a <code>case 4</code>, 
+                the missing <code>break</code> from <code>case 3</code> will cause an error. As good practice, 
+                do add <code>break</code> at the end.
+            </p>
+            
         </div>
 
 
