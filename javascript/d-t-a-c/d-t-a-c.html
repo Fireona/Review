@@ -196,6 +196,7 @@
                     const bigInt &#61; 1234567890123456789012345678901234567890n;
                 </code>
             </pre>
+
             <div class="javascript dtac topic">
                 <p>
                     String
@@ -355,7 +356,7 @@
             </p>
             <pre>
                 <code>
-                    type of undefined &#47;&#47; "undefined"
+                    typeof undefined &#47;&#47; "undefined"
 
                     typeof 0  &#47;&#47; "number"
 
@@ -378,7 +379,7 @@
                 The last three can be explained as such:
                 <ul>
                     <li>
-                        <code>Math</code> is a built-in boject that provides mathematical operations.
+                        <code>Math</code> is a built-in object that provides mathematical operations.
                     </li>
                     <li>
                         The result of <code>typeof null</code> is <code>"object"</code>. This is an officially 
@@ -407,7 +408,67 @@
                 <br>
                 &#8756; While some prefer writing <code>typeof&#40;x&#41;</code>, writing <code>typeof x</code> is 
                 just as common and share no difference.
-            </p>        
+            </p>
+
+            <div class="javascript dtac summary">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <ol>
+                8 Basic Data Types of JavaScript
+                <li>
+                    Numbers. It also includes special number values such as:
+                    <ul>
+                        <li>
+                            Integers
+                        </li>
+                        <li>
+                            Floating Point Numbers
+                        </li>
+                        <li>
+                            <code>Infinity</code>, <code>&#45;Infinity</code>
+                        </li>
+                        <li>
+                            <code>NaN</code>
+                        </li>
+                    </ul>                    
+                </li>
+                <li>
+                    BigInt
+                </li>
+                <li>
+                    String
+                </li>
+                <li>
+                    Booleans <code>true</code> and <code>false</code>
+                </li>
+                <li>
+                    <code>null</code>
+                </li>
+                <li>
+                    <code>undefined</code>
+                </li>
+                <li>
+                    <code>symbol</code>
+                </li>
+                <li>
+                    <code>object</code>
+                </li>
+            </ol>
+            <ul>
+                <code>typeof</code> operator identifies the data type stored in a variable.
+                <li>
+                    Used as <code>typeof x</code> but <code>typeof &#40;x&#41;</code> is also accepted.
+                </li>
+                <li>
+                    Returns a string with the name of the object.
+                </li>
+                <li>
+                    <code>null</code> returns as <code>"object"</code>. This is due to an error in JavaScript, and 
+                    is not necessarily and object.
+                </li>
+            </ul>
         </div>
 
 
@@ -497,6 +558,8 @@
             </div>
         </div>
 
+
+
         <div class="javascript dtac section" id="nav-string1">
             <button onclick="toggleNextText(this)">+</button>
             <p>
@@ -504,21 +567,21 @@
             </p>
         </div>
         <div class="javascript dtac text">
-            <div class="javascript dtac topic">
+            <div class="javascript dtac subsection">
                 <p>
                     The power of words
                 </p>
             </div>
             <p>
-                Words in spoken in human languages are tools used as a means to effectively communciate with one 
-                another. Each word is used is to be used is a specific way to give us control on how to convey the 
+                Words spoken in human languages are tools used as a means to effectively communciate with one 
+                another. Each word used is to be used in a specific way to give us control on how to convey the 
                 information we have to another. In coding, we have different languages that allow us to effictively 
                 control how to present information. HTML is used to provide structure and meaning to text. CSS is 
                 used to style it. JavaScript grants us features to manipulate strings. This includes welcome messages, 
                 prompts, displaying ocrrect text labels, sorting items in a specific order, and so on.                
             </p>
 
-            <div class="javascript dtac topic">
+            <div class="javascript dtac subsection">
                 <p>
                     Declaring strings
                 </p>
@@ -555,7 +618,7 @@
                 Here we have declared the variable <code>badString</code> to be the same value as <code>string</code>.
             </p>
 
-            <div class="javascript dtac subtopic">
+            <div class="javascript dtac topic">
                 <p>
                     Single quotes, double quotes, and backticks
                 </p>
@@ -599,7 +662,8 @@
                     </li>
                 </ul>
             </p>
-            <div class="javascript dtac topic">
+
+            <div class="javascript dtac subsection">
                 <p>
                     Embedding JavaScript
                 </p>                
@@ -630,7 +694,7 @@
                 As you already know, joining two or more strings together like so is called a concatenation.
             </p>
 
-            <div class="javascript dtac subtopic">
+            <div class="javascript dtac topic">
                 <p>
                     Concatenation in context
                 </p>
@@ -642,7 +706,7 @@
                 case, <code>name</code>. The window then displays a string that is imbedded into a generic greeting message.
             </p>
 
-            <div class="javascript dtac subtopic">
+            <div class="javascript dtac topic">
                 <p>
                     Concatentation using "+"
                 </p>
@@ -669,7 +733,7 @@
                 </code>
             </pre>
             
-            <div class="javascript dtac subtopic">
+            <div class="javascript dtac topic">
                 <p>
                     Including expressions in strings
                 </p>
@@ -688,7 +752,7 @@
                 </code>
             </pre>
 
-            <div class="javascript dtac topic">
+            <div class="javascript dtac subsection">
                 <p>
                     Multiline strings
                 </p>
@@ -725,7 +789,7 @@
                 </code>
             </pre>
 
-            <div class="javascript dtac topc">
+            <div class="javascript dtac subsection">
                 <p>
                     Including quotes in strings
                 </p>
@@ -763,7 +827,7 @@
                 This technique can also be used to insert other special characters.
             </p>
 
-            <div class="javascript dtac topic">
+            <div class="javascript dtac subsection">
                 <p>
                     Numbers vs. strings
                 </p>
@@ -825,10 +889,41 @@
                 </p>
             </div>
             <div class="javascript dtac summary">
-                <p></p>
+                <p>
+                    Summary
+                </p>
             </div>
             <ul>
-                <li></li>
+                Strings
+                <li>
+                    To declare a string, be sure to start and end with the same identical quotes.
+                    <ul>
+                        <li>
+                            Single quotes: <code>''</code>
+                        </li>
+                        <li>
+                            Double quotes: <code>""</code>
+                        </li>
+                        <li>
+                            Backticks: <code>``</code>. Strings with backticks are associated as <code>template literals</code>. 
+                            They can be used to embed JavaScript into them. They can also be declared over multiple lines.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    JavaScript variables or expressions can be wrapped with <code>&#37;&#123;&#125;</code> inside a 
+                    template literal. This only applies to template literals.
+                </li>
+                <li>
+                    A template literal holding an expression can be placed inside a standard string.
+                </li>
+                <li>
+                    Use <code>&#92;n</code> as line break characters in a string.
+                </li>
+                <li>
+                    To include quotes in a string, use a different set of quotes or add a backslash <code>&#92;</code> 
+                    before the character. Such as <code>'I&#92;'m still no good'</code>, <code>'Don&#92;'t run away</code>, etc.
+                </li>
             </ul>
 
         </div>
