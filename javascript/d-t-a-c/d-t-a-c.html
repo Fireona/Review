@@ -1034,6 +1034,7 @@
                 <code>codePointAt</code> returns a Unicode code point-centric value. As result, the <code>charCodeAt&#40;&#41;</code> 
                 is used less and <code>codePointAt&#40;&#41;</code> is used in modern coding.
             </p>
+
             <div class="javascript dtac subtopic">
                 <p>
                     JavaScript String at&#40;&#41;
@@ -1353,7 +1354,7 @@
             <p>
                 <code>isWellFormed&#40;&#41;</code> is a function that returns booleans. It will return <code>true</code> 
                 if the string is well formed, and <code>false</code> if not. A not well formed string is one that 
-                contains lone surrogates (a Unicode surrogate code point taht is not part of a valid surrogate pair 
+                contains lone surrogates (a Unicode surrogate code point that is not part of a valid surrogate pair 
                 used to represent characters in UTF-16 encoding).
             </p>
             <pre>
@@ -1674,7 +1675,9 @@
                     text.split&#40;""&#41; &#47;&#47; Returns Hello but each character is line broken in between
                 </code>
             </pre>
+
             <br>
+
             <img src="../../images/cap-america-i-can-do-this-all-day.gif" alt="Captain America saying 'I can do this all day'">
 
             <div class="javascript dtac subsection">
@@ -1683,11 +1686,189 @@
                 </p>
             </div>
             <div class="javascript dtac summary">
-                <p></p>
+                <p>
+                    Summary
+                </p>
             </div>
             <ul>
-                <li></li>
-            </ul>            
+                <li>
+                    <code>length</code> added to the end of a string will return the length of the string.
+                </li>
+            </ul>
+            <ul>
+                Extracting Characters from a String
+                <li>
+                    There are four methods of extracting <b>characters</b> from a string:
+                    <ul>
+                        <li>
+                            <code>at&#40;position&#41;</code> returns the character specified by the argument within the string.
+                        </li>
+                        <li>
+                            <code>charAt&#40;position&#41;</code> returns the UTF-16 value of the character specified by the argument 
+                            within the string. This is less used and is now succeeded by <code>charPointAt&#40;&#41;</code>. A character that 
+                            is not found will return with an empty string <code>""</code>.
+                        </li>
+                        <li>
+                            <code>codePointAt&#40;position&#41;</code> returns the code point value specified by the argument within 
+                            the string. Do not confuse with <code>charCodeAt&#40;&#41;</code>. <code>charAt&#40;&#41;</code> returns 
+                            UTF-16 values while <code>charPointAt&#40;&#41;</code> returns Unicode values.
+                        </li>
+                        <li>
+                            <code>at&#40;&#41;</code> returns the an specified index (the position) from the string by the specified value. The 
+                            argument can also be a negative value, but will start counting from the end of the string. This method can only 
+                            be done with bracket <code>&#40;&#41;</code>. This is the only advantage the brackets have over the property 
+                            access method.
+                        </li>
+                        <li>
+                            The property access method (<code>&#91;&#93;</code>) only supports integers and is an older method.
+                            <ul>
+                                <li>
+                                    <code>&#91;&#93;</code> is used to look into an object or string for values and properties.
+                                </li>
+                                <li>
+                                    May look like arrays, but are not.
+                                </li>
+                                <li>
+                                    Should the character not exist or is not found, <code>&#91;&#93;</code> returns <code>undefined</code>.
+                                </li>
+                                <li>
+                                    Property access is read only. It can not change the string and strings can not be changed once they are created.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <code>concat&#40;&#41;</code> method joins two or more strings.
+                </li>
+            </ul>
+            <ul>
+                Extracting String Parts
+                <li>
+                    There are three methods of extracting a portion of a string.
+                    <ul>
+                        <li>
+                            <code>slice&#40;start, end&#41;</code> will cut out the portion of the string beginning at the <code>start</code> position 
+                            to the <code>end</code> position. The character at the <code>end</code> position is <b>not</b> included.
+                        </li>
+                        <li>
+                            <code>substring&#40;start, end&#41;</code> extracts the portion of the string between the <code>start</code> and <code>end</code> 
+                            position. Should the <code>end</code> position be omitted, all characters <b>before</b> the <code>start</code> positon is dropped.
+                        </li>
+                        <li>
+                            <code>substr&#40;&#41;</code> extracts the portion of the string indicated by the <code>start</code> position and the number of 
+                            characters after it indicated by the <code>end</code> value. This method is no longer supported in modern JavaScript.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                Upper and Lowercase Conversions
+                <li>
+                    To convert characters in a string into uppercase, use <code>toUpperCase&#40;&#41;</code>.
+                </li>
+                <li>
+                    To convert characters in a string into lowercase, use <code>toLowerCase&#40;&#41;</code>.
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Use <code>isWellFormed&#40;&#41;</code> to check if all characters used are complete. If all characters are complete, the function 
+                    returns <code>true</code>. If not, it returns <code>false</code>.
+                </li>
+                <li>
+                    <code>toWellFormed&#40;&#41;</code> is used to replace all lone surrogates with a Unicode replacement character and returns with 
+                    a new string.
+                </li>
+            </ul>
+            <ul>
+                trim
+                <li>
+                    There are three trim methods:
+                    <ul>
+                        <li>
+                            <code>trim&#40;&#41;</code> removes whitespace from both sides of a string.
+                        </li>
+                        <li>
+                            <code>trimStart&#40;&#41;</code> removes whitespace in the beginning of a string.
+                        </li>
+                        <li>
+                            <code>trimEnd&#40;&#41;</code> remove whitespace in the end of a string.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                Padding
+                <li>
+                    <code>padStart&#40;&#41;</code> pads a string with another string at the beginning by a number of times until reaching a 
+                    desired length.
+                </li>
+                <li>
+                    <code>padEnd&#40;&#41;</code> pads a string with another string at the end by by a number of times until reaching a desired 
+                    length.
+                </li>
+            </ul>
+            <ul>
+                <code>repeat&#40;&#41;</code>
+                <li>
+                    <code>repeat&#40;&#41;</code> has three properties:
+                    <ul>
+                        <li>
+                            Returns a string with multiple copes of a string.                    
+                        </li>
+                        <li>
+                            Returns as a new string.
+                        </li>
+                        <li>
+                            The original string is unchanged.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    A parameter must be set in order to work. If set to 0, an empty string is returned.
+                </li>
+            </ul>
+            <ul>
+                Replacing String Content
+                <li>
+                    <code>replace&#40;&#41;</code> replaces the specified value in a string with a new value.
+                </li>
+                <li>
+                    The original string is not changed.
+                </li>
+                <li>
+                    Returns a new string.
+                </li>
+                <li>
+                    Only replaces the first match.
+                </li>
+                <li>
+                    Case sensitive. To disregard cases, use regular expression with <code>&#47;i</code> flag.
+                </li>
+                <li>
+                    To replace all matches, use regular expression with <code>&#47;g</code> flag.
+                </li>
+                <li>
+                    <code>&#47;g</code> and <code>&#47;i</code> flags can be combined.
+                </li>
+            </ul>
+            <ul>
+                <code>replaceAll&#40;&#41;</code>
+                <li>
+                    Replaces all matching strings with a new string. Targetted string is set in first parameter, new string is set in 
+                    second parameter. Must include global flag <code>&#47;g</code>.
+                </li>
+            </ul>
+            <ul>
+                <code>split&#40;&#41;</code>
+                <li>
+                    Strings can be converted into an array using <code>split&#40;&#41;</code> method. The parameter included must be a string. If 
+                    the parameter is omitted, it will be arranged into an array of single (line broken) characters.
+                </li>
+            </ul>
         </div>
 
 
@@ -1990,6 +2171,58 @@
                 </li>
             </ul>
             <!-- TBC -->
+
+            <div class="javascript dtac summary">
+                <p>
+                    Summary
+                </p>
+            </div>
+            <ul>
+                Creating Strings
+                <li>
+                    Create sting primitives (with string literals) or string objects with <code>string&#40;&#41;</code> method.
+                </li>
+                <li>
+                    String literals are defined by the use of single quotes <code>''</code>, double quotes <code>""</code>, or backticks <code>``</code>. 
+                    However, <code>``</code> are more accurately known as template literals that allow for interpolation (embedded expressions inside a 
+                    string).
+                </li>
+            </ul>
+            <ul>
+                There are two methods to access an individual character in a string:
+                <li>
+                    <code>charAt&#40;&#41;</code> retrieves the character in a string indicated by the parameter.
+                </li>
+                <li>
+                    Use an array <code>&#91;&#93;</code> and indicate the position of the character within said array.
+                </li>
+            </ul>
+            <ul>
+                Comparing Strings
+                <li>
+                    Use the lesser than operator <code>&lt;</code> if the left operand is lesser than the right operand. Will return <code>true</code> 
+                    if truthy, or <code>false</code> if not.
+                </li>
+                <li>
+                    Use the greater than operator <code>&gt;</code> if the left operand is greater than the right operand. Will return <code>true</code> 
+                    if truthy, or <code>false</code> if not.
+                </li>
+                <li>
+                    All comparison operators, including strict equality <code>&#61;&#61;&#61;</code> and loose equality <code>&#61;&#61;</code> compare 
+                    strings case-sensitively. To do so, both strings will be converted to the same case (upper or lower) before comparing.
+                    <ul>
+                        <li>
+                            Note: The only exception to this rule are some particular languages whose alphabets do not have a specific uppercase to 
+                            lowercase equivalent, such as the German letter "ß". This is one reason to keep the language use in English.
+                        </li>
+                        <li>
+                            If required to test for equality with case-insensitivity, use the <code>Intl.Collator API</code> or the string's <code>localeCompare&#40;&#41;</code> 
+                            method. They both use the same inerface with the sensitivity option set to <code>"accent"</code> or <code>"base"</code>.
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
         </div>
 
         <img src="../../images/panda-never-ends.gif" alt="Panda crying it never ends">
