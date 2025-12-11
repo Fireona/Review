@@ -2219,9 +2219,47 @@
                             If required to test for equality with case-insensitivity, use the <code>Intl.Collator API</code> or the string's <code>localeCompare&#40;&#41;</code> 
                             method. They both use the same inerface with the sensitivity option set to <code>"accent"</code> or <code>"base"</code>.
                         </li>
+                        <li>
+                            <code>strcmp&#40;&#41;</code> is also an alternative to <code>localeCompare&#40;&#41;</code> method, they both allow for 
+                            sorting strings in a locale-aware manner.
+                        </li>
                     </ul>
                 </li>
-
+            </ul>
+            <ul>
+                String Primitives and Objects
+                <li>
+                    String primitives
+                    <ul>
+                        <li>
+                            Strings or string literals are text (string literal) or numbers wrapped in single or double quotes. Such strings or 
+                            string literals returned from using <code>String</code> are primitive strings.wha
+                        </li> 
+                        <li>
+                            Created without using the keyword <code>new</code>. Avoid using the keyword <code>new </code> for creating strings.
+                        </li>
+                        <li>
+                            When assigning the string to a variable, the variable's name can not be altered in anyway. However, the variable's value can 
+                            always be reassigned. Useful for when a string is used many times.
+                        </li>
+                        <li>
+                            Can hold only one piece of text, that includes characters, numbers, symbols, and emojis. Numbers in this context have 
+                            no real number value (?).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Objects
+                    <ul>
+                        <li>
+                            Objects are containers that are labelled with variables but can hold different properties. These properties can also be changed 
+                            at any time.
+                        </li>
+                        <li>
+                            The name of the variable for the object can not be changed once initialized.
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
 
