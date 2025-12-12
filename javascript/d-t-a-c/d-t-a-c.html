@@ -2258,6 +2258,75 @@
                         <li>
                             The name of the variable for the object can not be changed once initialized.
                         </li>
+                        <li>
+                            Use <code>valueOf&#40;&#41;</code> to convert an object into a primitive.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    When calling a method on a primitive string or invoking property look ups, JavaScript wraps said primitive and the function will 
+                    look up that particular wrapper instead.
+                </li>
+                <li>
+                    When using <code>eval&#40;&#41;</code>, primitives are treated as a source code, whereas objects are treated as objects.
+                </li>
+            </ul>
+            <ul>
+                String Coercion
+                <li>
+                    There are many functions or methods that return strings will first coerce their arguments into strings. The process go as is:
+                    <ul>
+                        <li>
+                            Strings return as is.
+                        </li>
+                        <li>
+                            <code>undefined</code> turns into <code>"undefined"</code>.
+                        </li>
+                        <li>
+                            <code>null</code> turns into <code>"null"</code>.
+                        </li>
+                        <li>
+                            <code>true</code> turns into <code>"true"</code>; <code>false</code> into <code>"false"</code>.
+                        </li>
+                        <li>
+                            Numbers are converted with the same process as <code>toString&#40;&#41;</code>.
+                        </li>
+                        <li>
+                            <code>BigInts</code> are converted with the same process as <code>toString&#40;&#41;</code>.
+                        </li>
+                        <li>
+                            Symbols return a <code>TypeError</code>.
+                        </li>
+                        <li>
+                            Objects are first converted into particular data types by using a "conversion chain". The order goes as:
+                            <ol>
+                                <li>
+                                    Checks for custom rules using <code>&#91;Symbol.toPrimitive&#93;&#40;&#41;</code> method. It follows particular set of rules 
+                                    that have been defined when returning particular sets of data. If this fails, then;
+                                </li>
+                                <li>
+                                    <code>.toString&#40;&#41;</code> method is used to convert said object into a string. If this fails, then;
+                                </li>
+                                <li>
+                                    <code>.valueOF&#40;&#41;</code> method is used to convert said object into a raw primitive value. This primitive value then 
+                                    gets converted into a string to be used.
+                                </li>
+                            </ol>
+                        </li>                        
+                    </ul>
+                </li>
+                <li>
+                    Template literals (<code>&#96;&#37;&#123;x&#125;&#96;</code>) follows the exact steps mentioned above in "String Coercion" for 
+                    the embedded expression.
+                </li>
+                <li>
+                    <code>String&#40;&#41;</code>
+                    <ul>
+                        <li>
+                            The process above is used to convert said argument, however the data type <code>Symbol</code> does not return as <code>TypeError</code>, 
+                            but as <code>"Symbol&#40;description&#41;</code>. <code>description</code> is the parameter (usually a string) used when creating the 
+                            <code>Symbol</code>.
+                        </li>
                     </ul>
                 </li>
             </ul>
