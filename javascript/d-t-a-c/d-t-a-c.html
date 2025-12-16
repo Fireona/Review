@@ -2765,30 +2765,109 @@
                 </li>
             </ul>
 
-            <div class="javascript dtac topic">
+            <div class="javascript dtac summary">
                 <p>
                     Summary
                 </p>
             </div>
             <ul>
+                Boolean is the result
                 <li>
-                    Comparison operators return a boolean value.
+                    Comparison operators return a boolean value, <code>true</code> or <code>false</code>.
                 </li>
+            </ul>
+            <ul>
+                String Comparison
                 <li>
                     Strings are compared letter-by-letter in the "dictionary" order.
+                    <ol>
+                        <li>
+                            Compare first character of both strings.
+                        </li>
+                        <li>
+                            If the first character from the first operand is greater (or less) than the second operand, then the first string is 
+                            greater (or lesser) than the second. If equal;
+                        </li>
+                        <li>
+                            If both operands' first characters are the same, compare second characters the same way. If equal, move to next character.
+                        </li>
+                        <li>
+                            Continue until end of string.
+                        </li>
+                    </ol>
                 </li>
                 <li>
-                    Values of different types will get converted into numbers when compared except when using the 
+                    This "dictionary" order is organized by the binary value of each character in a string, based on a character-by-character basis.
+                    &#8756; <code>'Z' &gt; 'A'</code>, <code>'Glow' &gt; 'Glee'</code>, <code>'Bee' &gt; 'Be'</code>, etc.
+                </li>
+            </ul>
+            <ul>
+                Comparison of different types
+                <li>
+                    Values of different types will get converted into numbers when compared, except when using the 
                     strict equality check (<code>&#61;&#61;&#61;</code>).
                 </li>
+            </ul>
+            <ul>
+                Strict Equality
+                <li>
+                    When two values are compared with strict equality, the operator will not perform any conversions prior to comparison.
+                </li>
+                <li>
+                    Strict non-equality operator <code>&#33;&#61;&#61;</code> works like strict equality operator <code>&#61;&#61;&#61;</code> but 
+                    checks whether two operands are <b>not</b> the same type and <b>not</b> equal in value.
+                </li>
+            </ul>
+            <ul>
+                Comparison with null and undefined
                 <li>
                     <code>null</code> and <code>undefined</code> are equal only to each other when using non-strict 
                     equality check (<code>&#61;&#61;</code>).
                 </li>
                 <li>
+                    When converted into numbers:
+                    <ul>
+                        <li>
+                            <code>null</code> becomes <code>0</code>. Meant to represent an "empty" value (devoid of value).
+                        </li>
+                        <li>
+                            <code>undefined</code> becomes <code>NaN</code>. Meant to represent something hasn't been assigned.
+                        </li>
+                        <li>
+                            Only equal when using loose equality check, but not with strict equality.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                Strange result: null vs 0
+                <li>
+                    Equality checks <code>&#61;&#61;</code> behave differently to comparison operators <code>&gt;, &lt;, &gt;&#61;, &lt;&#61;</code>.
+                </li>
+                <li>
+                    Comparison operators will convert <code>null</code> into a number.
+                </li>
+                <li>
+                    Equality check <code>&#61;&#61;</code> for <code>undefiend</code> and <code>null</code> is defined in a way that without any 
+                    conversions, they are equal to each other only and nothing else.
+                </li>
+            </ul>
+            <ul>
+                An incomparable undefiend
+                <li>
+                    All comparison operators will convert <code>undefined</code> into a number becoming <code>NaN</code>. All comparisons to <code>NaN</code> 
+                    will return falsy, <code>false</code>.
+                </li>
+                <li>
+                    As mentioned above, only when using loose equality check <code>&#61;&#61;</code> will <code>undefined</code> be equal to <code>null</code>.
+                </li>
+            </ul>
+            <ul>
+                Avoid problems
+                <li>
                     Take caution when using comparisons like <code>&gt;</code> or <code>&lt;</code> with variables 
                     that could be <code>null</code> or <code>undefined</code>. It is also best to check for <code>null</code> 
-                    and <code>undefined</code> separetly.
+                    and <code>undefined</code> separately.
                 </li>
             </ul>
         </div>
