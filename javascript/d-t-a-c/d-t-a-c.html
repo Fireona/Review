@@ -3637,6 +3637,13 @@
                     <code>if &#40; age &gt;&#61; 14 &#124;&#124; age &lt;&#61; 90 &#41;</code>                    
                 </code>
             </pre>
+            <pre>
+                <code>
+                    let age &#61; "";
+
+                    if &#40;age &lt; 14 &#38;&#38; age &gt; 90&#41;;
+                </code>
+            </pre>
 
             <div class="javascript dtac topic">
                 <p>
@@ -4289,7 +4296,144 @@
                     Summary
                 </p>
             </div>
-            <p></p>
+            <ul>
+                Logical Operators
+                <li>
+                    <code>&#124;&#124;</code>, OR logic operator.
+                </li>
+                <li>
+                    <code>&#38;&#38;</code>, AND logic operator.
+                </li>
+                <li>
+                    <code>&#33;</code>, NOT logic operator.
+                </li>
+                <li>
+                    <code>&#63;&#63;</code>, Nullish Coalescing.
+                </li>
+            </ul>
+            <ul>
+                <code>&#124;&#124;</code> OR Logic operator
+                <li>
+                    When compared between operands, it will return as <code>true</code> should any of the arguments be <code>true</code>.
+                </li>
+                <li>
+                    Converts all operands into booleans for the evaluation.
+                </li>
+                <li>
+                    Any value is accepted as an operand.
+                </li>
+                <li>
+                    When converted into numbers, the number <code>1</code> is treated as <code>true</code> while <code>0</code> is treated as 
+                    <code>false</code>.
+                </li>
+                <li>
+                    Most commonly seen in <code>if</code> statements where any of the conditions could be <code>true</code>.
+                </li>
+            </ul>
+            <ul>
+                OR "||" finds the first truthy value
+                <li>
+                    Evaluates operands from left to right.
+                </li>
+                <li>
+                    Each operand is converted into a boolean. If truthy, the operator short circuits and returns the original value of the operand.
+                    <ul>
+                        <li>
+                            The short-circuit evaluation is only achieved upon reaching the first truthy value when using OR logical operator.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    If all values are falsy, the operator will return the last operand.
+                </li>
+                <li>
+                    Any value returned will be returned in its original form prior to conversion.
+                </li>
+                <li>
+                    In a chain of OR, returns the first truthy value or last value if no truthy value is present.
+                </li>
+                <li>
+                    A list of some falsy values:
+                    <ul>
+                        <li>
+                            <code>false</code>
+                        </li>
+                        <li>
+                            <code>0</code>
+                        </li>
+                        <li>
+                            <code>""</code>, empty strings
+                        </li>
+                        <li>
+                            <code>null</code>
+                        </li>
+                        <li>
+                            <code>undefined</code>
+                        </li>
+                        <li>
+                            <code>NaN</code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <code>&#38;&#38;</code> AND Logic Operator
+                <li>
+                    Returns <code>true</code> if all operands are truthy.
+                </li>
+                <li>
+                    Returns <code>false</code> if <b>any</b> operands are falsy.
+                </li>
+                <li>
+                    Like OR <code>&#124;&#124;</code>, any value is accepted as an operand.
+                </li>
+            </ul>
+            <ul>
+                AND "&&" finds the first falsy value
+                <li>
+                    Evaluates from left to right.
+                </li>
+                <li>
+                    Each operand is converted into a boolean. If the operand returns <code>false</code>, the logic operator short circuits and 
+                    returns the original value of the operand.
+                </li>
+                <li>
+                    If the operand returns <code>true</code>, the next operand after is evaluated and repeats until all operands are evaluated to 
+                    find a <code>false</code> value.
+                </li>
+                <li>
+                    If all operands are <code>true</code>, returns the last operand.
+                </li>
+                <li>
+                    AND returns the first falsy value or the last value if no <code>false</code> values are found.
+                </li>
+                <li>
+                    Similar to OR <code>&#124;&#124;</code>, but AND returns the first <code>false</code> value while OR returns the first <code>true</code> value.
+                </li>
+                <li>
+                    Has a higher precedence than OR <code>&#124;&#124;</code>
+                </li>
+            </ul>
+            <ul>
+                NOT "!"
+                <li>
+                    <ol>
+                        <li>
+                            Converts the operand into a boolean: <code>true</code> or <code>false</code>.
+                        </li>
+                        <li>
+                            Returns the inverted value.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Double NOT <code>&#33;&#33;</code> can be used to convert a value to a boolean.
+                </li>
+                <li>
+                    The NOT operator <code>&#33;</code> has a higher precedence to the AND logical operator <code>&#38;&#38;</code> and the OR logical 
+                    operator <code>&#124;&#124;</code>.
+                </li>
+            </ul>
         </div>
 
 
