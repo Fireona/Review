@@ -3637,13 +3637,6 @@
                     <code>if &#40; age &gt;&#61; 14 &#124;&#124; age &lt;&#61; 90 &#41;</code>                    
                 </code>
             </pre>
-            <pre>
-                <code>
-                    let age &#61; "";
-
-                    if &#40;age &lt; 14 &#38;&#38; age &gt; 90&#41;;
-                </code>
-            </pre>
 
             <div class="javascript dtac topic">
                 <p>
@@ -3764,7 +3757,8 @@
                     if &#40; age &lt; 14 &#124;&#124; age &gt; 90 &#41;
                 </code>
             </pre>
-            
+
+
             <div class="javascript dtac topic">
                 <p>
                     A question about "if"
@@ -4466,15 +4460,14 @@
                 </li>
             </ul>
 
-            <div class="javascript dtac topic">
+            <div class="javascript dtac subsection">
                 <p>
                     You can have it on one condition!
                 </p>
             </div>
             <p>
                 Conditional statements are the representation of decisions that are made in JavaScript. These 
-                conditionals can range from:choices that are made to the outcomes that stem from the results of 
-                said choices.
+                conditionals can range from:
             </p>
             <ul>
                 <li>
@@ -5283,7 +5276,209 @@
                     Summary
                 </p>
             </div>
-            <p></p>
+            <ul>
+                You can have it on one condition!
+                <li>
+                    A representation of decision making in programming languages.
+                </li>
+                <li>
+                    Can range from the choice being made to the result that is made based on those choices.
+                </li>
+            </ul>
+            <ul>
+                if...else statements
+                <li>
+                    Most basic conditional statement used in JavaScript.
+                </li>
+                <li>
+                    Process:
+                    <ol>                        
+                        <li>
+                            Start with keyword <code>if</code>, followed with a pair of parantheses.
+                        </li>
+                        <li>
+                            Inside the paratheses is the condition to be set. Utilizes comparison operators and booleans <code>true</code> and <code>false</code>.
+                        </li>
+                        <li>
+                            After the parantheses follows a pair of curly brackets. Within the curly brackets is a set of code to be run only if the code 
+                            returns <code>true</code>.
+                        </li>
+                        <li>
+                            If some sort of code should be run when the condition returns <code>false</code>, enter keyword <code>else</code> after the first 
+                            pair of curly brackets.
+                        </li>
+                        <li>
+                            The curly brackets should hold some code to be run if the condition is falsy or returns <code>false</code>.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    If <code>else</code> is omitted and there is code written after the curly brackets, then the code will always run regardless of 
+                    the conditonal set from the <code>if</code> statement.
+                </li>
+                <li>
+                    Can be written without curly brackets, but curly brackets are used to delimit (mark the boundaries) the block. Also use multiple 
+                    lines and indentation.
+                </li>
+                <li>
+                    Ideal when conditions involve ranges, comparisons, or more complex logic (multiple uses of operators) that can't be expressed as 
+                    simple equality checks.
+                </li>
+            </ul>
+            <ul>
+                else if
+                <li>
+                    If there are to be more conditions set in addition to the two from the <code>if...else</code> statements, then tertiary conditions 
+                    must use the keyword <code>else if</code> followed by some code surrounded with curly brackets.
+                </li>
+            </ul>
+            <ul>
+                A note on comparison operators
+                <li>
+                    Comparison operators are used inside conditional statements. These include:
+                    <ul>
+                        <li>
+                            Strict Equality <code>&#61;&#61;&#61;</code> and Strict non-equality <code>&#33;&#61;&#61;</code>. Checks whether values are equal 
+                            or not equal, respectively.
+                        </li>
+                        <li>
+                            <code>&gt;</code> and <code>&lt;</code>. Tests whether a value is greater or lesser than a value, respectively.
+                        </li>
+                        <li>
+                            <code>&gt;&#61;</code> and <code>&lt;&#61;</code>. Tests whether a value is greater than or equal to, or lesser than or equal to 
+                            another value.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    When converting values into booleans:
+                    <ul>
+                        <code>true</code>
+                        <li>
+                            Any value can be accepted as <code>true</code>.
+                        </li>
+                        <code>false</code>
+                        <li>
+                            <code>false</code>
+                        </li>
+                        <li>
+                            <code>undefined</code>
+                        </li>
+                        <li>
+                            <code>null</code>
+                        </li>
+                        <li>
+                            <code>0</code>
+                        </li>
+                        <li>
+                            <code>NaN</code>
+                        </li>
+                        <li>
+                            <code>""</code>, empty strings.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                Nesting if...else
+                <li>
+                    Acceptable to nest, in other words use <code>if...else</code> condition within another <code>if...else</code> condition. 
+                </li>
+            </ul>
+            <ul>
+                Logical operators: AND, OR, and NOT
+                <li>
+                    Logical operators are used to test multiple conditions without the use of <code>if...else</code> statements.
+                </li>
+                <li>
+                    <code>&#38;&#38;</code> chains multiple expressions and all must evaluate to be <code>true</code> in order for the entire expression 
+                    to return <code>true</code>.
+                    <br>
+                    &#8756; Requires <b>ALL</b> expressions to return <code>true</code> for the statement to be <code>true</code>.
+                </li>
+                <li>
+                    <code>&#124;&#124;</code> chains multiple expressions and only one or more must evaluate to be <code>true</code> in order for the 
+                    entire expression to return <code>true</code>.
+                    <br>
+                    &#8756; Requires <b>ONE</b> expression to return <code>true</code> for the statement to be <code>true</code>.
+                </li>
+                <li>
+                    A single expression can use as many logical operators as necessary in order for the statement to return <code>true</code> and 
+                    initiate code.
+                </li>
+                <li>
+                    When using the OR logical oerator <code>&#124;&#124;</code> to check a variable with several possible values, you must check 
+                    each possbile value with the variable individually and separately. Not doing so will evaluate simply the values which will always 
+                    be truthy, or <code>true</code>.
+                </li>
+            </ul>
+            <ul>
+                switch statements
+                <li>
+                    Used in place of <code>if</code> statements when you want to check a single variable against many exact values for a unqiue code.
+                </li>
+                <li>
+                    Ideal for checking one variable against a fixed set of specific, well-defined values.
+                </li>
+                <li>
+                    Process:
+                    <ol>
+                        <li>
+                            Start with <code>switch</code> followed by a pair of brackets.
+                        </li>
+                        <li>
+                            Write condition inside of brackets and place a pair of curly brackets afterward to write code in.
+                        </li>
+                        <li>
+                            For the first code to be executed, write <code>case</code>. Follow up with the name for said code and end with a 
+                            colon (<code>&#58;</code>).
+                        </li>
+                        <li>
+                            Write the code to be executed after the colon.                            
+                        </li>
+                        <li>
+                            Write <code>break</code> on a new line to end the code and close off with a semicolon (<code>&#59;</code>). The matching 
+                            <code>choice</code> executing said code will end here and continue to the next bit of code appearing below the <code>switch</code> 
+                            statement.
+                        </li>
+                        <li>
+                            Repeat steps 3-5 for every new <code>case</code>.
+                        </li>
+                        <li>
+                            When there are no valid <code>choice</code>s that fit the expression, insert <code>default</code> at the end in place of <code>case</code>. 
+                            Unlike <code>case</code>, we do not require to add <code>break</code> at the end. As the name suggestions, this is the default 
+                            option should none of the choices match.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+            <ul>
+                Tertiary Operator
+                <li>
+                    A statement that checks a condition and will run a particular code when <code>true</code> and will run a different particular code 
+                    when <code>false</code>.
+                </li>
+                <li>
+                    Ideal for when we have two choices and do not require us to write <code>if...else</code> statements.
+                </li>
+                <li>
+                    Two operators to use are <code>&#58;</code> and <code>&#63;</code>.
+                </li>
+                <li>
+                    Process:
+                    <ul>
+                        <li>
+                            Write the condition.
+                        </li>
+                        <li>
+                            Follow with <code>&#63;</code> and the code to run.
+                        </li>
+                        <li>
+                            Insert <code>&#58;</code> afterwards and the code to run.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
 
 
