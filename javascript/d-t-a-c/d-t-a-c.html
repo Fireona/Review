@@ -5715,11 +5715,11 @@
                     and checks <code>age &lt; 18</code>.
                 </li>
                 <li>
-                    If true - returns <code>'Hello!'</code>. If not, the condition continues to the next expression 
+                    If <code>true</code> - returns <code>'Hello!'</code>. If not, the condition continues to the next expression 
                     after the else operator <code>&#58;</code>, checking <code>age &lt; 100</code>.
                 </li>
                 <li>
-                    If true -returns <code>'Greetings!'</code>. If not, the condition continues to the expression that 
+                    If <code>true</code> -returns <code>'Greetings!'</code>. If not, the condition continues to the expression that 
                     follows after the else operator <code>&#58;</code> returning <code>'What an unusual age!'</code>.
                 </li>
             </ol>
@@ -5938,7 +5938,107 @@
                     Summary
                 </p>
             </div>
-            <p></p>
+            <ul>
+                Conditional branching: if, '?'
+                <li>
+                    The conditional operator <code>&#63;</code> can be used in <code>if</code> statements.
+                </li>
+                <li>
+                    The conditional operator <code>&#63;</code> is also known as the "question mark" operator.
+                </li>
+            </ul>
+            <ul>
+                The "if" statement
+                <li>
+                    The <code>if(...)</code> statement evaluates a condition defined in parantheses and will execute code if said condition returns 
+                    <code>true</code>.
+                </li>
+                <li>
+                    Always remember to wrap the block of code in curly parantheses for clarity and readability.
+                </li>
+            </ul>
+            <ul>
+                Boolean conversion
+                <li>
+                    Evaluates the condition in parantheses and converts the result into a boolean.
+                </li>
+                <li>
+                    Recall that values <code>undefined</code>, <code>null</code>, <code>NaN</code>, <code>false</code> and <code>0</code> are all values 
+                    that return as falsy, or <code>false</code>.
+                </li>
+                <li>
+                    Any other values are considered to be truthy, or <code>true</code>.
+                </li>
+            </ul>
+            <ul>
+                The "else" clause
+                <li>
+                    <code>if</code> statements can also contain an <code>else</code> block that executes when the condition is falsy, or <code>false</code>.
+                </li>
+            </ul>
+            <ul>
+                Several conditions: "else if"
+                <li>
+                    <code>else if</code> is used when alternate variables to a condition bring different results.
+                </li>
+            </ul>
+            <ul>
+                Conditional operator '?'
+                <li>
+                    Called the ternary operator because it has three operands. It is the only unique operator in JavaScript to have that many.
+                </li>
+                <li>
+                    Process
+                    <ol>
+                        <li>
+                            Start with the condition.
+                        </li>
+                        <li>
+                            Insert the ternary operator <code>&#63;</code> and enter the block of code after should the condition return <code>true</code>.
+                        </li>
+                        <li>
+                            If the condition returns <code>false</code>, insert a colon operator <code>&#58;</code> with the code following after it.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    The ternary operator <code>&#58;</code> introduces the <code>true</code> branch, while the colon operator <code>&#58;</code> 
+                    (also known as else separator) introduces the <code>false</code> branch.
+                </li>
+            </ul>
+            <ul>
+                Multiple '?'
+                <li>
+                    Sequential or repeated use of the ternary operator is allowed.
+                </li>
+                <li>
+                    Process:
+                    <ol>
+                        <li>
+                            Write the condition to be checked.
+                        </li>
+                        <li>
+                            Write the ternary operator <code>&#63;</code> after the condition.
+                        </li>
+                        <li>
+                            Write the code to be run should the condition be <code>true</code>.
+                        </li>
+                        <li>
+                            Close the statement with the colon operator <code>&#58;</code>
+                        </li>
+                        <li>
+                            Repeat until all conditions are written.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+            <ul>
+                Non-traiditonal use of '?'
+                <li>
+                    Sometimes the ternary operator is used as a replacement for <code>&#58;</code>. Avoid doing this for readability and use a standard 
+                    <code>if</code> statement.
+                </li>
+            </ul>
         </div>
 
 
@@ -6298,7 +6398,67 @@
                     Summary
                 </p>
             </div>
-            <p></p>
+            <ul>
+                The "switch" statement
+                <li>
+                    <code>switch</code> statements can replace multiple <code>if</code> checks.
+                </li>
+                <li>
+                    Process
+                    <ol>
+                        <li>
+                            Start with writing <code>switch</code>.
+                        </li>
+                        <li>
+                            The conditional statement to met checked is placed after <code>switch</code> inside a pair of parantheses.
+                        </li>
+                        <li>
+                            Following the argument, start the block of code by writing the opening/closing curly brackets.
+                            <ol>
+                                <li>
+                                    Write <code>case</code> for first value and end with a colon <code>&#58;</code>.
+                                </li>
+                                <li>
+                                    Write code to be executed for the specified value.
+                                </li>
+                                <li>
+                                    End code execution with keyword <code>break</code>.
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            Repeat step 3 as necessary.
+                        </li>
+                        <li>
+                            Once all conditions and values are written, end with <code>default</code>. Any other value received in the conditional check 
+                            will run the code after <code>default</code> as the fallback.
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+            <ul>
+                An example
+                <li>
+                    Should <code>break</code> be missing or not found in the block, then the code will continue executing to the 
+                    next <code>case</code> without any conditional checks.
+                </li>
+                <li>
+                    Both <code>switch</code> and <code>case</code> allow arbitrary expressions.
+                </li>
+            </ul>
+            <ul>
+                Grouping of "case"
+                <li>
+                    If multiple <code>case</code>s should have the same resulting returns, they can be grouped together. Use a line break to 
+                    separate them after the colon operator.
+                </li>
+            </ul>
+            <ul>
+                Type matters
+                <li>
+                    Data type matters.
+                </li>
+            </ul>
         </div>
 
         <img src="../../images/surprise.gif" alt="Surprised man double take with wide eyes">
